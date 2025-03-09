@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Livewire;
+use App\Mail\AppMail;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
+use Mail;
  
 
 class LoginComponent extends Component
@@ -25,6 +27,15 @@ class LoginComponent extends Component
             if($check)
             {
                 $user = User::find(auth()->user()?->id);
+
+                $url = route('login');
+                Mail::to($user->email)->send(new AppMail(
+                    'Account Login',
+                    "
+                    <p>We noticed a new login to your account. If this was you, no further action is needed.</p>
+                    <p>If you didn't log in, please reset your password immediately.</p>
+                    <a href=\"{$url}\" class=\"button\">Secure My Account</a>"
+                ));
 
                 toast('Login Successful', 'success');
 

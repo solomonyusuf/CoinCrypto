@@ -1,7 +1,10 @@
-# Use PHP 8.1 with FPM
+# Use PHP 8.1 FPM as the base image
 FROM php:8.1-fpm
 
-# Install necessary dependencies
+# Set working directory
+WORKDIR /var/www/html
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     nginx \
     unzip \
@@ -11,46 +14,27 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql mbstring
+    && docker-php-ext-install gd pdo pdo_mysql mbstring \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /var/www/html
-
-# Copy all files
+# Copy application files
 COPY . .
 
-# Laravel permissions
+# Set correct permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Environment configurations
-ENV SKIP_COMPOSER 0  # Run Composer
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
-
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
-
-# Allow Composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
 # Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Install Laravel dependencies
+COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
 # Run database migrations (optional)
 RUN php artisan migrate --force
 
-# Copy Nginx config
-COPY ./nginx/default.conf /etc/nginx/sites-available/default
+# Copy Nginx configuration
+COPY nginx/default.conf /etc/nginx/sites-available/default
 
-# Expose port 80 for Nginx
+# Expose port 80
 EXPOSE 80
 
 # Start Nginx and PHP-FPM
-CMD service nginx start && php-fpm
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]

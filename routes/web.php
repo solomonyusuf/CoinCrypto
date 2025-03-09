@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
@@ -27,3 +28,6 @@ Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
+
+
+Route::get('/dashboard', DashboardComponent::class)->name('dashboard');

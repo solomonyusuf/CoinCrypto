@@ -28,7 +28,7 @@ COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
 # Run database migrations (optional)
-RUN php artisan migrate --force
+#RUN php artisan migrate --force
 
 # Copy Nginx configuration
 COPY nginx/default.conf /etc/nginx/sites-available/default

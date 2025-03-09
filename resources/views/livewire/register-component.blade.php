@@ -20,32 +20,29 @@
                   </p>
                   <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
                 </div>
-                <form>
+                <form wire:submit.prevent='submit'>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">First Name</label>
-                    <input type="text" class="form-control">
+                    <input required wire:model='first_name' placeholder="Enter First Name" type="text" class="form-control">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="text" class="form-control">
+                    <input required wire:model='last_name' placeholder="Enter Last Name" type="text" class="form-control">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input required wire:model='email' placeholder="Enter Email" type="email" class="form-control"  >
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input required wire:model='password'placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
                   </div>
-                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
+                    
 
-                  <a href="" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign Up</a>
+                  <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign Up</button>
                   <div class="d-flex align-items-center justify-content-center">
     
-                    <a class="text-primary fw-medium ms-2" href="{{route('login')}}">
+                    <a wire:navigte class="text-primary fw-medium ms-2" href="{{route('login')}}">
                        Login account</a>
                   </div>
                 </form>

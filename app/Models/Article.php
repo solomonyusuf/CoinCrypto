@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,21 +17,26 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string $content
  * @property string|null $image
+ * @property bool $visible
+ * @property string $user_id
  * @property string $category_id
  * @property int $views
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
  * @property ArticleCategory $article_category
+ * @property User $user
  *
  * @package App\Models
  */
 class Article extends Model
 {
+	use HasUuids;
 	protected $table = 'articles';
 	public $incrementing = false;
 
 	protected $casts = [
+		'visible' => 'bool',
 		'views' => 'int'
 	];
 
@@ -38,6 +44,8 @@ class Article extends Model
 		'title',
 		'content',
 		'image',
+		'visible',
+		'user_id',
 		'category_id',
 		'views'
 	];
@@ -45,5 +53,10 @@ class Article extends Model
 	public function article_category()
 	{
 		return $this->belongsTo(ArticleCategory::class, 'category_id');
+	}
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
 	}
 }

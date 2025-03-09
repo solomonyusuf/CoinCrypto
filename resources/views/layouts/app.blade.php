@@ -20,12 +20,59 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
   <!-- ------------------------------------- -->
   <!-- Top Bar Start -->
   <!-- ------------------------------------- -->
   <div class="d-none d-md-block topbar-image bg-primary py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
-        <div class="d-flex justify-content-center gap-sm-3 gap-2 align-items-center text-center flex-md-nowrap flex-wrap">
+        <div class="d-flex justify-content-center gap-sm-2 gap-1 align-items-center text-center flex-md-nowrap flex-wrap">
             <div class="card text-white bg-dark p-1">
+                <a title="View price details " class="d-flex align-items-center text-decoration-none text-white px-2" href="/price/bitcoin">
+                    <div class="d-flex align-items-center">
+                        <span class="fw-bolder text-uppercase">BTC</span>
+                        <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20" fill="none">
+                            <path d="M9.60482 12.1042L6.64401 9.14179C6.60316 9.10095 6.57253 9.05668 6.55211 9.009C6.53169 8.96133 6.52148 8.91319 6.52148 8.86458C6.52148 8.76736 6.55586 8.68229 6.62461 8.60938C6.69336 8.53646 6.78398 8.5 6.89648 8.5H13.1048C13.2173 8.5 13.3079 8.5375 13.3767 8.6125C13.4454 8.6875 13.4798 8.775 13.4798 8.875C13.4798 8.88889 13.439 8.97758 13.3573 9.14106L10.3965 12.1042C10.3409 12.1597 10.2784 12.2014 10.209 12.2292C10.1395 12.2569 10.0701 12.2708 10.0007 12.2708C9.93121 12.2708 9.86176 12.2569 9.79232 12.2292C9.72287 12.2014 9.66037 12.1597 9.60482 12.1042Z" fill="#FF0000"></path>
+                        </svg>
+                    </div>
+                    <div class="ms-3">
+                        <span class="fw-monospace fs-6">$86,237.53</span>
+                        <span class="text-danger ms-2">-0.63%</span>
+                    </div>
+                </a>
+            </div>
+           
+
+            <div class="card text-white bg-dark p-1">
+                    <a title="View price details " class="d-flex align-items-center text-decoration-none text-white px-2" href="/price/bitcoin">
+                        <div class="d-flex align-items-center">
+                            <span class="fw-bolder text-uppercase">ETH</span>
+                            <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20" fill="none">
+                                <path d="M9.60482 12.1042L6.64401 9.14179C6.60316 9.10095 6.57253 9.05668 6.55211 9.009C6.53169 8.96133 6.52148 8.91319 6.52148 8.86458C6.52148 8.76736 6.55586 8.68229 6.62461 8.60938C6.69336 8.53646 6.78398 8.5 6.89648 8.5H13.1048C13.2173 8.5 13.3079 8.5375 13.3767 8.6125C13.4454 8.6875 13.4798 8.775 13.4798 8.875C13.4798 8.88889 13.439 8.97758 13.3573 9.14106L10.3965 12.1042C10.3409 12.1597 10.2784 12.2014 10.209 12.2292C10.1395 12.2569 10.0701 12.2708 10.0007 12.2708C9.93121 12.2708 9.86176 12.2569 9.79232 12.2292C9.72287 12.2014 9.66037 12.1597 9.60482 12.1042Z" fill="#FF0000"></path>
+                            </svg>
+                        </div>
+                        <div class="ms-3">
+                            <span class="fw-monospace fs-6">$6,237.53</span>
+                            <span class="text-success ms-2">+1.63%</span>
+                        </div>
+                    </a>
+            </div>
+            
+            <div class="card text-white bg-dark p-1">
+                    <a title="View price details " class="d-flex align-items-center text-decoration-none text-white px-2" href="/price/bitcoin">
+                        <div class="d-flex align-items-center">
+                            <span class="fw-bolder text-uppercase">TRX</span>
+                            <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20" fill="none">
+                                <path d="M9.60482 12.1042L6.64401 9.14179C6.60316 9.10095 6.57253 9.05668 6.55211 9.009C6.53169 8.96133 6.52148 8.91319 6.52148 8.86458C6.52148 8.76736 6.55586 8.68229 6.62461 8.60938C6.69336 8.53646 6.78398 8.5 6.89648 8.5H13.1048C13.2173 8.5 13.3079 8.5375 13.3767 8.6125C13.4454 8.6875 13.4798 8.775 13.4798 8.875C13.4798 8.88889 13.439 8.97758 13.3573 9.14106L10.3965 12.1042C10.3409 12.1597 10.2784 12.2014 10.209 12.2292C10.1395 12.2569 10.0701 12.2708 10.0007 12.2708C9.93121 12.2708 9.86176 12.2569 9.79232 12.2292C9.72287 12.2014 9.66037 12.1597 9.60482 12.1042Z" fill="#FF0000"></path>
+                            </svg>
+                        </div>
+                        <div class="ms-3">
+                            <span class="fw-monospace fs-6">$6,237.53</span>
+                            <span class="text-success ms-2">+1.63%</span>
+                        </div>
+                    </a>
+            </div>
+             <div class="card text-white bg-dark p-1">
                 <a title="View price details " class="d-flex align-items-center text-decoration-none text-white px-2" href="/price/bitcoin">
                     <div class="d-flex align-items-center">
                         <span class="fw-bolder text-uppercase">BTC</span>
@@ -81,7 +128,7 @@
   <!-- Header Start -->
   <!-- ------------------------------------- -->
   <header class="header-fp p-0 w-100">
-    <nav class="navbar navbar-expand-lg bg-primary-subtle py-1 py-lg-3">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle py-1 py-sm-3 py-lg-3">
       <div class="custom-container d-flex align-items-center justify-content-between">
         <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img">
            <img src="logo.png" style="height:40px;" alt="Logo-light" />
@@ -305,6 +352,7 @@
   </a>
 
   @livewireScripts
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="assets/js/vendor.min.js"></script>
   <!-- Import Js Files -->
   <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -314,9 +362,12 @@
   <script src="assets/js/theme/app.min.js"></script>
 
   <!-- solar icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
+ 
 </body>
 
 </html>

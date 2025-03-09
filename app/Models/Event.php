@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Event extends Model
 {
+	use HasUuids;
 	protected $table = 'events';
 	public $incrementing = false;
 
@@ -33,6 +35,7 @@ class Event extends Model
 	];
 
 	protected $fillable = [
+		'id',
 		'title',
 		'content',
 		'image',

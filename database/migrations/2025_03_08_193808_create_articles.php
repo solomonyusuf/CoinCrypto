@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable();
+            $table->boolean('visible')->default(true);
+            $table->foreignUuid('user_id')->nullable();
             $table->foreignUuid('category_id')->references('id')->on('article_categories')->nullable();
             $table->integer('views')->default(0);
             $table->timestamps();

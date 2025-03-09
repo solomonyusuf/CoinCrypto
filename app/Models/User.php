@@ -5,6 +5,7 @@
  */
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
@@ -16,7 +17,11 @@ use Laravel\Sanctum\HasApiTokens;
  * Class User
  * 
  * @property string $id
+ * @property string $role_id
  * @property string|null $image
+ * @property string|null $info
+ * @property string|null $linkedin
+ * @property string|null $twitter
  * @property string|null $first_name
  * @property string|null $last_name
  * @property string $email
@@ -25,12 +30,14 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $remember_token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * 
+ * @property Role $role
  *
  * @package App\Models
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasUuids;
 	protected $table = 'users';
 	public $incrementing = false;
 
@@ -44,8 +51,12 @@ class User extends Authenticatable
 	];
 
 	protected $fillable = [
-        'id',
+		'id',
+		'role_id',
 		'image',
+		'info',
+		'linkedin',
+		'twitter',
 		'first_name',
 		'last_name',
 		'email',
@@ -53,4 +64,13 @@ class User extends Authenticatable
 		'password',
 		'remember_token'
 	];
+
+	public function role()
+	{
+		return $this->belongsTo(Role::class);
+	}
+	public function articles()
+	{
+		return $this->hasMany(Article::class, 'user_id');
+	}
 }

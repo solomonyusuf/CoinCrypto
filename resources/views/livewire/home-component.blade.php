@@ -8,7 +8,7 @@
             <div class="row">
             <div class="col-lg-6 pe-lg-0">
                 <div class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
-                  <img src="../assets/images/profile/user-6.jpg" alt="user" width="44" height="44" class="rounded-circle">
+                  <img src="assets/images/profile/user-6.jpg" alt="user" width="44" height="44" class="rounded-circle">
                   <div class="d-flex justify-content-end">
                     <p class="fs-2 py-1 px-2 bg-white rounded-pill mb-0">2 min Read</p>
                   </div>
@@ -55,12 +55,12 @@
             <div class="col-lg-4 col-md-6">
               <div class="card rounded-3 overflow-hidden">
                 <a href="../main/frontend-blogdetailpage.html" class="position-relative">
-                  <img src="../assets/images/blog/blog-img1.jpg" alt="blog image" class="w-100 img-fluid">
+                  <img src="assets/images/blog/blog-img1.jpg" alt="blog image" class="w-100 img-fluid">
                   <div class="position-absolute bottom-0 end-0 me-9 mb-3">
                     <p class="text-dark fs-2 px-2 rounded-pill bg-white mb-0 ">2 min Read</p>
                   </div>
                   <div class="position-absolute bottom-0 ms-7 mb-n9">
-                    <img src="../assets/images/profile/user-3.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
+                    <img src="assets/images/profile/user-3.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
                   </div>
                 </a>
                 <div class="mt-10 px-7 pb-7 h-100">
@@ -100,12 +100,12 @@
             <div class="col-lg-4 col-md-6">
               <div class="card rounded-3 overflow-hidden">
                 <a href="../main/frontend-blogdetailpage.html" class="position-relative">
-                  <img src="../assets/images/blog/blog-img2.jpg" alt="blog image" class="w-100 img-fluid">
+                  <img src="assets/images/blog/blog-img2.jpg" alt="blog image" class="w-100 img-fluid">
                   <div class="position-absolute bottom-0 end-0 me-9 mb-3">
                     <p class="text-dark fs-2 px-2 rounded-pill bg-white mb-0 ">2 min Read</p>
                   </div>
                   <div class="position-absolute bottom-0 ms-7 mb-n9">
-                    <img src="../assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
+                    <img src="assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
                   </div>
                 </a>
                 <div class="mt-10 px-7 pb-7">
@@ -145,12 +145,12 @@
             <div class="col-lg-4 col-md-6">
               <div class="card rounded-3 overflow-hidden">
                 <a href="../main/frontend-blogdetailpage.html" class="position-relative">
-                  <img src="../assets/images/blog/blog-img3.jpg" alt="blog image" class="w-100 img-fluid">
+                  <img src="assets/images/blog/blog-img3.jpg" alt="blog image" class="w-100 img-fluid">
                   <div class="position-absolute bottom-0 end-0 me-9 mb-3">
                     <p class="text-dark fs-2 px-2 rounded-pill bg-white mb-0 ">2 min Read</p>
                   </div>
                   <div class="position-absolute bottom-0 ms-7 mb-n9">
-                    <img src="../assets/images/profile/user-5.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
+                    <img src="assets/images/profile/user-5.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
                   </div>
                 </a>
                 <div class="mt-10 px-7 pb-7">
@@ -192,12 +192,12 @@
             <div class="col-lg-4 col-md-6">
               <div class="card rounded-3 overflow-hidden">
                 <a href="../main/frontend-blogdetailpage.html" class="position-relative">
-                  <img src="../assets/images/blog/blog-img4.jpg" alt="blog image" class="w-100 img-fluid">
+                  <img src="assets/images/blog/blog-img4.jpg" alt="blog image" class="w-100 img-fluid">
                   <div class="position-absolute bottom-0 end-0 me-9 mb-3">
                     <p class="text-dark fs-2 px-2 rounded-pill bg-white mb-0 ">2 min Read</p>
                   </div>
                   <div class="position-absolute bottom-0 ms-7 mb-n9">
-                    <img src="../assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
+                    <img src="assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="44px" height="44px">
                   </div>
                 </a>
                 <div class="mt-10 px-7 pb-7">

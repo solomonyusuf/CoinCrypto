@@ -12,21 +12,21 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ArticleCategory
+ * Class Role
  * 
  * @property string $id
  * @property string $title
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property Collection|Article[] $articles
+ * @property Collection|User[] $users
  *
  * @package App\Models
  */
-class ArticleCategory extends Model
+class Role extends Model
 {
 	use HasUuids;
-	protected $table = 'article_categories';
+	protected $table = 'roles';
 	public $incrementing = false;
 
 	protected $fillable = [
@@ -34,8 +34,8 @@ class ArticleCategory extends Model
 		'title'
 	];
 
-	public function articles()
+	public function users()
 	{
-		return $this->hasMany(Article::class, 'category_id');
+		return $this->hasMany(User::class);
 	}
 }

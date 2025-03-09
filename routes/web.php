@@ -1,10 +1,10 @@
 <?php
 
-use App\Livewire\ForgotPasswordComponent;
-use App\Livewire\HomeComponent;
-use App\Livewire\LoginComponent;
-use App\Livewire\RegisterComponent;
-use App\Livewire\ResetComponent;
+use App\Http\Livewire\ForgotPasswordComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\LoginComponent;
+use App\Http\Livewire\RegisterComponent;
+use App\Http\Livewire\ResetComponent;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -1,3 +1,6 @@
+<?php
+  $user = \App\Models\User::find(auth()->user()?->id);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
@@ -48,7 +51,7 @@
                 <!-- Dashboard -->
                 <!-- ---------------------------------- -->
                 <li class="sidebar-item">
-                  <a class="sidebar-link active" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
                     <span>
                       <i class="ti ti-aperture"></i>
                     </span>
@@ -56,7 +59,7 @@
                   </a>
                 </li>
                 <li class="sidebar-item">
-                  <a class="sidebar-link" href=" " aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('admin_users') ? 'active' : '' }}" href="{{ route('admin_users') }}" aria-expanded="false">
                     <span>
                       <i class="ti ti-users"></i>
                     </span>
@@ -69,7 +72,7 @@
                   <span class="hide-menu">Author</span>
                 </li>
                 <li class="sidebar-item">
-                  <a class="sidebar-link" href=" " aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('article_tags') ? 'active' : '' }}" href="{{ route('article_tags') }}" aria-expanded="false">
                     <span>
                       <i class="ti ti-tag"></i>
                     </span>
@@ -77,7 +80,7 @@
                   </a>
                 </li>
                 <li class="sidebar-item">
-                  <a class="sidebar-link" href=" " aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('admin_articles') ? 'active' : '' }}" href="{{ route('admin_articles') }}" aria-expanded="false">
                     <span>
                       <i class="ti ti-notes"></i>
                     </span>
@@ -85,11 +88,35 @@
                   </a>
                 </li>
                 <li class="sidebar-item">
-                  <a class="sidebar-link  " href=" " aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('admin_event') ? 'active' : '' }}" href="{{ route('admin_event') }}" aria-expanded="false">
                     <span class="d-flex">
                       <i class="ti ti-layout"></i>
                     </span>
                     <span class="hide-menu">Events</span>
+                  </a> 
+                </li>
+               <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_videos') ? 'active' : '' }}" href="{{ route('admin_videos') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-video"></i>
+                    </span>
+                    <span class="hide-menu">Videos</span>
+                  </a> 
+                </li>
+                 <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_podcasts') ? 'active' : '' }}" href="{{ route('admin_podcasts') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-brand-spotify"></i>
+                    </span>
+                    <span class="hide-menu">Podcasts</span>
+                  </a> 
+                </li>
+                  <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_newsletter') ? 'active' : '' }}" href="{{ route('admin_newsletter') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-circle-letter-n"></i>
+                    </span>
+                    <span class="hide-menu">Newsletters</span>
                   </a> 
                 </li>
                 
@@ -98,16 +125,18 @@
     
             <div class="fixed-profile p-3 mx-4 mb-2 bg-secondary-subtle rounded mt-3">
               <div class="hstack gap-3">
+                @if($user?->image)
                 <div class="john-img">
-                  <img src="./assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="modernize-img">
+                  <img src="{{ asset($user?->image) }}" class="rounded-circle" width="40" height="40" alt="modernize-img">
                 </div>
+                @endif
                 <div class="john-title">
-                  <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
-                  <span class="fs-2">Designer</span>
+                  <h6 class="mb-0 fs-4 fw-semibold">{{ $user?->first_name }}</h6>
+                  <span class="fs-2">{{ $user?->role?->title }}</span>
                 </div>
-                <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+                <a href="{{ route('logout') }}" class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
                   <i class="ti ti-power fs-6"></i>
-                </button>
+                </a>
               </div>
             </div>
     
@@ -156,7 +185,7 @@
               <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <nav class="sidebar-nav scroll-sidebar">
                   <div class="offcanvas-header justify-content-between">
-                    <img src="./assets/images/logos/favicon.ico" alt="modernize-img" class="img-fluid">
+                    <img src="logo.png" style="height:40px;" class="img-fluid">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
                   <div class="offcanvas-body h-n80" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -16px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 16px;">
@@ -167,124 +196,7 @@
                             <i class="ti ti-apps"></i>
                           </span>
                           <span class="hide-menu">Apps</span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse first-level my-3">
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-chat.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-chat.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Chat Application</h6>
-                                <span class="fs-2 d-block text-muted">New messages arrived</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-invoice.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-invoice.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Invoice App</h6>
-                                <span class="fs-2 d-block text-muted">Get latest invoice</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-cotact.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-mobile.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Contact Application</h6>
-                                <span class="fs-2 d-block text-muted">2 Unsaved Contacts</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-email.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-message-box.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Email App</h6>
-                                <span class="fs-2 d-block text-muted">Get new emails</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/page-user-profile.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-cart.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">User Profile</h6>
-                                <span class="fs-2 d-block text-muted">learn more information</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-calendar.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-date.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Calendar App</h6>
-                                <span class="fs-2 d-block text-muted">Get dates</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-contact2.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-lifebuoy.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Contact List Table</h6>
-                                <span class="fs-2 d-block text-muted">Add new contact</span>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="sidebar-item py-2">
-                            <a href="./main/app-notes.html" class="d-flex align-items-center">
-                              <div class="text-bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/svgs/icon-dd-application.svg" alt="modernize-img" class="img-fluid" width="24" height="24">
-                              </div>
-                              <div>
-                                <h6 class="mb-1 bg-hover-primary">Notes Application</h6>
-                                <span class="fs-2 d-block text-muted">To-do and Daily tasks</span>
-                              </div>
-                            </a>
-                          </li>
-                          <ul class="px-8 mt-7 mb-4">
-                            <li class="sidebar-item mb-3">
-                              <h5 class="fs-5 fw-semibold">Quick Links</h5>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/page-pricing.html">Pricing Page</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/authentication-login.html">Authentication
-                                Design</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/authentication-register.html">Register Now</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/authentication-error.html">404 Error Page</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/app-notes.html">Notes App</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/page-user-profile.html">User Application</a>
-                            </li>
-                            <li class="sidebar-item py-2">
-                              <a class="fw-semibold text-dark" href="./main/page-account-settings.html">Account Settings</a>
-                            </li>
-                          </ul>
-                        </ul>
+                        </a> 
                       </li>
                       <li class="sidebar-item">
                         <a class="sidebar-link" href="./main/app-chat.html" aria-expanded="false">
@@ -1710,7 +1622,6 @@
   <!-- solar icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     
-  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
   <script>

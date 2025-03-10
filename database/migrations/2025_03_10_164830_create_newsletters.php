@@ -8,26 +8,29 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('newsletters', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title');
-            $table->text('content')->nullable();
+            $table->text('image')->nullable();
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('sponsored')->default(false);
-            $table->string('image')->nullable();
-            $table->string('category')->nullable();
-            $table->datetime('event_date')->nullable();
+            $table->boolean('visible')->default(true);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('newsletters');
     }
 };

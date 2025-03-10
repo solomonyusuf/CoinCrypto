@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -7,38 +8,36 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Event
+ * Class Newsletter
  * 
  * @property string $id
- * @property string $title
- * @property string|null $content
- * @property bool $sponsored
  * @property string|null $image
- * @property string|null $category
- * @property Carbon|null $event_date
+ * @property string|null $title
+ * @property string|null $description
+ * @property bool $sponsored
+ * @property bool $visible
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
  * @package App\Models
  */
-class Event extends Model
+class Newsletter extends Model
 {
 	use HasUuids;
-	protected $table = 'events';
+	protected $table = 'newsletters';
 	public $incrementing = false;
 
 	protected $casts = [
 		'sponsored' => 'bool',
-		'event_date' => 'datetime'
+		'visible' => 'bool'
 	];
 
 	protected $fillable = [
 		'id',
-		'title',
-		'content',
-		'sponsored',
 		'image',
-		'category',
-		'event_date'
+		'title',
+		'description',
+		'sponsored',
+		'visible'
 	];
 }

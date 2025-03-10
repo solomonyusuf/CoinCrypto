@@ -130,17 +130,20 @@
               <a class="nav-link active fs-4 fw-bold text-dark link-primary" wire:navigate href="">Prices</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2" wire:navigate href="">Trending
+              <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2" wire:navigate href="">Videos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Global</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Sponsored</a>
             </li>
             <li class="nav-item">
               <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Contact</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Poadcasts</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Newsletters</a>
             </li>
           </ul>
           <div class="px-2">

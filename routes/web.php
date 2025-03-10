@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Livewire\Admin\ArticleComponent;
+use App\Http\Livewire\Admin\ArticleTagComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\EventComponent;
+use App\Http\Livewire\Admin\NewsletterComponent;
+use App\Http\Livewire\Admin\PodcastsComponent;
+use App\Http\Livewire\Admin\UsersComponent;
+use App\Http\Livewire\Admin\VideosComponent;
 use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
@@ -29,5 +36,19 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+    Route::get('/article-tags', ArticleTagComponent::class)->name('article_tags');
+    Route::get('/articles', ArticleComponent::class)->name('admin_articles');
+    Route::get('/events', EventComponent::class)->name('admin_event');
+    Route::get('/users', UsersComponent::class)->name('admin_users');
+    Route::get('/newsletter', NewsletterComponent::class)->name('admin_newsletter');
+    Route::get('/podcasts', PodcastsComponent::class)->name('admin_podcasts');
+    Route::get('/videos', VideosComponent::class)->name('admin_videos');
+});
 
-Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+Route::get('/logout', function(){
+    auth()->logout();
+    toast('Logout Success', 'success');
+    return redirect()->route('home');
+})->name('logout');

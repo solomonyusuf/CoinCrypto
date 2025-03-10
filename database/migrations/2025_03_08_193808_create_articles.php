@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->text('content');
+            $table->string('slug')->nullable();
+            $table->text('content')->nullable();
             $table->string('image')->nullable();
+            $table->boolean('sponsored')->default(false);
             $table->boolean('visible')->default(true);
-            $table->foreignUuid('user_id')->nullable();
             $table->foreignUuid('category_id')->references('id')->on('article_categories')->nullable();
             $table->integer('views')->default(0);
             $table->timestamps();

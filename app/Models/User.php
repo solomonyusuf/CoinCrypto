@@ -1,15 +1,13 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
+
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -32,10 +30,11 @@ use Laravel\Sanctum\HasApiTokens;
  * @property Carbon|null $updated_at
  * 
  * @property Role $role
+ * @property Collection|ArticleCreator[] $article_creators
  *
  * @package App\Models
  */
-class User extends Authenticatable
+class User extends  Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasUuids;
 	protected $table = 'users';
@@ -69,8 +68,9 @@ class User extends Authenticatable
 	{
 		return $this->belongsTo(Role::class);
 	}
-	public function articles()
+
+	public function article_creators()
 	{
-		return $this->hasMany(Article::class, 'user_id');
+		return $this->hasMany(ArticleCreator::class);
 	}
 }

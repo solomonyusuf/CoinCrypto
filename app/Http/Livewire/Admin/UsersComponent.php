@@ -2,23 +2,31 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Mail\AppMail;
+use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Mail;
 
 class UsersComponent extends Component
 {
+    use WithFileUploads;
+    public $roles;
+    public $count = 0;  
     public $users;
-    public $model = [
-        'role_id',
-		'image',
-		'info',
-		'linkedin',
-		'twitter',
-		'first_name',
-		'last_name',
-		'email',
-		'email_verified_at',
-		'password',
+    public $image;
+    public $update_image;
+    public $add = [
+        'role_id' => '',
+		'image' => '',
+		'info' => '', 
+		'linkedin' => '',
+		'twitter' => '',
+		'first_name' => '',
+		'last_name' => '',
+		'email' => '',
+		'password' => '',
     ];
 
     public function GetAll()
@@ -27,21 +35,58 @@ class UsersComponent extends Component
     }
     public function create()
     {
-        User::create($this->model);
+        if ($this->image) {
+            $imageName = $this->image->storeAs('photos', uniqid() . '.' . $this->image->extension(), 'public');
+            $this->add['image'] = $imageName;  
+        }
+         
+        $entity = User::create($this->add);
 
         toast('Creation Successful', 'success');
 
-        $this->model = [];
-
         $this->users = $this->GetAll();
+
+        $url = route('login');
+        Mail::to($entity->email)->send(new AppMail(
+            'Account Sign up',
+            "
+            <p>Welcome to our platform! Your account has been successfully created.</p>
+                <p>To get started, check your credentials below.</p>
+                <p>your email is {$entity->email}.</p>
+                <p>your password is {$this->add->password}.</p>
+                <a href=\"{$url}\" class=\"button\">Access Account</a>"
+        ));
+
+        $this->reset('add');
+        $this->reset('image');
+
     }
-     public function update($id)
+    public function update($id)
     {
-        User::find($id)->update($this->model);
+        if ($this->update_image) 
+        {
+            $imageName = $this->update_image->storeAs('photos', uniqid() . '.' . $this->update_image->extension(), 'public');
+            $this->add['image'] = $imageName;  
+        }
+        
+        $query = User::find($id);
+        $query->update([
+            'role_id' => $this->add['role_id'] == '' ? $query->role_id : $this->add['role_id'],
+            'image' => $this->update_image ? $this->add['image'] : $query->image,
+            'info' => $this->add['info'] == '' ? $query->info : $this->add['info'], 
+            'linkedin' => $this->add['linkedin'] == ''? $query->linkedin : $this->add['linkedin'],
+            'twitter' => $this->add['twitter'] == ''? $query->twitter :$this->add['twitter'],
+            'first_name' => $this->add['first_name'] == ''? $query->first_name : $this->add['first_name'],
+            'last_name' => $this->add['last_name'] == ''? $query->last_name : $this->add['last_name'],
+            'email' =>  $query->email,
+            'password' => $this->add['password'] == '' ? $query->password :  bcrypt($this->add['password']),
+        ]);
+        $query->save();
 
         toast('Update Successful', 'success');
         
-        $this->model = [];
+        $this->reset('add');
+        $this->reset('image');
 
         $this->users = $this->GetAll();
     }
@@ -55,6 +100,7 @@ class UsersComponent extends Component
     }
     public function render()
     {
+        $this->roles = Role::get();
         $this->users = $this->GetAll();
 
         return view('livewire.admin.users-component')

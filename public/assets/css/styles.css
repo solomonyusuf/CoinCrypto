@@ -27805,7 +27805,7 @@ fieldset:disabled .btn {
 
 .text-bg-primary {
     color: #fff !important;
-    background-color: RGBA(var(--bs-primary-rgb), var(--bs-bg-opacity, 1)) !important
+    background-color:#180e7e !important
 }
 
 .text-bg-secondary {

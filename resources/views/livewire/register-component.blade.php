@@ -43,7 +43,7 @@
                   <div class="d-flex align-items-center justify-content-center">
     
                     <a wire:navigte class="text-primary fw-medium ms-2" href="{{route('login')}}">
-                       Login account</a>
+                      Already have an account?</a>
                   </div>
                 </form>
               </div>

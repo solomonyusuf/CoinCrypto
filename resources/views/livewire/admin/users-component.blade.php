@@ -14,11 +14,71 @@
                   </ol>
                 </nav>  
               </div>
-              <div class="col-3">
-                <a href="javascript:void(0)" class="btn btn-primary d-flex align-items-center px-3 gap-6 mb-3">
+              <div class="col-2">
+                <button  data-bs-toggle="modal" data-bs-target="#add" class="btn btn-primary d-flex align-items-center px-3 gap-6 mb-3">
                     <i class="ti ti-plus fs-4"></i>
                     <span class="d-none d-md-block fw-medium fs-3">Add User</span>
-                  </a>
+                </button>
+                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                    <div class="modal-dialog modal-lg">
+                        <form wire:submit.prevent="create" class="modal-content border-0">
+                            <div class="modal-header text-bg-primary">
+                              <h6 class="modal-title text-white">Add User</h6>
+                              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="notes-box">
+                                <div class="notes-content">
+                                  <div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                                        <input required  wire:model='image'  type="file" class="form-control">
+                                      </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">First Name *</label>
+                                        <input required wire:model='add.first_name' placeholder="Enter First Name" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Last Name *</label>
+                                        <input required wire:model='add.last_name' placeholder="Enter Last Name" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Role *</label>
+                                        <select required wire:model='add.role_id' class="form-control">
+                                            <option selected> --Choose-- </option>
+                                            @foreach ($roles as $item)
+                                              <option value="{{$item->id}}">{{ $item->title }}</option>
+                                            @endforeach
+                                        </select>
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Info</label>
+                                        <textarea wire:model='add.info' placeholder="Enter Info" type="text" class="form-control"></textarea>
+                                      </div>
+                                       <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email *</label>
+                                        <input required wire:model='add.email' placeholder="Enter Email" type="email" class="form-control"  >
+                                      </div>
+                                      <div class="mb-4">
+                                        <label for="exampleInputPassword1" class="form-label">Password *</label>
+                                        <input required wire:model='add.password' placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <div class="d-flex gap-6">
+                                <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
+                                <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Submit</button>
+                              </div>
+                    
+                            </div>
+                        </form>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
                </div>
               
             </div>
@@ -48,7 +108,7 @@
                     <td>
                         <div class="d-flex align-items-center">
                             
-                            <img src="{{ $data->image ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg' }}" class="rounded-circle" width="40" height="40">
+                            <img src="{{ asset('storage/' . $data->image) ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg' }}" class="rounded-circle" width="40" height="40">
                             <div class="ms-3">
                                 <h6 class="fs-4 fw-semibold mb-0">{{ $data->first_name.' '.$data->last_name}}</h6>
                                 <span class="fw-normal">{{ $data->email }}</span>
@@ -65,10 +125,7 @@
                     </td>
                     <td>
                         <div class="d-flex align-items-center gap-3">
-                            <div class="progress text-bg-light w-100 h-4">
-                                <div class="progress-bar" role="progressbar" aria-label="Example 4px high" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <span class="fw-normal">60%</span>
+                            <span class="fw-normal">{{ count($data?->article_creators) }}</span>
                         </div>
                     </td>
                     <td>
@@ -78,12 +135,79 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i class="fs-4 ti ti-edit"></i>Edit</a>
+                                    <button  data-bs-toggle="modal" data-bs-target="#edit{{ ++$count }}"  class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Edit</button>
+                                  
                                 </li>
                                 <li>
                                     <button wire:click="delete('{{$data->id}}')" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</button>
                                 </li>
                             </ul>
+                            <div class="modal fade" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                                <div class="modal-dialog modal-lg">
+                                    <form enctype="multipart/form-data" wire:submit.prevent="update('{{ $data->id }}')" class="modal-content border-0">
+                                        <div class="modal-header text-bg-primary">
+                                          <h6 class="modal-title text-white">Edit User</h6>
+                                          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="notes-box">
+                                            <div class="notes-content">
+
+                                              <div>
+                                                @if($data->image)
+                                                <div class="mb-3">
+                                                   <img src="{{ asset('storage/'. $data->image) }}" style="height:60px;" />
+                                                  </div>
+                                                  @endif
+                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Image</label>
+                                                    <input  wire:model='update_image'  type="file" class="form-control" accept="image">
+                                                  </div>
+                                                   <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">First Name *</label>
+                                                    <input   wire:model='add.first_name' placeholder="{{ $data->first_name }}" type="text" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Last Name *</label>
+                                                    <input  wire:model='add.last_name' placeholder="{{ $data->last_name }}" type="text" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Role : {{ $data?->role->title}}</label>
+                                                    <select  wire:model='add.role_id' class="form-control">
+                                                        <option value="">-- Choose --</option>
+                                                        @foreach ($roles as $item)
+                                                         <option value="{{$item->id}}">{{ $item->title }}</option>
+                                                      @endforeach
+                                                    </select>
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Info</label>
+                                                    <textarea wire:model='add.info' placeholder="{!! $data->info !!}" type="text" class="form-control"></textarea>
+                                                  </div>
+                                                   <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Email *</label>
+                                                    <input  wire:model='add.email' placeholder="{{ $data->email }}" disabled type="email" class="form-control"  >
+                                                  </div>
+                                                  <div class="mb-4">
+                                                    <label for="exampleInputPassword1" class="form-label">New Password </label>
+                                                    <input  wire:model='add.password' placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
+                                                  </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <div class="d-flex gap-6">
+                                            <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
+                                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Submit</button>
+                                          </div>
+                                
+                                        </div>
+                                    </form>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
                         </div>
                     </td>
                 </tr> 
@@ -94,3 +218,8 @@
         </table>
       </div>
 </div>
+
+
+
+
+ 

@@ -16,7 +16,7 @@
              
                 <div class="position-relative text-center my-4">
                   <p class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">
-                    Account sign up 
+                   Create a new account
                   </p>
                   <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
                 </div>

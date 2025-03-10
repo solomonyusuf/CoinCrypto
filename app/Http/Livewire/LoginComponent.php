@@ -38,17 +38,19 @@ class LoginComponent extends Component
                 ));
 
                 toast('Login Successful', 'success');
-
-                if($user?->role->title == 'member') $this->redirect(route('home'));
-              
+ 
+                if($user?->role->title == 'member') 
+                    $this->redirect(route('home'));
+                else
                 $this->redirect(route('dashboard'));
             }
             else
             {
                 alert()->error('Invalid Credentials', 'Sorry your password or email is wrong');
+                $this->redirect(route('login'));
             }
 
-            $this->redirect(route('login'));
+            
         }
         catch(\Exception $ex)
         {

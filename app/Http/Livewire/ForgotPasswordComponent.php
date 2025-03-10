@@ -2,7 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\AppMail;
+use App\Models\User;
 use Livewire\Component;
+use Mail;
 
 class ForgotPasswordComponent extends Component
 {
@@ -10,7 +13,22 @@ class ForgotPasswordComponent extends Component
 
     public function submit()
     {
+        $user = User::where(['email'=> $this->email])->first();
 
+        if($user)
+        {
+            $password = 'C'.rand(00001,99999).'N';
+            Mail::to($user->email)->send(new AppMail(
+                'Account Reset',
+                "
+                <p>You recently requested to reset your password. </p>
+                <p>Your new passoword had been generated fot you.</p>
+                <span class=\"button\">{$password}</span>"      
+            ));
+        }
+
+        toast('Account Reset Mail Sent!!','success');
+        $this->redirect(route('forgot_password'));
     }
     public function render()
     {

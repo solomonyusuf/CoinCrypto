@@ -18,8 +18,15 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <title>Coin Crypto News</title>
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+   <style>
+    span.rounded-md{
+      display:none;
+    }
+    nav.flex{
+      display:flex;
+      gap:2rem;
+    }
+    </style>
 </head>
 
 <body>
@@ -1629,6 +1636,18 @@
       document.documentElement.setAttribute("data-color-theme", e);
     }
   </script>
+  <style>
+    .cke_notifications_area{display:none;}
+</style>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace( 'editor',{
+        filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
+
 </body>
 
 </html>

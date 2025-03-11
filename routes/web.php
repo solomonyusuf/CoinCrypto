@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditorController;
 use App\Http\Livewire\Admin\ArticleComponent;
 use App\Http\Livewire\Admin\ArticleTagComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
@@ -36,6 +37,10 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
+
+Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
+
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('/article-tags', ArticleTagComponent::class)->name('article_tags');
@@ -45,6 +50,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/newsletter', NewsletterComponent::class)->name('admin_newsletter');
     Route::get('/podcasts', PodcastsComponent::class)->name('admin_podcasts');
     Route::get('/videos', VideosComponent::class)->name('admin_videos');
+    
+    //REQUESTS
+    Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
+    Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
+    //Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
+ 
 });
 
 Route::get('/logout', function(){

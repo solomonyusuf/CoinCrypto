@@ -49,7 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', UsersComponent::class)->name('admin_users');
     Route::get('/newsletter', NewsletterComponent::class)->name('admin_newsletter');
     Route::get('/podcasts', PodcastsComponent::class)->name('admin_podcasts');
-    Route::get('/videos', VideosComponent::class)->name('admin_videos');
+    Route::get('/app-videos', VideosComponent::class)->name('admin_videos');
     
     //REQUESTS
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
@@ -63,6 +63,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/create_video', [VideosComponent::class, 'create'])->name('create_video');
     Route::post('/update_video/{id}', [VideosComponent::class, 'update'])->name('update_video');
     Route::get('/delete_video/{id}', [VideosComponent::class, 'delete'])->name('delete_video');
+ 
+    Route::post('/create_podcast', [PodcastsComponent::class, 'create'])->name('create_podcast');
+    Route::post('/update_podcast/{id}', [PodcastsComponent::class, 'update'])->name('update_podcast');
+    Route::get('/delete_podcast/{id}', [PodcastsComponent::class, 'delete'])->name('delete_podcast');
  
 });
 

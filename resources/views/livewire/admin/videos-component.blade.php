@@ -19,12 +19,12 @@
                     <i class="ti ti-plus fs-4"></i>
                     <span class="d-none d-md-block fw-medium fs-3">Add Video</span>
                 </button>
-                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true">
                     <div class="modal-dialog modal-xl">
-                        <form enctype="multipart/form-data" action="{{ route('create_event') }}" method="post" class="modal-content border-0">
+                        <form enctype="multipart/form-data" action="{{ route('create_video') }}" method="post" class="modal-content border-0">
                           @csrf  
                           <div class="modal-header text-bg-primary">
-                              <h6 class="modal-title text-white">Add Event</h6>
+                              <h6 class="modal-title text-white">Add Video</h6>
                               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -40,12 +40,12 @@
                                         <input required name='title' placeholder="" type="text" class="form-control">
                                       </div>
                                       <div class="mb-3">
-                                        <label  class="form-label">Category *</label>
-                                        <input required name='category' placeholder="" type="text" class="form-control">
+                                        <label  class="form-label">Cover Video *</label>
+                                        <input required name='link' placeholder="" type="text" class="form-control">
                                       </div>
                                        <div class="mb-3"  wire:ignore>
                                         <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  required name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                        <textarea id="editor"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
                                        
                                       <div class="mb-3">
@@ -57,9 +57,14 @@
                                         </select>
                                       </div>
                                       <div class="mb-3">
-                                        <label  class="form-label">Event Date *</label>
-                                        <input required name='event_date' placeholder="" type="datetime-local" class="form-control">
+                                        <label  class="form-label">Visible * (show to users) </label>
+                                        <select required name='visible' class="form-control">
+                                          <option selected value="">--- Choose ---</option>
+                                          <option value="1"> true</option>
+                                          <option value="0"> false</option>
+                                        </select>
                                       </div>
+                                      
                                 
                                     </div>
                                 </div>
@@ -91,17 +96,12 @@
                     <th>
                         <h6 class="fs-4 fw-semibold mb-0">Sponsored</h6>
                     </th>
-                    <th>
-                        <h6 class="fs-4 fw-semibold mb-0">Category</h6>
-                    </th>
-                    <th>
-                        <h6 class="fs-4 fw-semibold mb-0">Event Date</h6>
-                    </th>
+                    
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($events as $data)
+                @foreach ($videos as $data)
                     
                 <tr>
                     <td>
@@ -122,16 +122,7 @@
                             @endif
                         </span>
                     </td>
-                    <td>
-                        <h6 class="fw-semibold mb-0">{{ $data->category }}</h6> 
-                    </td>
-                    <td>
-                        <h6 class="fw-semibold mb-0">
-                            {{ \Carbon\Carbon::parse($data->event_date)->toFormattedDateString()}}
-                            {{ \Carbon\Carbon::parse($data->event_date)->format('g:i A') }}
-            
-                        </h6>
-                    </td>
+                    
                     <td>
                         <div class="dropdown dropstart">
                             <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -143,46 +134,47 @@
                                    
                                 </li>
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center gap-3" href="{{ route('delete_event', $data->id) }}"><i class="fs-4 ti ti-trash"></i>Delete</a>
+                                    <a class="dropdown-item d-flex align-items-center gap-3" href="{{ route('delete_video', $data->id) }}"><i class="fs-4 ti ti-trash"></i>Delete</a>
                                 </li>
                             </ul>
                             <div class="modal fade" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true" >
                                 <div class="modal-dialog modal-xl">
-                                    <form enctype="multipart/form-data" action="{{ route('update_event', $data->id) }}" method="post" class="modal-content border-0">
+                                    <form enctype="multipart/form-data" action="{{ route('update_video', $data->id) }}" method="post" class="modal-content border-0">
                                       @csrf  
                                       <div class="modal-header text-bg-primary">
-                                          <h6 class="modal-title text-white">Edit Event</h6>
+                                          <h6 class="modal-title text-white">Edit Video</h6>
                                           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                           <div class="notes-box">
                                             <div class="notes-content">
-                                              <div>
-                                                @if($data->image)
+                                                <div>
+                                                    @if($data->image)
                                                     <div class="mb-3">
                                                     <img src="{{ asset('/storage/'.$data->image) }}" style="height:50px;" />
                                                     </div>
                                                     @endif
-                                                <div class="mb-3">
-                                                  <label  class="form-label">Banner</label>
-                                                  <input required  name='image'  type="file" class="form-control">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label  class="form-label">Title *</label>
-                                                    <input required name='title' value="{{ $data->title }}" placeholder="" type="text" class="form-control">
-                                                  </div>
                                                   <div class="mb-3">
-                                                    <label  class="form-label">Category *</label>
-                                                    <input required name='category' value="{{ $data->category }}" placeholder="" type="text" class="form-control">
+                                                    <label  class="form-label">Banner</label>
+                                                    <input   name='image'  type="file" class="form-control">
                                                   </div>
-                                                   <div class="mb-3"  wire:ignore>
-                                                    <label  class="form-label">Content *</label>
-                                                    <textarea id="text{{ $count }}"  required name="content" style="height:400px;"  placeholder="" type="text" class="form-control">{!! $data->content !!}</textarea>
-                                                  </div>
-                                                   
+                                                  
                                                   <div class="mb-3">
-                                                    <label  class="form-label">Sponsored *</label>
-                                                    <select required name='sponsored' class="form-control">
+                                                      <label  class="form-label">Title *</label>
+                                                      <input required value="{{ $data->title }}" name='title' placeholder="" type="text" class="form-control">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label  class="form-label">Cover Video *</label>
+                                                        <input value="{{ $data->link }}" required name='link' placeholder="" type="text" class="form-control">
+                                                      </div>
+                                                     <div class="mb-3"  wire:ignore>
+                                                      <label  class="form-label">Content *</label>
+                                                      <textarea id="text{{ $count }}"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control">{!! $data->description !!}</textarea>
+                                                    </div>
+                                                     
+                                                    <div class="mb-3">
+                                                      <label  class="form-label">Sponsored *</label>
+                                                      <select required name='sponsored' class="form-control">
                                                         @if ($data->sponsored == true)
                                                         <option selected value="1"> true</option>
                                                         <option value="0"> false</option>
@@ -190,15 +182,24 @@
                                                         <option  value="1"> true</option>
                                                         <option selected value="0"> false</option>
                                                         @endif
-                                                    </select>
+                                                      </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                      <label  class="form-label">Visible * (show to users) </label>
+                                                      <select required name='visible' class="form-control">
+                                                        @if ($data->visible == true)
+                                                        <option selected value="1"> true</option>
+                                                        <option value="0"> false</option>
+                                                        @else 
+                                                        <option  value="1"> true</option>
+                                                        <option selected value="0"> false</option>
+                                                        @endif
+                                                      </select>
+                                                    </div>
+                                                    
+                                              
                                                   </div>
-                                                  <div class="mb-3">
-                                                    <label  class="form-label">Event Date *</label>
-                                                    <input required name='event_date' value="{{ $data->event_date }}" placeholder="" type="datetime-local" class="form-control">
-                                                  </div>
-                                            
-                                                </div>
-                                            </div>
+                                              </div>
                                           </div>
                                         </div>
                                         <div class="modal-footer">

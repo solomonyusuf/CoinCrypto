@@ -120,9 +120,9 @@
                       <i class="ti ti-edit fs-4 favourite-note"></i>
                     </button>
 
-                    <button style="background: transparent; border:0;" wire:click="delete('{{ $data->id }}')" href="javascript:void(0)" class="link text-danger ms-2">
+                    <a href="{{ route('delete_article', $data->id) }}" style="background: transparent; border:0;" class="link text-danger ms-2">
                       <i class="ti ti-trash fs-4 remove-note"></i>
-                    </button>
+                    </a>
                     
                   </div>
                 </div>
@@ -215,22 +215,23 @@
             
              
           </div>
-          {{ $articles->links() }}
+        
         </div>
         
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Automatically initialize CKEditor for all textareas with IDs
+            document.querySelectorAll('textarea').forEach(function (textarea) {
+                // Ensure the textarea has an ID before trying to initialize CKEditor
+                if (textarea.id) {
+                    CKEDITOR.replace(textarea.id,{
+                          filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                          filebrowserUploadMethod: 'form'
+                      });  
+                }
+            });
+        });
+        </script>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      // Automatically initialize CKEditor for all textareas with IDs
-      document.querySelectorAll('textarea').forEach(function (textarea) {
-          // Ensure the textarea has an ID before trying to initialize CKEditor
-          if (textarea.id) {
-              CKEDITOR.replace(textarea.id,{
-                    filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
-                    filebrowserUploadMethod: 'form'
-                });  
-          }
-      });
-  });
-  </script>
+

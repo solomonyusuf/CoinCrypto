@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class VideosComponent extends Component
 {
-    public function render()
+    public function render() 
     {
         return view('livewire.admin.videos-component')
         ->layout('layouts.admin');

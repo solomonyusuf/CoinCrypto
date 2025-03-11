@@ -27,7 +27,7 @@ class ArticleComponent extends Component
 
     public function GetAll()
     {
-        return Article::orderByDesc('created_at')->paginate(20);
+        return Article::orderByDesc('created_at')->get();
     }
     public function create(Request $request)
     {
@@ -73,7 +73,7 @@ class ArticleComponent extends Component
         ]);
         $model->save();
 
-        toast('Update Successful', 'success');
+       // toast('Update Successful', 'success');
 
         return redirect()->back();
     }
@@ -81,7 +81,7 @@ class ArticleComponent extends Component
     {
         Article::find($id)->delete();
 
-        toast('Deletion Successful', 'success');
+        //toast('Deletion Successful', 'success');
 
         return redirect()->back();
     }

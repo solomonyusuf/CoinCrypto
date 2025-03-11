@@ -54,7 +54,15 @@ Route::middleware('auth:sanctum')->group(function () {
     //REQUESTS
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
     Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
-    //Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
+    Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
+ 
+    Route::post('/create_events', [EventComponent::class, 'create'])->name('create_event');
+    Route::post('/update_events/{id}', [EventComponent::class, 'update'])->name('update_event');
+    Route::get('/delete_events/{id}', [EventComponent::class, 'delete'])->name('delete_event');
+ 
+    Route::post('/create_video', [VideosComponent::class, 'create'])->name('create_video');
+    Route::post('/update_video/{id}', [VideosComponent::class, 'update'])->name('update_video');
+    Route::get('/delete_video/{id}', [VideosComponent::class, 'delete'])->name('delete_video');
  
 });
 

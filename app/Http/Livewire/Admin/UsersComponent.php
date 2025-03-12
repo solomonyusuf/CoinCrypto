@@ -104,6 +104,13 @@ class UsersComponent extends Component
     }
     public function render()
     {
+        $user = User::find(auth()->user()->id);
+
+        if($user?->role?->title != 'superadmin')
+        {
+            toast('Unauthorized Acess', 'error');
+            return redirect()->back();
+        }
         $this->roles = Role::get();
         $this->users = $this->GetAll();
 

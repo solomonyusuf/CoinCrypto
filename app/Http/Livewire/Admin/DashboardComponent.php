@@ -21,6 +21,14 @@ class DashboardComponent extends Component
 
     public function render()
     {
+        $user = User::find(auth()->user()->id);
+
+        if($user?->role?->title != 'superadmin')
+        {
+            toast('Unauthorized Acess', 'error');
+            return redirect()->back();
+        }
+
         $this->users = User::count();
         $this->articles = Article::count();
         $this->newsletters = Newsletter::count();

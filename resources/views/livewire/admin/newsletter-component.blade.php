@@ -52,14 +52,14 @@
                                         <textarea id="editor"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
          
-                                      <div class="mb-3">
+                                      {{-- <div class="mb-3">
                                         <label  class="form-label">Sponsored *</label>
                                         <select required name='sponsored' class="form-control">
                                           <option selected value="">--- Choose ---</option>
                                           <option value="1"> true</option>
                                           <option value="0"> false</option>
                                         </select>
-                                      </div>
+                                      </div> --}}
                                       <div class="mb-3">
                                         <label  class="form-label">Visible * (show to users)</label>
                                         <select required name="visible" class="form-control">
@@ -221,7 +221,7 @@
                                       {!! $data->description !!}
                                     </textarea>
                                   </div>
-                                  <div class="mb-3">
+                                  {{-- <div class="mb-3">
                                     <label  class="form-label">Sponsored *</label>
                                     <select required name='sponsored' class="form-control">
                                       @if ($data->sponsored == true)
@@ -232,7 +232,7 @@
                                       <option selected value="0"> false</option>
                                       @endif
                                     </select>
-                                  </div>
+                                  </div> --}}
                                   <div class="mb-3">
                                     <label  class="form-label">Visible * (show to users)</label>
                                     <select required name="visible" class="form-control">

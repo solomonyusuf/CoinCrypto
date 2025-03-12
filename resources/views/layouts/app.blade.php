@@ -124,6 +124,7 @@
             <a wire:navigate href="{{route('dashboard')}}" class="btn btn-outline-primary py-8">Dashboard</a>
           </div>
           @endif
+            
           @endif
         </div>
       </div>

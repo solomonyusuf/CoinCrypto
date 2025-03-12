@@ -65,7 +65,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('/admin-article-tags', ArticleTagComponent::class)->name('article_tags');
     Route::get('/admin-articles', ArticleComponent::class)->name('admin_articles');

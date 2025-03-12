@@ -41,6 +41,8 @@ class LoginComponent extends Component
  
                 if($user?->role->title == 'member') 
                     $this->redirect(route('home'));
+                elseif($user?->role->title == 'author')
+                $this->redirect(route('admin_articles'));
                 else
                 $this->redirect(route('dashboard'));
             }

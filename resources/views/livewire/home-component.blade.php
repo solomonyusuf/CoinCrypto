@@ -166,11 +166,11 @@
             <div class="d-flex align-items-center gap-4">
               <div class="d-flex gap-2">
                 <i class="ti ti-eye fs-5 text-dark"></i>
-                <p class="mb-0 fs-2 fw-semibold text-dark">{{ $latest->views }}</p>
+                <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views }}</p>
               </div>
               <div class="d-flex gap-2">
                 <i class="ti ti-user fs-5 text-dark"></i>
-                <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($latest?->article_creators)}}</p>
+                <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($data?->article_creators)}}</p>
               </div>
               <div class="d-flex align-items-center fs-2 ms-auto">
                 <i class="ti ti-point text-dark"></i>

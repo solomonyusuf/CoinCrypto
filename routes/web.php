@@ -13,6 +13,12 @@ use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
 use App\Http\Livewire\NewsDetailComponent;
+use App\Http\Livewire\PageEventComponent;
+use App\Http\Livewire\PageNewsletterComponent;
+use App\Http\Livewire\PagePodcastComponent;
+use App\Http\Livewire\PagePriceComponent;
+use App\Http\Livewire\PageSponsorsComponent;
+use App\Http\Livewire\PageVideoComponent;
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\ResetComponent;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +39,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', HomeComponent::class)->name('home');
+Route::get('/prices', PagePriceComponent::class)->name('prices');
+Route::get('/event', PageEventComponent::class)->name('events');
+    
+
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
@@ -40,18 +50,26 @@ Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_passwo
 
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/videos', PageVideoComponent::class)->name('videos');
+    Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
+    Route::get('/podcasts', PagePodcastComponent::class)->name('podcasts');
+    Route::get('/newsletter', PageNewsletterComponent::class)->name('newsletters');
+
+
+});
 
 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
-    Route::get('/article-tags', ArticleTagComponent::class)->name('article_tags');
-    Route::get('/articles', ArticleComponent::class)->name('admin_articles');
-    Route::get('/events', EventComponent::class)->name('admin_event');
-    Route::get('/users', UsersComponent::class)->name('admin_users');
-    Route::get('/newsletter', NewsletterComponent::class)->name('admin_newsletter');
-    Route::get('/podcasts', PodcastsComponent::class)->name('admin_podcasts');
-    Route::get('/app-videos', VideosComponent::class)->name('admin_videos');
+    Route::get('/admin-article-tags', ArticleTagComponent::class)->name('article_tags');
+    Route::get('/admin-articles', ArticleComponent::class)->name('admin_articles');
+    Route::get('/admin-events', EventComponent::class)->name('admin_event');
+    Route::get('/admin-users', UsersComponent::class)->name('admin_users');
+    Route::get('/admin-newsletter', NewsletterComponent::class)->name('admin_newsletter');
+    Route::get('/admin-podcasts', PodcastsComponent::class)->name('admin_podcasts');
+    Route::get('/admin-app-videos', VideosComponent::class)->name('admin_videos');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');

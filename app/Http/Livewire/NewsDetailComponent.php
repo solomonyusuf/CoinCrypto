@@ -17,6 +17,16 @@ class NewsDetailComponent extends Component
     public function render()
     {
         $model = Article::find($this->news_id);
+        $path = session()->get('view');
+
+        if(!$path)
+        {
+            session()->put('view', 'true');
+
+            $model->views += 1;
+
+            $model->save();
+        }
 
         return view('livewire.news-detail-component', ['article'=> $model]);
     }

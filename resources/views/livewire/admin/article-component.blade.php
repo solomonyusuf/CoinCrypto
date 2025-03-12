@@ -151,7 +151,7 @@
                                 @endif
                                 <div class="mb-3">
                                   <label  class="form-label">Image</label>
-                                  <input  name='image'  type="file" class="form-control">
+                                  <input name="image"  type="file" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label  class="form-label">Title *</label>

@@ -127,31 +127,43 @@
               <a  class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('home') ? 'active' : '' }}" wire:navigate href="{{ route('home') }}">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Prices</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('prices') ? 'active' : '' }}"  wire:navigate href="{{ route('prices') }}">Prices</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('events') ? 'active' : '' }}"  wire:navigate href="{{ route('events') }}">Events</a>
+            </li>
+            @if(Route::has('login'))
             <li class="nav-item dropdown">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2" wire:navigate href="">Videos
+              <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2 {{ Route::is('videos') ? 'active' : '' }}"  wire:navigate href="{{ route('videos') }}">Videos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Sponsored</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('sponsored') ? 'active' : '' }}"  wire:navigate href="{{ route('sponsored') }}">Sponsored</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Poadcasts</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('podcasts') ? 'active' : '' }}"  wire:navigate href="{{ route('podcasts') }}">Poadcasts</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Newsletters</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('newsletter') ? 'active' : '' }}"  wire:navigate href="{{ route('newsletters') }}">Newsletters</a>
             </li>
+            @endif
           </ul>
+          @if(!auth()?->user())
           <div class="px-2">
             <a wire:navigate href="{{route('login')}}" class="btn btn-primary py-8">Sign In</a>
           </div>
            <div  class="px-2">
             <a wire:navigate href="{{route('register')}}" class="btn btn-outline-primary py-8">Sign Up</a>
           </div>
+          @endif
+          @if(Route::has('login'))
+          @if(auth()?->user() && \App\Models\User::find(auth()?->user()?->id)?->role->title != 'member')
+          <div  class="px-2">
+            <a wire:navigate href="{{route('dashboard')}}" class="btn btn-outline-primary py-8">Dashboard</a>
+          </div>
+          @endif
+          @endif
         </div>
       </div>
     </nav>

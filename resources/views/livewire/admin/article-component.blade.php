@@ -146,7 +146,7 @@
                               <div>
                                 @if($data->image)
                                 <div class="mb-3">
-                                  <img src="{{ asset('/storage/'.$data->image) }}" style="height:50px;" />
+                                  <img src="{{ asset($data->image) }}" style="height:50px;" />
                                   </div>
                                 @endif
                                 <div class="mb-3">

@@ -10,7 +10,7 @@
         @foreach ($latests as $latest)
             <style>
               .blog-bg{
-                background:url({{ asset('/storage/'.$latest->image) }});
+                background:url({{ asset($latest->image) }});
               }
             </style>
             <div class="col-lg-6 pe-lg-0 mb-3">
@@ -84,7 +84,7 @@
       <h4 class="fw-semibold mb-4">Top Stories</h4>
       @foreach ($top as $data)
       <div class="col-md-6 col-lg-6">
-        <div style="background:url({{ asset('/storage/'.$data->image) }});" class="card blog blog-img-one position-relative overflow-hidden hover-img">
+        <div style="background:url({{ asset($data->image) }});" class="card blog blog-img-one position-relative overflow-hidden hover-img">
           <div class="card-body position-relative">
             <div class="d-flex flex-column justify-content-between h-100">
               <div class="d-flex align-items-start justify-content-between">
@@ -154,7 +154,7 @@
         <div class="card overflow-hidden hover-img">
           <div class="position-relative">
             <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-            <img src="{{ asset('/storage/'.$data->image) }}" class="card-img-top" alt="modernize-img">
+            <img src="{{ asset($data->image) }}" class="card-img-top" alt="modernize-img">
             </a>
             
             <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}" alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9" width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top" >

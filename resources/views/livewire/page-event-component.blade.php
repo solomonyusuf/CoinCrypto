@@ -12,7 +12,7 @@
         @foreach ($events as $data)
         <style>
             .blog-bg{
-              background:url({{ asset('/storage/'.$data->image) }});
+              background:url({{ asset($data->image) }});
             }
           </style>
           <div class="row mb-3">

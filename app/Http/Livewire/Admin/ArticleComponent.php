@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Controllers\UploadController;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCreator;
@@ -34,8 +35,7 @@ class ArticleComponent extends Component
     {
         $image = null;
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request);  
         }
         
         $entity = Article::create([
@@ -65,8 +65,7 @@ class ArticleComponent extends Component
         $image = $model->image;
         
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request); 
         }
         
         $model->update([

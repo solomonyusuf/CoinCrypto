@@ -10,20 +10,23 @@
       public function uploadImage(Request $request)
       {
         if($request->hasFile('upload')) {
-             
-            //Upload the file
-            $path = $request->file('upload')->store('uploads', 'public');
-            
+          $filenamewithextension = $request->file('upload')->getClientOriginalName();
+          $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+          $extension = $request->file('upload')->getClientOriginalExtension();
+          $filenametostore = $filename.'_blog_image_'.time().'.'.$extension;
+          $logo = asset('uploads/'.time().$filenametostore);
+          //Upload the file
+          $request->file('upload')->move(public_path('uploads'), $logo);
 
-            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('/storage/'.$path);
+          $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+          $url = $logo;
 
-            $msg = 'Image added successfully';
-            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+          $msg = 'Image added successfully';
+          $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
-            @header('Content-type: text/html; charset=utf-8');
-            echo $re;
-        }
+          @header('Content-type: text/html; charset=utf-8');
+          echo $re;
+      }
     }
   }
   

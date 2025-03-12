@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Controllers\UploadController;
 use App\Models\Newsletter;
 use App\Models\Release;
 use Livewire\Component;
@@ -16,15 +17,15 @@ class NewsletterComponent extends Component
         $image = '';
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request); 
+        
         }
         
         $host_image = '';
 
         if ($request->host_image) {
-            $imageName = $request->host_image->storeAs('photos', uniqid() . '.' . $request->host_image->extension(), 'public');
-            $host_image = $imageName;  
+            $host_image = UploadController::UploadFile($request, 'host_image'); 
+         
         }
         Newsletter::create([
             'title'=> $request->title,
@@ -48,15 +49,13 @@ class NewsletterComponent extends Component
         $image = $model->image;
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request);
         }
         
         $host_image = $model->host_image;
 
         if ($request->host_image) {
-            $imageName = $request->host_image->storeAs('photos', uniqid() . '.' . $request->host_image->extension(), 'public');
-            $host_image = $imageName;  
+            $host_image = UploadController::UploadFile($request, 'host_image'); 
         }
         $model->update([
             'title'=> $request->title,

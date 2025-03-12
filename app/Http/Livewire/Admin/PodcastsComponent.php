@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Controllers\UploadController;
 use App\Models\Podcast;
 use Livewire\Component;
 use Illuminate\Http\Request;
@@ -16,8 +17,8 @@ class PodcastsComponent extends Component
         $image = '';
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request); 
+         
         }
         Podcast::create([
             'title'=> $request->title,
@@ -40,8 +41,7 @@ class PodcastsComponent extends Component
         $image = $model->image;
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request);   
         }
         $model->update([
             'title'=> $request->title,

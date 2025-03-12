@@ -36,8 +36,10 @@ class UsersComponent extends Component
     public function create()
     {
         if ($this->image) {
-            $imageName = $this->image->storeAs('photos', uniqid() . '.' . $this->image->extension(), 'public');
-            $this->add['image'] = $imageName;  
+            $imageName = uniqid() . '.' . $this->image->extension(); // Generate unique filename
+            $this->image->move(public_path('uploads'), $imageName); // Move file to public/photos
+            
+            $this->add['image'] = 'uploads/' . $imageName;
         }
          
         $entity = User::create($this->add);
@@ -65,8 +67,10 @@ class UsersComponent extends Component
     {
         if ($this->update_image) 
         {
-            $imageName = $this->update_image->storeAs('photos', uniqid() . '.' . $this->update_image->extension(), 'public');
-            $this->add['image'] = $imageName;  
+            $imageName = uniqid() . '.' . $this->image->extension(); // Generate unique filename
+            $this->image->move(public_path('uploads'), $imageName); // Move file to public/photos
+            
+            $this->add['image'] = 'uploads/' . $imageName;
         }
         
         $query = User::find($id);

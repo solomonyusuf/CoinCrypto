@@ -1,5 +1,6 @@
 <div>
   <div class="container mt-3">
+    <h4 class="fw-semibold mb-3">Sponsored Content</h4>
     @if(count($articles) == 0)
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="text-center">
@@ -15,7 +16,7 @@
       <div class="card overflow-hidden hover-img">
         <div class="position-relative">
           <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-          <img src="{{ asset('/storage/'.$data->image) }}" class="card-img-top" alt="modernize-img">
+          <img src="{{ asset($data->image) }}" class="card-img-top" alt="modernize-img">
           </a>
           
           <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}" alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9" width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top" >

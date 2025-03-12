@@ -106,7 +106,7 @@
                 <tr>
                     <td>
                         <div class="d-flex align-items-center">
-                            <a href="{{ asset('/storage/'.$data->image) }}"><img src="{{ asset('/storage/'.$data->image) }}" class="rounded-circle" width="40" height="40"></a>
+                            <a href="{{ asset($data->image) }}"><img src="{{ asset($data->image) }}" class="rounded-circle" width="40" height="40"></a>
                             <div class="ms-3">
                                 <h6 class="fw-semibold mb-0">{{ $data->title }}</h6>
                             </div>
@@ -160,7 +160,7 @@
                                               <div>
                                                 @if($data->image)
                                                     <div class="mb-3">
-                                                    <img src="{{ asset('/storage/'.$data->image) }}" style="height:50px;" />
+                                                    <img src="{{ asset($data->image) }}" style="height:50px;" />
                                                     </div>
                                                     @endif
                                                 <div class="mb-3">

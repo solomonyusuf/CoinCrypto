@@ -12,7 +12,7 @@
         @foreach ($videos as $data)
         <style>
             .blog-bg{
-              background:url({{ asset('/storage/'.$data->image) }});
+              background:url({{ asset($data->image) }});
             }
           </style>
           <div class="row mb-3">
@@ -55,7 +55,7 @@
                      
                   </div>
                   <div>
-                    <a  href="{{ $data->link }}" class="btn btn-outline-primary py-2 mt-3">Watch Video</a>
+                    <a target="__blank"  href="{{ $data->link }}" class="btn btn-outline-primary py-2 mt-3">Watch Video</a>
                  </div>
                 </div>
               </div>

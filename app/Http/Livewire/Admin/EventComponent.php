@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Controllers\UploadController;
 use App\Models\Event;
 use Livewire\Component;
 use Illuminate\Http\Request;
@@ -19,8 +20,7 @@ class EventComponent extends Component
         $image = $model->image;
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request);  
         }
         $model->update([
             'title'=> $request->title,
@@ -41,8 +41,7 @@ class EventComponent extends Component
         $image = '';
 
         if ($request->image) {
-            $imageName = $request->image->storeAs('photos', uniqid() . '.' . $request->image->extension(), 'public');
-            $image = $imageName;  
+            $image = UploadController::UploadFile($request);   
         }
         Event::create([
             'title'=> $request->title,

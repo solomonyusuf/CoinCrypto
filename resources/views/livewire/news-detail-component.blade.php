@@ -17,9 +17,6 @@
              
           </div>
         </div>
-
-       
-
     </div>
     {!! $article?->content !!}
 </div>

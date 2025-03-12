@@ -37,6 +37,7 @@
             color: #321dff;
         }
     </style>
+    @if(count($podcasts) > 0)
     <div class="container mt-3">
         <div class="row justify-content-center">
             @if($podcast)
@@ -98,6 +99,16 @@
               </div>
         </div>
     </div>
+    @endif
+    @if(count($podcasts) == 0)
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="text-center">
+            <img src="https://img.icons8.com/?size=100&id=45967&format=png&color=000000" alt="No Data Icon" class="mb-3">
+            <h4 class="fw-bold text-muted">No Data Available</h4>
+            <p class="text-secondary">It looks like there's nothing to show here yet.</p>
+        </div>
+    </div>
+    @endif
     <!-- Plyr.js -->
 <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.polyfilled.min.js"></script>
 

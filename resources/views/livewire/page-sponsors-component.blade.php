@@ -1,6 +1,6 @@
 <div>
   <div class="container mt-3">
-    <h4 class="fw-semibold mb-3">Sponsored Content</h4>
+    <h4 class="fw-semibold mb-3">Sponsored Articles</h4>
     @if(count($articles) == 0)
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="text-center">

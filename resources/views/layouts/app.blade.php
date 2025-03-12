@@ -394,7 +394,7 @@
             Events
           </a>
         </li>
-
+        @if(auth()?->user())
         <li class="mb-1">
           <a href="{{ route('videos') }}" class="{{ Route::is('videos') ? 'active' : '' }} px-0 fs-4 d-block w-100 py-2 text-dark link-primary">
             Videos
@@ -415,9 +415,9 @@
             Newsletters
           </a>
         </li>
-
+        @endif
         @if(!auth()?->user())
-        <li class="">
+        <li class="mb-3">
           <a wire:navigate href="{{route('login')}}" class="btn btn-primary py-8">Sign In</a>
         </li>
          <li  class="">

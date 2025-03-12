@@ -2,11 +2,52 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\AppMail;
 use App\Models\Newsletter;
+use App\Models\Subscription;
 use Livewire\Component;
+use Illuminate\Http\Request;
+use Mail;
 
 class PageNewsletterComponent extends Component
 {
+    public $count = 0;
+
+    public function subscribe($id, Request $request)
+    {
+        $check = Subscription::where(['email'=> $request->email])->first();
+
+        if($check) return redirect()->back();
+
+        Subscription::create([
+            'newsletter_id' => $id,
+            'email' =>  $request->email,
+        ]);
+
+        $url = route('activate_sub', $id);
+        Mail::to($request->email)->send(new AppMail(
+            'Activate Subscription',
+            "
+            <p>Welcome to our newsletter! Your subscription is successfully created.</p>
+                <p>To get started, please verify your email by clicking the button below.</p>
+                <a href=\"{$url}\" class=\"button\">Activate</a>"
+        ));
+
+        toast('Subscription Successful','success');
+
+        return redirect()->back();
+    }
+
+    public function activate_sub($sub_id)
+    {
+        $sub = Subscription::find($sub_id);
+        $sub->confirmed = true;
+        $sub->save();
+
+        toast('Activation Successful','success');
+
+        return redirect()->route('home');
+    }
     public function render()
     {
         $newsletters = Newsletter::orderByDesc('created_at')->get();

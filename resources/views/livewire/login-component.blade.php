@@ -37,7 +37,7 @@
                       </label>
                     </div>
                     <a class="text-primary fw-medium" wire:navigate href="{{route('forgot_password')}}">Forgot
-                      Password ?</a>
+                      Password?</a>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</button>
                   <div class="d-flex align-items-center justify-content-center">

@@ -49,12 +49,16 @@ Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_pas
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
+Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos', PageVideoComponent::class)->name('videos');
     Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
     Route::get('/podcasts', PagePodcastComponent::class)->name('podcasts');
     Route::get('/newsletter', PageNewsletterComponent::class)->name('newsletters');
+    
+    //REQUEST
+    Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');
 
 
 });

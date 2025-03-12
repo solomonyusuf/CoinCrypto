@@ -40,7 +40,7 @@
                                         <input required name='title' placeholder="" type="text" class="form-control">
                                       </div>
                                       <div class="mb-3">
-                                        <label  class="form-label">Category *</label>
+                                        <label  class="form-label">Link *</label>
                                         <input required name='category' placeholder="" type="text" class="form-control">
                                       </div>
                                        <div class="mb-3"  wire:ignore>
@@ -172,7 +172,7 @@
                                                     <input required name='title' value="{{ $data->title }}" placeholder="" type="text" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
-                                                    <label  class="form-label">Category *</label>
+                                                    <label  class="form-label">Link *</label>
                                                     <input required name='category' value="{{ $data->category }}" placeholder="" type="text" class="form-control">
                                                   </div>
                                                    <div class="mb-3"  wire:ignore>

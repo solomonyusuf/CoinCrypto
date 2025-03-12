@@ -18,7 +18,22 @@
   <!-- Owl Carousel  -->
   <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
+<style>
+  @keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 
+.slide-animation2 {
+    display: flex;
+    white-space: nowrap;
+    animation: slideLeft 15s linear infinite;
+}
+  </style>
 <body>
     @include('sweetalert::alert')
 
@@ -26,7 +41,7 @@
   <!-- Top Bar Start -->
   <!-- ------------------------------------- -->
   <div class="d-none d-md-block topbar-image bg-primary py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
-        <div class="d-flex justify-content-center gap-sm-2 gap-1 align-items-center text-center flex-md-nowrap flex-wrap">
+        <div class=" slide-animation2 d-flex justify-content-center gap-sm-2 gap-1 align-items-center text-center flex-md-nowrap text-nowrap flex-wrap">
             <div class="card text-white bg-dark p-1">
                 <a title="View price details " class="d-flex align-items-center text-decoration-none text-white px-2" href="/price/bitcoin">
                     <div class="d-flex align-items-center">
@@ -132,7 +147,7 @@
             <li class="nav-item">
               <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('events') ? 'active' : '' }}"  wire:navigate href="{{ route('events') }}">Events</a>
             </li>
-            @if(Route::has('login'))
+            @if(auth()?->user())
             <li class="nav-item dropdown">
               <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2 {{ Route::is('videos') ? 'active' : '' }}"  wire:navigate href="{{ route('videos') }}">Videos
               </a>

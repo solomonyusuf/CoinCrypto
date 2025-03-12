@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('article_id')->references('id')->on('articles')->nullable();
             $table->foreignUuid('user_id')->references('id')->on('users')->nullable();
+            $table->boolean('originator')->default(false);
             $table->timestamps();
         });
     }

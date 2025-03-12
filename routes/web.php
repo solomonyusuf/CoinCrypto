@@ -12,6 +12,7 @@ use App\Http\Livewire\Admin\VideosComponent;
 use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
+use App\Http\Livewire\NewsDetailComponent;
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\ResetComponent;
 use Illuminate\Support\Facades\Route;
@@ -37,8 +38,9 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
+Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 
-Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
+
 
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -52,6 +54,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/app-videos', VideosComponent::class)->name('admin_videos');
     
     //REQUESTS
+    Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
+
+
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
     Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
     Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
@@ -67,6 +72,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/create_podcast', [PodcastsComponent::class, 'create'])->name('create_podcast');
     Route::post('/update_podcast/{id}', [PodcastsComponent::class, 'update'])->name('update_podcast');
     Route::get('/delete_podcast/{id}', [PodcastsComponent::class, 'delete'])->name('delete_podcast');
+ 
+    Route::post('/create_publication/{id}', [NewsletterComponent::class, 'publish'])->name('create_publication');
+    
+    Route::post('/create_newsletter', [NewsletterComponent::class, 'create'])->name('create_newsletter');
+    Route::post('/update_newsletter/{id}', [NewsletterComponent::class, 'update'])->name('update_newsletter');
+    Route::get('/delete_newsletter/{id}', [NewsletterComponent::class, 'delete'])->name('delete_newsletter');
  
 });
 

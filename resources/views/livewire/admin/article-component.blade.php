@@ -111,11 +111,16 @@
                     {{ \Carbon\Carbon::parse($data->created_at)->format('g:i A') }}
                   </p>
                   <div class="note-content">
-                    <p class="note-inner-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."> Blandit
+                    <p class="note-inner-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."> 
                       {!! \Illuminate\Support\Str::limit($data->content, '50', '...') !!}
                     </p>
                   </div>
                   <div class="d-flex align-items-center">
+                    <div class="d-flex gap-2">
+                      <i class="ti ti-eye fs-5 text-dark"></i>
+                      <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views}}</p>
+                    </div>
+                    
                     <button data-bs-toggle="modal" data-bs-target="#edit{{ ++$count }}" style="background: transparent; border:0;" class="link me-1">
                       <i class="ti ti-edit fs-4 favourite-note"></i>
                     </button>
@@ -217,7 +222,7 @@
           </div>
         
         </div>
-        
+        {{ $articles->links() }}
       </div>
       <script>
         document.addEventListener('DOMContentLoaded', function () {

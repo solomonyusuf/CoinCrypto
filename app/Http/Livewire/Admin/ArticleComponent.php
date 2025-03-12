@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\ArticleCreator;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class ArticleComponent extends Component
 
     public function GetAll()
     {
-        return Article::orderByDesc('created_at')->get();
+        return Article::orderByDesc('created_at')->paginate(20);
     }
     public function create(Request $request)
     {
@@ -37,7 +38,7 @@ class ArticleComponent extends Component
             $image = $imageName;  
         }
         
-        Article::create([
+        $entity = Article::create([
             'title' => $request->title, 
             'slug'=> Str::slug($request->title, '_'),
             'content' => $request->content,
@@ -47,7 +48,13 @@ class ArticleComponent extends Component
             'category_id' => $request->category_id,
         ]);
 
-        toast('Creation Successful', 'success');
+        ArticleCreator::create([
+            'article_id' => $entity->id,
+		    'user_id'=> auth()->user()->id,
+            'originator'=> true
+        ]);
+
+        //toast('Creation Successful', 'success');
 
         return redirect()->back();
     }
@@ -72,6 +79,19 @@ class ArticleComponent extends Component
             'category_id' => $request->category_id,
         ]);
         $model->save();
+
+        $query = ArticleCreator::where([
+            'user_id'=> auth()->user()->id,
+            'article_id'=> $id
+            ])->first();
+
+        if(!$query)
+        {
+            ArticleCreator::create([
+                'article_id' => $id,
+                'user_id'=> auth()->user()->id
+            ]);
+        }
 
        // toast('Update Successful', 'success');
 

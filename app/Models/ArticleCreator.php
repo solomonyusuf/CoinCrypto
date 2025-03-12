@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property string $id
  * @property string $article_id
+ * @property boolean $originator
  * @property string $user_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -31,7 +32,8 @@ class ArticleCreator extends Model
 	protected $fillable = [
 		'id',
 		'article_id',
-		'user_id'
+		'user_id',
+		'originator'
 	];
 
 	public function article()

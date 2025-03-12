@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\Article;
+use Livewire\Component;
+
+class NewsDetailComponent extends Component
+{
+    public $slug;
+    public $news_id;
+    public function mount($slug, $news_id)
+    {
+        $this->slug = $slug;
+        $this->news_id = $news_id;
+    }
+    public function render()
+    {
+        $model = Article::find($this->news_id);
+
+        return view('livewire.news-detail-component', ['article'=> $model]);
+    }
+}

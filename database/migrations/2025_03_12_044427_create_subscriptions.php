@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('newsletters', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('image')->nullable();
-            $table->text('title')->nullable();
-            $table->text('host_image')->nullable();
-            $table->text('host_name')->nullable();
-            $table->text('description')->nullable();
-            $table->boolean('sponsored')->default(false);
-            $table->boolean('visible')->default(true);
+            $table->foreignUuid('newsletter_id')->references('id')->on('newsletters')->onDelete('cascade');
+            $table->text('email');
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newsletters');
+        Schema::dropIfExists('subscriptions');
     }
 };

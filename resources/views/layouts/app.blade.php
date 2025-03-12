@@ -124,10 +124,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 gap-xl-7 gap-8 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">News</a>
+              <a  class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('home') ? 'active' : '' }}" wire:navigate href="{{ route('home') }}">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active fs-4 fw-bold text-dark link-primary" wire:navigate href="">Prices</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary" wire:navigate href="">Prices</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link fs-4 fw-bold text-dark link-primary d-flex gap-2" wire:navigate href="">Videos
@@ -226,94 +226,55 @@
   <!-- Footer Start -->
   <!-- ------------------------------------- -->
   <footer>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
       <div class="border-bottom">
         <div class="row mb-sm-12 mb-4">
           <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Applications</h3>
+            <h3 class="fs-4 fw-semibold mb-7">News</h3>
             <ul class="d-flex flex-column gap-9">
               <li>
-                <a href="../main/app-kanban.html" class="fs-4 text-body link-primary">Kanban</a>
+                <a href="" class="fs-4 text-body link-primary">Latest</a>
               </li>
               <li>
-                <a href="../main/app-invoice.html" class="fs-4 text-body link-primary">Invoice
-                  List</a>
+                <a href="" class="fs-4 text-body link-primary">Top Stories</a>
+              </li>
+               
+              
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <h3 class="fs-4 fw-semibold mb-7">Events</h3>
+            <ul class="d-flex flex-column gap-9">
+              <li>
+                <a href="" class="fs-4 text-body link-primary">Upcoming</a>
               </li>
               <li>
-                <a href="../main/eco-shop.html" class="fs-4 text-body link-primary">eCommerce</a>
-              </li>
-              <li>
-                <a href="../main/app-chat.html" class="fs-4 text-body link-primary">Chat</a>
-              </li>
-              <li>
-                <a href="../main/app-calendar.html" class="fs-4 text-body link-primary">Calendar</a>
-              </li>
-              <li>
-                <a href="../main/blog-posts.html" class="fs-4 text-body link-primary">Blog</a>
+                <a href="" class="fs-4 text-body link-primary">All</a>
               </li>
             </ul>
           </div>
           <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Forms</h3>
+            <h3 class="fs-4 fw-semibold mb-7">Podcasts</h3>
             <ul class="d-flex flex-column gap-9">
               <li>
-                <a href="../main/form-basic.html" class="fs-4 text-body link-primary">Form
-                  Basic</a>
+                <a href="" class="fs-4 text-body link-primary">Latest</a>
               </li>
               <li>
-                <a href="../main/form-horizontal.html" class="fs-4 text-body link-primary">Form
-                  Horizontal</a>
-              </li>
-              <li>
-                <a href="../main/form-wizard.html" class="fs-4 text-body link-primary">Form
-                  Wizard</a>
-              </li>
-              <li>
-                <a href="../main/form-bootstrap-validation.html" class="fs-4 text-body link-primary">Form Validation
-                </a>
-              </li>
-              <li>
-                <a href="../main/form-editor-quill.html" class="fs-4 text-body link-primary">Quill Editor</a>
+                <a href="" class="fs-4 text-body link-primary">Episodes</a>
               </li>
             </ul>
           </div>
           <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Tables</h3>
-            <ul class="d-flex flex-column gap-9">
-              <li>
-                <a href="../main/table-basic.html" class="fs-4 text-body link-primary">Basic
-                  Table</a>
-              </li>
-              <li>
-                <a href="../main/table-dark-basic.html" class="fs-4 text-body link-primary">Table
-                  Dark Basic</a>
-              </li>
-              <li>
-                <a href="../main/table-sizing.html" class="fs-4 text-body link-primary">Table
-                  Sizing</a>
-              </li>
-              <li>
-                <a href="../main/table-layout-coloured.html" class="fs-4 text-body link-primary">Coloured Table</a>
-              </li>
-              <li>
-                <a href="../main/table-datatable-basic.html" class="fs-4 text-body link-primary">Basic Initialisation</a>
-              </li>
-              <li>
-                <a href="../main/table-datatable-api.html" class="fs-4 text-body link-primary">API</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Follow us</h3>
+            <h3 class="fs-4 fw-semibold mb-7">Socical</h3>
             <div class="d-flex gap-9">
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Facebook">
-                <img src="../assets/images/frontend-pages/icon-facebook.svg" alt="facebook">
+                <i class="ti ti-brand-facebook"></i>
               </a>
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Twitter">
-                <img src="../assets/images/frontend-pages/icon-twitter.svg" alt="twitter">
+                <i class="ti ti-brand-twitter"></i>
               </a>
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Instagram">
-                <img src="../assets/images/frontend-pages/icon-instagram.svg" alt="instagram">
+                <i class="ti ti-brand-instagram"></i>
               </a>
             </div>
           </div>
@@ -321,12 +282,10 @@
       </div>
       <div class="d-flex justify-content-between py-7 flex-md-nowrap flex-wrap gap-sm-0 gap-3">
         <div class="d-flex gap-3 align-items-center">
-          <img src="../assets/images/logos/favicon.png" alt="icon">
-          <p class="fs-4 mb-0">All rights reserved by Modernize. </p>
+          <img src="icon.png" style="height:45px;" alt="icon">
+          <p class="fs-4 mb-0">All rights reserved by CoinCrypto. </p>
         </div>
-        <div>
-          <p class="mb-0">Produced by <a target="_blank" href="https://adminmart.com/" class="text-primary link-primary">AdminMart</a>.</p>
-        </div>
+        
       </div>
     </div>
   </footer>

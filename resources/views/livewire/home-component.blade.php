@@ -149,6 +149,7 @@
       @endif
       @endif
       
+      <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
       @foreach ($articles as $data)
       <div class="col-md-6 col-lg-4">
         <div class="card overflow-hidden hover-img">

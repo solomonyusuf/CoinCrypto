@@ -84,7 +84,7 @@
       <h4 class="fw-semibold mb-4">Top Stories</h4>
       @foreach ($top as $data)
       <div class="col-md-6 col-lg-6">
-        <div style="background:url({{ asset($data->image) }});" class="card blog blog-img-one position-relative overflow-hidden hover-img">
+        <div style="background:url('{{ asset($data->image) }}');" class="card blog blog-img-one position-relative overflow-hidden hover-img">
           <div class="card-body position-relative">
             <div class="d-flex flex-column justify-content-between h-100">
               <div class="d-flex align-items-start justify-content-between">

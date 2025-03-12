@@ -1,4 +1,20 @@
 <div>
+  <style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .video-container iframe,
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+</style>
     <div class="custom-container mt-3">
         @if(count($videos) == 0)
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -17,9 +33,18 @@
           </style>
           <div class="row mb-3">
             <div class="col-lg-6 pe-lg-0 mb-3">
-                <div class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
-                 
-                </div>
+              <div class="video-container">
+                @if (Str::contains($data->link, 'youtube.com') || Str::contains($data->link, 'vimeo.com'))
+                    <!-- YouTube/Vimeo Embed -->
+                    <iframe src="{{ $data->link }}" frameborder="0" allowfullscreen></iframe>
+                @else
+                    <!-- Direct MP4 Player -->
+                    <video controls>
+                        <source src="{{ $data->link }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @endif
+            </div>
               </div>
               <div class="col-lg-6 ps-lg-0 mb-3">
                 <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">

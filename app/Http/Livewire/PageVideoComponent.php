@@ -2,12 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppVideo;
 use Livewire\Component;
 
 class PageVideoComponent extends Component
 {
     public function render()
     {
-        return view('livewire.page-video-component');
+        $videos = AppVideo::orderByDesc('created_at')->get();
+        
+        return view('livewire.page-video-component',[
+            'videos'=> $videos
+        ]);
     }
 }

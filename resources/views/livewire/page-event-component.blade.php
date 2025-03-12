@@ -1,5 +1,14 @@
 <div>
     <div class="custom-container mt-3">
+        @if(count($events) == 0)
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+          <div class="text-center">
+              <img src="https://img.icons8.com/?size=100&id=45967&format=png&color=000000" alt="No Data Icon" class="mb-3">
+              <h4 class="fw-bold text-muted">No Data Available</h4>
+              <p class="text-secondary">It looks like there's nothing to show here yet.</p>
+          </div>
+      </div>
+        @endif
         @foreach ($events as $data)
         <style>
             .blog-bg{

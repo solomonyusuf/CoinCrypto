@@ -50,6 +50,13 @@
     min-width: 250px; /* Ensure all cards have equal width */
     margin-right: 10px; /* Space between cards */
 }
+.blog-bg iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
   </style>
 <body>
@@ -328,7 +335,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('podcasts') ? 'active' : '' }}"  wire:navigate href="{{ route('podcasts') }}">Poadcasts</a>
+              <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('podcasts') ? 'active' : '' }}"  wire:navigate href="{{ route('podcasts') }}">Podcasts</a>
             </li>
              <li class="nav-item">
               <a class="nav-link fs-4 fw-bold text-dark link-primary {{ Route::is('newsletter') ? 'active' : '' }}"  wire:navigate href="{{ route('newsletters') }}">Newsletters</a>

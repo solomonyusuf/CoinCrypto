@@ -3,7 +3,6 @@
 
     @if(count($latests) > 0)
     <div class="row">
-
       <div class="card data-shadow rounded-3 mb-7">
         <div class="row">
           <h4 class="fw-semibold mb-4">Latest News</h4>
@@ -76,8 +75,8 @@
 
           @endforeach
         </div>
-      </div>
     </div>
+  
     @endif
      
     <div class="row">

@@ -33,7 +33,7 @@ class NewsletterComponent extends Component
         Newsletter::create([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=> $request->sponsored,
+            //'sponsored'=> $request->sponsored,
             'image'=> $image,
             'visible'=> $request->visible,
             'link'=> $request->link,
@@ -63,7 +63,7 @@ class NewsletterComponent extends Component
         $model->update([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=> $request->sponsored,
+            //'sponsored'=> $request->sponsored,
             'image'=> $image,
             'visible'=> $request->visible,
             'host_image'=> $host_image,

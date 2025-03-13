@@ -152,14 +152,14 @@
                                     <textarea id="text{{ $count }}" name="content" style="height:400px;"  placeholder="" type="text" class="form-control">
                                      </textarea>
                                   </div>
-                                  <div class="mb-3">
+                                  {{-- <div class="mb-3">
                                     <label  class="form-label">Publish *</label>
                                     <select required name='publish' class="form-control">
                                       <option selected value=""> -- Choose --</option>
                                       <option value="1"> true</option>
                                       <option value="0"> false</option>
                                     </select>
-                                  </div>
+                                  </div> --}}
                                   
                                 </div>
                             </div>

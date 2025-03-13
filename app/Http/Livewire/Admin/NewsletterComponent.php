@@ -89,7 +89,7 @@ class NewsletterComponent extends Component
         $entity = Release::create([
             'newsletter_id' => $id,
             'content'=> $request->content,
-            'publish'=> $request->publish
+            'publish'=> true
         ]);
 
         SendBulkEmails::dispatch($entity->id);

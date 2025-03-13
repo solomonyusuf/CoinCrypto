@@ -35,6 +35,7 @@
             padding: 20px;
             text-align: center;
         }
+        
         .content h2 {
             color: #321dff;
         }
@@ -47,6 +48,9 @@
             border-radius: 5px;
             font-size: 16px;
             margin-top: 20px;
+        }
+        a{
+            color:white;
         }
         .footer {
             text-align: center;

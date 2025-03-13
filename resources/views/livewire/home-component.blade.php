@@ -1,9 +1,9 @@
 <div>
   <div class="container-fluid mt-4">
-
-    @if(count($latests) > 0)
     <div class="row">
 
+    @if(count($latests) > 0)
+    
       <div class="card data-shadow rounded-3 mb-7">
         <div class="row">
           <h4 class="fw-semibold mb-4">Latest News</h4>
@@ -75,11 +75,11 @@
           @endforeach
         </div>
       </div>
-    </div>
+     
     @endif
      
-    <div class="row">
-      <h4 class="fw-semibold mb-4">Top Stories</h4>
+    @if(count($top) > 0)
+    <h4 class="fw-semibold mb-4">Top Stories</h4>
       @foreach ($top as $data)
       <div class="col-md-6 col-lg-6">
         <div style="background:url('{{ asset($data->image) }}');"
@@ -122,10 +122,10 @@
         </div>
       </div>
       @endforeach
-    </div>
+   @endif
+  
 
-    <div class="row">
-      @if($categories)
+    @if($categories)
       @if(count($categories) > 0)
       @foreach ($categories as $category)
       @if(count($category?->articles) > 0)
@@ -158,10 +158,10 @@
 
       @endif
       @endif
-    </div>
+   
 
-    <div class="row">
-      <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
+     @if(count($articles) > 0)
+     <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
       @foreach ($articles as $data)
       <div class="col-md-6 col-lg-4">
         <div class="card overflow-hidden hover-img">
@@ -204,7 +204,8 @@
       </div>
       @endforeach
       {{ $articles->links() }}
-    </div>
+      @endif
+    
     
     {{-- <nav aria-label="...">
       <ul class="pagination justify-content-center mb-0 mt-4">

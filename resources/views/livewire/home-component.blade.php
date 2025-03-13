@@ -8,16 +8,11 @@
         <div class="row">
           <h4 class="fw-semibold mb-4">Latest News</h4>
           @foreach ($latests as $latest)
-          <style>
-            .blog-bg {
-              background:url({{ asset($latest->image)}});
-            }
-            
-          </style>
+
           <div class="col-lg-6 pe-lg-0 mb-3">
             <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
 
-              <div class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
+              <div style="background:url('{{ asset($latest->image)}}')" class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
                 <img
                   src="{{ $latest?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $latest?->article_creators->first()?->user?->image}}"
                   alt="user" width="44" height="44" class="rounded-circle">

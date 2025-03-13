@@ -1,3 +1,6 @@
+<?php
+  $user = \App\Models\User::find(auth()->user()?->id);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
@@ -18,12 +21,11 @@
   <!-- Owl Carousel  -->
   <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
-  
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-  
-  <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
 </head>
 <style>
   @keyframes slideLeft {
@@ -64,7 +66,10 @@
         width: 100%;
         height: 100%;
     }
-
+    #dt-length-0
+    {
+      margin:4px;
+    }
   </style>
 <body>
     @include('sweetalert::alert')
@@ -132,6 +137,21 @@
           </div>
           @endif
             
+          @endif
+
+          @if(auth()?->user())
+          <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
+           <li class="nav-item px-2">
+              <a class="nav-link pe-0" href="/profile" id="drop1" aria-expanded="false">
+                <div class="d-flex align-items-center">
+                  <img src="{{ $user?->image }}" class="rounded-circle" width="30" height="30" >
+                </div>
+              </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="{{ route('logout') }}" class="btn btn-outline-danger py-8"> Logout </a>
+            </li>
+          </ul>
           @endif
         </div>
       </div>
@@ -311,53 +331,6 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
- <script>
-                $(document).ready(function () {
-                    $('#pricesTable').DataTable({
-                        processing: true,
-                        responsive: true, // Makes it mobile-friendly
-                        stateSave: true, // Saves user settings (like sorting, filtering)
-                        pagingType: "full_numbers", // Advanced pagination controls
-                        order: [[0, "desc"]], // Default sorting (change column index if needed)
-                        dom: "Bfrtip", // Enables Buttons
-                        buttons: [
-                            {
-                                extend: "copy",
-                                text: "📋 Copy",
-                                className: "btn btn-secondary",
-                            },
-                            {
-                                extend: "csv",
-                                text: "📥 CSV",
-                                className: "btn btn-success",
-                            },
-                            {
-                                extend: "excel",
-                                text: "📊 Excel",
-                                className: "btn btn-primary",
-                            },
-                            {
-                                extend: "pdf",
-                                text: "📄 PDF",
-                                className: "btn btn-danger",
-                            },
-                            {
-                                extend: "print",
-                                text: "🖨️ Print",
-                                className: "btn btn-info",
-                            },
-                        ],
-                        language: {
-                            search: "🔍 Search:",
-                            lengthMenu: "Show _MENU_ entries",
-                            zeroRecords: "No matching records found",
-                            info: "Showing _START_ to _END_ of _TOTAL_ entries",
-                            infoFiltered: "(filtered from _MAX_ total entries)",
-                        },
-                        
-                    });
-                });
-            </script>
-</body>
+ </body>
 
 </html>

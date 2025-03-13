@@ -1,5 +1,6 @@
 <div>
   <div class="container mt-3">
+    @if(count($articles) > 0)
     <div class="mb-3">
           <h4 class="fw-semibold mb-3">Sponsored Articles</h4>
           @if(count($articles) == 0)
@@ -52,6 +53,8 @@
         </div>
         {{ $articles->links() }}
     </div>
+    @endif
+    @if(count($videos) > 0)
     <div class="mb-3">
       <h4 class="fw-semibold mb-3">Sponsored Videos</h4>
           @foreach ($videos as $data)
@@ -78,6 +81,8 @@
           @endforeach
           {{ $videos->links() }}
     </div>
+    @endif
+    @if(count($events) > 0)
     <div class="mb-3">
       <h4 class="fw-semibold mb-3">Sponsored Events</h4>
       @foreach ($events as $data)
@@ -134,6 +139,7 @@
             </div>
           @endforeach
     </div>
+    @endif
   
   </div>
 </div>

@@ -46,7 +46,7 @@ class RegisterComponent extends Component
                     "
                     <p>Welcome to our platform! Your account has been successfully created.</p>
                         <p>To get started, please verify your email by clicking the button below.</p>
-                        <a href=\"{$url}\" class=\"button\">Access Account</a>"
+                        <a style=\"color:white;\" href=\"{$url}\" class=\"button\" >Access Account</a>"
                 ));
                 
                 toast('Account Created Successfully', 'success');

@@ -25,9 +25,9 @@ class PagePriceComponent extends Component
         $response = Http::withHeaders([
             'x-cg-demo-api-key' => $key  
         ])->get('https://api.coingecko.com/api/v3/coins/markets', [
-            'vs_currency' => 'usd',  // Correct parameter
+            'vs_currency' => 'usd',   
             'ids' => $coins,  
-            'order' => 'market_cap_desc',  // Sort by market cap
+            'order' => 'market_cap_desc',   
             'per_page' => 100,  
             'page' => 1,  
             'sparkline' => false,  

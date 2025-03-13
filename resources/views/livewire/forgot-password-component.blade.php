@@ -10,7 +10,7 @@
           <div class="col-md-8 col-lg-6 col-xxl-3 auth-card">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="" class="text-nowrap logo-img text-center d-block mb-5 w-100">
+                <a href="{{ route('home') }}" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                   <img src="logo.png" style="height:40px;" alt="Logo-light" style="display: none;">
                 </a>
              

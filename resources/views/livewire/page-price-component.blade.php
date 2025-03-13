@@ -1,4 +1,14 @@
 <div>
+  <style>
+    #myTable th:first-child,
+    #myTable td:first-child {
+        position: sticky;
+        left: 0;
+        background: white; /* Adjust this based on your theme */
+        z-index: 10;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow effect */
+    }
+    </style>
     <div class="container-fluid">
         <div class="col-md-5">
         <h4 class="fw-semibold mb-4 mt-3">Top Cryptocurrency Prices and Market Cap</h4>
@@ -7,9 +17,9 @@
          </p>
         </div>
         <div class="row justify-content-center mt-3">
-            <div class="table-responsive mb-4 border rounded-1">
+            <div wire:ignore class="table-responsive mb-4 border rounded-1">
 
-                <table id="myTable" class="table text-nowrap mb-0 align-middle">
+                <table  id="myTable" class="table text-nowrap mb-0 align-middle">
                   <thead class="text-dark fs-4">
                     <tr>
                       <th>
@@ -75,7 +85,8 @@
         document.addEventListener('livewire:load', function () {
             setInterval(() => {
                 Livewire.emit('fetchPrice'); // Auto refresh every 60s
-            }, 60000); // 60,000 ms = 60 seconds
+                new DataTable('#myTable');
+              }, 10000); 
         });
     </script>
 </div>

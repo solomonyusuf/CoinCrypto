@@ -5,7 +5,7 @@
             @forelse ($price as $coin => $data)
             <div class="col-md-3 mb-1">
                 <div class="card text-white bg-dark p-1">
-                    <a title="View price details" class="d-flex align-items-center text-decoration-none text-white px-2">
+                    <a title="View price details" class="d-flex align-items-center text-decoration-none text-white px-3">
                         <div class="d-flex align-items-center">
                             <span class="fw-bolder text-uppercase">{{ strtoupper($coin) }}</span>
                             <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height="20" width="20" fill="none">

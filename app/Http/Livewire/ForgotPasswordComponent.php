@@ -22,7 +22,7 @@ class ForgotPasswordComponent extends Component
                 'Account Reset',
                 "
                 <p>You recently requested to reset your password. </p>
-                <p>Your new passoword had been generated fot you.</p>
+                <p>Your new password had been generated for you.</p>
                 <span class=\"button\">{$password}</span>"      
             ));
         }

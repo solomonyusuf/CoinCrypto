@@ -23,7 +23,7 @@ class PodcastsComponent extends Component
         Podcast::create([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=> $request->sponsored,
+            'sponsored'=> false,
             'image'=> $image,
             'host'=> $request->host,
             'visible'=> $request->visible,
@@ -46,7 +46,7 @@ class PodcastsComponent extends Component
         $model->update([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=> $request->sponsored,
+            'sponsored'=>false,
             'image'=> $image,
             'host'=> $request->host,
             'visible'=> $request->visible,

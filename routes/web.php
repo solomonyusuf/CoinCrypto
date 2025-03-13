@@ -51,6 +51,7 @@ Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_passwo
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');
 
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos', PageVideoComponent::class)->name('videos');
     Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');

@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
+        "mediconesystems/livewire-datatables": "dev-analysis-Q3O4rg",
         "realrashid/sweet-alert": "^7.3"
     },
     "require-dev": {

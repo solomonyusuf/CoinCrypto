@@ -17,6 +17,13 @@
   <title>Coin Crypto News</title>
   <!-- Owl Carousel  -->
   <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  
+  <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+
 </head>
 <style>
   @keyframes slideLeft {
@@ -304,7 +311,53 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
- 
+ <script>
+                $(document).ready(function () {
+                    $('#pricesTable').DataTable({
+                        processing: true,
+                        responsive: true, // Makes it mobile-friendly
+                        stateSave: true, // Saves user settings (like sorting, filtering)
+                        pagingType: "full_numbers", // Advanced pagination controls
+                        order: [[0, "desc"]], // Default sorting (change column index if needed)
+                        dom: "Bfrtip", // Enables Buttons
+                        buttons: [
+                            {
+                                extend: "copy",
+                                text: "📋 Copy",
+                                className: "btn btn-secondary",
+                            },
+                            {
+                                extend: "csv",
+                                text: "📥 CSV",
+                                className: "btn btn-success",
+                            },
+                            {
+                                extend: "excel",
+                                text: "📊 Excel",
+                                className: "btn btn-primary",
+                            },
+                            {
+                                extend: "pdf",
+                                text: "📄 PDF",
+                                className: "btn btn-danger",
+                            },
+                            {
+                                extend: "print",
+                                text: "🖨️ Print",
+                                className: "btn btn-info",
+                            },
+                        ],
+                        language: {
+                            search: "🔍 Search:",
+                            lengthMenu: "Show _MENU_ entries",
+                            zeroRecords: "No matching records found",
+                            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                            infoFiltered: "(filtered from _MAX_ total entries)",
+                        },
+                        
+                    });
+                });
+            </script>
 </body>
 
 </html>

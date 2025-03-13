@@ -1,15 +1,15 @@
 <div>
   <div class="container-fluid mt-4">
-    <div class="row">
 
     @if(count($latests) > 0)
-    
+    <div class="row">
+
       <div class="card data-shadow rounded-3 mb-7">
         <div class="row">
           <h4 class="fw-semibold mb-4">Latest News</h4>
           @foreach ($latests as $latest)
 
-          <div class="col-lg-6 pe-lg-0 mb-3">
+          <div class="col-lg-6 mb-3">
             <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
 
               <div style="background:url('{{ asset($latest->image)}}')" class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
@@ -19,7 +19,7 @@
               </div>
             </a>
           </div>
-          <div class="col-lg-6 ps-lg-0 mb-3">
+          <div class="col-lg-6 mb-3">
             <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
               <div class="py-4 d-flex flex-column gap-3">
                 <div class="d-flex">
@@ -75,11 +75,11 @@
           @endforeach
         </div>
       </div>
-     
+    </div>
     @endif
      
-    @if(count($top) > 0)
-    <h4 class="fw-semibold mb-4">Top Stories</h4>
+    <div class="row">
+      <h4 class="fw-semibold mb-4">Top Stories</h4>
       @foreach ($top as $data)
       <div class="col-md-6 col-lg-6">
         <div style="background:url('{{ asset($data->image) }}');"
@@ -122,10 +122,10 @@
         </div>
       </div>
       @endforeach
-   @endif
-  
+    </div>
 
-    @if($categories)
+    <div class="row">
+      @if($categories)
       @if(count($categories) > 0)
       @foreach ($categories as $category)
       @if(count($category?->articles) > 0)
@@ -158,10 +158,10 @@
 
       @endif
       @endif
-   
+    </div>
 
-     @if(count($articles) > 0)
-     <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
+    <div class="row">
+      <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
       @foreach ($articles as $data)
       <div class="col-md-6 col-lg-4">
         <div class="card overflow-hidden hover-img">
@@ -204,8 +204,7 @@
       </div>
       @endforeach
       {{ $articles->links() }}
-      @endif
-    
+    </div>
     
     {{-- <nav aria-label="...">
       <ul class="pagination justify-content-center mb-0 mt-4">

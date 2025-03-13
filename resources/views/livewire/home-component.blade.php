@@ -9,64 +9,66 @@
           <h4 class="fw-semibold mb-4">Latest News</h4>
           @foreach ($latests as $latest)
 
-          <div class="col-lg-6 mb-3">
-            <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
-
-              <div style="background:url('{{ asset($latest->image)}}')" class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
-                <img
-                  src="{{ $latest?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $latest?->article_creators->first()?->user?->image}}"
-                  alt="user" width="44" height="44" class="rounded-circle">
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-6 mb-3">
-            <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
-              <div class="py-4 d-flex flex-column gap-3">
-                <div class="d-flex">
-
-                  <p class="fs-2 px-2 rounded-pill bg-muted bg-opacity-25 text-dark mb-0">
-                    {{ $latest?->article_category?->title }}
-                  </p>
+          <div class="row">
+            <div class="col-lg-6 mb-3">
+              <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
+  
+                <div style="background:url('{{ asset($latest->image)}}')" class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
+                  <img
+                    src="{{ $latest?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $latest?->article_creators->first()?->user?->image}}"
+                    alt="user" width="44" height="44" class="rounded-circle">
                 </div>
-                <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
-
-                  <h2 class="fw-bolder fs-14 mb-0">
-                    {{ $latest->title }}
-                  </h2>
-                </a>
-                <p class="mb-0">
-                  {!! \Illuminate\Support\Str::limit($latest->content, '150', '...') !!}
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex gap-9">
-                    <div class="d-flex gap-2">
-                      <i class="ti ti-eye fs-5 text-dark"></i>
-                      <p class="mb-0 fs-2 fw-semibold text-dark">{{ $latest->views }}</p>
-                    </div>
-                    <div class="d-flex gap-2">
-                      <i class="ti ti-user fs-5 text-dark"></i>
-                      <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($latest?->article_creators)}}</p>
-                    </div>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <i class="ti ti-circle"></i>
-                    <p class="mb-0 fs-2 fw-semibold text-dark">
-                      {{ \Carbon\Carbon::parse($latest->created_at)->toFormattedDateString()}}&nbsp;
-                      {{ \Carbon\Carbon::parse($latest->created_at)->diffForHumans() }}
-
+              </a>
+            </div>
+            <div class="col-lg-6 mb-3">
+              <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
+                <div class="py-4 d-flex flex-column gap-3">
+                  <div class="d-flex">
+  
+                    <p class="fs-2 px-2 rounded-pill bg-muted bg-opacity-25 text-dark mb-0">
+                      {{ $latest?->article_category?->title }}
                     </p>
                   </div>
+                  <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">
+  
+                    <h2 class="fw-bolder fs-14 mb-0">
+                      {{ $latest->title }}
+                    </h2>
+                  </a>
+                  <p class="mb-0">
+                    {!! \Illuminate\Support\Str::limit($latest->content, '150', '...') !!}
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex gap-9">
+                      <div class="d-flex gap-2">
+                        <i class="ti ti-eye fs-5 text-dark"></i>
+                        <p class="mb-0 fs-2 fw-semibold text-dark">{{ $latest->views }}</p>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <i class="ti ti-user fs-5 text-dark"></i>
+                        <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($latest?->article_creators)}}</p>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                      <i class="ti ti-circle"></i>
+                      <p class="mb-0 fs-2 fw-semibold text-dark">
+                        {{ \Carbon\Carbon::parse($latest->created_at)->toFormattedDateString()}}&nbsp;
+                        {{ \Carbon\Carbon::parse($latest->created_at)->diffForHumans() }}
+  
+                      </p>
+                    </div>
+                  </div>
+                  <p class="mb-0 fs-2 fw-semibold text-dark text-uppercase">by
+                    @foreach ($latest?->article_creators as $item)
+  
+                    @if($item != $latest?->article_creators[0])
+                    ,
+                    @endif
+                    {{$item?->user?->first_name.' '.$item?->user?->last_name}}
+  
+                    @endforeach
+                  </p>
                 </div>
-                <p class="mb-0 fs-2 fw-semibold text-dark text-uppercase">by
-                  @foreach ($latest?->article_creators as $item)
-
-                  @if($item != $latest?->article_creators[0])
-                  ,
-                  @endif
-                  {{$item?->user?->first_name.' '.$item?->user?->last_name}}
-
-                  @endforeach
-                </p>
               </div>
             </div>
           </div>

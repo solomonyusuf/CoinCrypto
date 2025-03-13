@@ -1,9 +1,7 @@
 <div>
     <div class="container-fluid mt-2">
         <form enctype="multipart/form-data" wire:submit.prevent="update" class="modal-content border-0">
-            <div class="modal-header text-bg-primary">
-              <h6 class="modal-title text-white">Edit Profile</h6>
-            </div>
+         
             <div class="modal-body">
               <div class="notes-box">
                 <div class="notes-content">

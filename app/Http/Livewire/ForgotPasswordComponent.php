@@ -18,6 +18,10 @@ class ForgotPasswordComponent extends Component
         if($user)
         {
             $password = 'C'.rand(00001,99999).'N';
+            
+            $user->password = bcrypt($password);
+            $user->save();
+
             Mail::to($user->email)->send(new AppMail(
                 'Account Reset',
                 "

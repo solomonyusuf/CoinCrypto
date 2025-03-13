@@ -10,10 +10,9 @@
           @foreach ($latests as $latest)
           <style>
             .blog-bg {
-              background:url({{ asset($latest->image)
+              background:url({{ asset($latest->image)}});
             }
-            });
-            }
+            
           </style>
           <div class="col-lg-6 pe-lg-0 mb-3">
             <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}">

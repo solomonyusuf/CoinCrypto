@@ -10,7 +10,7 @@ class UploadController
     {
         $client = $request?->image->getClientOriginalExtension();
 
-        if ($client == 'pdf' || $client == 'doc' || $client == 'jpg' || $client == 'png' || $client == 'jpeg') {
+        if ($client == 'pdf' || $client == 'doc' || $client == 'jpg' || $client == 'png' || $client == 'jpeg'  || $client == 'avif') {
             $file = asset('uploads/'. uniqid() . time() . '.' . $request->image->getClientOriginalName());
             $request->image->move(public_path('uploads'), $file);
 
@@ -21,7 +21,7 @@ class UploadController
     {
         $client = $request?->host_image->getClientOriginalExtension();
 
-            if ($client == 'pdf' || $client == 'doc' || $client == 'jpg' || $client == 'png' || $client == 'jpeg') {
+            if ($client == 'pdf' || $client == 'doc' || $client == 'jpg' || $client == 'png' || $client == 'jpeg'|| $client == 'avif') {
                 $file = asset('uploads/'. uniqid() . time() . '.' . request()->host_image->getClientOriginalName());
                 $request->host_image->move(public_path('uploads'), $file);
 

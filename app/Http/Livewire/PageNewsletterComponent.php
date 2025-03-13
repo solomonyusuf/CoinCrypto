@@ -19,12 +19,12 @@ class PageNewsletterComponent extends Component
 
         if($check) return redirect()->back();
 
-        Subscription::create([
+        $sub = Subscription::create([
             'newsletter_id' => $id,
             'email' =>  $request->email,
         ]);
 
-        $url = route('activate_sub', $id);
+        $url = route('activate_sub', $sub->id);
         Mail::to($request->email)->send(new AppMail(
             'Activate Subscription',
             "

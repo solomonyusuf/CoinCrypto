@@ -86,6 +86,7 @@ class ArticleComponent extends Component
 
         if(!$query)
         {
+
             ArticleCreator::create([
                 'article_id' => $id,
                 'user_id'=> auth()->user()->id
@@ -98,7 +99,8 @@ class ArticleComponent extends Component
     }
      public function delete($id)
     {
-        Article::find($id)->delete();
+        ArticleCreator::where('article_id', $id)->delete(); // Deletes all related records
+        Article::where('id', $id)->delete();
 
         //toast('Deletion Successful', 'success');
 

@@ -41,7 +41,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeComponent::class)->name('home');
 Route::get('/prices', PagePriceComponent::class)->name('prices');
 Route::get('/event', PageEventComponent::class)->name('events');
-    
+   
+Route::get('/start-queue', function () {
+    Artisan::call('queue:work --daemon'); // Starts queue worker
+    toast("Queue Running", 'success');
+    return redirect()->back();
+});
 
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');

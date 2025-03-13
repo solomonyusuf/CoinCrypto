@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Http\Controllers\UploadController;
+use App\Jobs\SendBulkEmails;
 use App\Models\Newsletter;
 use App\Models\Release;
 use Livewire\Component;
@@ -83,11 +84,13 @@ class NewsletterComponent extends Component
     public function publish($id, Request $request)
     {
 
-        Release::create([
+        $entity = Release::create([
             'newsletter_id' => $id,
             'content'=> $request->content,
             'publish'=> $request->publish
         ]);
+
+        SendBulkEmails::dispatch($entity->id);
 
         //toast('Creation Successful', 'success');
 

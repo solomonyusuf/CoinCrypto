@@ -86,7 +86,7 @@
             setInterval(() => {
                 Livewire.emit('fetchPrice'); // Auto refresh every 60s
                 new DataTable('#myTable');
-              }, 10000); 
+              }, 30000); 
         });
     </script>
 </div>

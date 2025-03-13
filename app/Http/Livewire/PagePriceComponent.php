@@ -24,29 +24,20 @@ class PagePriceComponent extends Component
 
         $response = Http::withHeaders([
             'x-cg-demo-api-key' => $key  
-        ])->get('https://api.coingecko.com/api/v3/simple/price', [
-            'ids' =>  $coins, 
-            'vs_currencies' => 'usd',
-            'include_24hr_change' => 'true',
-            'include_market_cap' => 'true',   
-            'include_24hr_vol' => 'true',    
-            'include_24hr_high' => 'true',   
-            'include_24hr_low' => 'true',     
-    
+        ])->get('https://api.coingecko.com/api/v3/coins/markets', [
+            'vs_currency' => 'usd',  // Correct parameter
+            'ids' => $coins,  
+            'order' => 'market_cap_desc',  // Sort by market cap
+            'per_page' => 100,  
+            'page' => 1,  
+            'sparkline' => false,  
+            'price_change_percentage' => '24h'
         ]);
 
-        $marketResponse = Http::withHeaders([
-            'x-cg-demo-api-key' => $key  
-        ])->get('https://api.coingecko.com/api/v3/coins/markets', [
-            'vs_currency' => 'usd',
-            'ids' => $coins,
-        ]);
 
         if ($response->successful()) {
             $this->price = $response->json();
-            $this->coins = $marketResponse->json();
 
-         
         } else {
             $this->price = 'Error fetching data';
         }

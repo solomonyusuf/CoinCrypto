@@ -27,7 +27,7 @@ class NewsletterComponent extends Component
         $host_image = '';
 
         if ($request->host_image) {
-            $host_image = UploadController::UploadFile($request, 'host_image'); 
+            $host_image = UploadController::UploadFile2($request); 
          
         }
         Newsletter::create([

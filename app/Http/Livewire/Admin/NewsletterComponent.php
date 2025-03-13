@@ -56,7 +56,7 @@ class NewsletterComponent extends Component
         $host_image = $model->host_image;
 
         if ($request->host_image) {
-            $host_image = UploadController::UploadFile($request, 'host_image'); 
+            $host_image = UploadController::UploadFile2($request); 
         }
         $model->update([
             'title'=> $request->title,

@@ -17,11 +17,11 @@ class HomeComponent extends Component
     }
     public function render()
     {
-        $latests = Article::orderByDesc('created_at')
+        $latests = Article::where(['visible'=> true])->orderByDesc('created_at')
                             ->whereDate('created_at', '=', Carbon::now())
                             ->get();
-        $top = Article::orderBy('views', 'desc')->take(6)->get();;
-        $articles = Article::orderByDesc('created_at')->paginate(20);
+        $top = Article::where(['visible'=> true])->orderBy('views', 'desc')->take(6)->get();;
+        $articles = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(20);
         
         $categories =  ArticleCategory::orderByDesc('created_at')
                            ->get();

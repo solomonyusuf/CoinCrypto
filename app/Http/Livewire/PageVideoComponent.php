@@ -9,7 +9,7 @@ class PageVideoComponent extends Component
 {
     public function render()
     {
-        $videos = AppVideo::orderByDesc('created_at')->get();
+        $videos = AppVideo::where(['visible'=> true])->orderByDesc('created_at')->get();
         
         return view('livewire.page-video-component',[
             'videos'=> $videos

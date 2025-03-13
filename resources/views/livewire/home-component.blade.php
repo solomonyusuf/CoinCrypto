@@ -89,7 +89,7 @@
             <div class="d-flex flex-column justify-content-between h-100">
               <div class="d-flex align-items-start justify-content-between">
                 <div class="position-relative" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="author">
-                  <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image }}"
+                  <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ??  $data?->article_creators->first()?->user?->image}}"
                     class="rounded-circle img-fluid" width="40" height="40">
                 </div>
                 <span class="badge text-bg-primary fs-2 fw-semibold">{{ $data->article_category?->title}}</span>

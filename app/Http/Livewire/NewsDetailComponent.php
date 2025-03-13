@@ -17,11 +17,11 @@ class NewsDetailComponent extends Component
     public function render()
     {
         $model = Article::find($this->news_id);
-        $path = session()->get('view');
+        $path = session()->get($this->news_id);
 
         if(!$path)
         {
-            session()->put('view', 'true');
+            session()->put($this->news_id, 'true');
 
             $model->views += 1;
 

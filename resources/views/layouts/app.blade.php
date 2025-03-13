@@ -142,7 +142,7 @@
           @if(auth()?->user())
           <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
            <li class="nav-item px-2">
-              <a class="nav-link pe-0" href="/profile" id="drop1" aria-expanded="false">
+              <a class="nav-link pe-0" href="{{ route('profile') }}" id="drop1" aria-expanded="false">
                 <div class="d-flex align-items-center">
                   <img src="{{ $user?->image }}" class="rounded-circle" width="30" height="30" >
                 </div>

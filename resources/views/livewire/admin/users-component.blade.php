@@ -108,7 +108,7 @@
                     <td>
                         <div class="d-flex align-items-center">
                             
-                            <img src="{{ asset('storage/' . $data->image) ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg' }}" class="rounded-circle" width="40" height="40">
+                            <img src="{{ asset($data->image) ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg' }}" class="rounded-circle" width="40" height="40">
                             <div class="ms-3">
                                 <h6 class="fs-4 fw-semibold mb-0">{{ $data->first_name.' '.$data->last_name}}</h6>
                                 <span class="fw-normal">{{ $data->email }}</span>
@@ -156,7 +156,7 @@
                                               <div>
                                                 @if($data->image)
                                                 <div class="mb-3">
-                                                   <img src="{{ asset('storage/'. $data->image) }}" style="height:60px;" />
+                                                   <img src="{{ asset($data->image) }}" style="height:60px;" />
                                                   </div>
                                                   @endif
                                                   <div class="mb-3">

@@ -19,6 +19,7 @@ use App\Http\Livewire\PagePodcastComponent;
 use App\Http\Livewire\PagePriceComponent;
 use App\Http\Livewire\PageSponsorsComponent;
 use App\Http\Livewire\PageVideoComponent;
+use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\ResetComponent;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
     Route::get('/podcasts', PagePodcastComponent::class)->name('podcasts');
     Route::get('/newsletter', PageNewsletterComponent::class)->name('newsletters');
+    Route::get('/profile', ProfileComponent::class)->name('profile');
     
     //REQUEST
     Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');

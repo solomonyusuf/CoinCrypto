@@ -22,16 +22,15 @@ class HomeComponent extends Component
                             ->get();
         $top = Article::orderBy('views', 'desc')->take(6)->get();;
         $articles = Article::orderByDesc('created_at')->paginate(20);
-        $crypto =  Article::orderByDesc('created_at')
-                           ->where(['category_id'=> ArticleCategory::where(['title'=> 'crypto'])->first()?->id])
-                           ->take(10)
+        
+        $categories =  ArticleCategory::orderByDesc('created_at')
                            ->get();
 
         return view('livewire.home-component',[
             'latests'=> $latests,
             'articles'=> $articles,
             'top'=> $top,
-            'crypto'=> $crypto,
+            'categories'=> $categories,
         ]);
     }
 }

@@ -1,6 +1,7 @@
 <div>
  
   <div class="container-fluid mt-4">
+
      @if(count($latests) > 0)
       <div class="row">
         
@@ -121,14 +122,20 @@
         </div>
       </div>
       @endforeach
-   
-      @if($crypto)
-      @if(count($crypto) > 0)
+    </div>
+    <div class="row">   
+         
+      @if($categories)
+      @if(count($categories) > 0)
+      @foreach ($categories as $category)
+      @if(count($category?->articles) > 0)
       <div class="col-md-6 col-lg-4">
-        <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest Crypto News</h4>
-                
+        <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
+        <?php
+            $list = \App\Models\Article::orderByDesc('created_at')->where(['category_id'=> $category->id])->limit(10)->get();
+        ?>
         <div class="position-relative mb-2 mt-2">
-          @foreach ($crypto as $data)
+          @foreach ($list as $data)
           <div class="d-flex align-items-center justify-content-between mb-7">
             <div class="d-flex">
               <div>
@@ -147,15 +154,20 @@
         </div>
       </div>
       @endif
+      @endforeach
+
       @endif
-      
+      @endif
+    </div>  
+
+    <div class="row">     
       <h4 class="fw-semibold mb-4 mt-2">All Stories</h4>
       @foreach ($articles as $data)
       <div class="col-md-6 col-lg-4">
         <div class="card overflow-hidden hover-img">
           <div class="position-relative">
             <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-            <img src="{{ asset($data->image) }}" class="card-img-top" alt="modernize-img">
+            <img src="{{ asset($data->image) }}" class="card-img-top" alt="">
             </a>
             
             <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}" alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9" width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top" >
@@ -185,11 +197,8 @@
             </div>
           </div>
         </div>
-      </div>
-     
+      </div>   
       @endforeach
-      
-     
     </div>
     {{ $articles->links() }}
     {{-- <nav aria-label="...">

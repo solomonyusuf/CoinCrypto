@@ -8,9 +8,11 @@ use App\Models\Newsletter;
 use App\Models\Release;
 use Livewire\Component;
 use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
 
 class NewsletterComponent extends Component
 { 
+    use WithFileUploads;
     public $count = 0;
      
     public function create(Request $request)

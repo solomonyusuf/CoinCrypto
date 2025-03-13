@@ -9,7 +9,7 @@ class PageEventComponent extends Component
 {
     public function render()
     {
-        $events = Event::where(['visible'=> true])->orderByDesc('created_at')->get();
+        $events = Event::orderByDesc('created_at')->get();
         return view('livewire.page-event-component', [
             'events'=> $events
         ]);

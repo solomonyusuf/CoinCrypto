@@ -1,9 +1,9 @@
 <div>
   <div class="bg-primary">
     <div class="d-flex relative shadow-md container-fluid justify-center items-center">
-      <div class="row d-flex justify-content-between justify-content-center items-center pt-3 pb-3 w-100">
+      <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100">
         <div class="col-md-5 col-sm-12 justify-content-center ">
-          <h3 class="text-white fw-semibold mt-3 mb-3">
+          <h3 class="text-white fw-semibold mt-4 mb-1">
             Consensus 2025 Prices Rise Soon
           </h3>
         </div>
@@ -85,7 +85,7 @@
              {{ $video->title }}
             </h3>
            <div class="d-flex gap-2">
-            <span class="fw-semibold d-flex align-items-center">
+            <span class="d-flex align-items-center">
               {!! $video->description !!}
             </span>
            </div>
@@ -219,7 +219,7 @@
       @endforeach
     </div> --}}
 
-    <div class="row mt-4">
+    <div class="row mt-4 border-bottom">
       <div class="col-md-4">
         @if($categories)
         @if(count($categories) > 0)
@@ -255,14 +255,14 @@
         @endif
         @endif
       </div>
-      <div class="col-md-8 col-lg-8 row">
+      <div class="col-md-8 col-lg-8">
         <h4 class="fw-semibold mb-4 mt-2">Top Stories</h4>
-        <div class=" row justify-content-center">
+        <div class="row justify-content-center">
         @foreach ($top as $data)
-        <div class="col-md-6 col-sm-12  border-bottom">
-          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex">
+        <div class="col-md-6 col-sm-12 border-bottom">
+          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
             <div class="card-body d-flex gap-2">
-              <div class="text-warning round-48 rounded-1 hstack justify-content-center">
+              <div class="text-warning round-48 rounded-1  justify-content-center">
                 <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
               </div>
               <div class="">
@@ -318,51 +318,43 @@
       </div>
     </div>
 
-    
-    
-    {{-- <nav aria-label="...">
-      <ul class="pagination justify-content-center mb-0 mt-4">
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">
-            <i class="ti ti-chevron-left"></i>
-          </a>
-        </li>
-        <li class="page-item active" aria-current="page">
-          <a class="page-link border-0 rounded-circle round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">4</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">5</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">...</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">10</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link border-0 rounded-circle text-dark round-32 d-flex align-items-center justify-content-center"
-            href="javascript:void(0)">
-            <i class="ti ti-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </nav> --}}
+    <div class="container mt-4 border-bottom">
+      <h5 class="fw-bold">Newsletters  </h5>
+      
+      <form action="{{ route('subscribe', 'test') }}" method="post" class="row mb-3">
+        @csrf
+          <!-- Subscription Box -->
+          <div class="col-md-4">
+              <div class="subscribe-box">
+                  <h5><strong>Don't miss another story.</strong></h5>
+                  <p>Subscribe to the CoinCrypto Newsletter today.</p>
+                  <input type="email" name="email" class="form-control mb-2" placeholder="Enter your Email">
+                  <button type="submit" class="btn btn-primary w-100">Sign  up  →</button>
+                  <small class="d-block mt-2">
+                      By signing up, you will receive emails about CoinCrypto products and you agree to our 
+                      <a href="#">terms of use</a> and <a href="#">privacy policy</a>.
+                  </small>
+              </div>
+          </div>
+  
+          <!-- Newsletter Options -->
+          <div class="col-md-8 mt-2">
+            <div class="row justify-content-between">
+                
+            @foreach ($newsletters as $data)
+             <div class="col-md-5 border-bottom">
+                    <div class="newsletter-item py-2">
+                        <div class="d-flex gap-2">
+                          <input name="letter_id[]" value="{{ $data->id }}" type="checkbox"> <h6 class="fw-semibold"/>{{ $data->title }}</h6>
+                        </div>
+                        <p>{!! $data->description !!}</p>
+                    </div>
+                </div>
+            
+            @endforeach
+          </div> 
+          </div>
+      </form>
+   </div>
   </div>
 </div>

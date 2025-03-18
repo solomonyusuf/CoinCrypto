@@ -15,12 +15,25 @@ class PageNewsletterComponent extends Component
 
     public function subscribe($id, Request $request)
     {
+        
         $check = Subscription::where(['email'=> $request->email])->first();
 
-        if($check) return redirect()->back();
+        if($check){
+            toast('Subscribed Previously','warning');
+            return redirect()->back();
+        }
+
+        if(!$request->letter_id && $id == 'test')
+        {
+            toast('Select a valid newsletter','warning');
+            return redirect()->back();
+        }
+
+        $id = $id == 'test' ? $request->letter_id[0] : $id ;
+
 
         $sub = Subscription::create([
-            'newsletter_id' => $id,
+            'newsletter_id' => $id ,
             'email' =>  $request->email,
         ]);
 

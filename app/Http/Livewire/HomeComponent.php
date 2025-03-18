@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Newsletter;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -36,12 +37,16 @@ class HomeComponent extends Component
                            ->limit(5)
                            ->get();
 
+        $newsletters = Newsletter::orderByDesc('created_at')->get();
+        
+
         return view('livewire.home-component',[
             'video'=> $video,
             'latest'=> $latest,
             'latests'=> $latests,
             'articles'=> $articles,
             'top'=> $top,
+            'newsletters'=> $newsletters,
             'categories'=> $categories,
         ]);
     }

@@ -128,6 +128,28 @@
         border-radius: 10px;
     }
 </style>
+<style>
+  .subscribe-box {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+  }
+  .btn-subscribe {
+      background: #ffcc00;
+      border: none;
+      color: black;
+      font-weight: bold;
+      width: 100%;
+  }
+  .newsletter-item {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+  }
+  .newsletter-item:last-child {
+      border-bottom: none;
+  }
+</style>
 <body>
     @include('sweetalert::alert')
 

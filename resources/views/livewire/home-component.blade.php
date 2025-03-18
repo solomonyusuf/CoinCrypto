@@ -255,11 +255,12 @@
         @endif
         @endif
       </div>
-      <div class="col-md-8 row justify-content-center">
+      <div class="col-md-8 row">
         <h4 class="fw-semibold mb-4 mt-2">Top Stories</h4>
+        <div class="justify-content-center">
         @foreach ($top as $data)
         <div class="col-md-4 col-lg-4">
-          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="hstack gap-6 border-bottom pb-3">
+          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="hstack gap-1 border-bottom pb-3">
             <div class="text-warning round-48 rounded-1 hstack justify-content-center">
               <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
             </div>
@@ -310,6 +311,7 @@
           </div> --}}
         </div>
         @endforeach
+      </div>
         {{ $articles->links() }}
       </div>
     </div>

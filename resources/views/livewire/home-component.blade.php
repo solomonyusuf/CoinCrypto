@@ -255,21 +255,23 @@
         @endif
         @endif
       </div>
-      <div class="col-md-8 row">
+      <div class="col-md-8 col-lg-8 row">
         <h4 class="fw-semibold mb-4 mt-2">Top Stories</h4>
-        <div class="justify-content-center">
+        <div class=" row justify-content-center">
         @foreach ($top as $data)
-        <div class="col-md-4 col-lg-4">
-          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="hstack gap-1 border-bottom pb-3">
-            <div class="text-warning round-48 rounded-1 hstack justify-content-center">
-              <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
-            </div>
-            <div>
-              <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
-              <p class="mb-0 mt-2">
-                {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-  
-              </p>
+        <div class="col-md-6 col-sm-12  border-bottom">
+          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex">
+            <div class="card-body d-flex gap-2">
+              <div class="text-warning round-48 rounded-1 hstack justify-content-center">
+                <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
+              </div>
+              <div class="">
+                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                <p class="mb-0 mt-2">
+                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+    
+                </p>
+              </div>
             </div>
           </a>
           {{-- <div class="card overflow-hidden hover-img">

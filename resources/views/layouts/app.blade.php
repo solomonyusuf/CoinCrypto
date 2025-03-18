@@ -71,6 +71,63 @@
       margin:4px;
     }
   </style>
+  <style>
+      .countdown-box {
+          width: 80px;
+          height: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background: white;
+          border-radius: 8px;
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+      }
+      .countdown-label {
+          font-size: 12px;
+          color: gray;
+      }
+      .countdown-container {
+          background: var(--bs-primary);
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+      }
+      .register-btn {
+          background: black;
+          color: white;
+          padding: 10px 20px;
+          font-weight: bold;
+          text-decoration: none;
+          border-radius: 5px;
+      }
+      .close-btn {
+          color: white;
+          font-size: 20px;
+          cursor: pointer;
+          margin-left: auto;
+      }
+  </style>
+   <style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .video-container iframe,
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+</style>
 <body>
     @include('sweetalert::alert')
 
@@ -331,6 +388,26 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
+  <script>
+    function startCountdown(duration) {
+        let countdown = duration;
+        setInterval(() => {
+            let days = Math.floor(countdown / (60 * 60 * 24));
+            let hours = Math.floor((countdown % (60 * 60 * 24)) / (60 * 60));
+            let minutes = Math.floor((countdown % (60 * 60)) / 60);
+            let seconds = countdown % 60;
+
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+            if (countdown > 0) countdown--;
+        }, 1000);
+    }
+
+    startCountdown(3 * 24 * 60 * 60 + 8 * 60 * 60 + 2 * 60 + 58);
+</script>
  </body>
 
 </html>

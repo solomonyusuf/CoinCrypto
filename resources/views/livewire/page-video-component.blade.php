@@ -1,20 +1,5 @@
 <div>
-  <style>
-    .video-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-
-    .video-container iframe,
-    .video-container video {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-</style>
+ 
     <div class="custom-container mt-3">
         @if(count($videos) == 0)
         <div class="container d-flex justify-content-center align-items-center min-vh-100">

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use Log;
 
 class TopTickerComponent extends Component
 {
@@ -11,7 +12,16 @@ class TopTickerComponent extends Component
 
     public function mount()
     {
-        $this->fetchPrice();
+        try
+        {
+            $this->fetchPrice();
+          
+        }  
+        catch(\Exception $ex)
+        {
+           Log::error($ex);
+        }
+       
          
     }
 

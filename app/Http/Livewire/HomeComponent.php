@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use Carbon\Carbon;
@@ -17,7 +18,13 @@ class HomeComponent extends Component
     }
     public function render()
     {
-        $latests = Article::where(['visible'=> true])->orderByDesc('created_at')
+        $latest = Article::where(['visible'=> true])->orderByDesc('created_at')
+                            ->first();
+        
+        $video = AppVideo::where(['visible'=> true])->orderByDesc('created_at')
+                            ->first();
+                            
+       $latests = Article::where(['visible'=> true])->orderByDesc('created_at')
                             ->whereDate('created_at', '=', Carbon::now())
                             ->limit(5)
                             ->get();
@@ -26,9 +33,12 @@ class HomeComponent extends Component
         $articles = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(20);
         
         $categories =  ArticleCategory::orderByDesc('created_at')
+                           ->limit(5)
                            ->get();
 
         return view('livewire.home-component',[
+            'video'=> $video,
+            'latest'=> $latest,
             'latests'=> $latests,
             'articles'=> $articles,
             'top'=> $top,

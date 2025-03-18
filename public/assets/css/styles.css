@@ -28550,7 +28550,7 @@ fieldset:disabled .btn {
 }
 
 .border-bottom {
-    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-gray-300) !important
 }
 
 .border-bottom-0 {

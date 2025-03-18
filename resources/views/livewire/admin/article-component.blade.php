@@ -224,19 +224,6 @@
         </div>
         {{ $articles->links() }}
       </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Automatically initialize CKEditor for all textareas with IDs
-            document.querySelectorAll('textarea').forEach(function (textarea) {
-                // Ensure the textarea has an ID before trying to initialize CKEditor
-                if (textarea.id) {
-                    CKEDITOR.replace(textarea.id,{
-                          filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
-                          filebrowserUploadMethod: 'form'
-                      });  
-                }
-            });
-        });
-        </script>
+      
 </div>
 

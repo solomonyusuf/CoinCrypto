@@ -30,8 +30,8 @@ class HomeComponent extends Component
                             ->limit(5)
                             ->get();
                             
-        $top = Article::where(['visible'=> true])->orderBy('views', 'desc')->take(6)->get();;
-        $articles = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(20);
+        $top = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(30);
+        $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->paginate(30);
         
         $categories =  ArticleCategory::orderByDesc('created_at')
                            ->limit(5)

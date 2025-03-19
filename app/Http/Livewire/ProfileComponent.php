@@ -32,15 +32,15 @@ class ProfileComponent extends Component
 
         if ($this->update_image) 
         {
-            $imageName = uniqid() . '.' . $this->image->extension(); // Generate unique filename
-            $this->image->move(public_path('uploads'), $imageName); // Move file to public/photos
+            $imageName = uniqid() . '.' . $this->update_image->extension(); // Generate unique filename
+            $this->update_image->move(public_path('uploads'), $imageName); // Move file to public/photos
             
             $this->add['image'] = 'uploads/' . $imageName;
         }
         
         $query = User::find($id);
         $query->update([
-            'role_id' => $this->add['role_id'] == '' ? $query->role_id : $this->add['role_id'],
+            'role_id' =>  $query->role_id,
             'image' => $this->update_image ? $this->add['image'] : $query->image,
             'info' => $this->add['info'] == '' ? $query->info : $this->add['info'], 
             'linkedin' => $this->add['linkedin'] == ''? $query->linkedin : $this->add['linkedin'],

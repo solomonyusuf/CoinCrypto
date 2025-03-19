@@ -25,15 +25,6 @@
                         <input  wire:model='add.last_name' placeholder="{{ $data->last_name }}" type="text" class="form-control">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Role : {{ $data?->role->title}}</label>
-                        <select  wire:model='add.role_id' class="form-control">
-                            <option value="">-- Choose --</option>
-                            @foreach ($roles as $item)
-                             <option value="{{$item->id}}">{{ $item->title }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Info</label>
                         <textarea wire:model='add.info' placeholder="{!! $data->info !!}" type="text" class="form-control"></textarea>
                       </div>

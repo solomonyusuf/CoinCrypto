@@ -1,5 +1,11 @@
 <div>
-    <div class="custom-container mt-3">
+    <div class="container mt-3">
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">CoinCrypto Events</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's events are globally recognized.
+         </p>
+        </div>
         @if(count($events) == 0)
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
           <div class="text-center">
@@ -9,58 +15,36 @@
           </div>
       </div>
         @endif
-        @foreach ($events as $data)
-        <style>
-            .blog-bg{
-              background:url({{ asset($data->image) }});
-            }
-          </style>
-          <div class="row mb-3">
-            <div class="col-lg-6 pe-lg-0 mb-3">
-                <div class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
-                 </div>
+        @foreach ($events as $event)
+        <div class="bg-primary rounded">
+          <div class="d-flex relative shadow-md container-fluid justify-center items-center">
+            <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100">
+              <div class="col-md-5 col-sm-12 justify-content-center pb-4">
+                <h3 class="text-white fw-semibold mt-4 mb-3">
+                  {{ $event->title }}
+                </h3>
+                <span class="text-white mt-2 mb-1 ">
+                  {!! $event->content !!}
+                </span>
+                <a href="{{ $event->category }}" class="register-btn ms-3">Register Now</a>
+                  
               </div>
-              <div class="col-lg-6 ps-lg-0 mb-3">
-                <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
-                  <div class="py-4 d-flex flex-column gap-3">
-                    <div class="d-flex">
-                    
-                        <p class="fs-2 px-2 rounded-pill bg-muted bg-opacity-25 text-dark mb-0"> 
-                          Coincrypto Event
-                        </p>
+              <div class="col-md-7 col-sm-12 justify-content-center ">
+                <div class="countdown-container gap-2">
+                  <div class="d-flex gap-2">
+                      <div class="countdown-box">
+                          <span id="days">{{ \Carbon\Carbon::parse($event->created_at)->day}}</span>
+                          <span class="countdown-label">{{ \Carbon\Carbon::parse($event->created_at)->format('F')}}</span>
                       </div>
-                    <h2 class="fw-bolder fs-14 mb-0">
-                      {{ $data->title }}
-                    </h2>
-                
-                    <p class="mb-0">
-                      {!! $data->content !!}
-
-                     
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex gap-9">
-                          <div class="d-flex gap-2">
-                            <i class="ti ti-clock fs-5 text-dark"></i>
-                            <p class="mb-0 fs-2 fw-semibold text-dark">{{ \Carbon\Carbon::parse($data->event_date)->diffForHumans() }}
-                          </p>
-                          </div>
-                        <div class="d-flex gap-2">
-                          <i class="ti ti-calender"></i>
-                          <p class="mb-0 fs-2 fw-semibold text-dark">
-                            {{ \Carbon\Carbon::parse($data->event_date)->toFormattedDateString()}}&nbsp;
-                            </p>
-                        </div>
-                      </div>
-                   
-                     
                   </div>
-                  <div>
-                    <a  href="{{ $data->catgory }}" class="btn btn-outline-primary py-2 mt-3">Register</a>
-                 </div>
-                </div>
+                  
               </div>
-          </div>
+              </div>
+      
+            </div>
+           </div>
+        </div>
+        
         @endforeach
 
       </div>

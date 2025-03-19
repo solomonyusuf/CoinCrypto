@@ -1460,7 +1460,7 @@
   <style>
     .cke_notifications_area{display:none;}
 </style>
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+{{-- <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script> --}}
 
 {{-- <script>
     CKEDITOR.replace( 'editor',{
@@ -1468,7 +1468,8 @@
         filebrowserUploadMethod: 'form'
     });
 </script> --}}
-<script>
+
+{{-- <script>
   document.addEventListener('DOMContentLoaded', function () {
       // Automatically initialize CKEditor for all textareas with IDs
       document.querySelectorAll('textarea').forEach(function (textarea) {
@@ -1481,11 +1482,12 @@
           }
       });
   });
-  </script>
+</script> --}}
   
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
-   {{-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-<script>
+{{-- 
+   <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('textarea').forEach((textarea) => {
             ClassicEditor
@@ -1522,7 +1524,7 @@
                 .catch(error => console.error(error));
         });
     });
-</script> --}}
+</script>  --}}
 
 
 

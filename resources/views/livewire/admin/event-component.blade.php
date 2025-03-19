@@ -91,9 +91,9 @@
                     <th>
                         <h6 class="fs-4 fw-semibold mb-0">Sponsored</h6>
                     </th>
-                    <th>
+                    {{-- <th>
                         <h6 class="fs-4 fw-semibold mb-0">Category</h6>
-                    </th>
+                    </th> --}}
                     <th>
                         <h6 class="fs-4 fw-semibold mb-0">Event Date</h6>
                     </th>
@@ -122,9 +122,9 @@
                             @endif
                         </span>
                     </td>
-                    <td>
+                    {{-- <td>
                         <h6 class="fw-semibold mb-0">{{ $data->category }}</h6> 
-                    </td>
+                    </td> --}}
                     <td>
                         <h6 class="fw-semibold mb-0">
                             {{ \Carbon\Carbon::parse($data->event_date)->toFormattedDateString()}}

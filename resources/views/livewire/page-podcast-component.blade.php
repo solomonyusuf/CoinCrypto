@@ -47,95 +47,11 @@
                  </p>
                 </div>
             <div class="row justify-content-center gap-1">
-                <div id="music-player" class="mb-3 col-md-5"></div>
-                @foreach ($podcasts as $data)
-                <div class="col-md-4 col-sm-12 rounded" style="border:thin solid blue;">
-                  <div class="gap-1 border-0 shadow-0 d-flex py-2">
-                    <div class="card-body d-flex gap-2">
-                      <div class="row">
-                        <div class="col-3">
-                            <img src="{{ asset($data->image) }}" alt="top-1" width="70" class="rounded ms-3">
-                        </div>
-                        <div class="col-9">
-                            <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
-                            <div class="p-3">
-                                <audio id="audio-player" controls>
-                                    <source src="{{ $data->link }}" type="audio/mp3">
-                                    Your browser does not support the audio element.
-                                </audio>
-                            </div>
-                            
-                        </div>
-                        <div class="mt-3">
-                            {!! \Illuminate\Support\Str::limit($data->description, 50, '..')!!}
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                
-                @endforeach
+                <div id="music-player" class="mb-3"></div>
             </div>
          
           </div>
-        {{-- <div class="row justify-content-center">
-            @if($podcast)
-            <div class="col-md-4 col-xl-4">
-                <div class="card album-card" style="border: thin solid #2525d4;">
-                    <img src="{{ asset($podcast->image) }}" class="album-cover" alt="Album Cover">
-                    
-                    <div class="album-info">
-                        <h5 class="album-title">{{ $podcast->title}}</h5>
-                        <p class="artist-name text-muted">{{ $podcast->host}}</p>
-                    </div>
-            
-                    <div class="p-3">
-                        <audio id="audio-player" controls>
-                            <source src="{{ $podcast->link }}" type="audio/mp3">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-            
-                    <div class="music-controls">
-                        <button id="prev"><i class="ti ti-step-backward"></i></button>
-                        <button id="play-pause"><i class="ti ti-play"></i></button>
-                        <button id="next"><i class="ti ti-step-forward"></i></button>
-                    </div>
-                </div>
-            </div>
-            @endif
-            <div class="col-md-8 col-xl-8">
-                <div class="card">
-                  <div class="card-body p-4">
-                    <div class="d-flex align-items-center">
-                      <div>
-                        <h4 class="card-title fw-semibold">Recent Podcast</h4>
-                        <p class="card-subtitle">Based on the latest</p>
-                      </div>
-                       
-                    </div>
-                    <div class="overflow-auto card mt-4 mb-0 shadow-none border h-450 simplebar-scrollable-y" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
-                      @foreach ($podcasts as $data)
-                      <div class="hstack p-3 bg-hover-light-black position-relative border-bottom">
-                        <button wire:click="play('{{ $data->id }}')" style="background: transparent;border:0;" href="javascript:void(0)">
-                          <i class="ti ti-player-play fs-5"></i>
-                        </button>
-                        <img src="{{ asset($data->image) }}" alt="top-1" width="40" class="rounded ms-3">
-                        <div class="ms-3">
-                          <h6 class="mb-0">{{ $data->title }}</h6>
-                          <span class="fs-3">{{$data->host}}</span>
-                        </div>
-                      
-                      </div>
-                      @endforeach
-                        
-                      
-                    </div></div></div></div><div class="simplebar-placeholder" style="width: 289px; height: 504px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 398px; transform: translate3d(0px, 6px, 0px); display: block;"></div></div></div>
-                  </div>
-                </div>
-  
-  
-              </div>
-        </div> --}}
+    
     </div>
     @endif
     @if(count($podcasts) == 0)
@@ -153,40 +69,22 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script>
+    const podcastData = @json($podcasts);
+
+    const audioList = podcastData.map(podcast => ({
+        name: podcast.title || 'Unknown Title',
+        artist: podcast.host || 'Unknown Artist',
+        url: podcast.link || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        cover: podcast.image || 'https://source.unsplash.com/200x200/?music'
+    }));
+
     const ap = new APlayer({
         container: document.getElementById('music-player'),
         autoplay: false,
         theme: '#FF5733',
         loop: 'all',
         preload: 'auto',
-        listFolded: false, 
-        listMaxHeight: '250px', 
-        audio: [
-            {
-                name: 'No Copyright Music 1',
-                artist: 'Audio Library',
-                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                cover: 'https://source.unsplash.com/200x200/?music'
-            },
-            {
-                name: 'No Copyright Music 2',
-                artist: 'Free Music',
-                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-                cover: 'https://source.unsplash.com/200x200/?headphones'
-            },
-            {
-                name: 'No Copyright Music 3',
-                artist: 'Royalty-Free',
-                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-                cover: 'https://source.unsplash.com/200x200/?guitar'
-            },
-            {
-                name: 'No Copyright Music 4',
-                artist: 'Instrumental Beats',
-                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-                cover: 'https://source.unsplash.com/200x200/?concert'
-            }
-        ]
+        audio: audioList
     });
 </script>
 </div>

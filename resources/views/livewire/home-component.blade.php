@@ -1,4 +1,42 @@
 <div>
+   <!-- Plyr.js CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.css" />
+    
+   <style>
+       body {
+           background-color: #f8f9fa;
+       }
+       .album-card {
+           max-width: 400px;
+           margin: auto;
+           border-radius: 15px;
+           overflow: hidden;
+            
+       }
+       .album-cover {
+           width: 100%;
+           height: 250px;
+           object-fit: cover;
+       }
+       .album-info {
+           padding: 15px;
+           text-align: center;
+       }
+       .music-controls {
+           display: flex;
+           justify-content: space-around;
+           padding: 10px;
+       }
+       .music-controls button {
+           border: none;
+           background: none;
+           font-size: 24px;
+           cursor: pointer;
+       }
+       .music-controls button:hover {
+           color: #321dff;
+       }
+   </style>
   @if($show)
   <div class="bg-primary">
     <div class="container-fluid shadow-md position-relative d-flex flex-column align-items-center">
@@ -503,21 +541,7 @@
   <div class="col-md-12 col-lg-12">
     <h4 class="fw-semibold fs-4 mb-4 mt-2">Podcasts</h4>
     <div class="row justify-content-center gap-1">
-
-        @foreach ($podcasts as $data)
-        <div class="col-md-6 col-sm-12 border-bottom">
-          <a href="{{ route('podcast_detail', [$data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
-            <div class="card-body d-flex gap-2">
-              <div class="">
-                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
-                <div class="mt-3">
-                  {!! \Illuminate\Support\Str::limit($data->description, 50, '..')!!}
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        @endforeach
+      <div id="music-player" class="mb-3 col-md-6"></div>
     </div>
  
   </div>
@@ -543,7 +567,7 @@
                 <div class=" shadow-0 border-0">
                     <img src="{{ asset($item?->image) }}" class="card-img-top" alt="Featured News">
                     <div class="card-body shadow-0 border-0 p-0 mt-2">
-                        <h2 class="news-title">{{ $item?->title}}</h2>
+                        <h4 class="news-title">{{ $item?->title}}</h4>
                         <p class="news-meta">{{ \Carbon\Carbon::parse($item?->created_at)->diffForHumans() }}</p>
                     </div>
                 </div>
@@ -589,4 +613,28 @@
     }
     startCountdown({{ $countdownSeconds }});
 </script>
+    <!-- Plyr.js -->
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.polyfilled.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script>
+        const podcastData = @json($podcasts);
+    
+        const audioList = podcastData.map(podcast => ({
+            name: podcast.title || 'Unknown Title',
+            artist: podcast.host || 'Unknown Artist',
+            url: podcast.link || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+            cover: podcast.image || 'https://source.unsplash.com/200x200/?music'
+        }));
+    
+        const ap = new APlayer({
+            container: document.getElementById('music-player'),
+            autoplay: false,
+            theme: '#FF5733',
+            loop: 'all',
+            preload: 'auto',
+            audio: audioList
+        });
+    </script>
 </div>

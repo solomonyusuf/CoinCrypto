@@ -36,7 +36,7 @@ class RegisterComponent extends Component
                     'first_name'=> $this->first_name,
                     'last_name'=> $this->last_name,
                     'email'=> $this->email,
-                    'password'=> $this->password,
+                    'password'=> bcrypt($this->password),
                 ]);
 
    

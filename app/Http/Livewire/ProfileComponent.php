@@ -32,6 +32,9 @@ class ProfileComponent extends Component
 
         if ($this->update_image) 
         {
+            $this->validate([
+                'update_image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048'
+            ]);
             $imageName = uniqid() . '.' . $this->update_image->extension(); // Generate unique filename
             $this->update_image->move(public_path('uploads'), $imageName); 
             $this->add['image'] = 'uploads/' . $imageName;

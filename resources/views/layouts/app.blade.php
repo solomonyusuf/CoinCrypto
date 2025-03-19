@@ -410,26 +410,7 @@
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="assets/js/frontend-landingpage/homepage.js"></script>
-  <script>
-    function startCountdown(duration) {
-        let countdown = duration;
-        setInterval(() => {
-            let days = Math.floor(countdown / (60 * 60 * 24));
-            let hours = Math.floor((countdown % (60 * 60 * 24)) / (60 * 60));
-            let minutes = Math.floor((countdown % (60 * 60)) / 60);
-            let seconds = countdown % 60;
-
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-
-            if (countdown > 0) countdown--;
-        }, 1000);
-    }
-
-    startCountdown(3 * 24 * 60 * 60 + 8 * 60 * 60 + 2 * 60 + 58);
-</script>
+ 
  </body>
 
 </html>

@@ -6,16 +6,20 @@ use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Newsletter;
+use App\Models\Event;
+use App\Models\Podcast;
 use Carbon\Carbon;
+ 
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
-    public int $count = 0;
+    public int $count = 1;
+    public bool $show = true;
 
-    public function detail($slug, $id)
+    public function showEvent()
     {
-
+        $this->show = $this->show ? false : true;
     }
     public function render()
     {
@@ -31,23 +35,38 @@ class HomeComponent extends Component
                             ->get();
                             
         $top = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(30);
-        $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->paginate(30);
+        $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
         
         $categories =  ArticleCategory::orderByDesc('created_at')
-                           ->limit(5)
+                           ->limit(6)
+                           ->get();
+        $categories_body =  ArticleCategory::orderByDesc('created_at')
+                           ->limit(6)
                            ->get();
 
         $newsletters = Newsletter::orderByDesc('created_at')->get();
+       
+        $podcasts = Podcast::orderByDesc('created_at')->limit(6)->get();
         
+        $event = Event::where('event_date', '>', Carbon::now())
+                    ->orderBy('event_date', 'asc')  
+                    ->first();
 
+         $countdownSeconds = $event ? Carbon::parse($event->event_date)->diffInSeconds(Carbon::now()) : 0;
+        
+ 
         return view('livewire.home-component',[
             'video'=> $video,
             'latest'=> $latest,
             'latests'=> $latests,
             'articles'=> $articles,
             'top'=> $top,
+            'podcasts'=> $podcasts,
+            'event'=> $event,
+            'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,
             'categories'=> $categories,
+            'categories_body'=> $categories_body,
         ]);
     }
 }

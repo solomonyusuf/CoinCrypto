@@ -55,6 +55,7 @@ Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_pas
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
+Route::get('/podcast-details-{news_id}',NewsDetailComponent::class)->name('podcast_detail');
 Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');
 
 

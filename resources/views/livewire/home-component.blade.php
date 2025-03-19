@@ -1,10 +1,11 @@
 <div>
+  @if($show)
   <div class="bg-primary">
     <div class="d-flex relative shadow-md container-fluid justify-center items-center">
       <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100">
         <div class="col-md-5 col-sm-12 justify-content-center ">
           <h3 class="text-white fw-semibold mt-4 mb-1">
-            Consensus 2025 Prices Rise Soon
+            {{ $event->title }}
           </h3>
         </div>
         <div class="col-md-7 col-sm-12 justify-content-center ">
@@ -27,17 +28,18 @@
                     <span class="countdown-label">SEC</span>
                 </div>
             </div>
-            <a href="#" class="register-btn ms-3">Register Now</a>
+            <a href="{{ $event->category }}" class="register-btn ms-3">Register Now</a>
             
         </div>
         </div>
 
       </div>
-      <span class="close-btn mt-2">
+      <button wire:click="showEvent" style="background:transparent; border:0;" class="close-btn mt-2">
         <svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M6.40001 18.3076L5.69226 17.5999L11.2923 11.9999L5.69226 6.39989L6.40001 5.69214L12 11.2921L17.6 5.69214L18.3078 6.39989L12.7078 11.9999L18.3078 17.5999L17.6 18.3076L12 12.7076L6.40001 18.3076Z" fill="#FFFFFF"></path></svg>
-      </span>
+      </button>
      </div>
   </div>
+  @endif
   <div class="container mt-4">
     <div class="row justify-content-between">
       <div class="col-md-8 border-bottom">
@@ -363,17 +365,22 @@
       <div class="col-md-12 col-sm-12 border-bottom">
         <?php
           $data = $articles[0];
+          $articles->shift();
           ?>
-        <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="card gap-1 border-0 shadow-0 d-flex py-2">
+        <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="card gap-1 border-0 shadow-0 d-flex py-2 mb-3">
           <div class="card-body d-flex gap-2">
             <div class="">
+              <div class="d-flex">
+                <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">
+                  {{ $count++ }}
+                </div>
               <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
-              
+              </div>
               <div class="mt-3">
                 <p>
                   {!!  \Illuminate\Support\Str::limit($data->content) !!}
                 </p>
-                
+
                 <span class="fw-semibold text-uppercase d-flex align-items-center">
                   By
                   @for ($i = 0; $i < count($data?->article_creators); $i++)
@@ -459,8 +466,127 @@
         </div>
         @endforeach
     </div>
-    {{ $articles->links() }} 
   </div>
 
+
   </div>
+
+ <div class="row border-bottom py-12">
+  <div class="bg-primary mb-10 mt-3">
+    <div class="d-flex relative shadow-md container-fluid justify-center items-center">
+      <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100 mb-3">
+        <div class="col-md-5 col-sm-12 justify-content-center ">
+          <h3 class="text-white fw-semibold mt-4 mb-1">
+            {{ $event->title }}
+          </h3>
+          <h6 class="mb-3 text-white">
+            Check out the latest coverage and meet our top speakers. 
+          </h6>
+          <a href="{{ $event->category }}" class="register-btn mb-2 mt-2 ms-3">
+            <span class="text-color-white font-label font-medium leading-6">Learn More</span>
+            <svg class="" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" fill="white">
+              <path d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z" fill="white"></path>
+          </svg>
+          </a>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <img src="{{ asset($event->image) }}" style="height:250px;width:250px;position:absolute;border-radius:125px;" class="card-img-top img-responsive"  alt="">
+              
+        </div>
+
+      </div>
+     </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-12 col-lg-12">
+    <h4 class="fw-semibold fs-4 mb-4 mt-2">Podcasts</h4>
+    <div class="row justify-content-center gap-1">
+
+        @foreach ($podcasts as $data)
+        <div class="col-md-6 col-sm-12 border-bottom">
+          <a href="{{ route('podcast_detail', [$data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
+            <div class="card-body d-flex gap-2">
+              <div class="">
+                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                <div class="mt-3">
+                  {!! \Illuminate\Support\Str::limit($data->description, 50, '..')!!}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        @endforeach
+    </div>
+ 
+  </div>
+
+  <div class="row mt-3">
+    @foreach ($categories_body as $category)
+        <?php
+        $list2 = \App\Models\Article::orderBy('views', 'desc')->where(['category_id'=> $category->id])->limit(4)->get();
+        $item = $list2->first();  
+        $list2 = $list2->slice(1); 
+
+      
+    ?>
+    @if(count($list2) > 0)
+    <div class="col-md-6">
+      <div class="container my-2">
+        <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
+    
+        <div class="row">
+         
+            <!-- Featured Article -->
+            <div class="col-md-6">
+                <div class=" shadow-0 border-0">
+                    <img src="{{ asset($item?->image) }}" class="card-img-top" alt="Featured News">
+                    <div class="card-body shadow-0 border-0 p-0 mt-2">
+                        <h2 class="news-title">{{ $item?->title}}</h2>
+                        <p class="news-meta">{{ \Carbon\Carbon::parse($item?->created_at)->diffForHumans() }}</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Side Articles -->
+            <div class="col-md-6">
+              @foreach ($list2 as $article)
+                <div class="news-item">
+                  <h5 class="news-title">{{ $article->title }}</h5>
+                  <p class="news-meta">{{ \Carbon\Carbon::parse($article?->created_at)->diffForHumans() }}</p>
+              </div>
+              @endforeach
+            </div>
+        </div>
+    </div>
+   </div>
+   @endif
+    @endforeach
+    
+  </div>
+</div>
+
+
+
+
+  <script>
+    function startCountdown(duration) {
+        let countdown = duration;
+        setInterval(() => {
+            let days = Math.floor(countdown / (60 * 60 * 24));
+            let hours = Math.floor((countdown % (60 * 60 * 24)) / (60 * 60));
+            let minutes = Math.floor((countdown % (60 * 60)) / 60);
+            let seconds = countdown % 60;
+
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+            if (countdown > 0) countdown--;
+        }, 1000);
+    }
+    startCountdown({{ $countdownSeconds }});
+</script>
 </div>

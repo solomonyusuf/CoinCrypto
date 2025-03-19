@@ -361,7 +361,7 @@
 
   <div class="col-md-12 col-lg-12">
     <h4 class="fw-semibold fs-4 mb-4 mt-2">Most Read</h4>
-    <div class="row justify-content-center gap-1">
+    <div class="row justify-content-center">
       <div class="col-md-12 col-sm-12 border-bottom">
         <?php
           $data = $articles[0];
@@ -403,7 +403,7 @@
 
       </div>
         @foreach ($articles as $data)
-        <div class="col-md-5 col-sm-12 border-bottom">
+        <div class="col-md-4 col-sm-12 border-bottom">
           <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
             <div class="card-body d-flex gap-2">
               <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">

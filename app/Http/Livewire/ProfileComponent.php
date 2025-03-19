@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\UploadController;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
 
 class ProfileComponent extends Component
 {   
@@ -26,37 +28,34 @@ class ProfileComponent extends Component
 		'password' => '',
     ];
 
-    public function update()
+    public function update(Request $request)
     {
         $id = auth()->user()->id;
+        $query = User::find($id);
 
-        if ($this->update_image) 
+        $imageName = $query->image;
+
+        if ($request->image) 
         {
-            $this->validate([
-                'update_image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048'
-            ]);
-            $imageName = uniqid() . '.' . $this->update_image->extension(); // Generate unique filename
-            $this->update_image->move(public_path('uploads'), $imageName); 
-            $this->add['image'] = 'uploads/' . $imageName;
+          $imageName = UploadController::UploadFile($request);
         }
         
-        $query = User::find($id);
         $query->update([
             'role_id' =>  $query->role_id,
-            'image' => $this->update_image ? $this->add['image'] : $query->image,
-            'info' => $this->add['info'] == '' ? $query->info : $this->add['info'], 
-            'linkedin' => $this->add['linkedin'] == ''? $query->linkedin : $this->add['linkedin'],
-            'twitter' => $this->add['twitter'] == ''? $query->twitter :$this->add['twitter'],
-            'first_name' => $this->add['first_name'] == ''? $query->first_name : $this->add['first_name'],
-            'last_name' => $this->add['last_name'] == ''? $query->last_name : $this->add['last_name'],
+            'image' => $imageName,
+            'info' => $request->info, 
+            'linkedin' =>  $request->linkedin,
+            'twitter' =>  $request->twitter,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
             'email' =>  $query->email,
-            'password' => $this->add['password'] == '' ? $query->password :  bcrypt($this->add['password']),
+            'password' =>  !$request->password ? $query->password :  bcrypt( $request->password),
         ]);
         $query->save();
 
         toast('Update Successful', 'success');
         
-        $this->redirect(route('profile'));
+        return redirect()->back();
     }
     public function render()
     {

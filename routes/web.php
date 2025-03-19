@@ -68,7 +68,8 @@ Route::middleware('auth:sanctum')->group(function () {
     
     //REQUEST
     Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');
-
+    Route::post('/update-profile', [ProfileComponent::class, 'update'])->name('update_profile');
+    
 
 });
 

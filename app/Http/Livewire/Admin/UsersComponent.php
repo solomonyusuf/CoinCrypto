@@ -67,8 +67,8 @@ class UsersComponent extends Component
     {
         if ($this->update_image) 
         {
-            $imageName = uniqid() . '.' . $this->image->extension(); // Generate unique filename
-            $this->image->move(public_path('uploads'), $imageName); // Move file to public/photos
+            $imageName = uniqid() . '.' . $this->update_image->extension(); // Generate unique filename
+            $this->update_image->move(public_path('uploads'), $imageName); // Move file to public/photos
             
             $this->add['image'] = 'uploads/' . $imageName;
         }

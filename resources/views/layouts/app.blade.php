@@ -168,6 +168,9 @@
   <header class="header-fp p-0 w-100">
     <nav class="navbar navbar-expand-lg bg-primary-subtle py-2 py-sm-3 py-lg-3">
       <div class="custom-container d-flex align-items-center justify-content-between">
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="border-0 p-0 shadow-none">
+          <i class="ti ti-menu-2 fs-8 text-primary"></i>
+        </button>
         <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img">
            <img src="logo.png" style="height:40px;" alt="Logo-light" />
         </a>

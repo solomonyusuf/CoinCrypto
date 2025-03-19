@@ -1,6 +1,12 @@
 <div>
  
-    <div class="custom-container mt-3">
+    <div class="container mt-3">
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">CoinCrypto Videos</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's video broadcast relevant news.
+         </p>
+        </div>
         @if(count($videos) == 0)
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
           <div class="text-center">
@@ -11,66 +17,29 @@
       </div>
         @endif
         @foreach ($videos as $data)
-        <style>
-            .blog-bg{
-              background:url({{ asset($data->image) }});
-            }
-          </style>
-          <div class="row mb-3">
-            <div class="col-lg-6 pe-lg-0 mb-3">
-              <div class="video-container">
-                @if (Str::contains($data->link, 'youtube.com') || Str::contains($data->link, 'vimeo.com'))
-                    <!-- YouTube/Vimeo Embed -->
-                    <iframe src="{{ $data->link }}" frameborder="0" allowfullscreen></iframe>
-                @else
-                    <!-- Direct MP4 Player -->
-                    <video controls>
-                        <source src="{{ $data->link }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                @endif
-            </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card overflow-hidden hover-img">
+              <div class="position-relative">
+                <iframe 
+                src="{{ $data->link }}" 
+                class="card-img-top" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+            
               </div>
-              <div class="col-lg-6 ps-lg-0 mb-3">
-                <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
-                  <div class="py-4 d-flex flex-column gap-3">
-                    <div class="d-flex">
-                    
-                        <p class="fs-2 px-2 rounded-pill bg-muted bg-opacity-25 text-dark mb-0"> 
-                          Coincrypto Video
-                        </p>
-                      </div>
-                    <h2 class="fw-bolder fs-14 mb-0">
-                      {{ $data->title }}
-                    </h2>
+              <div class="card-body">
                 
-                    <p class="mb-0">
-                      {!! $data->description !!}
-
-                     
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex gap-9">
-                          <div class="d-flex gap-2">
-                            <i class="ti ti-clock fs-5 text-dark"></i>
-                            <p class="mb-0 fs-2 fw-semibold text-dark">
-                                {{ \Carbon\Carbon::parse($data->event_date)->toTimeString() }}&nbsp;&nbsp;
-                                {{ \Carbon\Carbon::parse($data->event_date)->toFormattedDateString()}}&nbsp;
-                            
-                          </p>
-                          </div>
-                        
-                      </div>
-                   
-                     
-                  </div>
-                  <div>
-                    <a target="__blank"  href="{{ $data->link }}" class="btn btn-outline-primary py-2 mt-3">Watch Video</a>
-                 </div>
-                </div>
+                <h6 class="d-block fs-5 text-dark fw-semibold link-primary">
+                  {{ $data->title }}
+                </h6>
+                <span>
+                  {!! \Illuminate\Support\Str::limit($data->description, 50, '..') !!}
+                </span>
               </div>
-          </div>
-        @endforeach
+            </div>
+          </div> 
+          @endforeach
 
       </div>
 </div>

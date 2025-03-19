@@ -2,7 +2,12 @@
   <div class="container mt-3">
     @if(count($articles) > 0)
     <div class="mb-3">
-          <h4 class="fw-semibold mb-3">Sponsored Articles</h4>
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">Sponsored Articles</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's sponsored articles
+         </p>
+        </div>
           @if(count($articles) == 0)
           <div class="container d-flex justify-content-center align-items-center min-vh-100">
               <div class="text-center">
@@ -14,41 +19,22 @@
           @endif
         <div class="row">
           @foreach ($articles as $data)
-          <div class="col-md-6 col-lg-4">
-            <div class="card overflow-hidden hover-img">
-              <div class="position-relative">
-                <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                <img src="{{ asset($data->image) }}" class="card-img-top" alt="modernize-img">
-                </a>
-                
-                <img src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}" alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9" width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top" >
-              </div>
-              <div class="card-body p-4">
-                <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">
-                  {{ $data?->article_category?->title }}
-                </span>
-                <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="d-block my-4 fs-5 text-dark fw-semibold link-primary">
-                {{ $data->title }}
-                </a>
-                <div class="d-flex align-items-center gap-4">
-                  <div class="d-flex gap-2">
-                    <i class="ti ti-eye fs-5 text-dark"></i>
-                    <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views }}</p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <i class="ti ti-user fs-5 text-dark"></i>
-                    <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($data?->article_creators)}}</p>
-                  </div>
-                  <div class="d-flex align-items-center fs-2 ms-auto">
-                    <i class="ti ti-point text-dark"></i>
-                    {{ \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()}}&nbsp;
-                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-
-                  </div>
+          <div class="col-md-6 col-sm-12 border-bottom">
+            <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
+              <div class="card-body d-flex gap-2">
+                <div class="text-warning round-48 rounded-1  justify-content-center">
+                  <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
+                </div>
+                <div class="">
+                  <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                  <p class="mb-0 mt-2">
+                    {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+      
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>  
+            </a>
+          </div>
           @endforeach   
         </div>
         {{ $articles->links() }}
@@ -56,7 +42,12 @@
     @endif
     @if(count($videos) > 0)
     <div class="mb-3">
-      <h4 class="fw-semibold mb-3">Sponsored Videos</h4>
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">Sponsored Videos</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's sponsored videos
+         </p>
+        </div>
           @foreach ($videos as $data)
           <div class="col-md-6 col-lg-4">
             <div class="card overflow-hidden hover-img">
@@ -82,62 +73,54 @@
           {{ $videos->links() }}
     </div>
     @endif
+    
     @if(count($events) > 0)
     <div class="mb-3">
-      <h4 class="fw-semibold mb-3">Sponsored Events</h4>
-      @foreach ($events as $data)
-          <style>
-              .blog-bg{
-                background:url({{ asset($data->image) }});
-              }
-            </style>
-            <div class="row mb-3">
-              <div class="col-lg-6 pe-lg-0 mb-3">
-                  <div class="blog-bg d-flex flex-column justify-content-between p-9 h-100 rounded-start-3 flex-grow-1">
-                  </div>
-                </div>
-                <div class="col-lg-6 ps-lg-0 mb-3">
-                  <div class="p-7 p-lg-5 border flex-grow-1 rounded-end-3">
-                    <div class="py-4 d-flex flex-column gap-3">
-                      <div class="d-flex">
-                      
-                          <p class="fs-2 px-2 rounded-pill bg-muted bg-opacity-25 text-dark mb-0"> 
-                            Coincrypto Event
-                          </p>
-                        </div>
-                      <h2 class="fw-bolder fs-14 mb-0">
-                        {{ $data->title }}
-                      </h2>
-                  
-                      <p class="mb-0">
-                        {!! $data->content !!}
-
-                      
-                      </p>
-                      <div class="d-flex justify-content-between align-items-center">
-                          <div class="d-flex gap-9">
-                            <div class="d-flex gap-2">
-                              <i class="ti ti-clock fs-5 text-dark"></i>
-                              <p class="mb-0 fs-2 fw-semibold text-dark">{{ \Carbon\Carbon::parse($data->event_date)->diffForHumans() }}
-                            </p>
-                            </div>
-                          <div class="d-flex gap-2">
-                            <i class="ti ti-calender"></i>
-                            <p class="mb-0 fs-2 fw-semibold text-dark">
-                              {{ \Carbon\Carbon::parse($data->event_date)->toFormattedDateString()}}&nbsp;
-                              </p>
-                          </div>
-                        </div>
-                    
-                      
-                    </div>
-                    <div>
-                      <a  href="{{ $data->catgory }}" class="btn btn-outline-primary py-2 mt-3">Register</a>
-                  </div>
-                  </div>
-                </div>
+      
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">Sponsored Events</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's sponsored events
+         </p>
+        </div>
+      @foreach ($events as $event)
+      <div class="bg-primary rounded">
+        <div class="d-flex relative shadow-md container-fluid justify-center items-center">
+          <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100">
+            <div class="col-md-5 col-sm-12 d-flex gap-2 justify-content-center pb-4">
+              <div>
+                <img src="{{ $event?->image }}" alt="user" width="120" height="120" class="rounded-circle ms-3">
+              </div>
+            <div>
+            <h3 class="text-white fw-semibold mt-4 mb-3">
+              {{ $event->title }}
+            </h3>
+            <span class="text-white mt-2 mb-1 ">
+              {!! $event->content !!}
+            </span>
+            <a href="{{ $event->category }}" class="register-btn ms-3">Register Now</a>
+              
+           </div>
+             
             </div>
-          @endforeach
+            <div class="col-md-7 col-sm-12 justify-content-center ">
+              <div class="countdown-container">
+                <div class="row align-items-center">
+                  <div class="countdown-box">
+                      <span id="days">{{ \Carbon\Carbon::parse($event->created_at)->day }}</span>
+                      <span class="countdown-label">{{ \Carbon\Carbon::parse($event->created_at)->format('F') }}</span>
+                  </div>
+                  
+              </div>
+              
+                
+            </div>
+            </div>
+    
+          </div>
+         </div>
+      </div>
+       @endforeach
     </div>
     @endif
   

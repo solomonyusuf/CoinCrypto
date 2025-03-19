@@ -10,7 +10,12 @@
         @endif
     @if($newsletters)
     <div class="container-fluid">
-        <h4 class="fw-semibold mb-4 mt-3">Newsletters</h4>
+      <div class="col-md-5 mb-4">
+        <h4 class="fw-semibold mb-1 mt-3">Newsletters</h4>
+        <p class="card-text pt-2">
+            CoinCrypto's newsletters keeps you updated with latest data.
+         </p>
+        </div>
         <div class="row justify-content-center">
            @foreach ($newsletters as $data)
            
@@ -21,7 +26,7 @@
                 <p class="card-subtitle mb-2 d-flex align-items-center">
                   <img src="{{ $data->host_image }}" style="height:30px;width:30px;border-radius:15px;"/> {{ $data->host_name }}
                 </p>
-                <p class="card-text pt-2">
+                <p class="card-text pt-1">
                  {!! $data->description !!}
                 </p>
                 <button  data-bs-toggle="modal" data-bs-target="#subscribe{{ ++$count }}" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Subscribe</button>

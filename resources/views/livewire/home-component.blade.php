@@ -42,7 +42,7 @@
   @endif
   <div class="container mt-4">
     <div class="row justify-content-between">
-      <div class="col-md-8 border-bottom">
+      <div class="col-md-8 border-bottom" >
         <a {{ route('article_detail', [$latest->slug, $latest->id]) }} class="card">
           <img class="card-img-top img-responsive" src="{{ asset($latest->image) }}" alt="Card image cap">
           <div class="card-body">
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="card data-shadow rounded-3 mb-7">
         <div class="row">
-          <h4 class="fw-semibold mb-4">Latest News</h4>
+          <h4 class="fw-semibold mb-4" id="latest">Latest News</h4>
           @foreach ($latests as $latest)
 
           <div class="row">
@@ -258,7 +258,7 @@
         @endif
       </div>
       <div class="col-md-8 col-lg-8">
-        <h4 class="fw-semibold fs-4 mb-4 mt-2">Top Stories</h4>
+        <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
         <div class="row justify-content-center">
         @foreach ($top as $data)
         <div class="col-md-6 col-sm-12 border-bottom">

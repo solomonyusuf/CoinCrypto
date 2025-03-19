@@ -39,11 +39,49 @@
     </style>
     @if(count($podcasts) > 0)
     <div class="container mt-3">
-        <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-12">
+            <div class="col-md-5 mb-4">
+                <h4 class="fw-semibold mb-1 mt-3">Podcasts</h4>
+                <p class="card-text pt-2">
+                    CoinCrypto's podcast episodes
+                 </p>
+                </div>
+            <div class="row justify-content-center gap-1">
+        
+                @foreach ($podcasts as $data)
+                <div class="col-md-4 col-sm-12 rounded" style="border:thin solid blue;">
+                  <div class="gap-1 border-0 shadow-0 d-flex py-2">
+                    <div class="card-body d-flex gap-2">
+                      <div class="row">
+                        <div class="col-3">
+                            <img src="{{ asset($data->image) }}" alt="top-1" width="70" class="rounded ms-3">
+                        </div>
+                        <div class="col-9">
+                            <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                            <div class="p-3">
+                                <audio id="audio-player" controls>
+                                    <source src="{{ $data->link }}" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            
+                        </div>
+                        <div class="mt-3">
+                            {!! \Illuminate\Support\Str::limit($data->description, 50, '..')!!}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                
+                @endforeach
+            </div>
+         
+          </div>
+        {{-- <div class="row justify-content-center">
             @if($podcast)
             <div class="col-md-4 col-xl-4">
                 <div class="card album-card" style="border: thin solid #2525d4;">
-                    <img src="{{ $podcast->image }}" class="album-cover" alt="Album Cover">
+                    <img src="{{ asset($podcast->image) }}" class="album-cover" alt="Album Cover">
                     
                     <div class="album-info">
                         <h5 class="album-title">{{ $podcast->title}}</h5>
@@ -97,7 +135,7 @@
   
   
               </div>
-        </div>
+        </div> --}}
     </div>
     @endif
     @if(count($podcasts) == 0)

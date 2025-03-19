@@ -19,12 +19,12 @@
         <div class="row justify-content-center">
            @foreach ($newsletters as $data)
            
-           <div class="col-md-6 col-lg-6">
+           <div class="col-md-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">{{ $data->title}}</h5>
-                <p class="card-subtitle mb-2 d-flex align-items-center">
-                  <img src="{{ $data->host_image }}" style="height:30px;width:30px;border-radius:15px;"/> {{ $data->host_name }}
+                <p class="card-subtitle mb-1 d-flex align-items-center">
+                  <img src="{{ $data->host_image }}" style="height:30px;width:30px;border-radius:15px;"/>&nbsp;&nbsp;{{ $data->host_name }}
                 </p>
                 <p class="card-text pt-1">
                  {!! $data->description !!}

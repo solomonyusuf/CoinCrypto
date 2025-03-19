@@ -340,16 +340,16 @@
             <h3 class="fs-4 fw-semibold mb-7">News</h3>
             <ul class="d-flex flex-column gap-9">
               <li>
-                <a href="" class="fs-4 text-body link-primary">Latest</a>
+                <a href="{{ route('home') }}#latest" class="fs-4 text-body link-primary">Latest</a>
               </li>
               <li>
-                <a href="" class="fs-4 text-body link-primary">Top Stories</a>
+                <a href="{{ route('home') }}#top" class="fs-4 text-body link-primary">Top Stories</a>
               </li>
                <li>
-                <a href="" class="fs-4 text-body link-primary">Events</a>
+                <a href="{{ route('events') }}" class="fs-4 text-body link-primary">Events</a>
               </li>
                <li>
-                <a href="" class="fs-4 text-body link-primary">Podcasts</a>
+                <a href="{{ route('podcasts') }}" class="fs-4 text-body link-primary">Podcasts</a>
               </li>
                
               

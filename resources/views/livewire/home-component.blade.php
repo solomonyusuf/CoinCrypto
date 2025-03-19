@@ -28,7 +28,7 @@
                     <span class="countdown-label">SEC</span>
                 </div>
             </div>
-            <a href="{{ $event->category }}" class="register-btn ms-3">Register Now</a>
+            <a href="{{ $event->category }}" class="register-btn ms-3">Register</a>
             
         </div>
         </div>
@@ -369,7 +369,7 @@
           ?>
         <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="card gap-1 border-0 shadow-0 d-flex py-2 mb-3">
           <div class="card-body d-flex gap-2">
-            <div class="">
+            <div class="col-sm-12">
               <div class="d-flex gap-2">
                 <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">
                   {{ $count++ }}
@@ -393,7 +393,7 @@
                 
               </div>
             </div>
-            <div class=" justify-content-center" >
+            <div class="col-sm-12 justify-content-center" >
               <img src="{{ asset($data->image) }}" style="height:300px;" class="card-img-top img-responsive"  alt="">
               
             </div>
@@ -410,7 +410,7 @@
                 {{ $count++ }}
               </div>
               <div class="">
-                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                <h4 class="mb-0">{{ $data->title }}</h4>
                 <div class="mt-3">
                   <span class="fw-semibold text-uppercase d-flex align-items-center">
                     By
@@ -489,7 +489,7 @@
           </svg>
           </a>
         </div>
-        <div class="col-md-7 col-sm-12">
+        <div class="col-md-7 col-sm-12 d-none d-md-block">
           <img src="{{ asset($event->image) }}" style="height:250px;width:250px;position:absolute;border-radius:125px;" class="card-img-top img-responsive"  alt="">
               
         </div>

@@ -407,7 +407,7 @@
           ?>
         <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="card gap-1 border-0 shadow-0 d-flex py-2 mb-3">
           <div class="card-body d-flex gap-2">
-            <div class="col-sm-12">
+            <div class="">
               <div class="d-flex gap-2">
                 <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">
                   {{ $count++ }}
@@ -431,7 +431,7 @@
                 
               </div>
             </div>
-            <div class="col-sm-12 justify-content-center" >
+            <div class="justify-content-center" >
               <img src="{{ asset($data->image) }}" style="height:300px;" class="card-img-top img-responsive"  alt="">
               
             </div>

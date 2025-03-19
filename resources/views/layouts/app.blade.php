@@ -321,11 +321,22 @@
   <!-- ------------------------------------- -->
   <!-- Footer Start -->
   <!-- ------------------------------------- -->
-  <footer>
+  <footer style="background:#e7e5f4;">
     <div class="container-fluid mt-5">
       <div class="border-bottom">
-        <div class="row mb-sm-12 mb-4">
-          <div class="col-md-3 col-6">
+        <div class="row mb-sm-12 mb-4 ">
+          <div class="col-md-6 col-6 mt-3">
+            <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img mb-4">
+              <img src="logo.png" style="height:40px;" alt="Logo-light" />
+           </a>
+            <h3 class="fs-4 fw-semibold mb-3 mt-5">DISCLOSURE & POLICES</h3>
+            <div>
+              <p>
+                CoinCrypto is a media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. CoinCrypto has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mt-3">
             <h3 class="fs-4 fw-semibold mb-7">News</h3>
             <ul class="d-flex flex-column gap-9">
               <li>
@@ -334,33 +345,17 @@
               <li>
                 <a href="" class="fs-4 text-body link-primary">Top Stories</a>
               </li>
+               <li>
+                <a href="" class="fs-4 text-body link-primary">Events</a>
+              </li>
+               <li>
+                <a href="" class="fs-4 text-body link-primary">Podcasts</a>
+              </li>
                
               
             </ul>
           </div>
-          <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Events</h3>
-            <ul class="d-flex flex-column gap-9">
-              <li>
-                <a href="" class="fs-4 text-body link-primary">Upcoming</a>
-              </li>
-              <li>
-                <a href="" class="fs-4 text-body link-primary">All</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-6">
-            <h3 class="fs-4 fw-semibold mb-7">Podcasts</h3>
-            <ul class="d-flex flex-column gap-9">
-              <li>
-                <a href="" class="fs-4 text-body link-primary">Latest</a>
-              </li>
-              <li>
-                <a href="" class="fs-4 text-body link-primary">Episodes</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-6">
+          <div class="col-md-3 col-6 mt-3">
             <h3 class="fs-4 fw-semibold mb-7">Socical</h3>
             <div class="d-flex gap-9">
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Facebook">

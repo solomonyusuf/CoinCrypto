@@ -35,7 +35,7 @@
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input required wire:model='password'placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
+                    <input required wire:model='password' placeholder="Enter Password" type="text" class="form-control">
                   </div>
                     
 

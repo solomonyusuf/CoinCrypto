@@ -174,9 +174,9 @@
         <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img">
            <img src="logo.png" style="height:40px;" alt="Logo-light" />
         </a>
-        <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        {{-- <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
           <i class="ti ti-menu-2 fs-8"></i>
-        </button>
+        </button> --}}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 gap-xl-7 gap-8 mb-lg-0">
             <li class="nav-item">

@@ -111,6 +111,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::post('/update_newsletter/{id}', [NewsletterComponent::class, 'update'])->name('update_newsletter');
     Route::get('/delete_newsletter/{id}', [NewsletterComponent::class, 'delete'])->name('delete_newsletter');
  
+    Route::post('/update-user/{id}', [UsersComponent::class, 'update'])->name('update_user');
+    
 });
 
 Route::get('/logout', function(){

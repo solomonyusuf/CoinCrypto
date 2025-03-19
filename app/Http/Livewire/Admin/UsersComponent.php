@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Controllers\UploadController;
 use App\Mail\AppMail;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Mail;
 
@@ -63,36 +65,33 @@ class UsersComponent extends Component
         $this->reset('image');
 
     }
-    public function update($id)
+    public function update($id, Request $request)
     {
-        if ($this->update_image) 
+        $query = User::find($id);
+
+        $imageName = $query->image;
+
+        if ($request->image) 
         {
-            $imageName = uniqid() . '.' . $this->update_image->extension(); // Generate unique filename
-            $this->update_image->move(public_path('uploads'), $imageName); // Move file to public/photos
-            
-            $this->add['image'] = 'uploads/' . $imageName;
+          $imageName = UploadController::UploadFile($request);
         }
         
-        $query = User::find($id);
         $query->update([
-            'role_id' => $this->add['role_id'] == '' ? $query->role_id : $this->add['role_id'],
-            'image' => $this->update_image ? $this->add['image'] : $query->image,
-            'info' => $this->add['info'] == '' ? $query->info : $this->add['info'], 
-            'linkedin' => $this->add['linkedin'] == ''? $query->linkedin : $this->add['linkedin'],
-            'twitter' => $this->add['twitter'] == ''? $query->twitter :$this->add['twitter'],
-            'first_name' => $this->add['first_name'] == ''? $query->first_name : $this->add['first_name'],
-            'last_name' => $this->add['last_name'] == ''? $query->last_name : $this->add['last_name'],
+            'role_id' =>  $query->role_id,
+            'image' => $imageName,
+            'info' => $request->info, 
+            'linkedin' =>  $request->linkedin,
+            'twitter' =>  $request->twitter,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
             'email' =>  $query->email,
-            'password' => $this->add['password'] == '' ? $query->password :  bcrypt($this->add['password']),
+            'password' =>  !$request->password ? $query->password :  bcrypt( $request->password),
         ]);
         $query->save();
 
         toast('Update Successful', 'success');
         
-        $this->reset('add');
-        $this->reset('image');
-
-        $this->users = $this->GetAll();
+        return redirect()->back();
     }
      public function delete($id)
     {

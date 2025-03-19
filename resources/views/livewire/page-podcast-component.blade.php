@@ -47,7 +47,7 @@
                  </p>
                 </div>
             <div class="row justify-content-center gap-1">
-        
+                <div id="music-player" class="mb-3 col-md-5"></div>
                 @foreach ($podcasts as $data)
                 <div class="col-md-4 col-sm-12 rounded" style="border:thin solid blue;">
                   <div class="gap-1 border-0 shadow-0 d-flex py-2">
@@ -150,34 +150,43 @@
     <!-- Plyr.js -->
 <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.polyfilled.min.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const player = new Plyr('#audio-player');
-        const playPauseBtn = document.getElementById('play-pause');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-
-        playPauseBtn.addEventListener('click', function () {
-            if (player.paused) {
-                player.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                player.pause();
-                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    const ap = new APlayer({
+        container: document.getElementById('music-player'),
+        autoplay: false,
+        theme: '#FF5733',
+        loop: 'all',
+        preload: 'auto',
+        listFolded: false, 
+        listMaxHeight: '250px', 
+        audio: [
+            {
+                name: 'No Copyright Music 1',
+                artist: 'Audio Library',
+                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                cover: 'https://source.unsplash.com/200x200/?music'
+            },
+            {
+                name: 'No Copyright Music 2',
+                artist: 'Free Music',
+                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+                cover: 'https://source.unsplash.com/200x200/?headphones'
+            },
+            {
+                name: 'No Copyright Music 3',
+                artist: 'Royalty-Free',
+                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+                cover: 'https://source.unsplash.com/200x200/?guitar'
+            },
+            {
+                name: 'No Copyright Music 4',
+                artist: 'Instrumental Beats',
+                url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+                cover: 'https://source.unsplash.com/200x200/?concert'
             }
-        });
-
-        prevBtn.addEventListener('click', function () {
-            player.currentTime -= 10; // Rewind 10 seconds
-        });
-
-        nextBtn.addEventListener('click', function () {
-            player.currentTime += 10; // Fast-forward 10 seconds
-        });
-
-        player.on('ended', function () {
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        });
+        ]
     });
 </script>
 </div>

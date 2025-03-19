@@ -19,6 +19,7 @@
 
   <title>Coin Crypto News</title>
   <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
   <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
@@ -355,7 +356,7 @@
               
             </ul>
           </div>
-          <div class="col-md-3 col-sm-12 mt-3">
+          <div class="col-md-3 col-sm-12 mt-5">
             <h3 class="fs-4 fw-semibold mb-7">Socical</h3>
             <div class="d-flex gap-9">
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Facebook">

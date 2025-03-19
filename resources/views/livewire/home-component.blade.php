@@ -26,8 +26,9 @@
                         <span id="seconds">58</span>
                         <span class="countdown-label">SEC</span>
                     </div>
+                    <a href="{{ $event->category }}" class="register-btn mt-2">Register</a>
+            
                 </div>
-                <a href="{{ $event->category }}" class="register-btn mt-2">Register</a>
             </div>
         </div>
         <button wire:click="showEvent" style="background:transparent; border:0;" class="close-btn mt-2 position-absolute top-0 end-0">

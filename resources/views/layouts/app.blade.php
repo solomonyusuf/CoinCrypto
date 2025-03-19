@@ -325,7 +325,7 @@
     <div class="container-fluid mt-5">
       <div class="border-bottom">
         <div class="row mb-sm-12 mb-4 ">
-          <div class="col-md-6 col-6 mt-3">
+          <div class="col-md-6 col-sm-12 mt-3">
             <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img mb-4">
               <img src="logo.png" style="height:40px;" alt="Logo-light" />
            </a>
@@ -336,7 +336,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-3 col-6 mt-5 px-1">
+          <div class="col-md-3 col-sm-12 mt-5 px-1">
             <h3 class="fs-4 fw-semibold mb-7">News</h3>
             <ul class="d-flex flex-column gap-9">
               <li>
@@ -355,7 +355,7 @@
               
             </ul>
           </div>
-          <div class="col-md-3 col-6 mt-3">
+          <div class="col-md-3 col-sm-12 mt-3">
             <h3 class="fs-4 fw-semibold mb-7">Socical</h3>
             <div class="d-flex gap-9">
               <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-title="Facebook">

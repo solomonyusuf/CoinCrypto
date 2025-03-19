@@ -378,7 +378,7 @@
               </div>
               <div class="mt-3">
                 <p>
-                  {!!  \Illuminate\Support\Str::limit($data->content) !!}
+                  {!!  \Illuminate\Support\Str::limit($data->content, 300, '..') !!}
                 </p>
 
                 <span class="fw-semibold text-uppercase d-flex align-items-center">

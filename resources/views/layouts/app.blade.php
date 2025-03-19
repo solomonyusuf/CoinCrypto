@@ -95,7 +95,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 10px;
+          gap: 5px;
       }
       .register-btn {
           background: black;
@@ -336,7 +336,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-3 col-6 mt-3">
+          <div class="col-md-3 col-6 mt-5 px-1">
             <h3 class="fs-4 fw-semibold mb-7">News</h3>
             <ul class="d-flex flex-column gap-9">
               <li>

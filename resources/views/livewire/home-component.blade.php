@@ -370,7 +370,7 @@
         <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="card gap-1 border-0 shadow-0 d-flex py-2 mb-3">
           <div class="card-body d-flex gap-2">
             <div class="">
-              <div class="d-flex">
+              <div class="d-flex gap-2">
                 <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">
                   {{ $count++ }}
                 </div>
@@ -403,7 +403,7 @@
 
       </div>
         @foreach ($articles as $data)
-        <div class="col-md-4 col-sm-12 border-bottom">
+        <div class="col-md-6 col-sm-12 border-bottom">
           <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
             <div class="card-body d-flex gap-2">
               <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">

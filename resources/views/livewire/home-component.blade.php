@@ -477,7 +477,7 @@
   <div class="bg-primary mb-10 mt-3">
     <div class="d-flex relative shadow-md container-fluid justify-center items-center">
       <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100 mb-3">
-        <div class="col-md-5 col-sm-12 justify-content-center ">
+        <div class="col-md-7 col-sm-12 justify-content-center ">
           <h2 class="text-white fw-semibold mt-4 mb-2">
             {{ $event->title }}
           </h2>
@@ -491,7 +491,7 @@
           </svg>
           </a>
         </div>
-        <div class="col-md-7 col-sm-12 d-none d-md-block">
+        <div class="col-md-5 col-sm-12 d-none d-md-block">
           <div class="img-box">
           <img src="{{ asset($event->image) }}" style="height:250px;width:350px;" class="card-img-top img-responsive"  alt="">
           </div>

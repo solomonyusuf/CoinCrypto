@@ -126,4 +126,5 @@
     @endif
   
   </div>
+  @livewire('top-event')
 </div>

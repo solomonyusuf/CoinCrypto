@@ -43,7 +43,7 @@
                     <h5 class="text-uppercase text-light">Up Next</h5>
                     <div class="list-group">
                       @if(count($videos) > 1)
-                      @for($i = 1; $i < min(4, count($videos)); $i++)
+                      @for($i = 1; $i < 5; $i++)
                           <?php $data = $videos[$i] ?? null; ?>
                           @if($data)
                               <div class="gap-1 justify-content-between list-group-item list-group-item-action bg-dark border-0 border-bottom text-light d-flex">

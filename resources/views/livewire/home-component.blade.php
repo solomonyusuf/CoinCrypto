@@ -512,10 +512,11 @@
   <div class="row mt-3">
     @foreach ($categories_body as $category)
         @php
-        $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
-        $item = $list2->first();    
+        //$list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
+        $list2 = $category?->articles;
+        $item = $category?->articles->first();    
       @endphp
-     @if($list->isNotEmpty())
+     {{-- @if($list2->isNotEmpty()) --}}
     <div class="col-md-6">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
@@ -540,14 +541,14 @@
                $article = $list2[$i];
               ?>
                 <div class="news-item">
-                  <h5 class="news-title">{{ $article->title }}</h5>
-                  <p class="news-meta">{{ \Carbon\Carbon::parse($article?->created_at)->diffForHumans() }}</p>
+                  <h5 class="news-title">{{ $article['title'] }}</h5>
+                  <p class="news-meta">{{ \Carbon\Carbon::parse($article['created_at'])->diffForHumans() }}</p>
               </div>
               @endfor 
             </div>
         </div>
     </div>
-    @endif
+    {{-- @endif --}}
 
    </div>
    

@@ -225,101 +225,61 @@
     <div class="row mt-4 border-bottom">
       <div class="col-md-4">
         @if(count($categories) > 0)
-        @foreach ($categories as $category)
-        <div class="row">
-          <h4 class="mb-1 fs-4 fw-semibold mb-3 text-uppercase">Latest {{ $category->title }} News</h4>
-          @php
-                $list = \App\Models\Article::where('category_id', $category->id)
-                ->orderByDesc('created_at')
-                ->limit(10)
-                ->get();
-           @endphp
-          <div class="position-relative mb-2 mt-2">
-            @foreach ($list as $data)
-            <div class="d-flex align-items-center justify-content-between mb-7 border-bottom">
-              <div class="d-flex py-2">
-                <div>
-                  <p class="fs-3 mb-2">
-                    {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-                  </p>
-                  <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                    <h6 class="mb-1 fs-4 fw-semibold">{{ $data->title }}</h6>
-                  </a>
+            @foreach ($categories as $category)
+                <div class="row mb-4">
+                    <h4 class="fs-4 fw-semibold text-uppercase border-bottom pb-2">{{ $category->title }} News</h4>
+                    @php
+                        $list = \App\Models\Article::where('category_id', $category->id)
+                        ->orderByDesc('created_at')
+                        ->limit(10)
+                        ->get();
+                    @endphp
+                    <div class="position-relative mt-3">
+                        @foreach ($list as $data)
+                            <div class="card mb-3 border-0 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <p class="fs-6 text-muted mb-2">
+                                        {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                                    </p>
+                                    <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
+                                        <h6 class="mb-1 fs-5 fw-bold text-primary">{{ $data->title }}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-              </div>
-            </div>
             @endforeach
-  
-  
-          </div>
-        </div>
-      
-        @endforeach
-  
         @endif
-      
-      </div>
-      <div class="col-md-8 col-lg-8">
-        <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase" id="top">Top Stories</h4>
-        <div class="row justify-content-center">
-        @foreach ($top as $data)
-        <div class="col-md-6 col-sm-12 border-bottom">
-          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
-            <div class="card-body d-flex gap-2">
-              <div class="text-warning round-48 rounded-1  justify-content-center">
-                <img src="{{ asset($data->image) }}" style="height:50px;width:50px;border-radius:25px;" alt="">
-              </div>
-              <div class="">
-                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
-                <p class="mb-0 mt-2">
-                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-    
-                </p>
-              </div>
-            </div>
-          </a>
-          {{-- <div class="card overflow-hidden hover-img">
-            <div class="position-relative">
-              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                <img src="{{ asset($data->image) }}" class="card-img-top" alt="">
-              </a>
-  
-              <img
-                src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}"
-                alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-                width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top">
-            </div>
-            <div class="card-body p-4">
-              <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">
-                {{ $data?->article_category?->title }}
-              </span>
-              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}"
-                class="d-block my-4 fs-5 text-dark fw-semibold link-primary">
-                {{ $data->title }}
-              </a>
-              <div class="d-flex align-items-center gap-4">
-                <div class="d-flex gap-2">
-                  <i class="ti ti-eye fs-5 text-dark"></i>
-                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views }}</p>
-                </div>
-                <div class="d-flex gap-2">
-                  <i class="ti ti-user fs-5 text-dark"></i>
-                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($data?->article_creators)}}</p>
-                </div>
-                <div class="d-flex align-items-center fs-2 ms-auto">
-                  <i class="ti ti-point text-dark"></i>
-                  {{ \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()}}&nbsp;
-                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-  
-                </div>
-              </div>
-            </div>
-          </div> --}}
         </div>
-        @endforeach
+    
+        <div class="col-md-8 col-lg-8">
+          <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase border-bottom pb-2" id="top">Top Stories</h4>
+          <div class="row">
+              @foreach ($top as $data)
+              <div class="col-md-6 col-sm-12 mb-3">
+                  <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
+                      <div class="card border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
+                          <img src="{{ asset($data->image) }}" class="rounded-circle" style="height:50px; width:50px;" alt="">
+      
+                          <div class="flex-grow-1">
+                              <h6 class="fw-bold fs-5 text-dark mb-1">{{ $data->title }}</h6>
+                              <p class="text-muted small mb-0">
+                                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                              </p>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              @endforeach
+          </div>
+          
+          <!-- Pagination -->
+          <div class="d-flex justify-content-center mt-4">
+              {{ $top->links() }}
+          </div>
       </div>
-      {{ $top->links() }} 
-      </div>
+      
     </div>
 
     <div class="mt-4 border-bottom">

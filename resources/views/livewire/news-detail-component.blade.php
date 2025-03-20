@@ -22,7 +22,7 @@
    <div class="mb-4">
     {!! $article?->content !!}
    </div>
-   @foreach ($model->article_creators as $author)
+   @foreach ($article->article_creators as $author)
    <div class="row mb-3 mt-1">
     <div class="col-md-3">
         <img src="{{ asset($author->user->image) }}" height="80" class="rounded" />

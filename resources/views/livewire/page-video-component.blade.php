@@ -42,7 +42,7 @@
                 <div class="col-md-4">
                     <h5 class="text-uppercase text-light">Up Next</h5>
                     <div class="list-group">
-                      @if(count($videos) >= 4)
+                      @if(count($videos) > 1)
                       @for($i = 1; $i < 4; $i++)
                       <?php
                         $data = $videos[$i];

@@ -11,6 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   @livewireStyles
 
+    <!-- solar icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
   <!-- Favicon icon-->
   <link rel="shortcut icon" type="image/png" href="icon.png" />
 
@@ -1438,7 +1441,7 @@
   
 
   @livewireScripts
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script src="assets/js/vendor.min.js"></script>
   <!-- Import Js Files -->
   <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1446,17 +1449,8 @@
   <script src="assets/js/theme/app.init.js"></script>
   <script src="assets/js/theme/theme.js"></script>
   <script src="assets/js/theme/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <!-- solar icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    
-  <script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="assets/js/frontend-landingpage/homepage.js"></script>
-  <script>
-    function handleColorTheme(e) {
-      document.documentElement.setAttribute("data-color-theme", e);
-    }
-  </script>
   <style>
     .cke_notifications_area{display:none;}
 </style>

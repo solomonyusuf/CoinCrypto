@@ -17,7 +17,61 @@
       </div>
         @endif
         <div class="row justify-content-center">
-        @foreach ($videos as $data)
+        <div class="bg-primary mb-3">
+          <div class="container mt-4">
+            <div class="row">
+                <!-- Featured Video -->
+                <div class="col-md-8">
+                    <div class="card bg-dark border-0">
+                      <iframe 
+                      src="{{ $video->link }}" 
+                      frameborder="0" 
+                      width="100%"
+                      height="250"
+                      style="border-radius: 10px;"
+                      allowfullscreen>
+                      </iframe> 
+                        <div class="card-body">
+                            <h2 class="text-light fw-semibold">{{ $video->title }}</h2>
+                            <span class="text-light">{!! \Illuminate\Support\Str::limit($video->description,500,'...') !!}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Up Next Videos -->
+                <div class="col-md-4">
+                    <h5 class="text-uppercase text-light">Up Next</h5>
+                    <div class="list-group">
+                      @if(count($videos) > 5)
+                      @for($i = 1; $i < 4; $i++)
+                      <?php
+                        $data = $videos[$i];
+                      ?>
+                        <div class="gap-1 justify-content-between list-group-item list-group-item-action bg-dark border-0 border-bottom text-light d-flex">
+                          {{ $data->title }}
+                          <iframe 
+                          src="{{ $data->link }}" 
+                          frameborder="0" 
+                          width="150"
+                          height="100"
+                          style="border-radius: 10px;"
+                          allowfullscreen>
+                          </iframe> 
+                        </div>
+                        @endfor
+                      @endif 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        </div>
+        @if(count($videos) > 0)
+         @for($i = 6; $i < count($videos); $i++)
+          <?php
+           $data = $videos[$i];
+          ?> 
           <div class="col-md-6 col-lg-4">
             <div class="card overflow-hidden hover-img">
               <div class="position-relative">
@@ -40,7 +94,8 @@
               </div>
             </div>
           </div> 
-          @endforeach
+          @endfor
+          @endif
 
       </div>
     </div>

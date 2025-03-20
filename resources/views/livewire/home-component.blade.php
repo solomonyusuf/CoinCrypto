@@ -97,7 +97,8 @@
         </div>
       </div>
     </div>
-    @if(count($latests) > 0)
+   
+    {{-- @if(count($latests) > 0)
     <div class="row">
       <div class="card data-shadow rounded-3 mb-7">
         <div class="row">
@@ -173,7 +174,7 @@
         </div>
     </div>
   
-    @endif
+    @endif --}}
      
     {{-- <div class="row">
       <h4 class="fw-semibold mb-4">Top Stories</h4>
@@ -516,7 +517,7 @@
         $item = $category?->articles->first();    
       @endphp
      {{-- @if($list2->isNotEmpty()) --}}
-    <div class="col-md-6">
+    <div class="col-md-6 border-top">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
     

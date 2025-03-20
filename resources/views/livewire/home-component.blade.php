@@ -517,38 +517,38 @@
         $item = $list2->first();    
       @endphp
      @if($list2->isNotEmpty())
-      <div class="col-md-6 border-top">
-        <div class="container">
-          <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
-          <div class="row">
-          
-              <!-- Featured Article -->
-              <div class="col-md-6">
-                  <div class=" shadow-0 border-0">
-                      <img src="{{ asset($item?->image) }}" class="card-img-top" alt="Featured News">
-                      <div class="card-body shadow-0 border-0 p-0 mt-2">
-                          <h4 class="news-title">{{ $item?->title}}</h4>
-                          <p class="news-meta">{{ \Carbon\Carbon::parse($item?->created_at)->diffForHumans() }}</p>
-                      </div>
-                  </div>
-              </div>
-      
-              <!-- Side Articles -->
-              <div class="col-md-6">
-                @for ($i = 1; $i < count($list2); $i++)
-                <?php
-                $article = $list2[$i];
-                ?>
-                  <div class="news-item">
-                    <h5 class="news-title">{{ $article['title'] }}</h5>
-                    <p class="news-meta">{{ \Carbon\Carbon::parse($article['created_at'])->diffForHumans() }}</p>
+    <div class="col-md-6 border-top">
+      <div class="container my-2">
+        <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
+        <div class="row">
+         
+            <!-- Featured Article -->
+            <div class="col-md-6">
+                <div class=" shadow-0 border-0">
+                    <img src="{{ asset($item?->image) }}" class="card-img-top" alt="Featured News">
+                    <div class="card-body shadow-0 border-0 p-0 mt-2">
+                        <h4 class="news-title">{{ $item?->title}}</h4>
+                        <p class="news-meta">{{ \Carbon\Carbon::parse($item?->created_at)->diffForHumans() }}</p>
+                    </div>
                 </div>
-                @endfor 
+            </div>
+    
+            <!-- Side Articles -->
+            <div class="col-md-6">
+              @for ($i = 1; $i < count($list2); $i++)
+              <?php
+               $article = $list2[$i];
+              ?>
+                <div class="news-item">
+                  <h5 class="news-title">{{ $article['title'] }}</h5>
+                  <p class="news-meta">{{ \Carbon\Carbon::parse($article['created_at'])->diffForHumans() }}</p>
               </div>
-          </div>
+              @endfor 
+            </div>
+        </div>
       </div>
-      @endif
-   
+    </div>
+    @endif  
     @endforeach
     
   </div>

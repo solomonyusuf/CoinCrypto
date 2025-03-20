@@ -329,7 +329,7 @@
         @csrf
           <!-- Subscription Box -->
           <div class="col-md-4">
-              <div class="subscribe-box">
+              <div class="subscribe-box" style="background:#f8f9fa;">
                   <h5><strong>Don't miss another story.</strong></h5>
                   <p>Subscribe to the CoinCrypto Newsletter today.</p>
                   <input type="email" name="email" class="form-control mb-2" placeholder="Enter your Email">

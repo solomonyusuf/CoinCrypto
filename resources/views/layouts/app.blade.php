@@ -130,6 +130,22 @@
     }
 </style>
 <style>
+   .img-box {
+            border: 5px solid #ffc107;
+            padding: 10px;
+            display: inline-block;
+            position: relative;
+        }
+        .img-box::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: #ffc107;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: -1;
+        }
   .subscribe-box {
       background: #f8f9fa;
       padding: 20px;

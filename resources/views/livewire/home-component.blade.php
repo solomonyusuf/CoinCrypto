@@ -412,7 +412,7 @@
                 {{ $count++ }}
               </div>
               <div class="">
-                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
+                <h4 class="fs-4 mb-0 fw-light">{{ $data->title }}</h4>
                 <div class="mt-3">
                   <span class="fw-semibold text-uppercase d-flex align-items-center">
                     By
@@ -478,10 +478,10 @@
     <div class="d-flex relative shadow-md container-fluid justify-center items-center">
       <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100 mb-3">
         <div class="col-md-5 col-sm-12 justify-content-center ">
-          <h3 class="text-white fw-semibold mt-4 mb-1">
+          <h2 class="text-white fw-semibold mt-4 mb-2">
             {{ $event->title }}
-          </h3>
-          <h6 class="mb-3 text-white">
+          </h2>
+          <h6 class="mb-4 text-white">
             Check out the latest coverage and meet our top speakers. 
           </h6>
           <a href="{{ $event->category }}" class="register-btn mb-2 mt-2 ms-3">
@@ -492,8 +492,9 @@
           </a>
         </div>
         <div class="col-md-7 col-sm-12 d-none d-md-block">
-          <img src="{{ asset($event->image) }}" style="height:250px;width:250px;position:absolute;border-radius:125px;" class="card-img-top img-responsive"  alt="">
-              
+          <div class="img-box">
+          <img src="{{ asset($event->image) }}" style="height:250px;width:350px;" class="card-img-top img-responsive"  alt="">
+          </div>
         </div>
 
       </div>

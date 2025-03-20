@@ -520,7 +520,7 @@
      @if($list2->isNotEmpty())
     <div class="col-md-6 border-top">
       <div class="container my-2">
-        <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
+        <h6 class="text-uppercase fw-semibold text-muted">{{ $category->title}}</h6>
         <div class="row">
          
             <!-- Featured Article -->

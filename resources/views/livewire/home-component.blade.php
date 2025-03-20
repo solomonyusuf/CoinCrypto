@@ -223,14 +223,16 @@
 
     <div class="row mt-4 border-bottom">
       <div class="col-md-4">
-        @if($categories)
         @if(count($categories) > 0)
         @foreach ($categories as $category)
         <div class="row">
           <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
-          <?php
-              $list = \App\Models\Article::orderByDesc('created_at')->where(['category_id'=> $category->id])->limit(10)->get();
-          ?>
+          @php
+                $list = \App\Models\Article::where('category_id', $category->id)
+                ->orderByDesc('created_at')
+                ->limit(10)
+                ->get();
+           @endphp
           <div class="position-relative mb-2 mt-2">
             @foreach ($list as $data)
             <div class="d-flex align-items-center justify-content-between mb-7 border-bottom">
@@ -254,7 +256,7 @@
         @endforeach
   
         @endif
-        @endif
+      
       </div>
       <div class="col-md-8 col-lg-8">
         <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
@@ -510,13 +512,13 @@
   <div class="row mt-3">
     @foreach ($categories_body as $category)
         <?php
-        $list2 = \App\Models\Article::orderBy('views', 'desc')->where(['category_id'=> $category->id])->limit(4)->get();
+        $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
         $item = $list2->first();  
         $list2 = $list2->slice(1); 
 
       
     ?>
-    @if(count($list2) > 0)
+    @if(count($list2) > 0) 
     <div class="col-md-6">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>

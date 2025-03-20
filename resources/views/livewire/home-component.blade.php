@@ -44,7 +44,7 @@
     <div class="row justify-content-between">
       <div class="col-md-8 border-bottom" >
         <a {{ route('article_detail', [$latest->slug, $latest->id]) }} class="card">
-          <img class="card-img-top img-responsive" src="{{ asset($latest->image) }}" style="height:400px;"alt="Card image cap">
+          <img class="card-img-top img-responsive" src="{{ asset($latest->image) }}" style="height:400px;" alt="Card image cap">
           <div class="card-body">
             <h3 class="card-title">
               {{ $latest->title }}
@@ -223,10 +223,10 @@
     </div> --}}
 
     <div class="row mt-4 border-bottom">
-      <div class="col-md-4 card">
+      <div class="col-md-4">
         @if(count($categories) > 0)
         @foreach ($categories as $category)
-        <div class="row px-2">
+        <div class="row">
           <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
           @php
                 $list = \App\Models\Article::where('category_id', $category->id)
@@ -259,9 +259,8 @@
         @endif
       
       </div>
-      <div class="col-md-8 col-lg-8 card">
-        <div class="px-2">
-          <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
+      <div class="col-md-8 col-lg-8">
+        <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
         <div class="row justify-content-center">
         @foreach ($top as $data)
         <div class="col-md-6 col-sm-12 border-bottom">
@@ -279,9 +278,45 @@
               </div>
             </div>
           </a>
+          {{-- <div class="card overflow-hidden hover-img">
+            <div class="position-relative">
+              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                <img src="{{ asset($data->image) }}" class="card-img-top" alt="">
+              </a>
+  
+              <img
+                src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}"
+                alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
+                width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top">
+            </div>
+            <div class="card-body p-4">
+              <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">
+                {{ $data?->article_category?->title }}
+              </span>
+              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}"
+                class="d-block my-4 fs-5 text-dark fw-semibold link-primary">
+                {{ $data->title }}
+              </a>
+              <div class="d-flex align-items-center gap-4">
+                <div class="d-flex gap-2">
+                  <i class="ti ti-eye fs-5 text-dark"></i>
+                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views }}</p>
+                </div>
+                <div class="d-flex gap-2">
+                  <i class="ti ti-user fs-5 text-dark"></i>
+                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($data?->article_creators)}}</p>
+                </div>
+                <div class="d-flex align-items-center fs-2 ms-auto">
+                  <i class="ti ti-point text-dark"></i>
+                  {{ \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()}}&nbsp;
+                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+  
+                </div>
+              </div>
+            </div>
+          </div> --}}
         </div>
         @endforeach
-        </div>
       </div>
       {{ $top->links() }} 
       </div>

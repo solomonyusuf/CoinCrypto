@@ -1,10 +1,10 @@
 <div>
-    <div class="topbar-image  py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
+    <div class="topbar-image py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
         <div class="slide-container">
           <div class="slide-animation1 d-flex justify-content-center align-items-center">
             @forelse ($price as $coin => $data)
             <div class="col-md-3 mb-1">
-                <div class="card text-white bg-dark p-1">
+                <div class="card text-dark p-1">
                     <a title="View price details" class="d-flex align-items-center text-decoration-none text-white px-3">
                         <div class="d-flex align-items-center">
                             <span class="fw-bolder text-uppercase">{{ strtoupper($coin) }}</span>

@@ -515,7 +515,7 @@
         $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
         $item = $list2->first();    
       @endphp
-      @if(count($list2) > 0)
+     @if($list->isNotEmpty())
     <div class="col-md-6">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>

@@ -226,7 +226,6 @@
         @if($categories)
         @if(count($categories) > 0)
         @foreach ($categories as $category)
-        @if(count($category?->articles) > 0)
         <div class="row">
           <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
           <?php
@@ -251,7 +250,7 @@
   
           </div>
         </div>
-        @endif
+      
         @endforeach
   
         @endif
@@ -378,7 +377,7 @@
               </div>
               <div class="mt-3">
                 <p>
-                  {!!  \Illuminate\Support\Str::limit($data->content, 300, '..') !!}
+                  {!!  \Illuminate\Support\Str::limit($data->content, 500, '..') !!}
                 </p>
 
                 <span class="fw-semibold text-uppercase d-flex align-items-center">

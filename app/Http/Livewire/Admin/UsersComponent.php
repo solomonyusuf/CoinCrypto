@@ -73,7 +73,7 @@ class UsersComponent extends Component
             <p>Welcome to our platform! Your account has been successfully created.</p>
                 <p>To get started, check your credentials below.</p>
                 <p>your email is {$entity->email}.</p>
-                <p>your password is {$this->add->password}.</p>
+                <p>your password is {$request->password}.</p>
                 <a href=\"{$url}\" class=\"button\">Access Account</a>"
         ));
 

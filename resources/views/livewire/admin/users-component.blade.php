@@ -19,8 +19,8 @@
                     <i class="ti ti-plus fs-4"></i>
                     <span class="d-none d-md-block fw-medium fs-3">Add User</span>
                 </button>
-                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
-                    <div class="modal-dialog modal-lg">
+                <div class="modal modal-lg fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                    <div class="modal-dialog">
                         <form enctype="multipart/form-data" action="{{ route('create_user') }}" method="POST" class="modal-content border-0">
                           @csrf 
                           <div class="modal-header text-bg-primary">
@@ -146,7 +146,7 @@
                                 </li>
                             </ul>
                             <div class="modal fade modal-lg" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
-                                <div class="modal-dialog ">
+                                <div class="modal-dialog">
                                     <form enctype="multipart/form-data" action="{{ route('update_user', $data->id) }}" method="post" class="modal-content border-0">
                                       @csrf  
                                       <div class="modal-header text-bg-primary">

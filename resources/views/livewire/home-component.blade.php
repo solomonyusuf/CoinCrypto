@@ -227,7 +227,7 @@
         @if(count($categories) > 0)
         @foreach ($categories as $category)
         <div class="row">
-          <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
+          <h4 class="mb-1 fs-4 fw-semibold mb-3 text-uppercase">Latest {{ $category->title }} News</h4>
           @php
                 $list = \App\Models\Article::where('category_id', $category->id)
                 ->orderByDesc('created_at')
@@ -260,7 +260,7 @@
       
       </div>
       <div class="col-md-8 col-lg-8">
-        <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
+        <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase" id="top">Top Stories</h4>
         <div class="row justify-content-center">
         @foreach ($top as $data)
         <div class="col-md-6 col-sm-12 border-bottom">
@@ -323,7 +323,7 @@
     </div>
 
     <div class="mt-4 border-bottom">
-      <h5 class="fw-bold">Newsletters  </h5>
+      <h5 class="fw-bold text-uppercase">Newsletters  </h5>
       
       <form action="{{ route('subscribe', 'test') }}" method="post" class="row mb-3">
         @csrf
@@ -362,7 +362,7 @@
    </div>
 
   <div class="col-md-12 col-lg-12">
-    <h4 class="fw-semibold fs-4 mb-4 mt-2">Most Read</h4>
+    <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase">Most Read</h4>
     <div class="row justify-content-center">
       <div class="col-md-12 col-sm-12 border-bottom">
         <?php
@@ -504,7 +504,7 @@
 
 <div class="container">
   <div class="col-md-12 col-lg-12">
-    <h4 class="fw-semibold fs-4 mb-4 mt-2">Podcasts</h4>
+    <h4 class="text-uppercase fw-semibold fs-4 mb-4 mt-2">Podcasts</h4>
     <div class="row justify-content-center gap-1">
       <div id="music-player" class="mb-3 col-md-6"></div>
     </div>

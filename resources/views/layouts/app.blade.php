@@ -332,6 +332,19 @@
           <a wire:navigate href="{{route('register')}}" class="btn btn-outline-primary py-8">Sign Up</a>
          </li>
         @endif
+         @if(auth()?->user())
+        <li class="mb-3">
+          <a class="nav-link pe-0" href="{{ route('profile') }}" id="drop1" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <img src="{{ $user?->image }}" class="rounded-circle" width="30" height="30" >
+            </div>
+          </a>
+        </li>
+         <li  class="mb-3">
+          <a href="{{ route('logout') }}" class="btn btn-outline-danger py-8"> Logout </a>
+            
+        </li>
+        @endif
         @if(Route::has('login'))
         @if(auth()?->user() && \App\Models\User::find(auth()?->user()?->id)?->role->title != 'member')
         <li  class="">

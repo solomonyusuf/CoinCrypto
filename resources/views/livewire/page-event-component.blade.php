@@ -16,7 +16,7 @@
       </div>
         @endif
         @foreach ($events as $event)
-        <div class="bg-primary rounded">
+        <div class="bg-primary rounded mb-3">
           <div class="d-flex relative shadow-md container-fluid justify-center items-center">
             <div class="row d-flex justify-content-between justify-content-center items-center pt-1 pb-1 w-100">
               <div class="col-md-5 col-sm-12 d-flex gap-2 justify-content-center pb-4">

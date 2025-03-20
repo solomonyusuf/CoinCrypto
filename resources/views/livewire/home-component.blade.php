@@ -257,7 +257,7 @@
           <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase border-bottom pb-2" id="top">Top Stories</h4>
           <div class="row">
               @foreach ($top as $data)
-              <div class="col-md-6 col-sm-12 mb-3">
+              <div class="col-md-6 col-sm-12 mb-1">
                   <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
                       <div class="card border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
                           <img src="{{ asset($data->image) }}" class="rounded-circle" style="height:50px; width:50px;" alt="">

@@ -395,7 +395,7 @@
                 
               </div>
             </div>
-            <div class="justify-content-center" >
+            <div class="justify-content-center d-none d-md-block" >
               <img src="{{ asset($data->image) }}" style="height:300px;" class="card-img-top img-responsive"  alt="">
               
             </div>

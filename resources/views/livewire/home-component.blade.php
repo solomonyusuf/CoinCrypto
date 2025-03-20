@@ -226,7 +226,7 @@
       <div class="col-md-4 card">
         @if(count($categories) > 0)
         @foreach ($categories as $category)
-        <div class="row card-body">
+        <div class="row px-2">
           <h4 class="mb-1 fs-4 fw-semibold mb-3">Latest {{ $category->title }} News</h4>
           @php
                 $list = \App\Models\Article::where('category_id', $category->id)
@@ -260,7 +260,7 @@
       
       </div>
       <div class="col-md-8 col-lg-8 card">
-        <div class="card-body">
+        <div class="px-2">
           <h4 class="fw-semibold fs-4 mb-4 mt-2" id="top">Top Stories</h4>
         <div class="row justify-content-center">
         @foreach ($top as $data)

@@ -37,6 +37,7 @@
             color: #321dff;
         }
     </style>
+    @livewire('top-event')
     @if(count($podcasts) > 0)
     <div class="container mt-3">
         <div class="col-md-12 col-lg-12">

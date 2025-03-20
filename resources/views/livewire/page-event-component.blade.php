@@ -1,4 +1,5 @@
 <div>
+  @livewire('top-event')
     <div class="container mt-3">
       <div class="col-md-5 mb-4">
         <h4 class="fw-semibold mb-1 mt-3">CoinCrypto Events</h4>

@@ -8,6 +8,7 @@
           </div>
       </div>
         @endif
+    @livewire('top-event')
     @if($newsletters)
     <div class="container-fluid">
       <div class="col-md-5 mb-4">

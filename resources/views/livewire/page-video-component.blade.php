@@ -1,5 +1,5 @@
 <div>
- 
+  @livewire('top-event')
     <div class="container mt-3">
       <div class="col-md-5 mb-4">
         <h4 class="fw-semibold mb-1 mt-3">CoinCrypto Videos</h4>
@@ -16,6 +16,7 @@
           </div>
       </div>
         @endif
+        <div class="row justify-content-center">
         @foreach ($videos as $data)
           <div class="col-md-6 col-lg-4">
             <div class="card overflow-hidden hover-img">
@@ -42,4 +43,5 @@
           @endforeach
 
       </div>
+    </div>
 </div>

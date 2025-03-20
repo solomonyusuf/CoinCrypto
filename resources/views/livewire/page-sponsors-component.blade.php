@@ -1,4 +1,5 @@
 <div>
+  @livewire('top-event')
   <div class="container mt-3">
     @if(count($articles) > 0)
     <div class="mb-3">

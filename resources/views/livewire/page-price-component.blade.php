@@ -9,6 +9,7 @@
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow effect */
     }
     </style>
+    @livewire('top-event')
     <div class="container-fluid">
         <div class="col-md-5">
         <h4 class="fw-semibold mb-4 mt-3">Top Cryptocurrency Prices and Market Cap</h4>

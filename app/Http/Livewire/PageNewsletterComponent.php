@@ -16,35 +16,74 @@ class PageNewsletterComponent extends Component
     public function subscribe($id, Request $request)
     {
         
-        $check = Subscription::where(['email'=> $request->email])->first();
-
-        if($check){
-            toast('Subscribed Previously','warning');
-            return redirect()->back();
-        }
-
         if(!$request->letter_id && $id == 'test')
         {
             toast('Select a valid newsletter','warning');
             return redirect()->back();
         }
 
-        $id = $id == 'test' ? $request->letter_id[0] : $id ;
+        if(count($request->letter_id) > 1)
+        {
+           foreach($request->letter_id as $param)
+           {
+                $id = $param;
+                $check = Subscription::where([
+                    'email'=> $request->email,
+                    'newsletter_id' => $id
+                    ])->first();
+        
+                if($check){
+                    toast('Subscribed Previously','warning');
+                    return redirect()->back();
+                }
 
+                $sub = Subscription::create([
+                    'newsletter_id' => $id ,
+                    'email' =>  $request->email,
+                ]);
 
-        $sub = Subscription::create([
-            'newsletter_id' => $id ,
-            'email' =>  $request->email,
-        ]);
+                $url = route('activate_sub', $sub->id);
+                Mail::to($request->email)->send(new AppMail(
+                    'Activate Subscription',
+                    "
+                    <p>Welcome to our newsletter! Your subscription is successfully created.</p>
+                        <p>To get started, please verify your email by clicking the button below.</p>
+                        <a href=\"{$url}\" class=\"button\">Activate</a>"
+                ));
+           }
 
-        $url = route('activate_sub', $sub->id);
-        Mail::to($request->email)->send(new AppMail(
-            'Activate Subscription',
-            "
-            <p>Welcome to our newsletter! Your subscription is successfully created.</p>
-                <p>To get started, please verify your email by clicking the button below.</p>
-                <a href=\"{$url}\" class=\"button\">Activate</a>"
-        ));
+           
+        }
+        else
+        {
+            $id = $id == 'test' ? $request->letter_id[0] : $id ;
+
+            $check = Subscription::where([
+                'email'=> $request->email,
+                'newsletter_id' => $id
+                ])->first();
+    
+            if($check){
+                toast('Subscribed Previously','warning');
+                return redirect()->back();
+            }
+
+            $sub = Subscription::create([
+                'newsletter_id' => $id ,
+                'email' =>  $request->email,
+            ]);
+
+            $url = route('activate_sub', $sub->id);
+            Mail::to($request->email)->send(new AppMail(
+                'Activate Subscription',
+                "
+                <p>Welcome to our newsletter! Your subscription is successfully created.</p>
+                    <p>To get started, please verify your email by clicking the button below.</p>
+                    <a href=\"{$url}\" class=\"button\">Activate</a>"
+            ));
+
+        }
+        
 
         toast('Subscription Successful','success');
 

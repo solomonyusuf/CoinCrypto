@@ -41,7 +41,7 @@
                                       </div>
                                        <div class="mb-3"  wire:ignore>
                                         <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  required name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                        <textarea id="editor"  name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
                                       <div class="mb-3">
                                         <label  class="form-label">Tag *</label>

@@ -183,7 +183,7 @@
                                                       </div>
                                                      <div class="mb-3"  wire:ignore>
                                                       <label  class="form-label">Content *</label>
-                                                      <textarea id="text{{ $count }}"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control">{!! $data->description !!}</textarea>
+                                                      <textarea id="text{{ $count }}"  name="description" style="height:400px;"  placeholder="" type="text" class="form-control">{!! $data->description !!}</textarea>
                                                     </div>
                                                      
                                                     {{-- <div class="mb-3">

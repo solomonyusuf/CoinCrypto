@@ -21,49 +21,52 @@
                 </button>
                 <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
                     <div class="modal-dialog modal-lg">
-                        <form wire:submit.prevent="create" class="modal-content border-0">
-                            <div class="modal-header text-bg-primary">
+                        <form enctype="multipart/form-data" action="{{ route('create_user') }}" method="POST" class="modal-content border-0">
+                          @csrf 
+                          <div class="modal-header text-bg-primary">
                               <h6 class="modal-title text-white">Add User</h6>
                               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                               <div class="notes-box">
                                 <div class="notes-content">
-                                  <div>
+                                  
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Image</label>
-                                        <input required  wire:model='image'  type="file" class="form-control">
-                                      </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">First Name *</label>
-                                        <input required wire:model='add.first_name' placeholder="Enter First Name" type="text" class="form-control">
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Last Name *</label>
-                                        <input required wire:model='add.last_name' placeholder="Enter Last Name" type="text" class="form-control">
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Role *</label>
-                                        <select required wire:model='add.role_id' class="form-control">
-                                            <option selected> --Choose-- </option>
-                                            @foreach ($roles as $item)
-                                              <option value="{{$item->id}}">{{ $item->title }}</option>
-                                            @endforeach
-                                        </select>
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Info</label>
-                                        <textarea wire:model='add.info' placeholder="Enter Info" type="text" class="form-control"></textarea>
-                                      </div>
-                                       <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email *</label>
-                                        <input required wire:model='add.email' placeholder="Enter Email" type="email" class="form-control"  >
-                                      </div>
-                                      <div class="mb-4">
-                                        <label for="exampleInputPassword1" class="form-label">Password *</label>
-                                        <input required wire:model='add.password' placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
-                                      </div>
+                                      <label for="exampleInputEmail1" class="form-label">Image</label>
+                                      <input  name='image'  type="file" class="form-control" accept="image">
                                     </div>
+                                     <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label">First Name *</label>
+                                      <input  name='first_name'   type="text" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label">Last Name *</label>
+                                      <input  name='last_name'  type="text" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label">Role</label>
+                                      <select  name='role_id' class="form-control">
+                                          <option value="">-- Choose --</option>
+                                          @foreach ($roles as $item)
+                                           <option value="{{$item->id}}">{{ $item->title }}</option>
+                                        @endforeach
+                                      </select>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label">Info</label>
+                                      <textarea name='info' value="" type="text" class="form-control"></textarea>
+                                    </div>
+                                     <div class="mb-3">
+                                      <label for="exampleInputEmail1" class="form-label">Email *</label>
+                                      <input  name='email' type="email" class="form-control"  >
+                                    </div>
+                                    <div class="mb-4">
+                                      <label for="exampleInputPassword1" class="form-label"> Password </label>
+                                      <input  name='password' placeholder="Enter Password" type="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                  </div>
+                              
+
                                 </div>
                               </div>
                             </div>
@@ -170,6 +173,18 @@
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Last Name *</label>
                                                     <input  name='last_name' value="{{ $data->last_name }}" type="text" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Role : {{ $data?->role->title}}</label>
+                                                    <select  name='role_id' class="form-control">
+                                                        @foreach ($roles as $item)
+                                                        @if($data->role_id == $item->id)
+                                                         <option value="{{$item->id}}" selected>{{ $item->title }}</option>
+                                                         @else
+                                                         <option value="{{$item->id}}">{{ $item->title }}</option>
+                                                      @endif
+                                                         @endforeach
+                                                    </select>
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Info</label>

@@ -35,20 +35,36 @@ class UsersComponent extends Component
     {
         return User::orderByDesc('created_at')->get();
     }
-    public function create()
+
+    public function create(Request $request)
     {
-        if ($this->image) {
-            $imageName = uniqid() . '.' . $this->image->extension(); // Generate unique filename
-            $this->image->move(public_path('uploads'), $imageName); // Move file to public/photos
-            
-            $this->add['image'] = 'uploads/' . $imageName;
+        $query = User::where(['email'=> $request->email])->first();
+
+        if($query)
+        {
+            toast('User Already Exist', 'success');
+
+            return redirect()->back();
         }
-         
-        $entity = User::create($this->add);
 
-        toast('Creation Successful', 'success');
+        $imageName = null;
 
-        $this->users = $this->GetAll();
+        if ($request->image) 
+        {
+          $imageName = UploadController::UploadFile($request);
+        }
+        
+        $entity = User::create([
+            'role_id' =>  $request->role_id,
+            'image' => $imageName,
+            'info' => $request->info, 
+            'linkedin' =>  $request->linkedin,
+            'twitter' =>  $request->twitter,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
+            'email' =>  $request->email,
+            'password' =>  bcrypt( $request->password),
+        ]);
 
         $url = route('login');
         Mail::to($entity->email)->send(new AppMail(
@@ -61,10 +77,11 @@ class UsersComponent extends Component
                 <a href=\"{$url}\" class=\"button\">Access Account</a>"
         ));
 
-        $this->reset('add');
-        $this->reset('image');
-
+        toast('Creation Successful', 'success');
+        
+        return redirect()->back();
     }
+   
     public function update($id, Request $request)
     {
         $query = User::find($id);

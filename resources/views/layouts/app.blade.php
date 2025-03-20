@@ -191,11 +191,11 @@
            <img src="logo.png" style="height:40px;" alt="Logo-light" />
         </a>
         @if(!auth()?->user())
-          <div class="px-1 d-none d-sm-block">
+          <div class="px-1 d-block d-sm-none">
             <a wire:navigate href="{{route('login')}}" class="btn btn-primary py-8">Sign In</a>
           </div>
           @else
-          <a class="px-1 d-none d-sm-block" href="{{ route('profile') }}">
+          <a class="px-1 d-block d-sm-none" href="{{ route('profile') }}">
             <div class="d-flex align-items-center">
               <img src="{{ $user?->image }}" class="rounded-circle" width="30" height="30" >
             </div>

@@ -411,7 +411,7 @@
                 {{ $count++ }}
               </div>
               <div class="">
-                <h4 class="mb-0">{{ $data->title }}</h4>
+                <h4 class="fs-4 mb-0">{{ $data->title }}</h4>
                 <div class="mt-3">
                   <span class="fw-semibold text-uppercase d-flex align-items-center">
                     By

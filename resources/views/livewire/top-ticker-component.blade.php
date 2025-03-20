@@ -1,5 +1,5 @@
 <div>
-    <div class="topbar-image bg-primary py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
+    <div class="topbar-image  py-1 rounded-0 mb-0 alert alert-dismissible fade show" role="alert">
         <div class="slide-container">
           <div class="slide-animation1 d-flex justify-content-center align-items-center">
             @forelse ($price as $coin => $data)

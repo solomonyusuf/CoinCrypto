@@ -41,7 +41,7 @@
                 <!-- Up Next Videos -->
                 <div class="col-md-4">
                     <h5 class="text-uppercase text-light">Up Next</h5>
-                    <div class="list-group">
+                    <div class="list-group mb-2">
                       @if(count($videos) > 1)
                       @for($i = 1; $i < 5; $i++)
                           <?php $data = $videos[$i] ?? null; ?>

@@ -166,6 +166,11 @@
   .newsletter-item:last-child {
       border-bottom: none;
   }
+  @media (max-width: 576px) {
+    .countdown-box {
+        width: 50px !important; /* Show on mobile */
+    }
+}
 </style>
 <body>
     @include('sweetalert::alert')

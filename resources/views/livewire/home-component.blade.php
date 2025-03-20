@@ -514,9 +514,9 @@
     @foreach ($categories_body as $category)
         @php
         $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
-        $item = $category?->articles->first();    
+        $item = $list2->first();    
       @endphp
-     {{-- @if($list2->isNotEmpty()) --}}
+     @if($list2->isNotEmpty())
     <div class="col-md-6 border-top">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
@@ -548,7 +548,7 @@
             </div>
         </div>
     </div>
-    {{-- @endif --}}
+    @endif
 
    </div>
    

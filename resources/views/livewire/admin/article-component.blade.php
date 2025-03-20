@@ -99,7 +99,8 @@
                 <i class="ti ti-search"></i>
             </button>
           </form>
-          <div id="note-full-container" class="note-has-grid row">
+          <div class="row">
+         
             @foreach ($articles as $data)
               <div class="col-md-4 single-note-item all-category">
                 <div class="card card-body">

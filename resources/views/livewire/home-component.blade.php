@@ -511,11 +511,10 @@
 
   <div class="row mt-3">
     @foreach ($categories_body as $category)
-        <?php
+        @php
         $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
-        $item = $list2->first();  
-          
-    ?>
+        $item = $list2->first();    
+      @endphp
       @if(count($list2) > 0)
     <div class="col-md-6">
       <div class="container my-2">

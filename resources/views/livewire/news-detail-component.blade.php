@@ -25,10 +25,10 @@
    @foreach ($article->article_creators as $author)
    <div class="row mb-3 mt-1">
     <div class="col-md-3">
-        <img src="{{ asset($author->user->image) }}" height="80" class="rounded" />
+        <img src="{{ asset($author->user->image) }}" height="100" class="rounded" />
      </div>
     <div class="col-md-9">
-       <h5>{{ $author->user->first_name }}</h5>
+       <h3>{{ $author->user->first_name.' '.$author->user->last_name }}</h3>
        <span>
         {!! $author->user->info !!}
        </span>

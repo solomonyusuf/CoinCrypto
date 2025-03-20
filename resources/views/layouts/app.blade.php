@@ -190,9 +190,17 @@
         <a wire:navigate href="{{route('home')}}" class="text-nowrap logo-img">
            <img src="logo.png" style="height:40px;" alt="Logo-light" />
         </a>
-        {{-- <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-          <i class="ti ti-menu-2 fs-8"></i>
-        </button> --}}
+        @if(!auth()?->user())
+          <div class="px-1">
+            <a wire:navigate href="{{route('login')}}" class="btn btn-primary py-8">Sign In</a>
+          </div>
+          @else
+          <a class="px-1" href="{{ route('profile') }}">
+            <div class="d-flex align-items-center">
+              <img src="{{ $user?->image }}" class="rounded-circle" width="30" height="30" >
+            </div>
+          </a>
+           @endif
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 gap-xl-7 gap-8 mb-lg-0">
             <li class="nav-item">

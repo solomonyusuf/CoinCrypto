@@ -43,23 +43,24 @@
                     <h5 class="text-uppercase text-light">Up Next</h5>
                     <div class="list-group">
                       @if(count($videos) > 1)
-                      @for($i = 1; $i < 4; $i++)
-                      <?php
-                        $data = $videos[$i];
-                      ?>
-                        <div class="gap-1 justify-content-between list-group-item list-group-item-action bg-dark border-0 border-bottom text-light d-flex">
-                          {{ $data->title }}
-                          <iframe 
-                          src="{{ $data->link }}" 
-                          frameborder="0" 
-                          width="150"
-                          height="100"
-                          style="border-radius: 10px;"
-                          allowfullscreen>
-                          </iframe> 
-                        </div>
-                        @endfor
-                      @endif 
+                      @for($i = 1; $i < min(4, count($videos)); $i++)
+                          <?php $data = $videos[$i] ?? null; ?>
+                          @if($data)
+                              <div class="gap-1 justify-content-between list-group-item list-group-item-action bg-dark border-0 border-bottom text-light d-flex">
+                                  {{ $data->title }}
+                                  <iframe 
+                                      src="{{ $data->link }}" 
+                                      frameborder="0" 
+                                      width="150"
+                                      height="100"
+                                      style="border-radius: 10px;"
+                                      allowfullscreen>
+                                  </iframe> 
+                              </div>
+                          @endif
+                      @endfor
+                  @endif
+                  
                         
                     </div>
                 </div>
@@ -70,7 +71,7 @@
         @if(count($videos) >= 5)
          @for($i = 5; $i < count($videos); $i++)
           <?php
-           $data = $videos[$i];
+           $data = $videos[$i] ?? null;
           ?> 
           <div class="col-md-6 col-lg-4">
             <div class="card overflow-hidden hover-img">

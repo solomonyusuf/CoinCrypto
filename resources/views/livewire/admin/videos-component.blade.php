@@ -43,9 +43,9 @@
                                         <label  class="form-label">Cover Video *</label>
                                         <input required name='link' placeholder="" type="text" class="form-control">
                                       </div>
-                                       <div class="mb-3"  wire:ignore>
+                                       <div class="mb-3">
                                         <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                        <textarea id="editor" name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
                                        
                                       <div class="mb-3">

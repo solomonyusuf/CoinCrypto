@@ -19,69 +19,72 @@
                     <i class="ti ti-plus fs-4"></i>
                     <span class="d-none d-md-block fw-medium fs-3">Add Event</span>
                 </button>
-                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
-                    <div class="modal-dialog modal-xl">
-                        <form enctype="multipart/form-data" action="{{ route('create_event') }}" method="post" class="modal-content border-0">
-                          @csrf  
-                          <div class="modal-header text-bg-primary">
-                              <h6 class="modal-title text-white">Add Event</h6>
-                              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <div class="notes-box">
-                                <div class="notes-content">
-                                  <div>
-                                    <div class="mb-3">
-                                      <label  class="form-label">Banner</label>
-                                      <input required  name='image'  type="file" class="form-control">
+                <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true" >
+                  <div class="modal-dialog modal-xl">
+                      <form enctype="multipart/form-data" action="{{ route('create_event') }}" method="post" class="modal-content border-0">
+                        @csrf  
+                        <div class="modal-header text-bg-primary">
+                            <h6 class="modal-title text-white">Add Event</h6>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="notes-box">
+                              <div class="notes-content">
+                                <div>
+                                  
+                                  <div class="mb-3">
+                                    <label  class="form-label">Banner</label>
+                                    <input  name='image'  type="file" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label  class="form-label">Title *</label>
+                                      <input required name='title' placeholder="" type="text" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label  class="form-label">Title *</label>
-                                        <input required name='title' placeholder="" type="text" class="form-control">
-                                      </div>
-                                      <div class="mb-3">
-                                        <label  class="form-label">Link *</label>
-                                        <input required name='category' placeholder="" type="text" class="form-control">
-                                      </div>
-                                       <div class="mb-3"  wire:ignore>
-                                        <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  required name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
-                                      </div>
-                                       
-                                      <div class="mb-3">
-                                        <label  class="form-label">Sponsored *</label>
-                                        <select required name='sponsored' class="form-control">
-                                          <option selected value="">--- Choose ---</option>
+                                      <label  class="form-label">Link *</label>
+                                      <input required name='category'  placeholder="" type="text" class="form-control">
+                                    </div>
+                                     <div class="mb-3">
+                                      <label  class="form-label">Content *</label>
+                                      <textarea id="editor"  name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                    </div>
+                                     
+                                    <div class="mb-3">
+                                      <label  class="form-label">Sponsored *</label>
+                                      <select required name='sponsored' class="form-control">
+                                          <option selected value=""> --Choose--</option>
                                           <option value="1"> true</option>
                                           <option value="0"> false</option>
-                                        </select>
-                                      </div>
-                                      <div class="mb-3">
-                                        <label  class="form-label">Event Date *</label>
-                                        <input required name='event_date' placeholder="" type="datetime-local" class="form-control">
-                                      </div>
-                                
+                                         
+                                      </select>
                                     </div>
-                                </div>
+                                    <div class="mb-3">
+                                      <label  class="form-label">Event Date *</label>
+                                      <input required name='event_date' placeholder="" type="datetime-local" class="form-control">
+                                    </div>
+                              
+                                  </div>
                               </div>
                             </div>
-                            <div class="modal-footer">
-                              <div class="d-flex gap-6">
-                                <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
-                                <button type="submit" data-bs-dismiss="modal"  class="btn btn-primary">Submit</button>
-                              </div>
-                    
+                          </div>
+                          <div class="modal-footer">
+                            <div class="d-flex gap-6">
+                              <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
+                              <button type="submit" data-bs-dismiss="modal"  class="btn btn-primary">Submit</button>
                             </div>
-                        </form>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
+                  
+                          </div>
+                      </form>
+                      <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
                 </div>
                </div>
               
             </div>
           </div>
         </div>
+        
         <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
                 <tr>

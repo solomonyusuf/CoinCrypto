@@ -346,7 +346,7 @@
             <div class="row justify-content-between">
                 
             @foreach ($newsletters as $data)
-             <div class="col-md-5 border-bottom">
+             <div class="col-md-5 border-end">
                     <div class="newsletter-item py-2">
                         <div class="d-flex gap-2">
                           <input name="letter_id[]" value="{{ $data->id }}" type="checkbox"> <h6 class="fw-semibold"/>{{ $data->title }}</h6>

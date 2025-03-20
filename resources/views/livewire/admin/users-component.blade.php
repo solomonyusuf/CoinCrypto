@@ -145,8 +145,8 @@
                                     <button wire:click="delete('{{$data->id}}')" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</button>
                                 </li>
                             </ul>
-                            <div class="modal fade" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
-                                <div class="modal-dialog modal-lg">
+                            <div class="modal fade modal-lg" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                                <div class="modal-dialog ">
                                     <form enctype="multipart/form-data" action="{{ route('update_user', $data->id) }}" method="post" class="modal-content border-0">
                                       @csrf  
                                       <div class="modal-header text-bg-primary">

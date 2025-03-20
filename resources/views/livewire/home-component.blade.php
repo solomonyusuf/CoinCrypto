@@ -324,7 +324,7 @@
   <div class="col-md-12 col-lg-12">
     <h4 class="fw-semibold fs-4 mb-4 mt-2 text-uppercase">Most Read</h4>
     <div class="row justify-content-center">
-      <div class="col-md-12 col-sm-12 border-bottom">
+      <div class="col-md-12 col-sm-12 border-bottom mb-3">
         <?php
           $data = $articles[0];
           $articles->shift();
@@ -367,7 +367,7 @@
       @foreach ($articles as $data)
           <div class="col-md-4 col-sm-12 border-bottom mb-3">
               <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
-                  <div class="card border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
+                  <div class="card border-0 shadow-sm p-4 d-flex flex-row align-items-center gap-3">
                       
                       <!-- Article Count Badge -->
                       <div class="badge text-bg-primary rounded-pill d-flex align-items-center justify-content-center" style="height:30px; width:30px;">

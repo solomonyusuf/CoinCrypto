@@ -238,11 +238,11 @@
                         @foreach ($list as $data)
                             <div class="card mb-3 border-0 shadow-sm">
                                 <div class="card-body d-flex flex-column">
-                                    <p class="fs-6 text-muted mb-2">
+                                    <p class="fs-3 text-muted mb-2">
                                         {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
                                     </p>
                                     <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
-                                        <h6 class="mb-1 fs-5 fw-bold text-primary">{{ $data->title }}</h6>
+                                        <h6 class="mb-1 fs-4 fw-bold text-primary">{{ $data->title }}</h6>
                                     </a>
                                 </div>
                             </div>

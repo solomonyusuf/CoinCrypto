@@ -134,7 +134,7 @@
             border: 5px solid #ffc107;
             padding: 10px;
             display: inline-block;
-            position: relative;
+            position: absolute;
         }
         .img-box::after {
             content: "";

@@ -102,7 +102,7 @@
           <div class="row">
          
             @foreach ($articles as $data)
-              <div class="col-md-4 single-note-item all-category">
+              <div class="col-md-12">
                 <div class="card card-body">
                   <span class="side-stick"></span>
                   <h6 class="note-title text-truncate w-75 mb-0"> 
@@ -113,7 +113,7 @@
                   </p>
                   <div class="note-content">
                     <p class="note-inner-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."> 
-                      {!! \Illuminate\Support\Str::limit($data->content, '50', '...') !!}
+                      {!! \Illuminate\Support\Str::limit($data->content, 200, '...') !!}
                     </p>
                   </div>
                   <div class="d-flex align-items-center">

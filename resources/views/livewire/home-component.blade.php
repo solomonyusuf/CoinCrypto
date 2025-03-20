@@ -514,11 +514,9 @@
         <?php
         $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
         $item = $list2->first();  
-        $list2 = $list2->slice(1); 
-
-      
+          
     ?>
-    @if(count($list2) > 0) 
+      
     <div class="col-md-6">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
@@ -538,17 +536,20 @@
     
             <!-- Side Articles -->
             <div class="col-md-6">
-              @foreach ($list2 as $article)
+              @for ($i = 1; $i < count($list2); $i++)
+              <?php
+               $article = $list2[$i];
+              ?>
                 <div class="news-item">
                   <h5 class="news-title">{{ $article->title }}</h5>
                   <p class="news-meta">{{ \Carbon\Carbon::parse($article?->created_at)->diffForHumans() }}</p>
               </div>
-              @endforeach
+              @endfor 
             </div>
         </div>
     </div>
    </div>
-   @endif
+   
     @endforeach
     
   </div>

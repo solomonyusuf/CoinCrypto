@@ -512,8 +512,7 @@
   <div class="row mt-3">
     @foreach ($categories_body as $category)
         @php
-        //$list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
-        $list2 = $category?->articles;
+        $list2 = \App\Models\Article::orderBy('views', 'desc')->where('category_id', $category->id)->limit(4)->get();
         $item = $category?->articles->first();    
       @endphp
      {{-- @if($list2->isNotEmpty()) --}}

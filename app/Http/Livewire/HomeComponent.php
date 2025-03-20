@@ -39,10 +39,10 @@ class HomeComponent extends Component
         
         $categories =  ArticleCategory::limit(4)
                            ->get();
+                           
         $categories_body =  ArticleCategory::orderByDesc('created_at')
-                            ->with('articles')                   
                             ->limit(6)
-                           ->get();
+                             ->get();
 
         $newsletters = Newsletter::orderByDesc('created_at')->get();
        

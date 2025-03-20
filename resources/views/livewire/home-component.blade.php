@@ -364,69 +364,33 @@
         </a>
 
       </div>
-        @foreach ($articles as $data)
-        <div class="col-md-4 col-sm-12 border-bottom">
-          <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="gap-1 border-0 shadow-0 d-flex py-2">
-            <div class="card-body d-flex gap-2">
-              <div class="text-bg-primary rounded-pill badge justify-content-center" style="height:30px;">
-                {{ $count++ }}
-              </div>
-              <div class="">
-                <h4 class="fs-4 mb-0 fw-light">{{ $data->title }}</h4>
-                <div class="mt-3">
-                  <span class="fw-semibold text-uppercase d-flex align-items-center">
-                    By
-                    @for ($i = 0; $i < count($data?->article_creators); $i++)
-                    @if($i != 0)
-                    ,
-                    @endif  
-                    {{ $data?->article_creators[$i]->user->first_name.' '.$data?->article_creators[$i]->user->last_name  }}
-                    @endfor
-                  </span>
-                  
-                </div>
-              </div>
-            </div>
-          </a>
-          {{-- <div class="card overflow-hidden hover-img">
-            <div class="position-relative">
-              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                <img src="{{ asset($data->image) }}" class="card-img-top" alt="">
+      @foreach ($articles as $data)
+          <div class="col-md-4 col-sm-12 border-bottom mb-3">
+              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
+                  <div class="card border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
+                      
+                      <!-- Article Count Badge -->
+                      <div class="badge text-bg-primary rounded-pill d-flex align-items-center justify-content-center" style="height:30px; width:30px;">
+                          {{ $count++ }}
+                      </div>
+      
+                      <!-- Article Content -->
+                      <div class="flex-grow-1">
+                          <h6 class="fw-semibold fs-5 text-dark mb-1">{{ $data->title }}</h6>
+                          
+                          <!-- Author List -->
+                          <div class="mt-2">
+                              <span class="text-uppercase fw-semibold text-muted small">
+                                  By 
+                                  {{ implode(', ', $data->article_creators->map(fn($creator) => $creator->user->first_name . ' ' . $creator->user->last_name)->toArray()) }}
+                              </span>
+                          </div>
+                      </div>
+                  </div>
               </a>
-
-              <img
-                src="{{ $data?->article_creators->where(['originator'=> true])->first()?->user?->image ?? $data?->article_creators->first()?->user?->image }}"
-                alt="modernize-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9"
-                width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top">
-            </div>
-            <div class="card-body p-4">
-              <span class="badge text-bg-light fs-2 py-1 px-2 lh-sm  mt-3">
-                {{ $data?->article_category?->title }}
-              </span>
-              <a href="{{ route('article_detail', [$data->slug, $data->id]) }}"
-                class="d-block my-4 fs-5 text-dark fw-semibold link-primary">
-                {{ $data->title }}
-              </a>
-              <div class="d-flex align-items-center gap-4">
-                <div class="d-flex gap-2">
-                  <i class="ti ti-eye fs-5 text-dark"></i>
-                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ $data->views }}</p>
-                </div>
-                <div class="d-flex gap-2">
-                  <i class="ti ti-user fs-5 text-dark"></i>
-                  <p class="mb-0 fs-2 fw-semibold text-dark">{{ count($data?->article_creators)}}</p>
-                </div>
-                <div class="d-flex align-items-center fs-2 ms-auto">
-                  <i class="ti ti-point text-dark"></i>
-                  {{ \Carbon\Carbon::parse($data->created_at)->toFormattedDateString()}}&nbsp;
-                  {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-
-                </div>
-              </div>
-            </div>
-          </div> --}}
-        </div>
-        @endforeach
+          </div>
+      @endforeach
+      
     </div>
   </div>
 

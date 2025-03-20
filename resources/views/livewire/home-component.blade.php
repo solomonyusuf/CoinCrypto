@@ -525,13 +525,13 @@
          
             <!-- Featured Article -->
             <div class="col-md-6">
-                <div class=" shadow-0 border-0">
+                <a href="{{ route('article_detail', [$item->slug, $item->id]) }}" class=" shadow-0 border-0">
                     <img src="{{ asset($item?->image) }}" class="card-img-top" alt="Featured News">
                     <div class="card-body shadow-0 border-0 p-0 mt-2">
                         <h4 class="news-title">{{ $item?->title}}</h4>
                         <p class="news-meta">{{ \Carbon\Carbon::parse($item?->created_at)->diffForHumans() }}</p>
                     </div>
-                </div>
+                  </a>
             </div>
     
             <!-- Side Articles -->
@@ -540,10 +540,10 @@
               <?php
                $article = $list2[$i];
               ?>
-                <div class="news-item">
+                <a href="{{ route('article_detail', [$article->slug, $article->id]) }}" class="news-item">
                   <h5 class="news-title">{{ $article['title'] }}</h5>
                   <p class="news-meta">{{ \Carbon\Carbon::parse($article['created_at'])->diffForHumans() }}</p>
-              </div>
+                </a>
               @endfor 
             </div>
         </div>

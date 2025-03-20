@@ -43,7 +43,7 @@
   <div class="container mt-4">
     <div class="row justify-content-between">
       <div class="col-md-8 border-bottom" >
-        <a {{ route('article_detail', [$latest->slug, $latest->id]) }} class="card">
+        <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}" class="card">
           <img class="card-img-top img-responsive" src="{{ asset($latest->image) }}" style="height:400px;" alt="Card image cap">
           <div class="card-body">
             <h3 class="card-title">

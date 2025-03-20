@@ -42,7 +42,7 @@
   
   <div class="container mt-4">
     <div class="row justify-content-between">
-      <div class="col-md-8 border-bottom" >
+      <div class="col-md-8" >
         <a href="{{ route('article_detail', [$latest->slug, $latest->id]) }}" class="card">
           <img class="card-img-top img-responsive" src="{{ asset($latest->image) }}" style="height:400px;" alt="Card image cap">
           <div class="card-body">
@@ -259,7 +259,7 @@
               @foreach ($top as $data)
               <div class="col-md-6 col-sm-12 mb-1">
                   <a href="{{ route('article_detail', [$data->slug, $data->id]) }}" class="text-decoration-none">
-                      <div class="card border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
+                      <div class="card border-0 shadow-sm p-4 d-flex flex-row align-items-center gap-3">
                           <img src="{{ asset($data->image) }}" class="rounded-circle" style="height:50px; width:50px;" alt="">
       
                           <div class="flex-grow-1">

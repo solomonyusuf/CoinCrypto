@@ -516,7 +516,7 @@
         $item = $list2->first();  
           
     ?>
-      
+      @if(count($list2) > 0)
     <div class="col-md-6">
       <div class="container my-2">
         <h6 class="text-uppercase fw-bold text-muted">{{ $category->title}}</h6>
@@ -548,6 +548,8 @@
             </div>
         </div>
     </div>
+    @endif
+
    </div>
    
     @endforeach

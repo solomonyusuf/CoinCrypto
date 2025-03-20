@@ -31,7 +31,7 @@
               <span class="text-white mt-2 mb-1 ">
                 {!! $event->content !!}
               </span>
-              <a href="{{ $event->category }}" class="register-btn ms-3">Register Now</a>
+              <a href="{{ $event->category }}" class="register-btn ms-3">Register</a>
                 
              </div>
                

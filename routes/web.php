@@ -39,7 +39,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', HomeComponent::class)->name('home');
+Route::get('/', function () {
+        return view('layouts.app1');
+    })->name('home');
+//Route::get('/', HomeComponent::class)->name('home');
 Route::get('/prices', PagePriceComponent::class)->name('prices');
 Route::get('/event', PageEventComponent::class)->name('events');
    

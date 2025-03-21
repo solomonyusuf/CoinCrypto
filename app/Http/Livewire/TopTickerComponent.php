@@ -15,7 +15,7 @@ class TopTickerComponent extends Component
         try
         {
             $this->fetchPrice();
-          
+          //dd($this->price);
         }  
         catch(\Exception $ex)
         {
@@ -33,10 +33,14 @@ class TopTickerComponent extends Component
 
         $response = Http::withHeaders([
             'x-cg-demo-api-key' => $key  
-        ])->get('https://api.coingecko.com/api/v3/simple/price', [
-            'ids' =>  $coins, 
-            'vs_currencies' => 'usd',
-            'include_24hr_change' => 'true'
+        ])->get('https://api.coingecko.com/api/v3/coins/markets', [
+            'vs_currency' => 'usd',   
+            'ids' => $coins,  
+            'order' => 'market_cap_desc',   
+            'per_page' => 100,  
+            'page' => 1,  
+            'sparkline' => false,  
+            'price_change_percentage' => '24h'
         ]);
 
         if ($response->successful()) {

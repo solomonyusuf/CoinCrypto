@@ -1,17 +1,39 @@
 <div>
-    <div class="slide-container relative box-content flex h-9 items-center justify-between overflow-x-hidden">
+    <style>
+        /* Smooth Scrolling Effect */
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    
+        .slide-animation {
+            display: flex;
+            white-space: nowrap;
+            animation: slide 25s linear infinite;
+        }
+    
+        .paused {
+            animation-play-state: paused;
+        }
+    </style>
+    
+    <div class="slide-container relative box-content flex h-9 items-center justify-between overflow-hidden">
         <!-- Play/Pause Button -->
         <div class="bg-charcoal-25 absolute left-0 top-0 z-20 flex h-full items-center">
-            <div id="togglePlay" class="flex h-full cursor-pointer items-center px-4 lg:px-6">
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button id="togglePlay" class="flex h-full cursor-pointer items-center px-4 lg:px-6">
+                <svg id="playIcon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 17.6923V7.30768L17.1538 12.5L9 17.6923ZM10 15.85L15.2885 12.5L10 9.15V15.85Z" fill="#515151"></path>
                 </svg>
-            </div>
+            </button>
         </div>
     
         <!-- Sliding Content -->
-        <div id="slider" class="slide-animation1 absolute left-[52px] flex h-full items-center overflow-x-auto lg:left-[72px] whitespace-nowrap">
-            @forelse ($price as  $data)
+        <div id="slider" class="slide-animation absolute left-[52px] flex h-full items-center lg:left-[72px]">
+            @forelse ($price as $data)
             <a title="View price details"
                 class="align-center bg-charcoal-25 flex h-full flex-shrink-0 cursor-pointer text-xs"
                 href="/price/bitcoin">
@@ -43,36 +65,25 @@
     <script>
         let slider = document.getElementById('slider');
         let playButton = document.getElementById('togglePlay');
-        let isPlaying = false;
-        let animation;
+        let playIcon = document.getElementById('playIcon');
     
-        function startSliding() {
-            animation = setInterval(() => {
-                slider.scrollLeft += 1; // Moves the slider continuously
-                if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-                    slider.scrollLeft = 0; // Reset to create infinite effect
-                }
-            }, 20);
-        }
-    
-        function stopSliding() {
-            clearInterval(animation);
-        }
+        let isPlaying = false; // Animation starts running
     
         playButton.addEventListener('click', () => {
             if (isPlaying) {
-                stopSliding();
-                isPlaying = false;
+                slider.classList.add('paused'); // Pause animation
+                playIcon.innerHTML = '<path d="M6 19h4V5H6v14zM14 5v14h4V5h-4z" fill="#515151"></path>'; // Change to Pause icon
             } else {
-                startSliding();
-                isPlaying = true;
+                slider.classList.remove('paused'); // Resume animation
+                playIcon.innerHTML = '<path d="M9 17.6923V7.30768L17.1538 12.5L9 17.6923ZM10 15.85L15.2885 12.5L10 9.15V15.85Z" fill="#515151"></path>'; // Change to Play icon
             }
+            isPlaying = !isPlaying;
         });
     
-        // Pause on hover
-        slider.addEventListener('mouseenter', stopSliding);
+        // Pause animation when hovered
+        slider.addEventListener('mouseenter', () => slider.classList.add('paused'));
         slider.addEventListener('mouseleave', () => {
-            if (isPlaying) startSliding();
+            if (isPlaying) slider.classList.remove('paused');
         });
     </script>
     

@@ -9,10 +9,15 @@
                     <p style="--textColor: #FFFFFF;" class="text-[--textColor] sm:flex hidden font-headline-sm text-[#262626] sm:pb-1">
                         {{ $event->title }}
                     </p>
-                     
+                    <a href="{{ $event->category ?? '' }}" target="_blank" style="--textColor: #FFFFFF;" class="text-[--textColor] sm:hidden flex font-headline-sm text-[#262626] sm:pb-1 underline">{{$event->title}}</a>
                 </div>
                 <div class="sm:hidden flex justify-center items-center sm:grow font-mono text-[18px] leading-[21px] text-[--textColor]"
-                    style="--bg: #FFFFFF; --textColor: #262626; --radius: 8px;">00:01:26:16</div>
+                    style="--bg: #FFFFFF; --textColor: #262626; --radius: 8px;">
+                    <span  id="mdays">00</span>
+                    :<span  id="mhours">00</span>:
+                    <span  id="mminutes">00</span>:
+                    <span  id="mseconds">00</span>
+                </div>
                 <div class="sm:flex hidden flex-row lg:gap-2 gap-1 mr-6 grow justify-center items-center">
                     <div class="flex lg:w-[70px] h-min lg:p-2 p-1 pt-[2px] pb-[2px] flex-col justify-center items-center shadow-md bg-[--bg] text-[--textColor] rounded-[--radius]"
                         style="--bg: #FFFFFF; --textColor: #262626; --radius: 8px;">
@@ -67,6 +72,11 @@
                 document.getElementById("hours").textContent = String(hours).padStart(2, '0');
                 document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
                 document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    
+                document.getElementById("mdays").textContent = String(days).padStart(2, '0');
+                document.getElementById("mhours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("mminutes").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("mseconds").textContent = String(seconds).padStart(2, '0');
     
                 if (countdown > 0) countdown--;
             }, 1000);

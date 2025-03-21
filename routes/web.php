@@ -22,6 +22,7 @@ use App\Http\Livewire\PageVideoComponent;
 use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\ResetComponent;
+use App\Http\Livewire\TopTickerComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,7 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
+Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 Route::get('/podcast-details-{news_id}',NewsDetailComponent::class)->name('podcast_detail');
 Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');

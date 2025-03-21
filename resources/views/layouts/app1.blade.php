@@ -1118,6 +1118,7 @@
                     </div>
                 </div>
             </header>
+            @livewire('top-event')
              
             <section data-module-name="homepage" data-module-version="1.0.0" data-module-instance="default"
                 class="flex-grow">
@@ -1191,8 +1192,7 @@
 				[&amp;_.jwplayer.jw-skin-cdtv.jw-flag-floating_.jw-float-bar]:cursor-auto
 				[&amp;_.jwplayer.jw-skin-cdtv.jw-flag-floating_.jw-float-bar_.jw-wrapper]:cursor-auto
 				[&amp;_.jwplayer.jw-skin-cdtv.jw-flag-floating_.jw-float-bar_.jw-float-bar-icon]:top-0
-				[&amp;_.jwplayer.jw-skin-cdtv.jw-flag-floating_.jw-float-bar_.jw-float-bar-icon]:right-[10px]
-		 ">
+				[&amp;_.jwplayer.jw-skin-cdtv.jw-flag-floating_.jw-float-bar_.jw-float-bar-icon]:right-[10px]">
                                     <div class="
 		  	grid
 				[&amp;&gt;*]:col-start-1

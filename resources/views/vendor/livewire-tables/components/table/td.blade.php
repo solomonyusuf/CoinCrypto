@@ -10,7 +10,7 @@
 @if ($theme === 'tailwind')
     <td
         @if ($column->isClickable())
-            onclick="window.open('{{ $component->getTableRowUrl($row) }}', '{{ $component->getTableRowUrlTarget($row) ?? '_self' }}')"
+            onclick="window.open('{{ $component->getTableRowtemp($row) }}', '{{ $component->getTableRowtempTarget($row) ?? '_self' }}')"
         @endif
 
         {{
@@ -26,7 +26,7 @@
 @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
     <td
         @if ($column->isClickable())
-            onclick="window.open('{{ $component->getTableRowUrl($row) }}', '{{ $component->getTableRowUrlTarget($row) ?? '_self' }}')"
+            onclick="window.open('{{ $component->getTableRowtemp($row) }}', '{{ $component->getTableRowtempTarget($row) ?? '_self' }}')"
             style="cursor:pointer"
         @endif
 

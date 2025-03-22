@@ -42,13 +42,13 @@ class PageNewsletterComponent extends Component
                     'email' =>  $request->email,
                 ]);
 
-                $url = route('activate_sub', $sub->id);
+                $temp = route('activate_sub', $sub->id);
                 Mail::to($request->email)->send(new AppMail(
                     'Activate Subscription',
                     "
                     <p>Welcome to our newsletter! Your subscription is successfully created.</p>
                         <p>To get started, please verify your email by clicking the button below.</p>
-                        <a href=\"{$url}\" class=\"button\">Activate</a>"
+                        <a href=\"{$temp}\" class=\"button\">Activate</a>"
                 ));
            }
 
@@ -73,13 +73,13 @@ class PageNewsletterComponent extends Component
                 'email' =>  $request->email,
             ]);
 
-            $url = route('activate_sub', $sub->id);
+            $temp = route('activate_sub', $sub->id);
             Mail::to($request->email)->send(new AppMail(
                 'Activate Subscription',
                 "
                 <p>Welcome to our newsletter! Your subscription is successfully created.</p>
                     <p>To get started, please verify your email by clicking the button below.</p>
-                    <a href=\"{$url}\" class=\"button\">Activate</a>"
+                    <a href=\"{$temp}\" class=\"button\">Activate</a>"
             ));
 
         }

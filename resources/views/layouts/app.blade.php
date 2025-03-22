@@ -22,13 +22,11 @@ $user = \App\Models\User::find(auth()->user()?->id);
         }
     </style>
 
-    <link rel="preload" href="https://cdn.jwplayer.com/libraries/6amZaWBZ.js" as="script" />
     <meta name="theme-color" content="#000" />
 
-    @livewireStyles
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+   
 
     <style>
         .slide-container {
@@ -46,13 +44,15 @@ $user = \App\Models\User::find(auth()->user()?->id);
             animation: slideLeft 15s linear infinite;
         }
     </style>
+    @livewireStyles
 </head>
 
 <body class="light bg-background-default text-text-primary overflow-x">
     @include('sweetalert::alert')
+    
     <div data-overlay-container="true">
         <main class="flex min-h-screen flex-col">
-            <header data-module-name="navigation" data-module-version="1.0.0" data-module-instance="default"
+            <header 
                 class="top-0 z-[100] bg-white">
                 <div class="bg-white">
                     @livewire('top-ticker-component')
@@ -64,7 +64,7 @@ $user = \App\Models\User::find(auth()->user()?->id);
  
                 {{ $slot }}
 
-            <footer data-module-name="footer" data-module-version="1.0.0" data-module-instance="default"
+            <footer 
                 class="bottom-0 flex w-full flex-col items-center bg-[#FAFAFA] px-0 pb-[64px] pt-4 lg:pb-0">
                 <div
                     class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
@@ -263,7 +263,7 @@ $user = \App\Models\User::find(auth()->user()?->id);
                                             aria-label="AppStore" data-position="AppStore" target="_blank" href=""><svg
                                                 xmlns="http://www.w3.org/2000/svg" width="120" height="40"
                                                 viewBox="0 0 120 40" fill="none">
-                                                <g clip-path="url(#clip0_211_554)">
+                                                <g clip-path="temp(#clip0_211_554)">
                                                     <path
                                                         d="M110.471 0.00013H9.87062C9.50392 0.00013 9.14162 0.00013 8.77589 0.00213C8.46974 0.00413 8.16603 0.00994 7.85694 0.01483C7.18545 0.0227318 6.51554 0.0818063 5.85304 0.19154C5.19146 0.303663 4.55061 0.515046 3.95216 0.81854C3.35444 1.1246 2.80828 1.5223 2.33351 1.9972C1.85624 2.47077 1.4584 3.01815 1.15529 3.61829C0.851338 4.21724 0.640578 4.85907 0.530288 5.52161C0.418948 6.18332 0.359036 6.85265 0.351088 7.52361C0.341808 7.83021 0.340827 8.13783 0.335938 8.44447V31.5587C0.340827 31.8692 0.341808 32.17 0.351088 32.4806C0.359038 33.1516 0.418951 33.8209 0.530288 34.4825C0.640273 35.1455 0.851046 35.7877 1.15529 36.3868C1.45826 36.985 1.85616 37.5302 2.33351 38.0011C2.80648 38.4781 3.35299 38.8761 3.95216 39.1798C4.55061 39.4841 5.19139 39.6968 5.85304 39.8106C6.51566 39.9195 7.18549 39.9786 7.85694 39.9874C8.16603 39.9942 8.46974 39.9981 8.77589 39.9981C9.14161 40.0001 9.50394 40.0001 9.87062 40.0001H110.471C110.83 40.0001 111.195 40.0001 111.555 39.9981C111.859 39.9981 112.172 39.9942 112.477 39.9874C113.147 39.9791 113.815 39.92 114.477 39.8106C115.14 39.696 115.783 39.4834 116.385 39.1798C116.983 38.8759 117.529 38.478 118.002 38.0011C118.478 37.5284 118.877 36.9836 119.184 36.3868C119.486 35.7872 119.694 35.1451 119.803 34.4825C119.914 33.8208 119.976 33.1516 119.988 32.4806C119.992 32.17 119.992 31.8692 119.992 31.5587C120 31.1954 120 30.8341 120 30.4649V9.53626C120 9.17005 120 8.80677 119.992 8.44447C119.992 8.13783 119.992 7.83021 119.988 7.52357C119.976 6.85255 119.914 6.18337 119.803 5.52157C119.694 4.85941 119.485 4.21763 119.184 3.61825C118.566 2.41533 117.588 1.43616 116.385 0.81845C115.783 0.515697 115.14 0.30437 114.477 0.19145C113.815 0.0812328 113.147 0.0221378 112.477 0.01469C112.172 0.00981 111.859 0.00395 111.555 0.002C111.195 0 110.83 0.00013 110.471 0.00013Z"
                                                         fill="#A6A6A6"></path>
@@ -407,13 +407,15 @@ $user = \App\Models\User::find(auth()->user()?->id);
         <!--/$-->
     </div>
 
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    
     <script>
          const player = new Plyr('#player');
       </script>
       
-
+      
     @livewireScripts
-
+    
 </body>
 
 </html>

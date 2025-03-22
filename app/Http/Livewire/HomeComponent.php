@@ -34,7 +34,6 @@ class HomeComponent extends Component
                             ->limit(5)
                             ->get();
                             
-        $top = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(30);
         $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
     
 
@@ -51,15 +50,16 @@ class HomeComponent extends Component
 
          $countdownSeconds = $event ? Carbon::parse($event->event_date)->diffInSeconds(Carbon::now()) : 0;
         
- 
+         $top = Article::where(['visible'=> true])->orderByDesc('created_at')->limit(12)->get();
+      
         return view('livewire.home-component',[
             'video'=> $video,
             'latest'=> $latest,
             'latests'=> $latests,
             'articles'=> $articles,
-            'top'=> $top,
             'podcasts'=> $podcasts,
             'event'=> $event,
+            'top'=> $top,
             'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,
             'categories_body'=> $categories_body,

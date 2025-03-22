@@ -62,7 +62,7 @@
                 <!-- Dashboard -->
                 <!-- ---------------------------------- -->
                 <li class="sidebar-item">
-                  <a class="sidebar-link  {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
+                  <a class="sidebar-link  {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" id="get-temp" aria-expanded="false">
                     <span>
                       <i class="ti ti-aperture"></i>
                     </span>
@@ -1458,7 +1458,7 @@
 
 {{-- <script>
     CKEDITOR.replace( 'editor',{
-        filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+        filebrowserUploadtemp: "{{route('upload_image', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
 </script> --}}
@@ -1470,7 +1470,7 @@
           // Ensure the textarea has an ID before trying to initialize CKEditor
           if (textarea.id) {
               CKEDITOR.replace(textarea.id,{
-                    filebrowserUploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                    filebrowserUploadtemp: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                     filebrowserUploadMethod: 'form'
                 });  
           }
@@ -1502,7 +1502,7 @@
                         resizeUnit: 'px'
                     },
                     ckfinder: {
-                        uploadUrl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                        uploadtemp: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         } // Laravel image upload route

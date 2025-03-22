@@ -1674,9 +1674,7 @@ html {
     left: -8px
 }
 
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon-cc.jw-off {
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/cc.svg) !important
-}
+ 
 
 #strategy-rules-player-wrapper .jw-controls .jw-button-container .jw-icon-cc.jw-off {
     background-image: none !important
@@ -1809,19 +1807,6 @@ html {
     display: none
 }
 
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-forward {
-    display: flex;
-    margin-right: 16px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: contain;
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/forward.svg) !important
-}
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-playback {
-    margin-right: 16px
-}
-
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jjw-display-icon-container .jw-icon.jw-icon-forward svg path,
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jjw-display-icon-container .jw-icon.jw-icon-rewind svg path,
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-forward svg,
@@ -1832,42 +1817,16 @@ html {
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-display-icon-container .jw-icon.jw-icon-rewind svg {
     display: none
 }
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-fullscreen {
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: 16px;
-    background-image: url(https://downloads.coindesk.com/cd3/player-control-icons/icon-fullscreen.svg)
-}
+ 
 
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-fullscreen svg,
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-fullscreen svg path {
     display: none
 }
 
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-volume {
-    flex-shrink: 0;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: 12px;
-    background-image: url(https://downloads.coindesk.com/cd3/player-control-icons/volume-open.svg)
-}
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-volume svg {
-    display: none
-}
 
 .container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-volume:after {
     width: auto
-}
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-volume.jw-off {
-    background-size: 16px;
-    background-image: url(https://downloads.coindesk.com/cd3/player-control-icons/volume-mute.svg)
-}
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-controls .jw-button-container .jw-icon.jw-icon-volume.jw-full {
-    background-image: url(https://downloads.coindesk.com/cd3/player-control-icons/volume-full.svg)
 }
 
 .container-jwp .jwplayer.jw-skin-cdtv.jw-flag-floating,
@@ -1953,32 +1912,7 @@ html {
     width: auto
 }
 
-.container-jwp .jwplayer.jw-skin-cdtv .jw-display-icon-container .jw-icon.jw-icon-rewind {
-    display: flex;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/rewind.svg) !important
-}
 
-.container-jwp .jwplayer.jw-skin-cdtv .jw-display-icon-container .jw-icon.jw-icon-forward {
-    display: flex;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/forward.svg) !important
-}
-
-.container-jwp .jwplayer.jw-skin-cdtv .jw-display-icon-container .jw-icon.jw-icon-fullscreen {
-    background-image: url(https://downloads.coindesk.com/cd3/player-control-icons/icon-fullscreen.svg);
-    width: 20px
-}
 
 .container-jwp .jwplayer.jw-skin-cdtv .jw-display {
     padding-bottom: 20px
@@ -1987,25 +1921,7 @@ html {
 .jw-controls .jw-controlbar .jw-button-container .jw-related-btn {
     display: none
 }
-
-.jw-controls .jw-controlbar .jw-button-container .jw-skin-cdtv .jw-icon-cc.jw-off {
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/cc.svg) !important
-}
-
-.jw-controls .jw-controlbar .jw-button-container .jw-skin-cdtv .jw-icon-volume {
-    position: relative;
-    margin-right: 1rem;
-    flex-shrink: 0;
-    left: 0;
-    margin-left: 0;
-    background-repeat: no-repeat;
-    background-size: 12px;
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/volume.svg) !important
-}
-
-.jw-controls .jw-controlbar .jw-button-container .jw-skin-cdtv .jw-icon-volume.jw-off {
-    background-image: url(https://downloads.coindesk.com/cd3/jwplayer-skin/mute.svg) !important
-}
+ 
 
 &.jw-state-paused.jw-flag-floating .jw-icon-display {
     background-size: 48px

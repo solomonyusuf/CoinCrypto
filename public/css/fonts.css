@@ -1,6 +1,6 @@
 @font-face {
     font-family: dmMono;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/4be2886863d40658-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/4be2886863d40658-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: dmMono;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/566536ffc16e8201-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/566536ffc16e8201-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: dmMono;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/ca4e41af2994ea48-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/ca4e41af2994ea48-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: italic
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: dmMono;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/bbc3f248745c1922-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/bbc3f248745c1922-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 400;
     font-style: italic
@@ -49,7 +49,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/7d66d975f14e01b2-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/7d66d975f14e01b2-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -57,7 +57,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/571c7ee409af65a2-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/571c7ee409af65a2-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -65,15 +65,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/69d39251ec78fe0c-s.p.woff2) format("woff2");
-    font-display: swap;
-    font-weight: 400;
-    font-style: italic
-}
-
-@font-face {
-    font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/bbced8d8425678b8-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/69d39251ec78fe0c-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: italic
@@ -81,7 +73,15 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/f5f2209128591ee3-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/bbced8d8425678b8-s.p.woff) format("woff");
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: neueHaas;
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/f5f2209128591ee3-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: normal
@@ -89,7 +89,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/5ad78c376df9db24-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/5ad78c376df9db24-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 500;
     font-style: normal
@@ -97,7 +97,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/2f4de1a69eaac703-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/2f4de1a69eaac703-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: italic
@@ -105,7 +105,7 @@
 
 @font-face {
     font-family: neueHaas;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/da92883004cbabe7-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/da92883004cbabe7-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 500;
     font-style: italic
@@ -130,7 +130,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0cebb527f4ccb6a7-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0cebb527f4ccb6a7-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -138,7 +138,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/dca0af9cea0328d7-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/dca0af9cea0328d7-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 400;
     font-style: normal
@@ -146,7 +146,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0688fb007df54365-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0688fb007df54365-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: italic
@@ -154,7 +154,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/2bccaad0486d83c0-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/2bccaad0486d83c0-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 400;
     font-style: italic
@@ -162,7 +162,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/1083a57c9a1ef3fe-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/1083a57c9a1ef3fe-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: normal
@@ -170,7 +170,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/87874345d8cec55a-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/87874345d8cec55a-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 500;
     font-style: normal
@@ -178,7 +178,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/1ef71e9b41a80409-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/1ef71e9b41a80409-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: italic
@@ -186,7 +186,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0afaaeefb1f41aaf-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/0afaaeefb1f41aaf-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 500;
     font-style: italic
@@ -194,7 +194,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/20c7578d0443ce5e-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/20c7578d0443ce5e-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 700;
     font-style: normal
@@ -202,7 +202,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/b54294595938a807-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/b54294595938a807-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 700;
     font-style: normal
@@ -210,7 +210,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/6f6167f6eae28031-s.p.woff2) format("woff2");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/6f6167f6eae28031-s.p.woff2) format("woff2");
     font-display: swap;
     font-weight: 700;
     font-style: italic
@@ -218,7 +218,7 @@
 
 @font-face {
     font-family: family;
-    src: url(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/e51c2121bb9abe74-s.p.woff) format("woff");
+    src: temp(https://coindesk-next-laep3of2c-coindesk.vercel.app/_next/static/media/e51c2121bb9abe74-s.p.woff) format("woff");
     font-display: swap;
     font-weight: 700;
     font-style: italic

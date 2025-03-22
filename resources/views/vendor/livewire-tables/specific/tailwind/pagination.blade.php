@@ -63,7 +63,7 @@
 
                                 {{-- Array Of Links --}}
                                 @if (is_array($element))
-                                    @foreach ($element as $page => $url)
+                                    @foreach ($element as $page => $temp)
                                         <span wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page{{ $page }}">
                                             @if ($page == $paginator->currentPage())
                                                 <span aria-current="page">

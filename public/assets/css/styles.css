@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap);
+@import temp(https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap);
 
 /*!
  * Tabler Icons 1.112.0 by tabler - https://tabler.io
@@ -9,14 +9,14 @@
     font-family: tabler-icons;
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/tabler-icons/fonts/tabler-icons.eot);
-    src: url(../fonts/tabler-icons/fonts/tabler-icons.eot?#iefix) format("embedded-opentype"), url(../fonts/tabler-icons/fonts/tabler-icons.woff2) format("woff2"), url(../fonts/tabler-icons/fonts/tabler-icons.woff) format("woff"), url(../fonts/tabler-icons/fonts/tabler-icons.ttf) format("truetype"), url(../fonts/tabler-icons/fonts/tabler-icons.svg#tabler-icons) format("svg")
+    src: temp(../fonts/tabler-icons/fonts/tabler-icons.eot);
+    src: temp(../fonts/tabler-icons/fonts/tabler-icons.eot?#iefix) format("embedded-opentype"), temp(../fonts/tabler-icons/fonts/tabler-icons.woff2) format("woff2"), temp(../fonts/tabler-icons/fonts/tabler-icons.woff) format("woff"), temp(../fonts/tabler-icons/fonts/tabler-icons.ttf) format("truetype"), temp(../fonts/tabler-icons/fonts/tabler-icons.svg#tabler-icons) format("svg")
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: tabler-icons;
-        src: url(../fonts/tabler-icons/fonts/tabler-icons.svg#tabler-icons) format("svg")
+        src: temp(../fonts/tabler-icons/fonts/tabler-icons.svg#tabler-icons) format("svg")
     }
 }
 
@@ -4444,11 +4444,11 @@
     content: "\f10d"
 }
 
-.ti-curling:before {
+.ti-ctemping:before {
     content: "\efc8"
 }
 
-.ti-curly-loop:before {
+.ti-ctempy-loop:before {
     content: "\ecda"
 }
 
@@ -12035,7 +12035,7 @@
 /*! Cryptocoins - cryptocurrency icon font | https://github.com/allienworks/cryptocoins */
 @font-face {
     font-family: cryptocoins;
-    src: url(../fonts/crypto-icons/cryptocoins.woff2) format('woff2'), url(../fonts/crypto-icons/cryptocoins.woff) format('woff'), url(../fonts/crypto-icons/cryptocoins.ttf) format('truetype')
+    src: temp(../fonts/crypto-icons/cryptocoins.woff2) format('woff2'), temp(../fonts/crypto-icons/cryptocoins.woff) format('woff'), temp(../fonts/crypto-icons/cryptocoins.ttf) format('truetype')
 }
 
 .cc::before {
@@ -13778,999 +13778,999 @@
 }
 
 .flag-icon-ad {
-    background-image: url(../fonts/flag-icon-css/flags/ad.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ad.svg)
 }
 
 .flag-icon-ae {
-    background-image: url(../fonts/flag-icon-css/flags/ae.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ae.svg)
 }
 
 .flag-icon-af {
-    background-image: url(../fonts/flag-icon-css/flags/af.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/af.svg)
 }
 
 .flag-icon-ag {
-    background-image: url(../fonts/flag-icon-css/flags/ag.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ag.svg)
 }
 
 .flag-icon-ai {
-    background-image: url(../fonts/flag-icon-css/flags/ai.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ai.svg)
 }
 
 .flag-icon-al {
-    background-image: url(../fonts/flag-icon-css/flags/al.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/al.svg)
 }
 
 .flag-icon-am {
-    background-image: url(../fonts/flag-icon-css/flags/am.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/am.svg)
 }
 
 .flag-icon-ao {
-    background-image: url(../fonts/flag-icon-css/flags/ao.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ao.svg)
 }
 
 .flag-icon-aq {
-    background-image: url(../fonts/flag-icon-css/flags/aq.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/aq.svg)
 }
 
 .flag-icon-ar {
-    background-image: url(../fonts/flag-icon-css/flags/ar.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ar.svg)
 }
 
 .flag-icon-as {
-    background-image: url(../fonts/flag-icon-css/flags/as.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/as.svg)
 }
 
 .flag-icon-at {
-    background-image: url(../fonts/flag-icon-css/flags/at.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/at.svg)
 }
 
 .flag-icon-au {
-    background-image: url(../fonts/flag-icon-css/flags/au.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/au.svg)
 }
 
 .flag-icon-aw {
-    background-image: url(../fonts/flag-icon-css/flags/aw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/aw.svg)
 }
 
 .flag-icon-ax {
-    background-image: url(../fonts/flag-icon-css/flags/ax.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ax.svg)
 }
 
 .flag-icon-az {
-    background-image: url(../fonts/flag-icon-css/flags/az.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/az.svg)
 }
 
 .flag-icon-ba {
-    background-image: url(../fonts/flag-icon-css/flags/ba.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ba.svg)
 }
 
 .flag-icon-bb {
-    background-image: url(../fonts/flag-icon-css/flags/bb.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bb.svg)
 }
 
 .flag-icon-bd {
-    background-image: url(../fonts/flag-icon-css/flags/bd.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bd.svg)
 }
 
 .flag-icon-be {
-    background-image: url(../fonts/flag-icon-css/flags/be.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/be.svg)
 }
 
 .flag-icon-bf {
-    background-image: url(../fonts/flag-icon-css/flags/bf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bf.svg)
 }
 
 .flag-icon-bg {
-    background-image: url(../fonts/flag-icon-css/flags/bg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bg.svg)
 }
 
 .flag-icon-bh {
-    background-image: url(../fonts/flag-icon-css/flags/bh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bh.svg)
 }
 
 .flag-icon-bi {
-    background-image: url(../fonts/flag-icon-css/flags/bi.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bi.svg)
 }
 
 .flag-icon-bj {
-    background-image: url(../fonts/flag-icon-css/flags/bj.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bj.svg)
 }
 
 .flag-icon-bl {
-    background-image: url(../fonts/flag-icon-css/flags/bl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bl.svg)
 }
 
 .flag-icon-bm {
-    background-image: url(../fonts/flag-icon-css/flags/bm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bm.svg)
 }
 
 .flag-icon-bn {
-    background-image: url(../fonts/flag-icon-css/flags/bn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bn.svg)
 }
 
 .flag-icon-bo {
-    background-image: url(../fonts/flag-icon-css/flags/bo.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bo.svg)
 }
 
 .flag-icon-bq {
-    background-image: url(../fonts/flag-icon-css/flags/bq.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bq.svg)
 }
 
 .flag-icon-br {
-    background-image: url(../fonts/flag-icon-css/flags/br.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/br.svg)
 }
 
 .flag-icon-bs {
-    background-image: url(../fonts/flag-icon-css/flags/bs.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bs.svg)
 }
 
 .flag-icon-bt {
-    background-image: url(../fonts/flag-icon-css/flags/bt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bt.svg)
 }
 
 .flag-icon-bv {
-    background-image: url(../fonts/flag-icon-css/flags/bv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bv.svg)
 }
 
 .flag-icon-bw {
-    background-image: url(../fonts/flag-icon-css/flags/bw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bw.svg)
 }
 
 .flag-icon-by {
-    background-image: url(../fonts/flag-icon-css/flags/by.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/by.svg)
 }
 
 .flag-icon-bz {
-    background-image: url(../fonts/flag-icon-css/flags/bz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/bz.svg)
 }
 
 .flag-icon-ca {
-    background-image: url(../fonts/flag-icon-css/flags/ca.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ca.svg)
 }
 
 .flag-icon-cc {
-    background-image: url(../fonts/flag-icon-css/flags/cc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cc.svg)
 }
 
 .flag-icon-cd {
-    background-image: url(../fonts/flag-icon-css/flags/cd.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cd.svg)
 }
 
 .flag-icon-cf {
-    background-image: url(../fonts/flag-icon-css/flags/cf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cf.svg)
 }
 
 .flag-icon-cg {
-    background-image: url(../fonts/flag-icon-css/flags/cg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cg.svg)
 }
 
 .flag-icon-ch {
-    background-image: url(../fonts/flag-icon-css/flags/ch.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ch.svg)
 }
 
 .flag-icon-ci {
-    background-image: url(../fonts/flag-icon-css/flags/ci.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ci.svg)
 }
 
 .flag-icon-ck {
-    background-image: url(../fonts/flag-icon-css/flags/ck.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ck.svg)
 }
 
 .flag-icon-cl {
-    background-image: url(../fonts/flag-icon-css/flags/cl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cl.svg)
 }
 
 .flag-icon-cm {
-    background-image: url(../fonts/flag-icon-css/flags/cm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cm.svg)
 }
 
 .flag-icon-cn {
-    background-image: url(../fonts/flag-icon-css/flags/cn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cn.svg)
 }
 
 .flag-icon-co {
-    background-image: url(../fonts/flag-icon-css/flags/co.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/co.svg)
 }
 
 .flag-icon-cr {
-    background-image: url(../fonts/flag-icon-css/flags/cr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cr.svg)
 }
 
 .flag-icon-cu {
-    background-image: url(../fonts/flag-icon-css/flags/cu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cu.svg)
 }
 
 .flag-icon-cv {
-    background-image: url(../fonts/flag-icon-css/flags/cv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cv.svg)
 }
 
 .flag-icon-cw {
-    background-image: url(../fonts/flag-icon-css/flags/cw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cw.svg)
 }
 
 .flag-icon-cx {
-    background-image: url(../fonts/flag-icon-css/flags/cx.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cx.svg)
 }
 
 .flag-icon-cy {
-    background-image: url(../fonts/flag-icon-css/flags/cy.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cy.svg)
 }
 
 .flag-icon-cz {
-    background-image: url(../fonts/flag-icon-css/flags/cz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/cz.svg)
 }
 
 .flag-icon-de {
-    background-image: url(../fonts/flag-icon-css/flags/de.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/de.svg)
 }
 
 .flag-icon-dj {
-    background-image: url(../fonts/flag-icon-css/flags/dj.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/dj.svg)
 }
 
 .flag-icon-dk {
-    background-image: url(../fonts/flag-icon-css/flags/dk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/dk.svg)
 }
 
 .flag-icon-dm {
-    background-image: url(../fonts/flag-icon-css/flags/dm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/dm.svg)
 }
 
 .flag-icon-do {
-    background-image: url(../fonts/flag-icon-css/flags/do.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/do.svg)
 }
 
 .flag-icon-dz {
-    background-image: url(../fonts/flag-icon-css/flags/dz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/dz.svg)
 }
 
 .flag-icon-ec {
-    background-image: url(../fonts/flag-icon-css/flags/ec.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ec.svg)
 }
 
 .flag-icon-ee {
-    background-image: url(../fonts/flag-icon-css/flags/ee.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ee.svg)
 }
 
 .flag-icon-eg {
-    background-image: url(../fonts/flag-icon-css/flags/eg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/eg.svg)
 }
 
 .flag-icon-eh {
-    background-image: url(../fonts/flag-icon-css/flags/eh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/eh.svg)
 }
 
 .flag-icon-er {
-    background-image: url(../fonts/flag-icon-css/flags/er.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/er.svg)
 }
 
 .flag-icon-es {
-    background-image: url(../fonts/flag-icon-css/flags/es.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/es.svg)
 }
 
 .flag-icon-et {
-    background-image: url(../fonts/flag-icon-css/flags/et.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/et.svg)
 }
 
 .flag-icon-fi {
-    background-image: url(../fonts/flag-icon-css/flags/fi.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fi.svg)
 }
 
 .flag-icon-fj {
-    background-image: url(../fonts/flag-icon-css/flags/fj.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fj.svg)
 }
 
 .flag-icon-fk {
-    background-image: url(../fonts/flag-icon-css/flags/fk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fk.svg)
 }
 
 .flag-icon-fm {
-    background-image: url(../fonts/flag-icon-css/flags/fm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fm.svg)
 }
 
 .flag-icon-fo {
-    background-image: url(../fonts/flag-icon-css/flags/fo.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fo.svg)
 }
 
 .flag-icon-fr {
-    background-image: url(../fonts/flag-icon-css/flags/fr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/fr.svg)
 }
 
 .flag-icon-ga {
-    background-image: url(../fonts/flag-icon-css/flags/ga.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ga.svg)
 }
 
 .flag-icon-gb {
-    background-image: url(../fonts/flag-icon-css/flags/gb.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gb.svg)
 }
 
 .flag-icon-gd {
-    background-image: url(../fonts/flag-icon-css/flags/gd.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gd.svg)
 }
 
 .flag-icon-ge {
-    background-image: url(../fonts/flag-icon-css/flags/ge.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ge.svg)
 }
 
 .flag-icon-gf {
-    background-image: url(../fonts/flag-icon-css/flags/gf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gf.svg)
 }
 
 .flag-icon-gg {
-    background-image: url(../fonts/flag-icon-css/flags/gg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gg.svg)
 }
 
 .flag-icon-gh {
-    background-image: url(../fonts/flag-icon-css/flags/gh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gh.svg)
 }
 
 .flag-icon-gi {
-    background-image: url(../fonts/flag-icon-css/flags/gi.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gi.svg)
 }
 
 .flag-icon-gl {
-    background-image: url(../fonts/flag-icon-css/flags/gl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gl.svg)
 }
 
 .flag-icon-gm {
-    background-image: url(../fonts/flag-icon-css/flags/gm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gm.svg)
 }
 
 .flag-icon-gn {
-    background-image: url(../fonts/flag-icon-css/flags/gn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gn.svg)
 }
 
 .flag-icon-gp {
-    background-image: url(../fonts/flag-icon-css/flags/gp.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gp.svg)
 }
 
 .flag-icon-gq {
-    background-image: url(../fonts/flag-icon-css/flags/gq.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gq.svg)
 }
 
 .flag-icon-gr {
-    background-image: url(../fonts/flag-icon-css/flags/gr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gr.svg)
 }
 
 .flag-icon-gs {
-    background-image: url(../fonts/flag-icon-css/flags/gs.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gs.svg)
 }
 
 .flag-icon-gt {
-    background-image: url(../fonts/flag-icon-css/flags/gt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gt.svg)
 }
 
 .flag-icon-gu {
-    background-image: url(../fonts/flag-icon-css/flags/gu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gu.svg)
 }
 
 .flag-icon-gw {
-    background-image: url(../fonts/flag-icon-css/flags/gw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gw.svg)
 }
 
 .flag-icon-gy {
-    background-image: url(../fonts/flag-icon-css/flags/gy.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/gy.svg)
 }
 
 .flag-icon-hk {
-    background-image: url(../fonts/flag-icon-css/flags/hk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/hk.svg)
 }
 
 .flag-icon-hm {
-    background-image: url(../fonts/flag-icon-css/flags/hm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/hm.svg)
 }
 
 .flag-icon-hn {
-    background-image: url(../fonts/flag-icon-css/flags/hn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/hn.svg)
 }
 
 .flag-icon-hr {
-    background-image: url(../fonts/flag-icon-css/flags/hr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/hr.svg)
 }
 
 .flag-icon-ht {
-    background-image: url(../fonts/flag-icon-css/flags/ht.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ht.svg)
 }
 
 .flag-icon-hu {
-    background-image: url(../fonts/flag-icon-css/flags/hu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/hu.svg)
 }
 
 .flag-icon-id {
-    background-image: url(../fonts/flag-icon-css/flags/id.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/id.svg)
 }
 
 .flag-icon-ie {
-    background-image: url(../fonts/flag-icon-css/flags/ie.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ie.svg)
 }
 
 .flag-icon-il {
-    background-image: url(../fonts/flag-icon-css/flags/il.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/il.svg)
 }
 
 .flag-icon-im {
-    background-image: url(../fonts/flag-icon-css/flags/im.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/im.svg)
 }
 
 .flag-icon-in {
-    background-image: url(../fonts/flag-icon-css/flags/in.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/in.svg)
 }
 
 .flag-icon-io {
-    background-image: url(../fonts/flag-icon-css/flags/io.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/io.svg)
 }
 
 .flag-icon-iq {
-    background-image: url(../fonts/flag-icon-css/flags/iq.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/iq.svg)
 }
 
 .flag-icon-ir {
-    background-image: url(../fonts/flag-icon-css/flags/ir.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ir.svg)
 }
 
 .flag-icon-is {
-    background-image: url(../fonts/flag-icon-css/flags/is.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/is.svg)
 }
 
 .flag-icon-it {
-    background-image: url(../fonts/flag-icon-css/flags/it.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/it.svg)
 }
 
 .flag-icon-je {
-    background-image: url(../fonts/flag-icon-css/flags/je.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/je.svg)
 }
 
 .flag-icon-jm {
-    background-image: url(../fonts/flag-icon-css/flags/jm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/jm.svg)
 }
 
 .flag-icon-jo {
-    background-image: url(../fonts/flag-icon-css/flags/jo.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/jo.svg)
 }
 
 .flag-icon-jp {
-    background-image: url(../fonts/flag-icon-css/flags/jp.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/jp.svg)
 }
 
 .flag-icon-ke {
-    background-image: url(../fonts/flag-icon-css/flags/ke.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ke.svg)
 }
 
 .flag-icon-kg {
-    background-image: url(../fonts/flag-icon-css/flags/kg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kg.svg)
 }
 
 .flag-icon-kh {
-    background-image: url(../fonts/flag-icon-css/flags/kh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kh.svg)
 }
 
 .flag-icon-ki {
-    background-image: url(../fonts/flag-icon-css/flags/ki.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ki.svg)
 }
 
 .flag-icon-km {
-    background-image: url(../fonts/flag-icon-css/flags/km.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/km.svg)
 }
 
 .flag-icon-kn {
-    background-image: url(../fonts/flag-icon-css/flags/kn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kn.svg)
 }
 
 .flag-icon-kp {
-    background-image: url(../fonts/flag-icon-css/flags/kp.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kp.svg)
 }
 
 .flag-icon-kr {
-    background-image: url(../fonts/flag-icon-css/flags/kr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kr.svg)
 }
 
 .flag-icon-kw {
-    background-image: url(../fonts/flag-icon-css/flags/kw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kw.svg)
 }
 
 .flag-icon-ky {
-    background-image: url(../fonts/flag-icon-css/flags/ky.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ky.svg)
 }
 
 .flag-icon-kz {
-    background-image: url(../fonts/flag-icon-css/flags/kz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/kz.svg)
 }
 
 .flag-icon-la {
-    background-image: url(../fonts/flag-icon-css/flags/la.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/la.svg)
 }
 
 .flag-icon-lb {
-    background-image: url(../fonts/flag-icon-css/flags/lb.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lb.svg)
 }
 
 .flag-icon-lc {
-    background-image: url(../fonts/flag-icon-css/flags/lc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lc.svg)
 }
 
 .flag-icon-li {
-    background-image: url(../fonts/flag-icon-css/flags/li.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/li.svg)
 }
 
 .flag-icon-lk {
-    background-image: url(../fonts/flag-icon-css/flags/lk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lk.svg)
 }
 
 .flag-icon-lr {
-    background-image: url(../fonts/flag-icon-css/flags/lr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lr.svg)
 }
 
 .flag-icon-ls {
-    background-image: url(../fonts/flag-icon-css/flags/ls.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ls.svg)
 }
 
 .flag-icon-lt {
-    background-image: url(../fonts/flag-icon-css/flags/lt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lt.svg)
 }
 
 .flag-icon-lu {
-    background-image: url(../fonts/flag-icon-css/flags/lu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lu.svg)
 }
 
 .flag-icon-lv {
-    background-image: url(../fonts/flag-icon-css/flags/lv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/lv.svg)
 }
 
 .flag-icon-ly {
-    background-image: url(../fonts/flag-icon-css/flags/ly.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ly.svg)
 }
 
 .flag-icon-ma {
-    background-image: url(../fonts/flag-icon-css/flags/ma.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ma.svg)
 }
 
 .flag-icon-mc {
-    background-image: url(../fonts/flag-icon-css/flags/mc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mc.svg)
 }
 
 .flag-icon-md {
-    background-image: url(../fonts/flag-icon-css/flags/md.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/md.svg)
 }
 
 .flag-icon-me {
-    background-image: url(../fonts/flag-icon-css/flags/me.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/me.svg)
 }
 
 .flag-icon-mf {
-    background-image: url(../fonts/flag-icon-css/flags/mf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mf.svg)
 }
 
 .flag-icon-mg {
-    background-image: url(../fonts/flag-icon-css/flags/mg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mg.svg)
 }
 
 .flag-icon-mh {
-    background-image: url(../fonts/flag-icon-css/flags/mh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mh.svg)
 }
 
 .flag-icon-mk {
-    background-image: url(../fonts/flag-icon-css/flags/mk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mk.svg)
 }
 
 .flag-icon-ml {
-    background-image: url(../fonts/flag-icon-css/flags/ml.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ml.svg)
 }
 
 .flag-icon-mm {
-    background-image: url(../fonts/flag-icon-css/flags/mm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mm.svg)
 }
 
 .flag-icon-mn {
-    background-image: url(../fonts/flag-icon-css/flags/mn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mn.svg)
 }
 
 .flag-icon-mo {
-    background-image: url(../fonts/flag-icon-css/flags/mo.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mo.svg)
 }
 
 .flag-icon-mp {
-    background-image: url(../fonts/flag-icon-css/flags/mp.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mp.svg)
 }
 
 .flag-icon-mq {
-    background-image: url(../fonts/flag-icon-css/flags/mq.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mq.svg)
 }
 
 .flag-icon-mr {
-    background-image: url(../fonts/flag-icon-css/flags/mr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mr.svg)
 }
 
 .flag-icon-ms {
-    background-image: url(../fonts/flag-icon-css/flags/ms.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ms.svg)
 }
 
 .flag-icon-mt {
-    background-image: url(../fonts/flag-icon-css/flags/mt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mt.svg)
 }
 
 .flag-icon-mu {
-    background-image: url(../fonts/flag-icon-css/flags/mu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mu.svg)
 }
 
 .flag-icon-mv {
-    background-image: url(../fonts/flag-icon-css/flags/mv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mv.svg)
 }
 
 .flag-icon-mw {
-    background-image: url(../fonts/flag-icon-css/flags/mw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mw.svg)
 }
 
 .flag-icon-mx {
-    background-image: url(../fonts/flag-icon-css/flags/mx.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mx.svg)
 }
 
 .flag-icon-my {
-    background-image: url(../fonts/flag-icon-css/flags/my.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/my.svg)
 }
 
 .flag-icon-mz {
-    background-image: url(../fonts/flag-icon-css/flags/mz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/mz.svg)
 }
 
 .flag-icon-na {
-    background-image: url(../fonts/flag-icon-css/flags/na.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/na.svg)
 }
 
 .flag-icon-nc {
-    background-image: url(../fonts/flag-icon-css/flags/nc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nc.svg)
 }
 
 .flag-icon-ne {
-    background-image: url(../fonts/flag-icon-css/flags/ne.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ne.svg)
 }
 
 .flag-icon-nf {
-    background-image: url(../fonts/flag-icon-css/flags/nf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nf.svg)
 }
 
 .flag-icon-ng {
-    background-image: url(../fonts/flag-icon-css/flags/ng.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ng.svg)
 }
 
 .flag-icon-ni {
-    background-image: url(../fonts/flag-icon-css/flags/ni.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ni.svg)
 }
 
 .flag-icon-nl {
-    background-image: url(../fonts/flag-icon-css/flags/nl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nl.svg)
 }
 
 .flag-icon-no {
-    background-image: url(../fonts/flag-icon-css/flags/no.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/no.svg)
 }
 
 .flag-icon-np {
-    background-image: url(../fonts/flag-icon-css/flags/np.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/np.svg)
 }
 
 .flag-icon-nr {
-    background-image: url(../fonts/flag-icon-css/flags/nr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nr.svg)
 }
 
 .flag-icon-nu {
-    background-image: url(../fonts/flag-icon-css/flags/nu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nu.svg)
 }
 
 .flag-icon-nz {
-    background-image: url(../fonts/flag-icon-css/flags/nz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/nz.svg)
 }
 
 .flag-icon-om {
-    background-image: url(../fonts/flag-icon-css/flags/om.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/om.svg)
 }
 
 .flag-icon-pa {
-    background-image: url(../fonts/flag-icon-css/flags/pa.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pa.svg)
 }
 
 .flag-icon-pe {
-    background-image: url(../fonts/flag-icon-css/flags/pe.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pe.svg)
 }
 
 .flag-icon-pf {
-    background-image: url(../fonts/flag-icon-css/flags/pf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pf.svg)
 }
 
 .flag-icon-pg {
-    background-image: url(../fonts/flag-icon-css/flags/pg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pg.svg)
 }
 
 .flag-icon-ph {
-    background-image: url(../fonts/flag-icon-css/flags/ph.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ph.svg)
 }
 
 .flag-icon-pk {
-    background-image: url(../fonts/flag-icon-css/flags/pk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pk.svg)
 }
 
 .flag-icon-pl {
-    background-image: url(../fonts/flag-icon-css/flags/pl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pl.svg)
 }
 
 .flag-icon-pm {
-    background-image: url(../fonts/flag-icon-css/flags/pm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pm.svg)
 }
 
 .flag-icon-pn {
-    background-image: url(../fonts/flag-icon-css/flags/pn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pn.svg)
 }
 
 .flag-icon-pr {
-    background-image: url(../fonts/flag-icon-css/flags/pr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pr.svg)
 }
 
 .flag-icon-ps {
-    background-image: url(../fonts/flag-icon-css/flags/ps.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ps.svg)
 }
 
 .flag-icon-pt {
-    background-image: url(../fonts/flag-icon-css/flags/pt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pt.svg)
 }
 
 .flag-icon-pw {
-    background-image: url(../fonts/flag-icon-css/flags/pw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/pw.svg)
 }
 
 .flag-icon-py {
-    background-image: url(../fonts/flag-icon-css/flags/py.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/py.svg)
 }
 
 .flag-icon-qa {
-    background-image: url(../fonts/flag-icon-css/flags/qa.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/qa.svg)
 }
 
 .flag-icon-re {
-    background-image: url(../fonts/flag-icon-css/flags/re.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/re.svg)
 }
 
 .flag-icon-ro {
-    background-image: url(../fonts/flag-icon-css/flags/ro.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ro.svg)
 }
 
 .flag-icon-rs {
-    background-image: url(../fonts/flag-icon-css/flags/rs.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/rs.svg)
 }
 
 .flag-icon-ru {
-    background-image: url(../fonts/flag-icon-css/flags/ru.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ru.svg)
 }
 
 .flag-icon-rw {
-    background-image: url(../fonts/flag-icon-css/flags/rw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/rw.svg)
 }
 
 .flag-icon-sa {
-    background-image: url(../fonts/flag-icon-css/flags/sa.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sa.svg)
 }
 
 .flag-icon-sb {
-    background-image: url(../fonts/flag-icon-css/flags/sb.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sb.svg)
 }
 
 .flag-icon-sc {
-    background-image: url(../fonts/flag-icon-css/flags/sc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sc.svg)
 }
 
 .flag-icon-sd {
-    background-image: url(../fonts/flag-icon-css/flags/sd.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sd.svg)
 }
 
 .flag-icon-se {
-    background-image: url(../fonts/flag-icon-css/flags/se.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/se.svg)
 }
 
 .flag-icon-sg {
-    background-image: url(../fonts/flag-icon-css/flags/sg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sg.svg)
 }
 
 .flag-icon-sh {
-    background-image: url(../fonts/flag-icon-css/flags/sh.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sh.svg)
 }
 
 .flag-icon-si {
-    background-image: url(../fonts/flag-icon-css/flags/si.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/si.svg)
 }
 
 .flag-icon-sj {
-    background-image: url(../fonts/flag-icon-css/flags/sj.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sj.svg)
 }
 
 .flag-icon-sk {
-    background-image: url(../fonts/flag-icon-css/flags/sk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sk.svg)
 }
 
 .flag-icon-sl {
-    background-image: url(../fonts/flag-icon-css/flags/sl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sl.svg)
 }
 
 .flag-icon-sm {
-    background-image: url(../fonts/flag-icon-css/flags/sm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sm.svg)
 }
 
 .flag-icon-sn {
-    background-image: url(../fonts/flag-icon-css/flags/sn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sn.svg)
 }
 
 .flag-icon-so {
-    background-image: url(../fonts/flag-icon-css/flags/so.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/so.svg)
 }
 
 .flag-icon-sr {
-    background-image: url(../fonts/flag-icon-css/flags/sr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sr.svg)
 }
 
 .flag-icon-ss {
-    background-image: url(../fonts/flag-icon-css/flags/ss.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ss.svg)
 }
 
 .flag-icon-st {
-    background-image: url(../fonts/flag-icon-css/flags/st.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/st.svg)
 }
 
 .flag-icon-sv {
-    background-image: url(../fonts/flag-icon-css/flags/sv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sv.svg)
 }
 
 .flag-icon-sx {
-    background-image: url(../fonts/flag-icon-css/flags/sx.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sx.svg)
 }
 
 .flag-icon-sy {
-    background-image: url(../fonts/flag-icon-css/flags/sy.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sy.svg)
 }
 
 .flag-icon-sz {
-    background-image: url(../fonts/flag-icon-css/flags/sz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/sz.svg)
 }
 
 .flag-icon-tc {
-    background-image: url(../fonts/flag-icon-css/flags/tc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tc.svg)
 }
 
 .flag-icon-td {
-    background-image: url(../fonts/flag-icon-css/flags/td.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/td.svg)
 }
 
 .flag-icon-tf {
-    background-image: url(../fonts/flag-icon-css/flags/tf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tf.svg)
 }
 
 .flag-icon-tg {
-    background-image: url(../fonts/flag-icon-css/flags/tg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tg.svg)
 }
 
 .flag-icon-th {
-    background-image: url(../fonts/flag-icon-css/flags/th.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/th.svg)
 }
 
 .flag-icon-tj {
-    background-image: url(../fonts/flag-icon-css/flags/tj.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tj.svg)
 }
 
 .flag-icon-tk {
-    background-image: url(../fonts/flag-icon-css/flags/tk.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tk.svg)
 }
 
 .flag-icon-tl {
-    background-image: url(../fonts/flag-icon-css/flags/tl.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tl.svg)
 }
 
 .flag-icon-tm {
-    background-image: url(../fonts/flag-icon-css/flags/tm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tm.svg)
 }
 
 .flag-icon-tn {
-    background-image: url(../fonts/flag-icon-css/flags/tn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tn.svg)
 }
 
 .flag-icon-to {
-    background-image: url(../fonts/flag-icon-css/flags/to.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/to.svg)
 }
 
 .flag-icon-tr {
-    background-image: url(../fonts/flag-icon-css/flags/tr.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tr.svg)
 }
 
 .flag-icon-tt {
-    background-image: url(../fonts/flag-icon-css/flags/tt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tt.svg)
 }
 
 .flag-icon-tv {
-    background-image: url(../fonts/flag-icon-css/flags/tv.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tv.svg)
 }
 
 .flag-icon-tw {
-    background-image: url(../fonts/flag-icon-css/flags/tw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tw.svg)
 }
 
 .flag-icon-tz {
-    background-image: url(../fonts/flag-icon-css/flags/tz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/tz.svg)
 }
 
 .flag-icon-ua {
-    background-image: url(../fonts/flag-icon-css/flags/ua.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ua.svg)
 }
 
 .flag-icon-ug {
-    background-image: url(../fonts/flag-icon-css/flags/ug.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ug.svg)
 }
 
 .flag-icon-um {
-    background-image: url(../fonts/flag-icon-css/flags/um.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/um.svg)
 }
 
 .flag-icon-us {
-    background-image: url(../fonts/flag-icon-css/flags/us.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/us.svg)
 }
 
 .flag-icon-uy {
-    background-image: url(../fonts/flag-icon-css/flags/uy.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/uy.svg)
 }
 
 .flag-icon-uz {
-    background-image: url(../fonts/flag-icon-css/flags/uz.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/uz.svg)
 }
 
 .flag-icon-va {
-    background-image: url(../fonts/flag-icon-css/flags/va.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/va.svg)
 }
 
 .flag-icon-vc {
-    background-image: url(../fonts/flag-icon-css/flags/vc.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/vc.svg)
 }
 
 .flag-icon-ve {
-    background-image: url(../fonts/flag-icon-css/flags/ve.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ve.svg)
 }
 
 .flag-icon-vg {
-    background-image: url(../fonts/flag-icon-css/flags/vg.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/vg.svg)
 }
 
 .flag-icon-vi {
-    background-image: url(../fonts/flag-icon-css/flags/vi.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/vi.svg)
 }
 
 .flag-icon-vn {
-    background-image: url(../fonts/flag-icon-css/flags/vn.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/vn.svg)
 }
 
 .flag-icon-vu {
-    background-image: url(../fonts/flag-icon-css/flags/vu.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/vu.svg)
 }
 
 .flag-icon-wf {
-    background-image: url(../fonts/flag-icon-css/flags/wf.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/wf.svg)
 }
 
 .flag-icon-ws {
-    background-image: url(../fonts/flag-icon-css/flags/ws.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ws.svg)
 }
 
 .flag-icon-ye {
-    background-image: url(../fonts/flag-icon-css/flags/ye.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/ye.svg)
 }
 
 .flag-icon-yt {
-    background-image: url(../fonts/flag-icon-css/flags/yt.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/yt.svg)
 }
 
 .flag-icon-za {
-    background-image: url(../fonts/flag-icon-css/flags/za.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/za.svg)
 }
 
 .flag-icon-zm {
-    background-image: url(../fonts/flag-icon-css/flags/zm.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/zm.svg)
 }
 
 .flag-icon-zw {
-    background-image: url(../fonts/flag-icon-css/flags/zw.svg)
+    background-image: temp(../fonts/flag-icon-css/flags/zw.svg)
 }
 
 /*!
@@ -18517,8 +18517,8 @@
     font-family: 'Font Awesome 5 Brands';
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/font-awesome/webfonts/fa-brands-400.eot);
-    src: url(../fonts/font-awesome/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(../fonts/font-awesome/webfonts/fa-brands-400.woff2) format("woff2"), url(../fonts/font-awesome/webfonts/fa-brands-400.woff) format("woff"), url(../fonts/font-awesome/webfonts/fa-brands-400.ttf) format("truetype"), url(../fonts/font-awesome/webfonts/fa-brands-400.svg#fontawesome) format("svg")
+    src: temp(../fonts/font-awesome/webfonts/fa-brands-400.eot);
+    src: temp(../fonts/font-awesome/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), temp(../fonts/font-awesome/webfonts/fa-brands-400.woff2) format("woff2"), temp(../fonts/font-awesome/webfonts/fa-brands-400.woff) format("woff"), temp(../fonts/font-awesome/webfonts/fa-brands-400.ttf) format("truetype"), temp(../fonts/font-awesome/webfonts/fa-brands-400.svg#fontawesome) format("svg")
 }
 
 .fab {
@@ -18529,8 +18529,8 @@
     font-family: 'Font Awesome 5 Free';
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/font-awesome/webfonts/fa-regular-400.eot);
-    src: url(../fonts/font-awesome/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(../fonts/font-awesome/webfonts/fa-regular-400.woff2) format("woff2"), url(../fonts/font-awesome/webfonts/fa-regular-400.woff) format("woff"), url(../fonts/font-awesome/webfonts/fa-regular-400.ttf) format("truetype"), url(../fonts/font-awesome/webfonts/fa-regular-400.svg#fontawesome) format("svg")
+    src: temp(../fonts/font-awesome/webfonts/fa-regular-400.eot);
+    src: temp(../fonts/font-awesome/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), temp(../fonts/font-awesome/webfonts/fa-regular-400.woff2) format("woff2"), temp(../fonts/font-awesome/webfonts/fa-regular-400.woff) format("woff"), temp(../fonts/font-awesome/webfonts/fa-regular-400.ttf) format("truetype"), temp(../fonts/font-awesome/webfonts/fa-regular-400.svg#fontawesome) format("svg")
 }
 
 .far {
@@ -18542,8 +18542,8 @@
     font-family: 'Font Awesome 5 Free';
     font-style: normal;
     font-weight: 900;
-    src: url(../fonts/font-awesome/webfonts/fa-solid-900.eot);
-    src: url(../fonts/font-awesome/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../fonts/font-awesome/webfonts/fa-solid-900.woff2) format("woff2"), url(../fonts/font-awesome/webfonts/fa-solid-900.woff) format("woff"), url(../fonts/font-awesome/webfonts/fa-solid-900.ttf) format("truetype"), url(../fonts/font-awesome/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+    src: temp(../fonts/font-awesome/webfonts/fa-solid-900.eot);
+    src: temp(../fonts/font-awesome/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), temp(../fonts/font-awesome/webfonts/fa-solid-900.woff2) format("woff2"), temp(../fonts/font-awesome/webfonts/fa-solid-900.woff) format("woff"), temp(../fonts/font-awesome/webfonts/fa-solid-900.ttf) format("truetype"), temp(../fonts/font-awesome/webfonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
 .fa,
@@ -22433,7 +22433,7 @@ textarea.form-control-lg {
 }
 
 .form-select {
-    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    --bs-form-select-bg-img: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     display: block;
     width: 100%;
     padding: 8px 38px 8px 16px;
@@ -22499,7 +22499,7 @@ textarea.form-control-lg {
 }
 
 [data-bs-theme=dark] .form-select {
-    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%237c8fac' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
+    --bs-form-select-bg-img: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%237c8fac' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
 }
 
 .form-check {
@@ -22570,17 +22570,17 @@ textarea.form-control-lg {
 }
 
 .form-check-input:checked[type=checkbox] {
-    --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+    --bs-form-check-bg-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
 }
 
 .form-check-input:checked[type=radio] {
-    --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
+    --bs-form-check-bg-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
 }
 
 .form-check-input[type=checkbox]:indeterminate {
     background-color: #5d87ff;
     border-color: #5d87ff;
-    --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
+    --bs-form-check-bg-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
 }
 
 .form-check-input:disabled {
@@ -22600,7 +22600,7 @@ textarea.form-control-lg {
 }
 
 .form-switch .form-check-input {
-    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    --bs-form-switch-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
     width: 2em;
     margin-left: -2.5em;
     background-image: var(--bs-form-switch-bg);
@@ -22616,12 +22616,12 @@ textarea.form-control-lg {
 }
 
 .form-switch .form-check-input:focus {
-    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23aec3ff'/%3e%3c/svg%3e")
+    --bs-form-switch-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23aec3ff'/%3e%3c/svg%3e")
 }
 
 .form-switch .form-check-input:checked {
     background-position: right center;
-    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
+    --bs-form-switch-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
 }
 
 .form-switch.form-check-reverse {
@@ -22653,7 +22653,7 @@ textarea.form-control-lg {
 }
 
 [data-bs-theme=dark] .form-switch .form-check-input:not(:checked):not(:focus) {
-    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 0.25%29'/%3e%3c/svg%3e")
+    --bs-form-switch-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 0.25%29'/%3e%3c/svg%3e")
 }
 
 .form-range {
@@ -23026,7 +23026,7 @@ textarea.form-control-lg {
 .was-validated .form-control:valid {
     border-color: var(--bs-form-valid-border-color);
     padding-right: calc(1.5em + 16px);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2313deb9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2313deb9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(.375em + 4px) center;
     background-size: calc(.75em + 8px) calc(.75em + 8px)
@@ -23053,7 +23053,7 @@ textarea.form-control.is-valid {
 .form-select.is-valid:not([multiple])[size="1"],
 .was-validated .form-select:valid:not([multiple]):not([size]),
 .was-validated .form-select:valid:not([multiple])[size="1"] {
-    --bs-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2313deb9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    --bs-form-select-bg-icon: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2313deb9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     padding-right: 78px;
     background-position: right 16px center, center right 38px;
     background-size: 16px 12px, calc(.75em + 8px) calc(.75em + 8px)
@@ -23136,7 +23136,7 @@ textarea.form-control.is-valid {
 .was-validated .form-control:invalid {
     border-color: var(--bs-form-invalid-border-color);
     padding-right: calc(1.5em + 16px);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23fa896b'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fa896b' stroke='none'/%3e%3c/svg%3e");
+    background-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23fa896b'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fa896b' stroke='none'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(.375em + 4px) center;
     background-size: calc(.75em + 8px) calc(.75em + 8px)
@@ -23163,7 +23163,7 @@ textarea.form-control.is-invalid {
 .form-select.is-invalid:not([multiple])[size="1"],
 .was-validated .form-select:invalid:not([multiple]):not([size]),
 .was-validated .form-select:invalid:not([multiple])[size="1"] {
-    --bs-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23fa896b'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fa896b' stroke='none'/%3e%3c/svg%3e");
+    --bs-form-select-bg-icon: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23fa896b'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fa896b' stroke='none'/%3e%3c/svg%3e");
     padding-right: 78px;
     background-position: right 16px center, center right 38px;
     background-size: 16px 12px, calc(.75em + 8px) calc(.75em + 8px)
@@ -24419,7 +24419,7 @@ fieldset:disabled .btn {
     --bs-navbar-toggler-padding-y: 0.25rem;
     --bs-navbar-toggler-padding-x: 0.75rem;
     --bs-navbar-toggler-font-size: 1.09375rem;
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2890, 106, 133, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --bs-navbar-toggler-icon-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2890, 106, 133, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
     --bs-navbar-toggler-border-radius: 7px;
     --bs-navbar-toggler-focus-width: 0.25rem;
@@ -24900,11 +24900,11 @@ fieldset:disabled .btn {
     --bs-navbar-brand-color: #fff;
     --bs-navbar-brand-hover-color: #fff;
     --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+    --bs-navbar-toggler-icon-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
 }
 
 [data-bs-theme=dark] .navbar-toggler-icon {
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+    --bs-navbar-toggler-icon-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
 }
 
 .card {
@@ -25121,11 +25121,11 @@ fieldset:disabled .btn {
     --bs-accordion-btn-padding-y: 1.25rem;
     --bs-accordion-btn-color: #2a3547;
     --bs-accordion-btn-bg: var(--bs-accordion-bg);
-    --bs-accordion-btn-icon: url("../images/svgs/icon-plus.svg");
+    --bs-accordion-btn-icon: temp("../images/svgs/icon-plus.svg");
     --bs-accordion-btn-icon-width: 1.25rem;
     --bs-accordion-btn-icon-transform: rotate(-180deg);
     --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-    --bs-accordion-btn-active-icon: url("../images/svgs/icon-minus.svg");
+    --bs-accordion-btn-active-icon: temp("../images/svgs/icon-minus.svg");
     --bs-accordion-btn-focus-border-color: #aec3ff;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(93, 135, 255, 0.25);
     --bs-accordion-body-padding-x: 2rem;
@@ -25263,8 +25263,8 @@ fieldset:disabled .btn {
 }
 
 [data-bs-theme=dark] .accordion-button::after {
-    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239eb7ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239eb7ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+    --bs-accordion-btn-icon: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239eb7ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    --bs-accordion-btn-active-icon: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239eb7ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
 .breadcrumb {
@@ -26046,7 +26046,7 @@ fieldset:disabled .btn {
 
 .btn-close {
     --bs-btn-close-color: #000;
-    --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+    --bs-btn-close-bg: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
     --bs-btn-close-opacity: 0.5;
     --bs-btn-close-hover-opacity: 0.75;
     --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(93, 135, 255, 0.25);
@@ -26937,11 +26937,11 @@ fieldset:disabled .btn {
 }
 
 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")
+    background-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")
 }
 
 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+    background-image: temp("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
 .carousel-indicators {
@@ -42628,7 +42628,7 @@ html[data-card=border] .card {
 }
 
 .has-success .form-control-success {
-    background-image: url(../images/svgs/success.svg)
+    background-image: temp(../images/svgs/success.svg)
 }
 
 .has-success .form-control {
@@ -42644,7 +42644,7 @@ html[data-card=border] .card {
 }
 
 .has-warning .form-control-warning {
-    background-image: url(../images/svgs/warning.svg)
+    background-image: temp(../images/svgs/warning.svg)
 }
 
 .has-warning .form-control {
@@ -42660,7 +42660,7 @@ html[data-card=border] .card {
 }
 
 .has-danger .form-control-danger {
-    background-image: url(../images/svgs/danger.svg)
+    background-image: temp(../images/svgs/danger.svg)
 }
 
 .has-danger .form-control {
@@ -53593,19 +53593,19 @@ button.toast-close-button {
 }
 
 .toast-container>.toast-info {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=) !important
+    background-image: temp(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=) !important
 }
 
 .toast-container>.toast-error {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important
+    background-image: temp(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important
 }
 
 .toast-container>.toast-success {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==) !important
+    background-image: temp(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==) !important
 }
 
 .toast-container>.toast-warning {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=) !important
+    background-image: temp(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=) !important
 }
 
 .toast-container.toast-bottom-center>div,
@@ -53828,7 +53828,7 @@ a {
     width: 267px;
     height: 252px;
     z-index: -1;
-    background-image: url(../images/shape/shape-1.svg);
+    background-image: temp(../images/shape/shape-1.svg);
     background-repeat: no-repeat
 }
 
@@ -53840,7 +53840,7 @@ a {
     width: 388px;
     height: 382px;
     z-index: -1;
-    background-image: url(../images/shape/shape-2.svg);
+    background-image: temp(../images/shape/shape-2.svg);
     background-repeat: no-repeat
 }
 
@@ -53932,13 +53932,13 @@ a {
 }
 
 .c2a-box {
-    background-image: url(../images/backgrounds/line-bg.svg);
+    background-image: temp(../images/backgrounds/line-bg.svg);
     background-repeat: no-repeat;
     background-position: center center
 }
 
 .moneyback-guarantee {
-    background-image: url(../images/backgrounds/line-bg-2.svg);
+    background-image: temp(../images/backgrounds/line-bg-2.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain
@@ -53977,11 +53977,11 @@ a {
 }
 
 .blog-img-one {
-    background-image: url(../images/blog/blog-img9.jpg)
+    background-image: temp(../images/blog/blog-img9.jpg)
 }
 
 .blog-img-two {
-    background-image: url(../images/blog/blog-img10.jpg)
+    background-image: temp(../images/blog/blog-img10.jpg)
 }
 
 .blog {
@@ -54849,14 +54849,14 @@ body .connect-sorting-content {
 }
 
 .topbar-image {
-    background-image: url(../images/frontend-pages/topbar-bg.png);
+    background-image: temp(../images/frontend-pages/topbar-bg.png);
     background-size: cover;
     background-repeat: no-repeat
 }
 
 .blog-bg {
     min-height: 366px;
-    background-image: url(../images/blog/blog-img6.jpg);
+    background-image: temp(../images/blog/blog-img6.jpg);
     background-size: cover;
     background-repeat: no-repeat
 }
@@ -54881,7 +54881,7 @@ body .connect-sorting-content {
     right: 0;
     width: 163px;
     height: 244px;
-    background-image: url(../images/frontend-pages/shape.png);
+    background-image: temp(../images/frontend-pages/shape.png);
     background-size: cover;
     background-repeat: no-repeat
 }

@@ -5,15 +5,15 @@ if ((at = "vertical")) {
   // Active 2 file at same time 
   // ----------------------------------------
 
-  var currentNewURL =
+  var currentNewtemp =
     window.location != window.parent.location
       ? document.referrer
       : document.location.href;
 
-  var current_link = document.getElementById("get-url");
-  if (currentNewURL.includes("/main/index.html")) {
+  var current_link = document.getElementById("get-temp");
+  if (currentNewtemp.includes("/main/index.html")) {
     current_link.setAttribute("href", "../main/index.html");
-  } else if (currentNewURL.includes("/index.html")) {
+  } else if (currentNewtemp.includes("/index.html")) {
     current_link.setAttribute("href", "./index.html");
   } else {
     current_link.setAttribute("href", "./");
@@ -22,10 +22,10 @@ if ((at = "vertical")) {
 
 
   function findMatchingElement() {
-    var currentUrl = window.location.href;
+    var currenttemp = window.location.href;
     var anchors = document.querySelectorAll("#sidebarnav a");
     for (var i = 0; i < anchors.length; i++) {
-      if (anchors[i].href === currentUrl) {
+      if (anchors[i].href === currenttemp) {
         return anchors[i];
       }
     }
@@ -88,10 +88,10 @@ if ((at = "vertical")) {
 }
 if ((at = "horizontal")) {
   function findMatchingElement() {
-    var currentUrl = window.location.href;
+    var currenttemp = window.location.href;
     var anchors = document.querySelectorAll("#sidebarnavh ul#sidebarnav a");
     for (var i = 0; i < anchors.length; i++) {
-      if (anchors[i].href === currentUrl) {
+      if (anchors[i].href === currenttemp) {
         return anchors[i];
       }
     }

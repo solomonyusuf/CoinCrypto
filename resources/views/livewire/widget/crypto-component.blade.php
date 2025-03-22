@@ -1,5 +1,4 @@
-<div>
-    <div class="flex flex-col items-center gap-4 relative overflow-y-auto&quot;">
+<div class="flex flex-col items-center gap-4 relative overflow-y-auto&quot;">
         <div class="flex w-full uppercase"><a target="" class="flex gap-2 items-center z-50 hover:z-50 "
             href="/latest-crypto-news">
             <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">
@@ -36,4 +35,4 @@
             </div>
         </div>
     </div>
-</div>
+

@@ -93,7 +93,7 @@
          $(document).ready(function () {
              function fetchUpdatedPrices() {
                  $.ajax({
-                     url: "/fetch-prices",
+                     temp: "/fetch-prices",
                      type: "GET",
                      success: function (response) {
                          if (!Array.isArray(response)) {

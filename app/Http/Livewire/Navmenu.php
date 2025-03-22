@@ -14,6 +14,7 @@ class Navmenu extends Component
     public function selectTemplate($item)
     {
         $this->template = $item;
+        $this->openNav = true;
     } 
     public function toggleNav()
     {

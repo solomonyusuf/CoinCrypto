@@ -46,7 +46,7 @@ $user = \App\Models\User::find(auth()->user()?->id);
 </head>
 
 <body class="light bg-background-default text-text-primary overflow-x">
-
+    @include('sweetalert::alert')
     <div data-overlay-container="true">
         <main class="flex min-h-screen flex-col">
             <header data-module-name="navigation" data-module-version="1.0.0" data-module-instance="default"

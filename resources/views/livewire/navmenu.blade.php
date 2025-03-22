@@ -71,10 +71,11 @@ document.getElementById('closeVideos').addEventListener('click', function () {
             </button>
             <div class="flex h-full cursor-pointer items-center">
                 <div id="wrapper1"
-                 class="bg-hamburger-menu absolute hidden left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
+                class="bg-hamburger-menu absolute  {{ $openNav ? '' : 'hidden' }} left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
                 </div>
                 <div id="modal"
-                    class="hamburger-modal bg-white-coindesk absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 hidden"
+                    
+                    class="hamburger-modal bg-white-coindesk absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 {{ $openNav ? '' : 'hidden' }}"
                     style="top: 65px; height: calc(-100px + 100vh);">
                     <div class="relative pb-20 p-4 md:pb-4 lg:px-4">
                         @if($user)
@@ -261,9 +262,12 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/podcasts"><span class="h-auto"><span
-                                                class="font-title">Podcasts</span></span></a><span
-                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center"><svg
+                                        href="">
+                                        <span class="h-auto"><span
+                                                class="font-title">Podcasts</span></span></a>
+                                        <button wire:click="selectTemplate('podcasts')"
+                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
+                                        <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="chevron_forward">
@@ -278,61 +282,18 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                                         fill="#262626"></path>
                                                 </g>
                                             </g>
-                                        </svg></span></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Podcasts</span>
-                                        <ul>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/podcasts/coindesk-podcast-network">CoinDesk
-                                                    Podcast
-                                                    Network</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/podcasts/markets-daily">Markets Daily</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/podcasts/generation-c">Gen C</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/podcasts/unchained">Unchained with Laura
-                                                    Shin</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/podcasts/coindesk-podcast-network">The Mining
-                                                    Pod</a></li>
-                                        </ul>
-                                    </div>
+                                        </svg>
+                                    </button>
                                 </div>
+                                
                             </li>
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/newsletters"><span class="h-auto"><span
-                                                class="font-title">Newsletters</span></span></a><span
-                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center"><svg
+                                        href=""><span class="h-auto"><span
+                                                class="font-title">Newsletters</span></span></a>
+                                        <button wire:click="selectTemplate('newsletters')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
+                                        <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="chevron_forward">
@@ -347,55 +308,10 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                                         fill="#262626"></path>
                                                 </g>
                                             </g>
-                                        </svg></span></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Newsletters</span>
-                                        <ul>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/newsletters/the-node">The Node</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/newsletters/daybook-us">Crypto Daybook
-                                                    Americas</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/newsletters/state-of-crypto">State of
-                                                    Crypto</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/newsletters/crypto-long-short">Crypto Long
-                                                    &amp; Short</a>
-                                            </li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/newsletters/crypto-for-advisors">Crypto for
-                                                    Advisors</a></li>
-                                        </ul>
-                                    </div>
+                                        </svg>
+                                    </button>
                                 </div>
+                                
                             </li>
                              
                             <li class="m-2 flex flex-col items-center">
@@ -403,8 +319,10 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_blank"
                                         href="https://events.coindesk.com/"><span class="h-auto"><span
                                                 class="font-title">Webinars &amp;
-                                                Events</span></span></a><span
-                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center"><svg
+                                                Events</span></span></a>
+                                    <button wire:click="selectTemplate('events')"
+                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
+                                        <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="chevron_forward">
@@ -419,52 +337,16 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                                         fill="#262626"></path>
                                                 </g>
                                             </g>
-                                        </svg></span></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Webinars &amp;
-                                            Events</span>
-                                        <ul>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="https://consensus2025.coindesk.com/">Consensus
-                                                    2025</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="https://policy-regulation.coindesk.com/">Policy
-                                                    &amp;
-                                                    Regulation Conference</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                        </svg></button></div>
+                                
                             </li>
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="/sponsored-content"><span class="h-auto"><span
-                                                class="font-title">Sponsored</span></span></a><span
-                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center"><svg
+                                                class="font-title">Sponsored</span></span></a>
+                                    <button wire:click="selectTemplate('sponsored')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
+                                        <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="chevron_forward">
@@ -479,60 +361,16 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                                         fill="#262626"></path>
                                                 </g>
                                             </g>
-                                        </svg></span></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Sponsored</span>
-                                        <ul>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/sponsored-content">Thought Leadership</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/press-release">Press Releases</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/sponsored-content/hub/coinw">CoinW</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/sponsored-content/hub/MEXC">MEXC</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/sponsored-content/hub/Phemex">Phemex</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/advertise">Advertise</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                        </svg></button></div>
+                                
                             </li>
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="/"><span class="h-auto"><span class="font-title">News
-                                                Sections</span></span></a><span
-                                        class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center"><svg
+                                                Sections</span></span></a>
+                                       <button wire:click="selectTemplate('sections')"  class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
+                                        <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="chevron_forward">
@@ -547,51 +385,8 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                                         fill="#262626"></path>
                                                 </g>
                                             </g>
-                                        </svg></span></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">News
-                                            Sections</span>
-                                        <ul>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/markets">Markets</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/business">Finance</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/tech">Tech</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/policy">Policy</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="/focus">Focus</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                        </svg></button></div>
+                                
                             </li>
                             @endif
 
@@ -636,6 +431,248 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 </div>
                             </div>
                             @endif
+
+                            @if($template == 'podcasts')
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
+                                <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
+                                    <button wire:click="selectTemplate('default')" class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
+                                        <svg
+                                            class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="chevron_forward">
+                                                <mask id="mask0_2411_5870" style="mask-type:alpha"
+                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                    <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
+                                                    </rect>
+                                                </mask>
+                                                <g mask="url(#mask0_2411_5870)">
+                                                    <path id="chevron_forward_2"
+                                                        d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
+                                                        fill="#262626"></path>
+                                                </g>
+                                            </g>
+                                        </svg></button><span
+                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        menu</span></div>
+                                <div class="border-b-1 mx-8 mb-2"></div>
+                                <div class="flex w-full flex-col px-8"><span
+                                        class="font-title ml-2 py-4 font-bold">Podcasts</span>
+                                    <ul>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/podcasts/coindesk-podcast-network">CoinDesk
+                                                Podcast
+                                                Network</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/podcasts/markets-daily">Markets Daily</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/podcasts/generation-c">Gen C</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/podcasts/unchained">Unchained with Laura
+                                                Shin</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/podcasts/coindesk-podcast-network">The Mining
+                                                Pod</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if($template == 'newsletters')
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                                <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
+                                    <button wire:click="selectTemplate('default')"
+                                        class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
+                                            class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="chevron_forward">
+                                                <mask id="mask0_2411_5870" style="mask-type:alpha"
+                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                    <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
+                                                    </rect>
+                                                </mask>
+                                                <g mask="url(#mask0_2411_5870)">
+                                                    <path id="chevron_forward_2"
+                                                        d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
+                                                        fill="#262626"></path>
+                                                </g>
+                                            </g>
+                                        </svg></button><span
+                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        menu</span></div>
+                                <div class="border-b-1 mx-8 mb-2"></div>
+                                <div class="flex w-full flex-col px-8"><span
+                                        class="font-title ml-2 py-4 font-bold">Newsletters</span>
+                                    <ul>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/newsletters/the-node">The Node</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/newsletters/daybook-us">Crypto Daybook
+                                                Americas</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/newsletters/state-of-crypto">State of
+                                                Crypto</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/newsletters/crypto-long-short">Crypto Long
+                                                &amp; Short</a>
+                                        </li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/newsletters/crypto-for-advisors">Crypto for
+                                                Advisors</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if($template == 'events')
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
+                                        <button wire:click="selectTemplate('default')"
+                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
+                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="chevron_forward">
+                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
+                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
+                                                        </rect>
+                                                    </mask>
+                                                    <g mask="url(#mask0_2411_5870)">
+                                                        <path id="chevron_forward_2"
+                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
+                                                            fill="#262626"></path>
+                                                    </g>
+                                                </g>
+                                            </svg></button><span
+                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                            menu</span></div>
+                                    <div class="border-b-1 mx-8 mb-2"></div>
+                                    <div class="flex w-full flex-col px-8"><span
+                                            class="font-title ml-2 py-4 font-bold">Webinars &amp;
+                                            Events</span>
+                                        <ul>
+                                            <li
+                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                                <a target="_self" href="https://consensus2025.coindesk.com/">Consensus
+                                                    2025</a></li>
+                                            <li
+                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                                <a target="_self" href="https://policy-regulation.coindesk.com/">Policy
+                                                    &amp;
+                                                    Regulation Conference</a></li>
+                                        </ul>
+                                    </div>
+                            </div>
+                            @endif
+
+                            @if($template == 'sponsored')
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                                <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
+                                    <button wire:click="selectTemplate('default')" 
+                                        class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
+                                        <svg
+                                            class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="chevron_forward">
+                                                <mask id="mask0_2411_5870" style="mask-type:alpha"
+                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                    <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
+                                                    </rect>
+                                                </mask>
+                                                <g mask="url(#mask0_2411_5870)">
+                                                    <path id="chevron_forward_2"
+                                                        d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
+                                                        fill="#262626"></path>
+                                                </g>
+                                            </g>
+                                        </svg></button><span
+                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        menu</span></div>
+                                <div class="border-b-1 mx-8 mb-2"></div>
+                                <div class="flex w-full flex-col px-8"><span
+                                        class="font-title ml-2 py-4 font-bold">Sponsored</span>
+                                    <ul>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/sponsored-content">Thought Leadership</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/press-release">Press Releases</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/sponsored-content/hub/coinw">CoinW</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/sponsored-content/hub/MEXC">MEXC</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/sponsored-content/hub/Phemex">Phemex</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/advertise">Advertise</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if($template == 'sections')
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                                <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
+                                    <button wire:click="selectTemplate('default')" 
+                                        class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
+                                        <svg
+                                            class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="chevron_forward">
+                                                <mask id="mask0_2411_5870" style="mask-type:alpha"
+                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                    <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
+                                                    </rect>
+                                                </mask>
+                                                <g mask="url(#mask0_2411_5870)">
+                                                    <path id="chevron_forward_2"
+                                                        d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
+                                                        fill="#262626"></path>
+                                                </g>
+                                            </g>
+                                        </svg></button><span
+                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        menu</span></div>
+                                <div class="border-b-1 mx-8 mb-2"></div>
+                                <div class="flex w-full flex-col px-8"><span
+                                        class="font-title ml-2 py-4 font-bold">News
+                                        Sections</span>
+                                    <ul>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/markets">Markets</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/business">Finance</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/tech">Tech</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/policy">Policy</a></li>
+                                        <li
+                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                            <a target="_self" href="/focus">Focus</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
+
+
                         </ul>
                         <div class="mb-16 mt-8 flex flex-row justify-between space-x-4">
                             <div class="flex flex-1"><button

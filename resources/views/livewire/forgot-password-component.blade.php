@@ -1,6 +1,26 @@
 <div>
+  <h2 class="text-xl font-semibold text-center text-gray-700 mb-3">Forgot Password</h2>
 
-    <style>
+  <form wire:submit.prevent="submit" class="w-full max-w-md mx-auto bg-white p-6 rounded-lg ">
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+      <input required wire:model="email" placeholder="Enter Email" type="email" 
+        class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200 focus:outline-none">
+    </div>
+  
+    <button type="submit" 
+      class="w-full bg-yellow-400 hover:bg-yellow-700 text-dark font-semibold py-2 rounded-md transition">
+      Continue
+    </button>
+  
+    <div class="mt-4 text-center">
+      <a wire:navigate href="{{route('login')}}" class="text-indigo-600 hover:underline">
+        Login to your account
+      </a>
+    </div>
+  </form>
+  
+    {{-- <style>
         .main-wrapper{
             background: url('assets/img/bg1.svg');
         }
@@ -37,4 +57,6 @@
           </div>
         </div>
       </div>
-</div>
+ --}}
+
+    </div>

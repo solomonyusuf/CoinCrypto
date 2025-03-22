@@ -3,35 +3,47 @@
     <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
       <h1 class="text-[0px]">CoinCrypto: Bitcoin, Ethereum, Crypto News and Price Data</h1>
       <!--$-->
+      
       <div class="grid gap-4 md:gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
         <div class="col-start-1 col-span-full row-start-1 lg:col-end-8 xl:col-end-9">
           <div class="flex flex-col gap-1 md:flex-row xlmax:w-full ">
             <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
               <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                  href="">
+                  href="{{ route('article_detail', [$latest->slug, $latest->id])}}">
                   <h3 class="font-headline">
-                    Crypto Will &#x27;Expand Dominance of U.S.
-                    Dollar,&#x27; Trump Says </h3>
+                    {{ $latest->title }}
+                    </h3>
                 </a>
                 <p class="font-body text-color-charcoal-600 mb-4 line-clamp-2 lg:hidden xl:flex">
-                  The U.S. president did not announce any new executive actions on Thursday.
+                 {!! \Illuminate\Support\Str::limit($latest->content, 50, '..') !!}
                 </p>
                 <p class="flex gap-2 flex-col lg:flex-row items-center"><span
                     class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                      <!-- --> <a title="Nikhilesh De" class="text-color-charcoal-900 hover:underline"
-                        href="/author/nikhilesh-de">Nikhilesh De</a>, <a title="Helene Braun"
-                        class="text-color-charcoal-900 hover:underline" href="/author/helene-braun">Helene Braun</a>
-                    </span></span><span class="font-metadata text-color-charcoal-600 uppercase">15 hours
-                    ago</span></p>
-              </div><a title="Crypto Will &#x27;Expand Dominance of U.S. Dollar,&#x27; Trump Says "
+                      <!-- --> 
+                      @for ($i = 0; $i < count($latest->article_creators); $i++)
+                        @if($i > 0)
+                        ,
+                        @endif
+                        <a title="" class="text-color-charcoal-900 hover:underline"
+                        href="">{{ $latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name }}
+                      </a>
+                      @endfor
+                    
+                    </span>
+                  </span>
+                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                        {{ \Carbon\Carbon::parse($latest->created_at)->diffForHumans() }}
+                      </span>
+                    </p>
+              </div><a  
                 class="flex shrink-0 flex-col"
-                href="/policy/2025/03/20/crypto-will-expand-dominance-of-u-s-dollar-trump-says"><img
-                  alt="U.S. President Donald Trump speaks at the Digital Asset Summit in New York City. (Nikhilesh De)"
+                href="{{ route('article_detail', [$latest->slug, $latest->id])}}">
+                <img
+                  alt="{{ $latest->title }}"
                   width="416" height="234" decoding="async" data-nimg="1"
                   class="w-full md:w-60 lg:w-full xl:w-[503px] rounded align-self-end aspect-video object-cover"
                   style="color:transparent;background-size:cover;background-position:50% 50%;background-repeat:no-repeat;background-image:url(&quot;data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUHAwb/xAAhEAACAQMEAwEAAAAAAAAAAAABAgMABBEFBhIxFBUhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAME/8QAGhEBAAMBAQEAAAAAAAAAAAAAAQACAxIxEf/aAAwDAQACEQMRAD8AiO3/AEUWi2sl7BHNcfouCfvzoV1bx7Y1DU4wLC2sYUgGUbt2NR+KV1jwrECtXu7iSTm8rs2MZJoNMe62Pvsoz0rUBPIw3jFZw69Olhw8cYxx6opK7EtknJopqnIEnZ//2Q==&quot;)"
-                  srcSet="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F1a81a5661312f11618bedd60f17f6ca7a2879dd1-1920x1080.jpg%3Fauto%3Dformat&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F1a81a5661312f11618bedd60f17f6ca7a2879dd1-1920x1080.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75 2x"
-                  src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F1a81a5661312f11618bedd60f17f6ca7a2879dd1-1920x1080.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75" /></a>
+                  src="{{ asset($latest->image) }}" /></a>
             </div>
           </div>
         </div>
@@ -48,13 +60,18 @@
             <div
               class=" w-full">
               <div class="grid">
-                <div
-                  class="container-jwp [&amp;_[id^=&#x27;jwExperienceDiv&#x27;]+_[id^=&#x27;jwExperienceDiv&#x27;]]:hidden"
-                  id="jwp-placement-cF5d0hUf"></div>
-                <div class="aspect-video w-full"></div>
+                <div class="plyr__video-embed" id="player">
+                  <iframe src="{{ $video->link }}"
+                          allowfullscreen
+                          allow="autoplay"></iframe>
+                </div>
+         
               </div>
-              <h3 class="font-headline-2xs font-medium tracking-[0.1px] mt-6"></h3>
+              <h3 class="font-headline-2xs font-medium tracking-[0.1px] mt-6">
+                {{ $video->title }}
+              </h3>
               <div class="font-body-sm leading-normal text-color-charcoal-600 hidden lg:block lg:pt-4 xl:hidden">
+              {!!  \Illuminate\Support\Str::limit($video->description, 400, '..') !!}
               </div>
             </div>
           </div>
@@ -65,24 +82,9 @@
               <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
             </div>
             <!--$-->
-            <div class="flex flex-col items-center gap-4 relative overflow-y-auto&quot;">
-              <div class="flex w-full uppercase"><a target="" class="flex gap-2 items-center z-50 hover:z-50 "
-                  href="/latest-crypto-news">
-                  <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">
-                    Latest Crypto News</h2><svg class="" fill="none" height="24" viewBox="0 0 25 24" width="25"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                      fill="#676767"></path>
-                  </svg>
-                </a></div>
-              <div
-                class="flex flex-col w-full h-full md:h-[1130px] md:max-h-[1130px] lg:h-[470px] lg:max-h-[470px] xl:h-[340px] xl:max-h-[340px]">
-                <div
-                  class="grid grid-rows-2 grid-flow-col grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-1 md:grid-rows-none md:grid-flow-row pt-6 gap-4 no-scrollbar overflow-x-auto overflow-y-hidden md:overflow-auto md:overflow-y-scroll">
-                </div>
-              </div>
-            </div>
+
+           @livewire('widget.crypto-component')
+
             <!--/$-->
             <div class="py-4">
               <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />

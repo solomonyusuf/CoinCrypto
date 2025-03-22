@@ -26,6 +26,9 @@ $user = \App\Models\User::find(auth()->user()?->id);
     <meta name="theme-color" content="#000" />
 
     @livewireStyles
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    
 
     <style>
         .slide-container {
@@ -403,6 +406,11 @@ $user = \App\Models\User::find(auth()->user()?->id);
         <!--$-->
         <!--/$-->
     </div>
+
+    <script>
+         const player = new Plyr('#player');
+      </script>
+      
 
     @livewireScripts
 

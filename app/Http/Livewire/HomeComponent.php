@@ -36,9 +36,7 @@ class HomeComponent extends Component
                             
         $top = Article::where(['visible'=> true])->orderByDesc('created_at')->paginate(30);
         $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
-        
-        $categories =  ArticleCategory::limit(4)
-                           ->get();
+    
 
         $categories_body =  ArticleCategory::orderByDesc('created_at')
                             ->get();
@@ -64,7 +62,6 @@ class HomeComponent extends Component
             'event'=> $event,
             'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,
-            'categories'=> $categories,
             'categories_body'=> $categories_body,
         ]);
     }

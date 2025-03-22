@@ -523,12 +523,13 @@
                 
               </div>
             </div>
+
             <div class="order-3 col-span-full">
               <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
-                <div id="homepage_mid_dynamic_1" data-freestar-ad="true" style="width:970px;height:250px"
+                <div id="homepage_mid_dynamic_1"  style="width:970px;height:250px"
                   class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px"
                   name="coindesk_homepage_desktop_leaderboard_2">
-                  <div id="google_ads_iframe_/22031491390/cddesktop/homepage_3__container__" style="border: 0pt;"></div>
+                 
                 </div>
               </div>
             </div>

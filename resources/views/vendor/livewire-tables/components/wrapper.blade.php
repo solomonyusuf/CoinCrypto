@@ -27,12 +27,12 @@
         $wire.clearSelected();
     },
     selectAllOnPage() {
-        let tempSelectedItems = this.selectedItems;
+        let urlSelectedItems = this.selectedItems;
         const iterator = this.paginationCurrentItems.values();
         for (const value of iterator) {
-            tempSelectedItems.push(value.toString());
+            urlSelectedItems.push(value.toString());
         }
-        this.selectedItems = [...new Set(tempSelectedItems)];
+        this.selectedItems = [...new Set(urlSelectedItems)];
     },
     @else
     toggleSelectAll() {

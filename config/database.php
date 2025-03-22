@@ -37,7 +37,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'temp' => env('DATABASE_temp'),
+            'url' => env('DATABASE_url'),
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'temp' => env('DATABASE_temp'),
+            'url' => env('DATABASE_url'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -65,7 +65,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'temp' => env('DATABASE_temp'),
+            'url' => env('DATABASE_url'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -80,7 +80,7 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'temp' => env('DATABASE_temp'),
+            'url' => env('DATABASE_url'),
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '1433'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -127,7 +127,7 @@ return [
         ],
 
         'default' => [
-            'temp' => env('REDIS_temp'),
+            'url' => env('REDIS_url'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
@@ -135,7 +135,7 @@ return [
         ],
 
         'cache' => [
-            'temp' => env('REDIS_temp'),
+            'url' => env('REDIS_url'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),

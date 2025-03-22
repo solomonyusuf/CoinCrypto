@@ -19,10 +19,10 @@
           $request->file('upload')->move(public_path('uploads'), $logo);
 
           $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-          $temp = $logo;
+          $url = $logo;
 
           return response()->json([
-            'temp' => $temp,
+            'url' => $url,
             'uploaded' => 1, // ✅ REQUIRED for CKEditor 5
             'fileName' => $filenametostore
         ]);
@@ -40,10 +40,10 @@
     //       $request->file('upload')->move(public_path('uploads'), $logo);
 
     //       $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-    //       $temp = $logo;
+    //       $url = $logo;
 
     //       $msg = 'Image added successfully';
-    //       $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$temp', '$msg')</script>";
+    //       $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
     //       @header('Content-type: text/html; charset=utf-8');
     //       echo $re;

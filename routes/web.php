@@ -59,12 +59,15 @@ Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_pas
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
 Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
-Route::get('/author-{slug}-{auth_id}',NewsDetailComponent::class)->name('author_detail');
+Route::get('/newsletter-{news_id}',NewsDetailComponent::class)->name('newsletter_detail');
+Route::get('/author-{auth_id}',NewsDetailComponent::class)->name('author_detail');
 Route::get('/{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 Route::get('/podcast-details-{news_id}',NewsDetailComponent::class)->name('podcast_detail');
 Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');
 
-
+//Request
+Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');
+    
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/videos', PageVideoComponent::class)->name('videos');
     Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
@@ -73,7 +76,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', ProfileComponent::class)->name('profile');
     
     //REQUEST
-    Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');
     Route::post('/update-profile', [ProfileComponent::class, 'update'])->name('update_profile');
     
 

@@ -15,6 +15,7 @@ use Livewire\Component;
 class HomeComponent extends Component
 {
     public int $count = 1;
+    public int $num = 1;
     public bool $show = true;
 
     public function showEvent()
@@ -40,7 +41,7 @@ class HomeComponent extends Component
         $categories_body =  ArticleCategory::orderByDesc('created_at')
                             ->get();
 
-        $newsletters = Newsletter::orderByDesc('created_at')->get();
+        $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
        
         $podcasts = Podcast::orderByDesc('created_at')->limit(20)->get();
         

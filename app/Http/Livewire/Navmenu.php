@@ -9,11 +9,11 @@ class Navmenu extends Component
     public $openNav = false;
     public $openAvatar = false;
 
-    public $template = 'default';
+    public $urllate = 'default';
 
-    public function selectTemplate($item)
+    public function selecturllate($item)
     {
-        $this->template = $item;
+        $this->urllate = $item;
         $this->openNav = true;
     } 
     public function toggleNav()

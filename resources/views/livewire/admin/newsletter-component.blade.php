@@ -292,7 +292,7 @@
                         resizeUnit: 'px'
                     },
                     ckfinder: {
-                        uploadtemp: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                        uploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         } // Laravel image upload route

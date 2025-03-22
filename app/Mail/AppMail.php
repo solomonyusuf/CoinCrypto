@@ -26,7 +26,7 @@ class AppMail extends Mailable
 
     public function build()
     {
-        return $this->subject($this->request_subject)->view('mails.template',[
+        return $this->subject($this->request_subject)->view('mails.urllate',[
             'request_subject'=> $this->request_subject,
             'request_body'=> $this->request_body,
         ]);

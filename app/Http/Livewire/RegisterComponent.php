@@ -40,13 +40,13 @@ class RegisterComponent extends Component
                 ]);
 
    
-                $temp = route('login');
+                $url = route('login');
                 Mail::to($user->email)->send(new AppMail(
                     'Account Sign up',
                     "
                     <p>Welcome to our platform! Your account has been successfully created.</p>
                         <p>To get started, please verify your email by clicking the button below.</p>
-                        <a style=\"color:white;\" href=\"{$temp}\" class=\"button\" >Access Account</a>"
+                        <a style=\"color:white;\" href=\"{$url}\" class=\"button\" >Access Account</a>"
                 ));
                 
                 toast('Account Created Successfully', 'success');

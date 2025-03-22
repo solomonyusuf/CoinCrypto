@@ -66,7 +66,7 @@ class UsersComponent extends Component
             'password' =>  bcrypt( $request->password),
         ]);
 
-        $temp = route('login');
+        $url = route('login');
         Mail::to($entity->email)->send(new AppMail(
             'Account Sign up',
             "
@@ -74,7 +74,7 @@ class UsersComponent extends Component
                 <p>To get started, check your credentials below.</p>
                 <p>your email is {$entity->email}.</p>
                 <p>your password is {$request->password}.</p>
-                <a href=\"{$temp}\" class=\"button\">Access Account</a>"
+                <a href=\"{$url}\" class=\"button\">Access Account</a>"
         ));
 
         toast('Creation Successful', 'success');

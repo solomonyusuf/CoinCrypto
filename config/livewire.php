@@ -43,32 +43,32 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Livewire Assets temp
+    | Livewire Assets url
     |--------------------------------------------------------------------------
     |
     | This value sets the path to Livewire JavaScript assets, for cases where
     | your app's domain root is not the correct path. By default, Livewire
     | will load its JavaScript assets from the app's "relative root".
     |
-    | Examples: "/assets", "mytemp.com/app".
+    | Examples: "/assets", "myurl.com/app".
     |
     */
 
-    'asset_temp' => null,
+    'asset_url' => null,
 
     /*
     |--------------------------------------------------------------------------
-    | Livewire App temp
+    | Livewire App url
     |--------------------------------------------------------------------------
     |
     | This value should be used if livewire assets are served from CDN.
-    | Livewire will communicate with an app through this temp.
+    | Livewire will communicate with an app through this url.
     |
-    | Examples: "https://my-app.com", "mytemp.com/app".
+    | Examples: "https://my-app.com", "myurl.com/app".
     |
     */
 
-    'app_temp' => null,
+    'APP_URL' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,22 +85,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Livewire Temporary File Uploads Endpoint Configuration
+    | Livewire urlorary File Uploads Endpoint Configuration
     |--------------------------------------------------------------------------
     |
-    | Livewire handles file uploads by storing uploads in a temporary directory
+    | Livewire handles file uploads by storing uploads in a urlorary directory
     | before the file is validated and stored permanently. All file uploads
-    | are directed to a global endpoint for temporary storage. The config
+    | are directed to a global endpoint for urlorary storage. The config
     | items below are used for customizing the way the endpoint works.
     |
     */
 
-    'temporary_file_upload' => [
+    'urlorary_file_upload' => [
         'disk' => null,        // Example: 'local', 's3'              Default: 'default'
         'rules' => null,       // Example: ['file', 'mimes:png,jpg']  Default: ['required', 'file', 'max:12288'] (12MB)
         'directory' => null,   // Example: 'tmp'                      Default  'livewire-tmp'
         'middleware' => null,  // Example: 'throttle:5,1'             Default: 'throttle:60,1'
-        'preview_mimes' => [   // Supported file types for temporary pre-signed file temps.
+        'preview_mimes' => [   // Supported file types for urlorary pre-signed file urls.
             'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
             'mov', 'avi', 'wmv', 'mp3', 'm4a',
             'jpg', 'jpeg', 'mpga', 'webp', 'wma',

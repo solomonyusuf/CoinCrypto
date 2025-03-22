@@ -112,7 +112,7 @@
                     {{ \Carbon\Carbon::parse($data->created_at)->format('g:i A') }}
                   </p>
                   <div class="note-content">
-                    <p class="note-inner-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."> 
+                    <p class="note-inner-content" data-notecontent="Blandit urlus porttitor aasfs. Integer posuere erat a ante venenatis."> 
                       {!! \Illuminate\Support\Str::limit($data->content, 200, '...') !!}
                     </p>
                   </div>
@@ -247,7 +247,7 @@
                         resizeUnit: 'px'
                     },
                     ckfinder: {
-                        uploadtemp: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                        uploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         } // Laravel image upload route

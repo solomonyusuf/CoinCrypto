@@ -45,18 +45,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application temp
+    | Application url
     |--------------------------------------------------------------------------
     |
-    | This temp is used by the console to properly generate temps when using
+    | This url is used by the console to properly generate urls when using
     | the Artisan command line tool. You should set this to the root of
     | your application so that it is used when running Artisan tasks.
     |
     */
 
-    'temp' => env('APP_temp', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_temp' => env('ASSET_temp', null),
+    'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------

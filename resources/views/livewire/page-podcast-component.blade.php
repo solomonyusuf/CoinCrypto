@@ -75,7 +75,7 @@
     const audioList = podcastData.map(podcast => ({
         name: podcast.title || 'Unknown Title',
         artist: podcast.host || 'Unknown Artist',
-        temp: podcast.link || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        url: podcast.link || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
         cover: podcast.image || 'https://source.unsplash.com/200x200/?music'
     }));
 

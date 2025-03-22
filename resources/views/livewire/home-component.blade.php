@@ -112,82 +112,92 @@
           </div>
           
           @for ($i = 0; $i < count($top); $i += 3)
-          <div class="flex">
-              <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
-                <div class="col-span-1 lg:col-span-5 xl:col-span-1">
-                  <div class="flex gap-4 false  ">
-                    <div class="bg-white flex gap-6 w-full shrink">
-                      <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                          href="/sponsored-content/platon-paving-the-way-to-become-the-visa-of-web-3-0">
-                          <h2 class="font-headline-2xs font-medium">
-                              {{ $top[$i]->title }}
-                          </h2>
-                        </a>
-                      
-                        <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
-                          {!!  \Illuminate\Support\Str::limit($top[$i]->content, 60, '..') !!}
-                      
-                        </p>
-                        <p class="flex gap-2 flex-col">
-                          <span class="font-metadata text-color-charcoal-600 uppercase">
-                              {{ \Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans()  }}            
-                          </span>
-                      </p>
-                      </div>
-                      <a title="PlatON: Paving the Way to Become the Visa of Web 3.0" class="flex shrink-0 flex-col"
-                        href="/sponsored-content/platon-paving-the-way-to-become-the-visa-of-web-3-0">
-                        <img  width="1280" height="960" class="lg:w-[9.5rem] lg:h-[9.5rem] sm:w-16 sm:h-16 xs:w-16 xs:h-16 rounded align-self-end object-cover"
-                          style="color:transparent;background-size:cover;background-position:50% 50%;background-repeat:no-repeat;background-image:temp(&quot;data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGB//EACMQAAIBBAEDBQAAAAAAAAAAAAECAwAEBRIRBiFRIiMxQWH/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAwb/xAAbEQACAwADAAAAAAAAAAAAAAAAAQIDERMhMf/aAAwDAQACEQMRAD8AyfGYV2yKWtx7Z2CsfnirK/wT9O3IXYPCyhhIPsGncb02LPCxX0km8kq7keKWyeRSS1eKUSPKVCAlvSqjwK3NdazUHblKXXguxiY87r3/AGip+Ujc8c0UpUluM//Z&quot;)"
-                          src="{{ $top[$i]->image }}" /></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex col-span-1 lg:hidden">
-                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
-                </div>
-                <div class="col-span-1 md:col-span-1 lg:col-span-4 xl:col-span-1 grid grid-cols-1 xl:grid-cols-2 xl:gap-6">
-                  <div>
-                    <div class="flex gap-4 false ">
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/business/2025/03/20/tether-ranks-among-top-foreign-buyers-of-u-s-treasuries-in-2024-firm-says">
-                            <h2 class="font-headline-2xs font-medium">Tether Ranks Among
-                              Top Buyers of U.S. Treasuries in 2024, Firm Says</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span class="font-metadata text-color-charcoal-600 uppercase">12
-                              hours ago</span></p>
+            <div class="flex">
+                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
+                    <div class="col-span-1 lg:col-span-5 xl:col-span-1">
+                        <div class="flex gap-4 false">
+                            <div class="bg-white flex gap-6 w-full shrink">
+                                <div class="flex flex-col">
+                                    @if(isset($top[$i]))
+                                        <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                          href="{{ route('article_detail', [$top[$i]->slug, $top[$i]->id]) }}">
+                                            <h2 class="font-headline-2xs font-medium">
+                                                {{ $top[$i]->title }}
+                                            </h2>
+                                        </a>
+                                        <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
+                                            {!! \Illuminate\Support\Str::limit($top[$i]->content, 60, '..') !!}
+                                        </p>
+                                        <p class="flex gap-2 flex-col">
+                                            <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                {{ \Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans() }}
+                                            </span>
+                                        </p>
+                                    @endif
+                                </div>
+                                @if(isset($top[$i]) && !empty($top[$i]->image))
+                                    <a title="{{ $top[$i]->title }}" class="flex shrink-0 flex-col"
+                                      href="{{ route('article_detail', [$top[$i]->slug, $top[$i]->id]) }}">
+                                        <img width="1280" height="960" class="lg:w-[9.5rem] lg:h-[9.5rem] sm:w-16 sm:h-16 xs:w-16 xs:h-16 rounded align-self-end object-cover"
+                                            src="{{ $top[$i]->image }}" />
+                                    </a>
+                                @endif
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="py-4 xl:hidden">
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+                    
+                    <div class="col-span-1 md:col-span-1 lg:col-span-4 xl:col-span-1 grid grid-cols-1 xl:grid-cols-2 xl:gap-6">
+                        @if(isset($top[$i+1]))
+                            <div>
+                                <div class="flex gap-4 false">
+                                    <div class="bg-white flex gap-6 w-full shrink">
+                                        <div class="flex flex-col">
+                                            <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                              href="{{ route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id]) }}">
+                                                <h2 class="font-headline-2xs font-medium">
+                                                    {{ $top[$i+1]->title }}
+                                                </h2>
+                                            </a>
+                                            <p class="flex gap-2 flex-col">
+                                                <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                    {{ \Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans() }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        
+                        @if(isset($top[$i+2]))
+                            <div>
+                                <div class="flex gap-4 false">
+                                    <div class="bg-white flex gap-6 w-full shrink">
+                                        <div class="flex flex-col">
+                                            <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                              href="{{ route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id]) }}">
+                                                <h2 class="font-headline-2xs font-medium">
+                                                    {{ $top[$i+2]->title }}
+                                                </h2>
+                                            </a>
+                                            <p class="flex gap-2 flex-col">
+                                                <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                    {{ \Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans() }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
-                  </div>
-                  <div>
-                    <div class=" flex gap-4 false ">
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/20/bitcoin-miners-feel-squeeze-as-hashprice-erases-post-election-gains">
-                            <h2 class="font-headline-2xs font-medium">Bitcoin Miners
-                              Feel Squeeze as Hashprice Erases Post-Election Gains
-                            </h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span class="font-metadata text-color-charcoal-600 uppercase">12
-                              hours ago</span></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="hidden xl:hidden">
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
-                    </div>
-                  </div>
                 </div>
-              </div>
-          </div>
-          <div class="py-4">
-            <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
-          </div>
-          @endfor 
+            </div>
+            <div class="py-4">
+                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+            </div>
+        @endfor
+
          
                 </div>
                 <div class="hidden xl:hidden">
@@ -232,38 +242,35 @@
                     fill="#676767"></path>
                 </svg>
               </a></div>
-            <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
+            <form action="{{ route('subscribe', 'test') }}" method="post" class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
+              @csrf
               <div class="col-span-4 md:col-span-8 lg:col-span-5 xl:col-span-6 pb-6">
                 <div data-module-name="newsletter-sign-up-module" data-module-version="1.0.0" data-module-instance="default"
                   class="border p-6 md:p-10 lg:p-6"><span
                     class="text-color-dark-grey font-headline-xs font-medium text-charcoal-900">Don't miss another
                     story.</span><span class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the
-                    Coindesk Newsletter today
+                    CoinCrypto Newsletter today
                     <!-- -->.
                   </span>
                   <div class="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-4 justify-start items-center pt-2">
-                    <div
-                      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+                    <div class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
                       data-slot="base" data-filled="true" data-filled-within="true">
                       <div data-slot="main-wrapper" class="h-full flex flex-col">
-                        <div data-slot="input-wrapper"
-                          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:border-default-foreground h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !h-12"
+                        <div  class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:border-default-foreground h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !h-12"
                           style="cursor:text">
                           <div data-slot="inner-wrapper" class="inline-flex w-full items-center h-full box-border"><input
                               data-slot="input"
                               class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small border-transparent focus:border-transparent focus:ring-0 focus:outline-none font-label"
-                              aria-label="Enter your Email" type="email" placeholder="Enter your Email"
-                              id="react-aria-:R5rqhulnfb:" value="" title=""></div>
+                               name="email" type="email" placeholder="Enter your Email"
+                               value=""></div>
                         </div>
                       </div>
-                    </div><button type="button"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 h-12 text-medium gap-3 rounded-large opacity-disabled pointer-events-none [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover w-full md:w-auto lg:w-full xl:w-auto bg-new-yellow"
-                      data-disabled="true" disabled="">
-                      <div class="flex gap-2 p-4 pl-6 items-center"><span
-                          class="text-color-dark-grey font-label font-medium">Sign me up</span><svg
-                          xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <mask id="mask0_2411_93" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16"
-                            height="16">
+                    </div>
+                   <button type="submit"
+                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 h-12 text-medium gap-3 rounded-large [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover w-full md:w-auto lg:w-full xl:w-auto bg-new-yellow">
+                      <div class="flex gap-2 p-4 pl-6 items-center"><span class="text-color-dark-grey font-label font-medium">Sign me
+                          up</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <mask id="mask0_2411_93" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
                             <rect x="0.5" y="0.50061" width="16" height="16" fill="#D9D9D9"></rect>
                           </mask>
                           <g mask="url(#mask0_2411_93)">
@@ -274,199 +281,71 @@
                         </svg></div>
                     </button>
                   </div><span class="pt-4 font-metadata text-charcoal-600"><span class="text-color-dark-grey ">By signing
-                      up, you will receive emails about CoinDesk products and you agree to our </span><a
-                      class="border-b-[1px] border-black !no-underline" href="/terms"><span
-                        class="text-color-dark-grey ">terms of use</span></a><span class="text-color-dark-grey "> and
-                    </span><a class="border-b-[1px] border-black !no-underline" href="/privacy"><span
-                        class="text-color-dark-grey ">privacy policy</span></a><span
-                      class="text-color-dark-grey font-metadata text-charcoal-600">.</span></span>
+                      up, you will receive emails about CoinCrypto products and you agree to our </span>
+                      <a class="border-b-[1px] border-black !no-underline" href="/terms"><span
+                        class="text-color-dark-grey ">terms of use</span>
+                      </a>
+                      <span class="text-color-dark-grey "> and
+                    </span>
+                    <a class="border-b-[1px] border-black !no-underline" href="/privacy"><span
+                        class="text-color-dark-grey ">privacy policy</span>
+                      </a>
+                      <span  class="text-color-dark-grey font-metadata text-charcoal-600">.</span></span>
                 </div>
               </div>
               <div class="col-span-4 md:col-span-8 lg:col-span-11 xl:col-span-10">
                 <div class="gap-4 grid flex-col grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                  
+                  @foreach ($newsletters as $data)
                   <div class="flex">
                     <div class="w-full">
                       <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":r6:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="daybook-us" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
+                        
+                        <div class="col-span-1 flex justify-center relative">
+                          <span
+                            class="cursor-[inherit] top-2 absolute">
+                            <label
+                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none">
+                              <input 
+                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer"
+                                type="checkbox" name="letter_id[]" value="{{ $data->id }}">
+                                <span class="relative inline-flex items-center justify-center w-5 h-5 border-2 border-gray-500 rounded">
+                                  <svg
+                                      aria-hidden="true" fill="none" role="presentation" stroke="white"
+                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      viewBox="0 0 17 18"
+                                      class="w-4 h-3 opacity-0 transition-opacity">
+                                      <polyline points="1 9 7 14 15 4"></polyline>
+                                  </svg>
+                              </span>
+                            </label>
+                          </span>
+                        </div>
                         <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/daybook-us">
-                              <h3 class="font-headline-2xs font-normal">Crypto Daybook Americas</h3>
+                          <div><a class="hover:underline" href="{{  route('newsletter_detail', $data->id) }}">
+                              <h3 class="font-headline-2xs font-normal">{{ $data->title }}</h3>
                             </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">Market
-                              analysis for crypto traders and investors.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Weekday</span>
+                          <div>
+                            <span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">
+                            {!! $data->description !!}
+                          </span>
                           </div>
+                          {{-- <div>
+                            <span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Weekday</span>
+                          </div> --}}
                         </div>
                       </div>
                       <div class="pt-4 md:pt-0"></div>
                       <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                     </div>
                   </div>
-                  <div class="flex">
-                    <div class="w-full">
-                      <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":r7:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="crypto-for-advisors" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
-                        <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/crypto-for-advisors">
-                              <h3 class="font-headline-2xs font-normal">Crypto for Advisors</h3>
-                            </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">Defining
-                              crypto, digital assets and the future of finance for financial advisors.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Thursday</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    </div>
-                  </div>
-                  <div class="flex">
-                    <div class="w-full">
-                      <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":r8:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="the-protocol" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
-                        <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/the-protocol">
-                              <h3 class="font-headline-2xs font-normal">The Protocol</h3>
-                            </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">Exploring
-                              the tech behind crypto one block at a time.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every
-                              Wednesday</span></div>
-                        </div>
-                      </div>
-                      <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    </div>
-                  </div>
-                  <div class="flex">
-                    <div class="w-full">
-                      <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":r9:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="crypto-long-short" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
-                        <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/crypto-long-short">
-                              <h3 class="font-headline-2xs font-normal">Crypto Long &amp; Short</h3>
-                            </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">A must
-                              read for institutions. Insights, news and analysis delivered weekly.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every
-                              Wednesday</span></div>
-                        </div>
-                      </div>
-                      <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    </div>
-                  </div>
-                  <div class="flex">
-                    <div class="w-full">
-                      <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":ra:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="the-node" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
-                        <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/the-node">
-                              <h3 class="font-headline-2xs font-normal">The Node</h3>
-                            </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">The
-                              biggest crypto news and ideas of the day.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Weekday</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    </div>
-                  </div>
-                  <div class="flex">
-                    <div class="w-full">
-                      <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
-                        <div class="col-span-1 flex justify-center relative"><span
-                            class="cursor-[inherit] top-2 absolute"><label
-                              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none"
-                              data-test-id="newsletter-card-checkbox"><input aria-label=" " aria-labelledby=":rb:"
-                                class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer disabled:cursor-default"
-                                type="checkbox" value="state-of-crypto" title=""><span aria-hidden="true"
-                                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-warning-foreground text-warning-foreground w-5 h-5 me-2 rounded-none before:rounded-none after:rounded-none before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[#ffd200]"><svg
-                                  aria-hidden="true" fill="none" role="presentation" stroke="currentColor"
-                                  stroke-dasharray="22" stroke-dashoffset="66" stroke-linecap="round"
-                                  stroke-linejoin="round" stroke-width="2" viewBox="0 0 17 18"
-                                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
-                                  <polyline points="1 9 7 14 15 4"></polyline>
-                                </svg></span></label></span></div>
-                        <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="/newsletters/state-of-crypto">
-                              <h3 class="font-headline-2xs font-normal">State of Crypto</h3>
-                            </a></div>
-                          <div><span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">Examining
-                              the intersection of cryptocurrency and government.</span></div>
-                          <div><span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Tuesday</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    </div>
-                  </div>
+                  @endforeach
+                  
+
+                 
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div class="order-3">
@@ -479,53 +358,77 @@
                 <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Most Read</h2>
               </div>
               <div class="hidden md:flex">
+                
                 <div class=" flex flex-col gap-1 md:flex-row false ">
-                  <div class="relative inline-block h-12 w-[60px]"><img alt="elipse" loading="lazy" width="20" height="20"
-                      decoding="async" data-nimg="1" class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
-                      srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                      src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">01
+                  <div class="relative inline-block h-12 w-[60px]">
+                    <img alt="elipse" loading="lazy" width="20" height="20"
+                      class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
+                      src="/img/elipse.png"><span
+                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">{{ $num }}
                       <!-- -->.
-                    </span></div>
+                    </span>
+                  </div>
                   <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                        href="/markets/2025/03/19/bitcoin-reclaims-usd85k-following-fed-and-stocks-rose-but-one-analyst-suggests-caution">
-                        <h3 class="font-headline font-medium">Bitcoin Reclaims $85K Following Fed and Stocks Rose, but One
-                          Analyst Suggests Caution</h3>
+                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        <h3 class="font-headline font-medium">
+                          {{ $articles[0]->title }}
+                        </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">Gold continues to be the star of the
-                        cycle, jumping to a new record above $3,050 per ounce.</p>
-                      <p class="flex gap-2 flex-col"><span
-                          class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                              title="Tom Carreras" class="text-color-charcoal-900 hover:underline"
-                              href="/author/tom-carreras">Tom Carreras</a></span></span><span
-                          class="font-metadata text-color-charcoal-600 uppercase">Mar 19, 2025</span></p>
-                    </div><a title="Bitcoin Reclaims $85K Following Fed and Stocks Rose, but One Analyst Suggests Caution"
+                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                      </p>
+
+                      <p class="flex gap-2 flex-col">
+                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
+                         @php
+                          $data = $articles[0]->article_creators[$i];
+                         @endphp
+                         @if($i > 0)
+                            ,
+                         @endif
+                        <span
+                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
+                           class="text-color-charcoal-900 hover:underline"
+                            href="{{ route('author_detail', $data->user->id) }}">
+                            {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                          </a>
+                        </span>
+                        @endfor
+                        </span>
+                      <span class="font-metadata text-color-charcoal-600 uppercase">
+                        {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
+                                                
+                      </span>
+                      </p>
+                    </div>
+                    <a 
                       class="flex shrink-0 flex-col"
-                      href="/markets/2025/03/19/bitcoin-reclaims-usd85k-following-fed-and-stocks-rose-but-one-analyst-suggests-caution"><img
-                        alt="Bull and bear (Shutterstock)" loading="lazy" width="416" height="234" decoding="async"
-                        data-nimg="1"
+                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                      <img
+                        alt="{{ $articles[0]->slug }}" width="416" height="234" 
                         class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
                         style="color: transparent;"
-                        srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75 2x"
-                        src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75"></a>
+                        src="{{ asset($articles[0]->article_creators[0]->user->image) }}"></a>
                   </div>
                 </div>
+
               </div>
               <div class="flex md:hidden">
-                <div class="
-    			  flex flex-col gap-1 md:flex-row
-    				false
-    			">
-                  <div class="relative inline-block h-12 w-[60px]"><img alt="elipse" loading="lazy" width="20" height="20"
-                      decoding="async" data-nimg="1" class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
-                      srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                      src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
+
+                <div class="flex flex-col gap-1 md:flex-row false">
+                  <div class="relative inline-block h-12 w-[60px]">
+                    <img alt="elipse" loading="lazy" width="20" height="20"
+                      class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
+                      src="/img/elipse.png"><span
                       class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">01
                       <!-- -->.
-                    </span></div>
-                  <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
-                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
+                    </span>
+                  </div>
+                  
+                    <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
+                    <div class="flex flex-col">
+                      <a class="text-color-charcoal-900 mb-4 hover:underline"
                         href="/markets/2025/03/19/bitcoin-reclaims-usd85k-following-fed-and-stocks-rose-but-one-analyst-suggests-caution">
                         <h3 class="font-headline font-medium">Bitcoin Reclaims $85K Following Fed and Stocks Rose, but One
                           Analyst Suggests Caution</h3>
@@ -537,10 +440,11 @@
                               title="Tom Carreras" class="text-color-charcoal-900 hover:underline"
                               href="/author/tom-carreras">Tom Carreras</a></span></span><span
                           class="font-metadata text-color-charcoal-600 uppercase">Mar 19, 2025</span></p>
-                    </div><a title="Bitcoin Reclaims $85K Following Fed and Stocks Rose, but One Analyst Suggests Caution"
-                      class="flex shrink-0 flex-col"
-                      href="/markets/2025/03/19/bitcoin-reclaims-usd85k-following-fed-and-stocks-rose-but-one-analyst-suggests-caution"><img
-                        alt="Bull and bear (Shutterstock)" loading="lazy" width="416" height="234" decoding="async"
+                    </div>
+                    <a class="flex shrink-0 flex-col"
+                      href="">
+                      <img
+                         width="416" height="234" decoding="async"
                         data-nimg="1"
                         class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
                         style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQHBf/EACQQAAIABAYCAwAAAAAAAAAAAAECAAMEEQUGEiEiMjFhQVFx/8QAFQEBAQAAAAAAAAAAAAAAAAAABAX/xAAZEQEAAgMAAAAAAAAAAAAAAAABAAIDEmH/2gAMAwEAAhEDEQA/AIFTYYGpLyKV2CdpoW4JhzFMMMulSYlI5Qy9TMB1PuKPl4AZEpABYMzavf7CGceOXuO113t8xPMzazxjXCVDsjkyUura0EaDou3EePqCFbMPqT//2Q==&quot;);"
@@ -557,10 +461,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="flex flex-col">
                   <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
+                    <div class="flex gap-4 false">
                       <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
                           height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
                           style="color: transparent;"

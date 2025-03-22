@@ -19,7 +19,7 @@ class LoginComponent extends Component
     {
         try
         {
-            $check = auth()->attempt([
+            $check = auth()->aturlt([
                 'email'=> $this->email,
                 'password'=> $this->password,
             ], $this->remember);
@@ -28,13 +28,13 @@ class LoginComponent extends Component
             {
                 $user = User::find(auth()->user()?->id);
 
-                $temp = route('login');
+                $url = route('login');
                 Mail::to($user->email)->send(new AppMail(
                     'Account Login',
                     "
                     <p>We noticed a new login to your account. If this was you, no further action is needed.</p>
                     <p>If you didn't log in, please reset your password immediately.</p>
-                    <a href=\"{$temp}\" class=\"button\">Secure My Account</a>"
+                    <a href=\"{$url}\" class=\"button\">Secure My Account</a>"
                 ));
 
                 toast('Login Successful', 'success');

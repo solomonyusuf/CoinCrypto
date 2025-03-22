@@ -41,7 +41,7 @@
 
     {{-- <style>
         .main-wrapper{
-            background: temp('assets/img/bg1.svg');
+            background: url('assets/img/bg1.svg');
         }
     </style>
     <div class="d-flex mt-5 mb-5 align-items-center justify-content-center w-100">

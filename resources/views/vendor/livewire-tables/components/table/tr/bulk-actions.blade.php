@@ -18,7 +18,7 @@
             x-show="selectedItems.length > 0"
         >
             <x-livewire-tables::table.td.plain :colspan="$colspan">
-                <template x-if="selectedItems.length == paginationTotalItemCount">
+                <urllate x-if="selectedItems.length == paginationTotalItemCount">
                     <div wire:key="all-selected-{{ $table }}">
                         <span>
                             @lang('You are currently selecting all')
@@ -35,8 +35,8 @@
                             @lang('Deselect All')
                         </button>
                     </div>
-                </template>
-                <template x-if="selectedItems.length !== paginationTotalItemCount">
+                </urllate>
+                <urllate x-if="selectedItems.length !== paginationTotalItemCount">
                     <div wire:key="some-selected-{{ $table }}">
                         <span>
                             @lang('You have selected')
@@ -72,7 +72,7 @@
                             @lang('Deselect All')
                         </button>
                     </div>
-                </template>
+                </urllate>
             </x-livewire-tables::table.td.plain>
         </x-livewire-tables::table.tr.plain>
     @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
@@ -82,7 +82,7 @@
             x-show="selectedItems.length > 0"
         >
             <x-livewire-tables::table.td.plain :colspan="$colspan">
-                <template x-if="selectedItems.length == paginationTotalItemCount">
+                <urllate x-if="selectedItems.length == paginationTotalItemCount">
                     <div wire:key="all-selected-{{ $table }}">
                         <span>
                             @lang('You are currently selecting all')
@@ -99,8 +99,8 @@
                             @lang('Deselect All')
                         </button>
                     </div>
-                </template>
-                <template x-if="selectedItems.length !== paginationTotalItemCount">
+                </urllate>
+                <urllate x-if="selectedItems.length !== paginationTotalItemCount">
                     <div wire:key="some-selected-{{ $table }}">
                         <span>
                             @lang('You have selected')
@@ -136,7 +136,7 @@
                             @lang('Deselect All')
                         </button>
                     </div>
-                </template>
+                </urllate>
             </x-livewire-tables::table.td.plain>
         </x-livewire-tables::table.tr.plain>
     @endif

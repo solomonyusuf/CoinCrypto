@@ -25,7 +25,7 @@
 
                         {{-- Array Of Links --}}
                         @if (is_array($element))
-                            @foreach ($element as $page => $temp)
+                            @foreach ($element as $page => $url)
                                 @if ($page == $paginator->currentPage())
                                     <li class="page-item active" wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}" aria-current="page"><span class="page-link">{{ $page }}</span></li>
                                 @else

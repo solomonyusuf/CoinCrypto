@@ -11,41 +11,45 @@
             <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
               <div class="flex flex-col">
                 <a class="text-color-charcoal-900 mb-4 hover:underline"
-                  href="{{ route('article_detail', [$latest?->slug ?? 'post', $latest?->id]) }}">
+                  href="<?php echo e(route('article_detail', [$latest?->slug ?? 'post', $latest?->id])); ?>">
                   <h3 class="font-headline">
-                    {{ $latest?->title }}
+                    <?php echo e($latest?->title); ?>
+
                     </h3>
                 </a>
                 <p class="font-body text-color-charcoal-600 mb-4 line-clamp-2 lg:hidden xl:flex">
-                 {!! \Illuminate\Support\Str::limit($latest->content, 50, '..') !!}
+                 <?php echo \Illuminate\Support\Str::limit($latest->content, 50, '..'); ?>
+
                 </p>
                 <p class="flex gap-2 flex-col lg:flex-row items-center"><span
                     class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
                       <!-- --> 
-                      @for ($i = 0; $i < count($latest->article_creators); $i++)
-                        @if($i > 0)
+                      <?php for($i = 0; $i < count($latest->article_creators); $i++): ?>
+                        <?php if($i > 0): ?>
                         ,
-                        @endif
+                        <?php endif; ?>
                         <a title="" class="text-color-charcoal-900 hover:underline"
-                        href="">{{ $latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name }}
+                        href=""><?php echo e($latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name); ?>
+
                       </a>
-                      @endfor
+                      <?php endfor; ?>
                     
                     </span>
                   </span>
                     <span class="font-metadata text-color-charcoal-600 uppercase">
-                        {{ \Carbon\Carbon::parse($latest->created_at)->diffForHumans() }}
+                        <?php echo e(\Carbon\Carbon::parse($latest->created_at)->diffForHumans()); ?>
+
                       </span>
                     </p>
               </div><a  
                 class="flex shrink-0 flex-col"
-                href="{{ route('article_detail', [$latest->slug, $latest->id])}}">
+                href="<?php echo e(route('article_detail', [$latest->slug, $latest->id])); ?>">
                 <img
-                  alt="{{ $latest->title }}"
+                  alt="<?php echo e($latest->title); ?>"
                   width="416" height="234" decoding="async" data-nimg="1"
                   class="w-full md:w-60 lg:w-full xl:w-[503px] rounded align-self-end aspect-video object-cover"
                   style="color:transparent;background-size:cover;background-position:50% 50%;background-repeat:no-repeat;background-image:temp(&quot;data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUHAwb/xAAhEAACAQMEAwEAAAAAAAAAAAABAgMABBEFBhIxFBUhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAME/8QAGhEBAAMBAQEAAAAAAAAAAAAAAQACAxIxEf/aAAwDAQACEQMRAD8AiO3/AEUWi2sl7BHNcfouCfvzoV1bx7Y1DU4wLC2sYUgGUbt2NR+KV1jwrECtXu7iSTm8rs2MZJoNMe62Pvsoz0rUBPIw3jFZw69Olhw8cYxx6opK7EtknJopqnIEnZ//2Q==&quot;)"
-                  src="{{ asset($latest->image) }}" /></a>
+                  src="<?php echo e(asset($latest->image)); ?>" /></a>
             </div>
           </div>
         </div>
@@ -62,16 +66,18 @@
               class=" w-full">
               <div class="grid">
                 <div class="plyr__video-embed" id="player">
-                  <iframe src="{{ $video->link }}"
+                  <iframe src="<?php echo e($video->link); ?>"
                           allow="autoplay"></iframe>
                 </div>
          
               </div>
               <h3 class="font-headline-2xs font-medium tracking-[0.1px] mt-6">
-                {{ $video->title }}
+                <?php echo e($video->title); ?>
+
               </h3>
               <div class="font-body-sm leading-normal text-color-charcoal-600 hidden lg:block lg:pt-4 xl:hidden">
-              {!!  \Illuminate\Support\Str::limit($video->description, 400, '..') !!}
+              <?php echo \Illuminate\Support\Str::limit($video->description, 400, '..'); ?>
+
               </div>
             </div>
           </div>
@@ -83,7 +89,21 @@
             </div>
             <!--$-->
 
-           @livewire('widget.crypto-component')
+           <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.crypto-component')->html();
+} elseif ($_instance->childHasBeenRendered('l3017988399-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3017988399-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3017988399-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l3017988399-0');
+} else {
+    $response = \Livewire\Livewire::mount('widget.crypto-component');
+    $html = $response->html();
+    $_instance->logRenderedChild('l3017988399-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
 
             <!--/$-->
             <div class="py-4">
@@ -112,92 +132,99 @@
             <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Top Stories</h2>
           </div>
           
-          @for ($i = 0; $i < count($top); $i += 3)
+          <?php for($i = 0; $i < count($top); $i += 3): ?>
             <div class="flex">
                 <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
                     <div class="col-span-1 lg:col-span-5 xl:col-span-1">
                         <div class="flex gap-4 false">
                             <div class="bg-white flex gap-6 w-full shrink">
                                 <div class="flex flex-col">
-                                    @if(isset($top[$i]))
+                                    <?php if(isset($top[$i])): ?>
                                         <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                          href="{{ route('article_detail', [$top[$i]->slug, $top[$i]->id]) }}">
+                                          href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
                                             <h2 class="font-headline-2xs font-medium">
-                                                {{ $top[$i]->title }}
+                                                <?php echo e($top[$i]->title); ?>
+
                                             </h2>
                                         </a>
                                         <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
-                                            {!! \Illuminate\Support\Str::limit($top[$i]->content, 60, '..') !!}
+                                            <?php echo \Illuminate\Support\Str::limit($top[$i]->content, 60, '..'); ?>
+
                                         </p>
                                         <p class="flex gap-2 flex-col">
                                             <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                {{ \Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans() }}
+                                                <?php echo e(\Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans()); ?>
+
                                             </span>
                                         </p>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
-                                @if(isset($top[$i]) && !empty($top[$i]->image))
-                                    <a title="{{ $top[$i]->title }}" class="flex shrink-0 flex-col"
-                                      href="{{ route('article_detail', [$top[$i]->slug, $top[$i]->id]) }}">
+                                <?php if(isset($top[$i]) && !empty($top[$i]->image)): ?>
+                                    <a title="<?php echo e($top[$i]->title); ?>" class="flex shrink-0 flex-col"
+                                      href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
                                         <img width="1280" height="960" class="lg:w-[9.5rem] lg:h-[9.5rem] sm:w-16 sm:h-16 xs:w-16 xs:h-16 rounded align-self-end object-cover"
-                                            src="{{ $top[$i]->image }}" />
+                                            src="<?php echo e($top[$i]->image); ?>" />
                                     </a>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-span-1 md:col-span-1 lg:col-span-4 xl:col-span-1 grid grid-cols-1 xl:grid-cols-2 xl:gap-6">
-                        @if(isset($top[$i+1]))
+                        <?php if(isset($top[$i+1])): ?>
                             <div>
                                 <div class="flex gap-4 false">
                                     <div class="bg-white flex gap-6 w-full shrink">
                                         <div class="flex flex-col">
                                             <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                              href="{{ route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id]) }}">
+                                              href="<?php echo e(route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id])); ?>">
                                                 <h2 class="font-headline-2xs font-medium">
-                                                    {{ $top[$i+1]->title }}
+                                                    <?php echo e($top[$i+1]->title); ?>
+
                                                 </h2>
                                             </a>
                                             <p class="flex gap-2 flex-col">
                                                 <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                    {{ \Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans() }}
+                                                    <?php echo e(\Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans()); ?>
+
                                                 </span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        <?php endif; ?>
                         
-                        @if(isset($top[$i+2]))
+                        <?php if(isset($top[$i+2])): ?>
                             <div>
                                 <div class="flex gap-4 false">
                                     <div class="bg-white flex gap-6 w-full shrink">
                                         <div class="flex flex-col">
                                             <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                              href="{{ route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id]) }}">
+                                              href="<?php echo e(route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id])); ?>">
                                                 <h2 class="font-headline-2xs font-medium">
-                                                    {{ $top[$i+2]->title }}
+                                                    <?php echo e($top[$i+2]->title); ?>
+
                                                 </h2>
                                             </a>
                                             <p class="flex gap-2 flex-col">
                                                 <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                    {{ \Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans() }}
+                                                    <?php echo e(\Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans()); ?>
+
                                                 </span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
             <div class="py-4">
                 <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
             </div>
-        @endfor
+        <?php endfor; ?>
 
          
                 </div>
@@ -243,8 +270,8 @@
                     fill="#676767"></path>
                 </svg>
               </a></div>
-            <form action="{{ route('subscribe', 'test') }}" method="post" class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
-              @csrf
+            <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
+              <?php echo csrf_field(); ?>
               <div class="col-span-4 md:col-span-8 lg:col-span-5 xl:col-span-6 pb-6">
                 <div data-module-name="newsletter-sign-up-module" data-module-version="1.0.0" data-module-instance="default"
                   class="border p-6 md:p-10 lg:p-6"><span
@@ -297,7 +324,7 @@
               <div class="col-span-4 md:col-span-8 lg:col-span-11 xl:col-span-10">
                 <div class="gap-4 grid flex-col grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                   
-                  @foreach ($newsletters as $data)
+                  <?php $__currentLoopData = $newsletters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <div class="flex">
                     <div class="w-full">
                       <div class="pt-4 md:pt-0 grid grid-cols-[1fr_5fr] h-[100%] md:h-[130px] lg:h-[120px] xl:h-[130px]">
@@ -309,7 +336,7 @@
                               class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none">
                               <input 
                                 class="font-inherit text-[100%] leading-[1.15] m-0 p-0 overflow-visible box-border absolute top-0 w-full h-full opacity-[0.0001] z-[1] cursor-pointer"
-                                type="checkbox" name="letter_id[]" value="{{ $data->id }}">
+                                type="checkbox" name="letter_id[]" value="<?php echo e($data->id); ?>">
                                 <span class="relative inline-flex items-center justify-center w-5 h-5 border-2 border-gray-500 rounded">
                                   <svg
                                       aria-hidden="true" fill="none" role="presentation" stroke="white"
@@ -323,24 +350,23 @@
                           </span>
                         </div>
                         <div class="col-start-2 col-span-3 flex flex-col gap-1">
-                          <div><a class="hover:underline" href="{{  route('newsletter_detail', $data->id) }}">
-                              <h3 class="font-headline-2xs font-normal">{{ $data->title }}</h3>
+                          <div><a class="hover:underline" href="<?php echo e(route('newsletter_detail', $data->id)); ?>">
+                              <h3 class="font-headline-2xs font-normal"><?php echo e($data->title); ?></h3>
                             </a></div>
                           <div>
                             <span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">
-                            {!! $data->description !!}
+                            <?php echo $data->description; ?>
+
                           </span>
                           </div>
-                          {{-- <div>
-                            <span class="text-color-grey font-metadata text-charcoal-600 uppercase">Every Weekday</span>
-                          </div> --}}
+                          
                         </div>
                       </div>
                       <div class="pt-4 md:pt-0"></div>
                       <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                     </div>
                   </div>
-                  @endforeach
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   
 
                  
@@ -365,52 +391,57 @@
                     <img alt="elipse" loading="lazy" width="20" height="20"
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">{{ sprintf('%02d', 1) }}
+                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase"><?php echo e(sprintf('%02d', 1)); ?>
+
                       <!-- -->.
                     </span>
                   </div>
                   <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                         <h3 class="font-headline font-medium">
-                          {{ $articles[0]->title }}
+                          <?php echo e($articles[0]->title); ?>
+
                         </h3>
                       </a>
                       <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
-                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                        <?php echo \Illuminate\Support\Str::limit($articles[0]->content, 60, '..'); ?>
+
                       </p>
 
                       <p class="flex gap-2 flex-col">
-                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
-                         @php
+                        <?php for($i = 0; $i < count($articles[0]->article_creators); $i++): ?>
+                         <?php
                           $data = $articles[0]->article_creators[$i];
-                         @endphp
-                         @if($i > 0)
+                         ?>
+                         <?php if($i > 0): ?>
                             ,
-                         @endif
+                         <?php endif; ?>
                         <span
                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
                            class="text-color-charcoal-900 hover:underline"
-                            href="{{ route('author_detail', $data->user->id) }}">
-                            {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                            href="<?php echo e(route('author_detail', $data->user->id)); ?>">
+                            <?php echo e($data->user->first_name.' '.$data->user->lastt_name); ?>
+
                           </a>
                         </span>
-                        @endfor
+                        <?php endfor; ?>
                         </span>
                       <span class="font-metadata text-color-charcoal-600 uppercase">
-                        {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
+                        <?php echo e(\Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans()); ?>
+
                                                 
                       </span>
                       </p>
                     </div>
                     <a 
                       class="flex shrink-0 flex-col"
-                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                      href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                       <img
-                        alt="{{ $articles[0]->slug }}" width="416" height="234" 
+                        alt="<?php echo e($articles[0]->slug); ?>" width="416" height="234" 
                         class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
                         style="color: transparent;"
-                        src="{{ asset($articles[0]->image) }}"></a>
+                        src="<?php echo e(asset($articles[0]->image)); ?>"></a>
                   </div>
                 </div>
 
@@ -423,7 +454,8 @@
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
                       class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">
-                      {{ sprintf('%02d', 1) }}
+                      <?php echo e(sprintf('%02d', 1)); ?>
+
                       <!-- -->.
                     </span>
                   </div>
@@ -431,39 +463,43 @@
                     <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col">
                       <a class="text-color-charcoal-900 mb-4 hover:underline"
-                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                         <h3 class="font-headline font-medium">
-                          {{ $articles[0]->title }}
+                          <?php echo e($articles[0]->title); ?>
+
                         </h3>
                       </a>
                       <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
-                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                        <?php echo \Illuminate\Support\Str::limit($articles[0]->content, 60, '..'); ?>
+
                       </p>
                       <p class="flex gap-2 flex-col">
-                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
-                         @php
+                        <?php for($i = 0; $i < count($articles[0]->article_creators); $i++): ?>
+                         <?php
                           $data = $articles[0]->article_creators[$i];
-                         @endphp
-                         @if($i > 0)
+                         ?>
+                         <?php if($i > 0): ?>
                             ,
-                         @endif
+                         <?php endif; ?>
                         <span
                           class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
                               class="text-color-charcoal-900 hover:underline"
-                              href="{{ route('author_detail', $data->user->id) }}">
-                              {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                              href="<?php echo e(route('author_detail', $data->user->id)); ?>">
+                              <?php echo e($data->user->first_name.' '.$data->user->lastt_name); ?>
+
                             </a>
                             </span>
-                        @endfor
+                        <?php endfor; ?>
                         </span><span
                           class="font-metadata text-color-charcoal-600 uppercase">
-                          {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
+                          <?php echo e(\Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans()); ?>
+
                         </span></p>
                     </div>
                     <a class="flex shrink-0 flex-col"
-                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                      href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                       <img width="416" height="234" class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
-                        src="{{ asset($articles[0]->article_creators[0]->user->image) }}"></a>
+                        src="<?php echo e(asset($articles[0]->article_creators[0]->user->image)); ?>"></a>
                   </div>
                 </div>
               </div>
@@ -475,8 +511,8 @@
              
               
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                @foreach ($articles as $data)
-                @if($articles[0]->title != $data->title)
+                <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($articles[0]->title != $data->title): ?>
                 <div class="flex flex-col">
                   <div class="min-h-[103px]">
                     <div class="flex gap-4 false">
@@ -485,30 +521,31 @@
                           height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
                           style="color: transparent;"
                           src="img/elipse.png">
-                          <span class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
+                          <span class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase"><?php echo e(sprintf('%02d', $num++)); ?>.</span></div>
                       <div class="bg-white flex gap-6 w-full shrink">
                         <div class="flex flex-col">
                           <a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                            href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                             <h2 class="font-headline-2xs font-medium">
-                              {{ $data->title }}
+                              <?php echo e($data->title); ?>
+
                             </h2>
                           </a>
                           <p class="flex gap-2 flex-col">
                             <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
                               By
-                              @for ($i = 0; $i < count($data->article_creators); $i++)
-                                @php
+                              <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
+                                <?php
                                   $item = $data->article_creators[$i];
-                                @endphp
-                                @if($i > 0)
+                                ?>
+                                <?php if($i > 0): ?>
                                     ,
-                                @endif
+                                <?php endif; ?>
                                 <span class="mr-2">
                                   <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->lastt_name }}</a></span>
+                                    href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->lastt_name); ?></a></span>
                                   </span>
-                                @endfor
+                                <?php endfor; ?>
                               
                                 
                               </p>
@@ -520,8 +557,8 @@
                     <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                   </div>
                 </div>
-                @endif
-                @endforeach
+                <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
               </div>
             </div>
@@ -537,11 +574,11 @@
             </div>
             <div class="grid order-4 xl:order-1 md:order-3 col-span-4 md:col-span-8 lg:col-span-12 xl:col-span-4 xl:row-span-8 gap-6">
               <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
-                @php
+                <?php
                   $categories = collect($categories);
                   $cat1 = $categories->where('title', 'Opinion')->first();
                   $opinion = \App\Models\Article::where([ 'category_id'=> $cat1->id])->limit(4)->get();
-                @endphp
+                ?>
                 <div class="flex flex-col col-span-1 lg:col-span-2 xl:col-span-1">
                   <div class="pb-6">
                     <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
@@ -557,57 +594,58 @@
                     </a>
                   </div>
                   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1  gap-4">
-                    @foreach ($opinion as $data)
+                    <?php $__currentLoopData = $opinion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div>
                       <div class="flex gap-4 false ">
                         <div class="bg-white flex gap-6 w-full shrink justify-between">
                           <div class="flex flex-col-reverse gap-2">
                             <a class="text-color-charcoal-900 mb-4 hover:underline"
-                              href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                              href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                               <h3 class="font-headline-2xs font-normal">
-                               {{ $data->title }}
+                               <?php echo e($data->title); ?>
+
                               </h3>
                             </a>
                             <p class="flex gap-2 flex-col"><span
                                 class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span
                                   class="mr-2">By 
-                                  @for ($i = 0; $i < count($data->article_creators); $i++)
-                                @php
+                                  <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
+                                <?php
                                   $item = $data->article_creators[$i];
-                                @endphp
-                                @if($i > 0)
+                                ?>
+                                <?php if($i > 0): ?>
                                     ,
-                                @endif
+                                <?php endif; ?>
                                 <span class="mr-2">
                                   <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->lastt_name }}</a></span>
+                                    href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->lastt_name); ?></a></span>
                                   </span>
-                                @endfor
+                                <?php endfor; ?>
                                   </p>
                           </div>
-                          <a class="flex shrink-0 flex-col" href="{{ route('author_detail', $data->article_creators[0]->user->id) }}"><img
+                          <a class="flex shrink-0 flex-col" href="<?php echo e(route('author_detail', $data->article_creators[0]->user->id)); ?>"><img
                                width="128" height="128"  
                               class="w-16 h-16 object-cover rounded-full max-w-full max-h-full object-cover"
                               style="color: transparent; background-size: cover; background-position: 50% 50%;"
-                              src="{{ asset($data->article_creators[0]->user->image) }}"></a>
+                              src="<?php echo e(asset($data->article_creators[0]->user->image)); ?>"></a>
                         </div>
                       </div>
                       <div class="py-4 py-4">
                         <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                       </div>
                     </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
                     
                     
                   </div>
                 </div>
 
-                @php
+                <?php
                   $cat2 = $categories->where('title', 'Press release')->first();
                   $press = \App\Models\Article::where([ 'category_id'=> $cat2?->id])->limit(5)->get();
                   $transition = $press[0]->id;
-                @endphp
+                ?>
                 <div class="flex flex-col col-span-1">
                   <div class="pb-6">
                     <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
@@ -624,35 +662,38 @@
                   <div class="flex flex-col gap-6">
                     <div class="relative">
                       <div>
-                        @foreach ($press as $data)
-                        <div class="transition-opacity duration-300 min-h-[130px] {{ $transition == $data->id ? 'block' : 'hidden' }}">
+                        <?php $__currentLoopData = $press; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="transition-opacity duration-300 min-h-[130px] <?php echo e($transition == $data->id ? 'block' : 'hidden'); ?>">
                           <div class="">
                             <div class="bg-white flex gap-6 w-full shrink">
                               <div class="flex flex-col">
                                 <a class="text-color-charcoal-900 mb-4 hover:underline"
                                   href="/press-release/2025/03/12/lbank-launches-usd100m-futures-protection-fund-for-traders">
                                   <h2 class="font-headline-2xs font-medium">
-                                    {{ $data->title }}
+                                    <?php echo e($data->title); ?>
+
                                   </h2>
                                 </a>
                                 <p class="flex gap-2 flex-col">
                                   <span
                                     class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
-                                    @if($data->info)
+                                    <?php if($data->info): ?>
                                     <span class="mr-2">
-                                      {{ $data->info }}
+                                      <?php echo e($data->info); ?>
+
                                     </span>
-                                    @endif
+                                    <?php endif; ?>
                                   </span>
                                   <span class="font-metadata text-color-charcoal-600 uppercase">
-                                    {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                                    <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
+
                         
                                   </span></p>
                               </div>
                             </div>
                           </div>
                         </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                        
                         
                       </div>
@@ -660,9 +701,9 @@
                         <div class="flex flex-row justify-between">
                           <div
                             class="flex justify-center space-x-2 md:space-x-2 lg:space-x-4 px-12 md:px-18 lg:px-18 items-center">
-                            @foreach ($press as $data)
-                            <button wire:click="showTransition('{{ $data->id }}')" class="w-2 h-2 bg-black border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
-                            @endforeach
+                            <?php $__currentLoopData = $press; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <button wire:click="showTransition('<?php echo e($data->id); ?>')" class="w-2 h-2 bg-black border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             
                           </div>
                         </div>
@@ -707,21 +748,22 @@
                        width="585" height="329" decoding="async" data-nimg="1"
                         class="object-cover h-[300px] w-full  md:h-[383px] lg:w-[585px] lg:h-[329px] xl:w-[728px] xl:h-[432px] rounded align-self-end"
                         style="color: transparent;"
-                        src="{{ asset($event->image) }}">
+                        src="<?php echo e(asset($event->image)); ?>">
                     </div>
                   </div>
                   <div
                     class="transition-opacity duration-300 order-2 lg:order-1 justify-start lg:justify-center flex flex-col gap-6 h-[290px] md:h-[290px] lg:h-full">
                     <div class="flex flex-col gap-2">
                       <h3 class="text-color-black font-headline-sm font-medium text-[#fff]">
-                      {{ $event->title }}  
+                      <?php echo e($event->title); ?>  
                       </h3><span
                         class="text-color-black font-body font-medium text-[#D4D4D4]">
-                      {!! $event->content !!}
+                      <?php echo $event->content; ?>
+
                       </span>
                     </div>
-                    @if($event->category)
-                    <a href="{{ $event->category }}"  class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-small [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover h-10 w-[140px] border border-[#FFD200]"><span
+                    <?php if($event->category): ?>
+                    <a href="<?php echo e($event->category); ?>"  class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-small [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover h-10 w-[140px] border border-[#FFD200]"><span
                         class="text-color-black font-label font-medium leading-6">Learn More</span><svg class="" fill="none"
                         height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -729,7 +771,7 @@
                           fill="#262626"></path>
                       </svg>
                     </a>
-                    @endif
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
@@ -821,42 +863,46 @@
                       </div>
                     </div>
                     <div class="hidden lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
-                      @for ($i = 0; $i < min(3, count($podcasts)); $i++)
+                      <?php for($i = 0; $i < min(3, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->id) }}">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
-                                  {{ $podcasts[$i]->title }}
+                                  <?php echo e($podcasts[$i]->title); ?>
+
                               </h3>
                           </a>
                           <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
-                              {!! $podcasts[$i]->description !!}
+                              <?php echo $podcasts[$i]->description; ?>
+
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                           </div>
                       </div>
-                    @endfor
+                    <?php endfor; ?>
                   
                       
                        
                     </div>
                     <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
                     
-                      @for ($i = 3; $i < min(6, count($podcasts)); $i++)
+                      <?php for($i = 3; $i < min(6, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->id) }}">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
-                                  {{ $podcasts[$i]->title }}
+                                  <?php echo e($podcasts[$i]->title); ?>
+
                               </h3>
                           </a>
                           <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
-                              {!! $podcasts[$i]->description !!}
+                              <?php echo $podcasts[$i]->description; ?>
+
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                           </div>
                       </div>
-                    @endfor
+                    <?php endfor; ?>
                        
                     </div>
 
@@ -866,21 +912,23 @@
           						no-scrollbar overflow-x-auto overflow-y-hidden md:overflow-auto md:overflow-y-scroll
           						lg:hidden">
 
-                      @for ($i = 0; $i < min(0, count($podcasts)); $i++)
+                      <?php for($i = 0; $i < min(0, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->id) }}">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
-                                  {{ $podcasts[$i]->title }}
+                                  <?php echo e($podcasts[$i]->title); ?>
+
                               </h3>
                           </a>
                           <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
-                              {!! $podcasts[$i]->description !!}
+                              <?php echo $podcasts[$i]->description; ?>
+
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                           </div>
                       </div>
-                     @endfor
+                     <?php endfor; ?>
                        
                     </div>
                   </div>
@@ -891,13 +939,7 @@
               <div class="order-3">
                 <div class="flex flex-col">
 
-                  @for($i = 0; $i < count($breakdown); $i += 2)
-                  @if (isset($breakdown[$i]))
-                  @php
-                    $list1 = \App\Models\Article::where(['category_id'=> $breakdown[$i]->id ])->limit(3)->get();
-                    $list2 = \App\Models\Article::where(['category_id'=> $breakdown[$i+1]->id ])->limit(3)->get();
-                  @endphp
-
+                  <?php for($breakdown): ?>
                   <div>
                     <div class="hidden lg:grid lg:grid-cols-2 gap-6 pt-8">
                       <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
@@ -912,7 +954,7 @@
                           <div class="flex py-6 uppercase">
                             <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
                               href="">
-                              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">{{$category->title}}</h2>
+                              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline"><?php echo e($category->title); ?></h2>
                               <svg
                                 class="" fill="none" height="24" viewBox="0 0 25 24" width="25"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -1138,8 +1180,7 @@
                     </div>
                      
                   </div>
-                  @endif
-                  @endfor 
+                  <?php endfor; ?> 
                   
                    
                   <div class="flex pt-6">
@@ -1161,4 +1202,4 @@
           
           
           
-          </div>
+          </div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/home-component.blade.php ENDPATH**/ ?>

@@ -19,7 +19,7 @@ class LoginComponent extends Component
     {
         try
         {
-            $check = auth()->aturlt([
+            $check = auth()->attempt([
                 'email'=> $this->email,
                 'password'=> $this->password,
             ], $this->remember);

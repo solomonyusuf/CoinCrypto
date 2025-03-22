@@ -16,8 +16,13 @@ class HomeComponent extends Component
 {
     public int $count = 1;
     public int $num = 2;
+    public $transition = '';
     public bool $show = true;
 
+    public function showTransition($param)
+    {
+        $this->transition = $param;
+    }
     public function showEvent()
     {
         $this->show = $this->show ? false : true;
@@ -36,14 +41,16 @@ class HomeComponent extends Component
                             ->get();
                             
         $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
-    
 
-        $categories_body =  ArticleCategory::orderByDesc('created_at')
-                            ->get();
+        $categories =  ArticleCategory::get();
+
+        $excludedTitles = ['Press release', 'Crypto', 'Opinion'];
+
+        $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)->get();
 
         $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
        
-        $podcasts = Podcast::orderByDesc('created_at')->limit(20)->get();
+        $podcasts = Podcast::orderByDesc('created_at')->limit(6)->get();
         
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  
@@ -63,7 +70,8 @@ class HomeComponent extends Component
             'top'=> $top,
             'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,
-            'categories_body'=> $categories_body,
+            'categories'=> $categories,
+            'breakdown'=> $categories_display,
         ]);
     }
 }

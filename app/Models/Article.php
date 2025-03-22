@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $slug
  * @property string|null $content
  * @property string|null $image
+ * @property string|null $info
  * @property bool $sponsored
  * @property bool $visible
  * @property string $category_id
@@ -42,6 +43,7 @@ class Article extends Model
 	protected $fillable = [
 		'id',
 		'title',
+		'info',
 		'slug',
 		'content',
 		'image',

@@ -15,7 +15,7 @@ use Livewire\Component;
 class HomeComponent extends Component
 {
     public int $count = 1;
-    public int $num = 1;
+    public int $num = 2;
     public bool $show = true;
 
     public function showEvent()

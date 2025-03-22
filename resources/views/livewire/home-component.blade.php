@@ -364,7 +364,7 @@
                     <img alt="elipse" loading="lazy" width="20" height="20"
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">{{ $num }}
+                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">{{ sprintf('%02d', 1) }}
                       <!-- -->.
                     </span>
                   </div>
@@ -421,7 +421,8 @@
                     <img alt="elipse" loading="lazy" width="20" height="20"
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">01
+                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">
+                      {{ sprintf('%02d', 1) }}
                       <!-- -->.
                     </span>
                   </div>
@@ -429,27 +430,39 @@
                     <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col">
                       <a class="text-color-charcoal-900 mb-4 hover:underline"
-                        href="/markets/2025/03/19/bitcoin-reclaims-usd85k-following-fed-and-stocks-rose-but-one-analyst-suggests-caution">
-                        <h3 class="font-headline font-medium">Bitcoin Reclaims $85K Following Fed and Stocks Rose, but One
-                          Analyst Suggests Caution</h3>
+                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        <h3 class="font-headline font-medium">
+                          {{ $articles[0]->title }}
+                        </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">Gold continues to be the star of the
-                        cycle, jumping to a new record above $3,050 per ounce.</p>
-                      <p class="flex gap-2 flex-col"><span
+                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                      </p>
+                      <p class="flex gap-2 flex-col">
+                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
+                         @php
+                          $data = $articles[0]->article_creators[$i];
+                         @endphp
+                         @if($i > 0)
+                            ,
+                         @endif
+                        <span
                           class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                              title="Tom Carreras" class="text-color-charcoal-900 hover:underline"
-                              href="/author/tom-carreras">Tom Carreras</a></span></span><span
-                          class="font-metadata text-color-charcoal-600 uppercase">Mar 19, 2025</span></p>
+                              class="text-color-charcoal-900 hover:underline"
+                              href="{{ route('author_detail', $data->user->id) }}">
+                              {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                            </a>
+                            </span>
+                        @endfor
+                        </span><span
+                          class="font-metadata text-color-charcoal-600 uppercase">
+                          {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
+                        </span></p>
                     </div>
                     <a class="flex shrink-0 flex-col"
-                      href="">
-                      <img
-                         width="416" height="234" decoding="async"
-                        data-nimg="1"
-                        class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
-                        style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQHBf/EACQQAAIABAYCAwAAAAAAAAAAAAECAAMEEQUGEiEiMjFhQVFx/8QAFQEBAQAAAAAAAAAAAAAAAAAABAX/xAAZEQEAAgMAAAAAAAAAAAAAAAABAAIDEmH/2gAMAwEAAhEDEQA/AIFTYYGpLyKV2CdpoW4JhzFMMMulSYlI5Qy9TMB1PuKPl4AZEpABYMzavf7CGceOXuO113t8xPMzazxjXCVDsjkyUura0EaDou3EePqCFbMPqT//2Q==&quot;);"
-                        srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=640&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75 2x"
-                        src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe218f7d1216239a2ac23f336359e79c2c77091ff-2560x1267.jpg%3Fauto%3Dformat&amp;w=1080&amp;q=75"></a>
+                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                      <img width="416" height="234" class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
+                        src="{{ asset($articles[0]->article_creators[0]->user->image) }}"></a>
                   </div>
                 </div>
               </div>
@@ -458,25 +471,45 @@
               <div class="pb-6">
                 <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
               </div>
+             
+              
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                @foreach ($articles as $data)
+                @if($articles[0]->title != $data->title)
                 <div class="flex flex-col">
                   <div class="min-h-[103px]">
                     <div class="flex gap-4 false">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
+                      <div class="relative inline-block h-[30px] w-9">
+                        <img alt="elipse" loading="lazy" width="20"
                           height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
                           style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">02.</span></div>
+                          src="img/elipse.png">
+                          <span class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
                       <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/19/first-solana-futures-etf-to-hit-markets-this-week">
-                            <h2 class="font-headline-2xs font-medium">First Solana Futures ETF to Hit Markets This Week</h2>
+                        <div class="flex flex-col">
+                          <a class="text-color-charcoal-900 mb-4 hover:underline"
+                            href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                            <h2 class="font-headline-2xs font-medium">
+                              {{ $data->title }}
+                            </h2>
                           </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/helene-braun">Helene Braun</a></span></span></p>
+                          <p class="flex gap-2 flex-col">
+                            <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                              @for ($i = 0; $i < count($data->article_creators); $i++)
+                         @php
+                          $item = $data->article_creators[$i];
+                         @endphp
+                         @if($i > 0)
+                            ,
+                         @endif
+                         <span class="mr-2">By
+                          <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
+                            href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->lastt_name }}</a></span>
+                          </span>
+                        @endfor
+                              
+                                
+                              </p>
                         </div>
                       </div>
                     </div>
@@ -485,248 +518,9 @@
                     <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                   </div>
                 </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">03.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/18/bitcoin-pulls-back-with-markets-nervous-ahead-of-fed-meeting-results">
-                            <h2 class="font-headline-2xs font-medium">Bitcoin Pulls Back With Markets Nervous Ahead of Fed
-                              Meeting Results</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Stephen Alpher" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/stephen-alpher">Stephen Alpher</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">04.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/20/nasdaq-s-shift-to-round-the-clock-stock-trading-due-to-crypto-says-exchange-executive">
-                            <h2 class="font-headline-2xs font-medium">Nasdaq Shift to Round-The-Clock Stock Trading Partly
-                              Due to Crypto, Says Exchange Executive</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/helene-braun">Helene Braun</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">05.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/19/battered-bitcoin-looks-to-u-s-fed-for-support-bank-of-america-predicts-end-of-quantitative-tightening">
-                            <h2 class="font-headline-2xs font-medium">Battered Bitcoin Looks to U.S. Fed for Support, Bank
-                              of America Predicts End of Quantitative Tightening</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Omkar Godbole" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/omkar-godbole">Omkar Godbole</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">06.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/20/ripple-s-ceo-confident-of-xrp-in-u-s-strategic-reserve-says-ipo-is-possible">
-                            <h2 class="font-headline-2xs font-medium">Ripple CEO Confident of XRP Being Included in U.S.
-                              Strategic Reserve, Says IPO Is 'Possible'</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Shaurya Malwa" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/shaurya-malwa">Shaurya Malwa</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">07.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/19/xrp-zooms-10-higher-as-garlinghouse-says-sec-is-dropping-case-against-ripple">
-                            <h2 class="font-headline-2xs font-medium">XRP Zooms 10% as Garlinghouse Says SEC Is Dropping
-                              Case Against Ripple</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Krisztian Sandor" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/krisztian-sandor">Krisztian Sandor</a>, <a title="Helene Braun"
-                                  class="text-color-charcoal-900 hover:underline" href="/author/helene-braun">Helene
-                                  Braun</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">08.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/21/what-the-collapse-of-the-u-s-bitcoin-etf-cash-and-carry-trade-means-for-investors">
-                            <h2 class="font-headline-2xs font-medium">What the Collapse of the U.S. Bitcoin ETF
-                              Cash-and-Carry Trade Means for Investors</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="James Van Straten" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/james-van-straten">James Van Straten</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">09.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/markets/2025/03/19/fed-holds-rates-steady-cuts-growth-outlook-raises-inflation-forecast">
-                            <h2 class="font-headline-2xs font-medium">Fed Holds Rates Steady, Cuts Growth Outlook, Raises
-                              Inflation Forecast</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Krisztian Sandor" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/krisztian-sandor">Krisztian Sandor</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="
-    			  flex gap-4
-    				false
-    			">
-                      <div class="relative inline-block h-[30px] w-9"><img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          srcset="/_next/image?url=%2Fimages%2Felipse.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75 2x"
-                          src="/_next/image?url=%2Fimages%2Felipse.png&amp;w=48&amp;q=75"><span
-                          class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">10.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
-                        <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                            href="/business/2025/03/19/dubai-starts-real-estate-tokenization-pilot-forecasts-usd16b-market-by-2033">
-                            <h2 class="font-headline-2xs font-medium">Dubai Starts Real Estate Tokenization Pilot, Forecasts
-                              $16B Market by 2033</h2>
-                          </a>
-                          <p class="flex gap-2 flex-col"><span
-                              class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
-                                <a title="Krisztian Sandor" class="text-color-charcoal-900 hover:underline"
-                                  href="/author/krisztian-sandor">Krisztian Sandor</a></span></span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                  </div>
-                </div>
+                @endif
+                @endforeach
+                
               </div>
             </div>
             <div class="order-3 col-span-full">

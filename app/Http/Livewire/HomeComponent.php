@@ -46,7 +46,10 @@ class HomeComponent extends Component
 
         $excludedTitles = ['Press release', 'Crypto', 'Opinion'];
 
-        $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)->get();
+        $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)
+                            ->with(['articles' => function ($query) {
+                                $query->orderByDesc('created_at')->take(4);  
+                            }])->get();
 
         $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
        
@@ -59,7 +62,7 @@ class HomeComponent extends Component
          $countdownSeconds = $event ? Carbon::parse($event->event_date)->diffInSeconds(Carbon::now()) : 0;
         
          $top = Article::where(['visible'=> true])->orderByDesc('created_at')->limit(12)->get();
-      
+ 
         return view('livewire.home-component',[
             'video'=> $video,
             'latest'=> $latest,

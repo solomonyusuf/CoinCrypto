@@ -111,6 +111,26 @@ class DatabaseSeeder extends Seeder
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
         ]);
+        $a12 = Article::create([
+            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
+            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+            'category_id'=> $cat3->id,
+            'slug'=> 'test_1',
+            'info'=> 'Paid for by gate.io'
+        ]);
+        $a13 = Article::create([
+            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
+            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+            'category_id'=> $cat2->id,
+            'slug'=> 'test_1',
+            'info'=> 'Paid for by gate.io'
+        ]);
+
+
+
+
         $a3 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
@@ -126,44 +146,71 @@ class DatabaseSeeder extends Seeder
             'category_id'=> $cat4->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
-        ]);$a5 = Article::create([
-            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
-            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
-            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
-            'category_id'=> $cat4->id,
-            'slug'=> 'test_1',
-            'info'=> 'Paid for by gate.io'
-        ]);$a6 = Article::create([
+        ]);
+        $a5 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat5->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
-        ]);$a7 = Article::create([
+        ]);$a51 = Article::create([
+            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
+            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+            'category_id'=> $cat5->id,
+            'slug'=> 'test_1',
+            'info'=> 'Paid for by gate.io'
+        ]);$a6 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat6->id,
+            'slug'=> 'test_1',
+            'info'=> 'Paid for by gate.io'
+        ]);$a7 = Article::create([
+            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
+            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+            'category_id'=> $cat7->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
         ]);$a8 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
-            'category_id'=> $cat6->id,
+            'category_id'=> $cat8->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
         ]);$a9 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
-            'category_id'=> $cat6->id,
+            'category_id'=> $cat9->id,
+            'slug'=> 'test_1',
+            'info'=> 'Paid for by gate.io'
+        ]);
+        $a10 = Article::create([
+            'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
+            'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+            'category_id'=> $cat9->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
         ]);
 
         ArticleCreator::create([
+            'article_id'=> $a12->id,
+		    'user_id'=> $u3->id
+        ]);
+        ArticleCreator::create([
+            'article_id'=> $a13->id,
+		    'user_id'=> $u3->id
+        ]);
+        ArticleCreator::create([
+            'article_id'=> $a51->id,
+		    'user_id'=> $u3->id
+        ]);ArticleCreator::create([
             'article_id'=> $a1->id,
 		    'user_id'=> $u3->id
         ]);
@@ -192,6 +239,10 @@ class DatabaseSeeder extends Seeder
 		    'user_id'=> $u3->id
         ]);ArticleCreator::create([
             'article_id'=> $a9->id,
+		    'user_id'=> $u3->id
+        ]);
+        ArticleCreator::create([
+            'article_id'=> $a10->id,
 		    'user_id'=> $u3->id
         ]);
 

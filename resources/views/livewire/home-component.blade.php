@@ -891,23 +891,24 @@
               <div class="order-3">
                 <div class="flex flex-col">
 
-                  @for($i = 0; $i < count($breakdown); $i += 2)
-                  @if (isset($breakdown[$i]))
-                  @php
-                    $list1 = \App\Models\Article::where(['category_id'=> $breakdown[$i]->id ])->limit(3)->get();
-                    $list2 = \App\Models\Article::where(['category_id'=> $breakdown[$i+1]->id ])->limit(3)->get();
-                  @endphp
-
+                
                   <div>
                     <div class="hidden lg:grid lg:grid-cols-2 gap-6 pt-8">
                       <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                       <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                     </div>
                     <div class="grid grid-col-1 lg:grid-cols-2 gap-0 md:gap-6">
+                      
+                      @foreach($breakdown as $category)
+                      @if(count($category?->articles) > 0)
+                      <?php
+                          $first = $category?->articles?->first();
+                          ?>
                       <div>
                         <div class="flex pt-8 lg:hidden md:pt-8">
                           <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                         </div>
+                       
                         <div class="flex flex-col">
                           <div class="flex py-6 uppercase">
                             <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
@@ -923,51 +924,73 @@
                             </a>
                           </div>
                           <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-6">
+                            
                             <div class="col-span-1">
-                              <div class="
-                                flex gap-4
-                                false ">
+
+                              @if($first)
+                              <div class=" flex gap-4 false ">
                                 <div class="bg-white flex gap-6 w-full shrink flex-col">
-                                  <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                      href="/markets/2025/03/21/hk-asia-holdings-buys-more-bitcoin-in-hedge-against-h-k-dollar-depreciation">
-                                      <h2 class="font-headline-xs font-normal">HK Asia Holdings Buys More Bitcoin in Hedge Against
-                                        Depreciation of Fiat Currencies</h2>
+                                  <div class="flex flex-col">
+                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                      href="{{ route('article_detail', [$first->slug ?? '', $first->id]) }}">
+                                      <h2 class="font-headline-xs font-normal">
+                                        {{ $first['title'] }}
+                                      </h2>
                                     </a>
-                                    <p class="font-body-sm text-color-charcoal-600 mb-4 line-clamp-3 flex md:hidden">The company
-                                      bought another 10 bitcoin, signaling confidence in crypto as a long-term asset strategy.</p>
+                                    <p class="font-body-sm text-color-charcoal-600 mb-4 line-clamp-3 flex md:hidden">
+                                      {!! \Illuminate\Support\Str::limit($first['content'], 50, '..') !!}
+                                    </p>
                                     <p class="flex gap-2 flex-col"><span
                                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase flex md:hidden"><span
-                                          class="mr-2">By <a title="James Van Straten"
-                                            class="text-color-charcoal-900 hover:underline" href="/author/james-van-straten">James
-                                            Van Straten</a>, <a title="AI Boost" class="text-color-charcoal-900 hover:underline"
-                                            href="/author/ai-boost">AI Boost</a></span></span><span
-                                        class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                  </div><a
-                                    title="HK Asia Holdings Buys More Bitcoin in Hedge Against Depreciation of Fiat Currencies"
+                                          class="mr-2">By
+                                          
+                                          @for ($i = 0; $i < count($first->article_creators); $i++)
+                                          @php
+                                           $creator = $first->article_creators[$i];
+                                          @endphp
+                                          @if($i > 0)
+                                             ,
+                                          @endif
+                                         <span
+                                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2"> 
+                                          <a
+                                            class="text-color-charcoal-900 hover:underline"
+                                             href="{{ route('author_detail', $creator->user->id) }}">
+                                             {{ $creator->user['first_name'].' '.$creator->user['last_name'] }}
+                                           </a>
+                                         </span>
+                                         @endfor
+                                         </div>
+                                       <a
                                     class="flex shrink-0 flex-col"
-                                    href="/markets/2025/03/21/hk-asia-holdings-buys-more-bitcoin-in-hedge-against-h-k-dollar-depreciation"><img
-                                      alt="FastNews (CoinDesk)" loading="lazy" width="1920" height="1080" decoding="async"
-                                      data-nimg="1"
+                                    href="{{ route('article_detail', [$first['slug'], $first['id']]) }}">
+                                    <img
+                                      width="1920" height="1080" decoding="async"
                                       class="w-full md:w-60 md:h-[135px] lg:w-[416px] lg:h-[234px] rounded align-self-end aspect-video object-cover object-cover"
                                       style="color: transparent;"
-                                      srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fafb72db5244609c27e04ac1bb3950f260319c35e-3840x2160.png%3Fauto%3Dformat&amp;w=1920&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fafb72db5244609c27e04ac1bb3950f260319c35e-3840x2160.png%3Fauto%3Dformat&amp;w=3840&amp;q=75 2x"
-                                      src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fafb72db5244609c27e04ac1bb3950f260319c35e-3840x2160.png%3Fauto%3Dformat&amp;w=3840&amp;q=75"></a>
+                                      src="{{ asset($first['image']) }}"></a>
                                 </div>
                               </div>
+                              @endif
+
                             </div>
+
                             <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                              
+                              @foreach ($category->articles as $article)
                               <div>
-                                <div class="
-                                flex gap-4
-                                false ">
+                                <div class="flex gap-4 false ">
                                   <div class="bg-white flex gap-6 w-full shrink">
                                     <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/markets/2025/03/21/cryptoquant-s-bull-score-index-falls-to-two-year-lows-signaling-pain-for-btc-bulls">
-                                        <h2 class="font-headline-2xs font-medium">CryptoQuant's Bull Score Index Falls to 2-Year
-                                          Lows Signaling Pain for BTC Bulls</h2>
+                                        href="{{ route('article_detail', [$article->slug, $article->id]) }}">
+                                        <h2 class="font-headline-2xs font-medium">
+                                          {{ $article->title }}
+                                        </h2>
                                       </a>
                                       <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
+                                          class="font-metadata text-color-charcoal-600 uppercase">
+                                          {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
+                                        </span></p>
                                     </div>
                                   </div>
                                 </div>
@@ -975,44 +998,10 @@
                                   <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                                 </div>
                               </div>
-                              <div>
-                                <div class="
-                                flex gap-4
-                                false ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/markets/2025/03/21/strategy-raises-usd711m-to-buy-more-bitcoin-in-upsized-strf-perpetual-offering">
-                                        <h2 class="font-headline-2xs font-medium">Strategy Raises $711M to Buy More Bitcoin in
-                                          Upsized STRF Perpetual Offering</h2>
-                                      </a>
-                                      <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="py-4">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                                </div>
-                              </div>
-                              <div>
-                                <div class="
-                                flex gap-4
-                                false ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/markets/2025/03/21/this-indicator-supports-bullish-case-in-bitcoin-and-nasdaq-for-now">
-                                        <h2 class="font-headline-2xs font-medium"> This Indicator Supports Bullish Case in Bitcoin
-                                          and Nasdaq, for Now</h2>
-                                      </a>
-                                      <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="hidden">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                                </div>
-                              </div>
+                              @endforeach
+                              
+                               
+                              
                             </div>
                           </div>
                         </div>
@@ -1020,127 +1009,14 @@
                         <div class="hidden justify-center items-center"></div>
                         <div class="hidden justify-center items-center"></div>
                       </div>
-                      <div>
-                        <div class="flex pt-8 lg:hidden md:pt-8">
-                          <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
-                        </div>
-                        <div class="flex flex-col">
-                          <div class="flex py-6 uppercase">
-                            <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
-                              href="/business">
-                              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Finance</h2><svg
-                                class="" fill="none" height="24" viewBox="0 0 25 24" width="25"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                  d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                                  fill="#676767"></path>
-                              </svg>
-                            </a></div>
-                          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-6">
-                            <div class="col-span-1">
-                              <div class="
-                                flex gap-4
-                                false ">
-                                <div class="bg-white flex gap-6 w-full shrink flex-col">
-                                  <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                      href="/business/2025/03/21/coinbase-could-be-near-multi-billion-dollar-deal-for-deribit-bloomberg">
-                                      <h2 class="font-headline-xs font-normal">Coinbase Could Be Near Multi-Billion Dollar Deal
-                                        for Deribit: Bloomberg</h2>
-                                    </a>
-                                    <p class="font-body-sm text-color-charcoal-600 mb-4 line-clamp-3 flex md:hidden">Consummation
-                                      of an acquisition would greatly advance Coinbase's push into the crypto derivatives market.
-                                    </p>
-                                    <p class="flex gap-2 flex-col"><span
-                                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase flex md:hidden"><span
-                                          class="mr-2">By <a title="Stephen Alpher"
-                                            class="text-color-charcoal-900 hover:underline" href="/author/stephen-alpher">Stephen
-                                            Alpher</a></span></span><span
-                                        class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                  </div><a title="Coinbase Could Be Near Multi-Billion Dollar Deal for Deribit: Bloomberg"
-                                    class="flex shrink-0 flex-col"
-                                    href="/business/2025/03/21/coinbase-could-be-near-multi-billion-dollar-deal-for-deribit-bloomberg"><img
-                                      alt="Crypto exchange Coinbase is looking to list Solana and Hedera futures. (Photo Illustration by Justin Sullivan/Getty Images)"
-                                      loading="lazy" width="1920" height="1080" decoding="async" data-nimg="1"
-                                      class="w-full md:w-60 md:h-[135px] lg:w-[416px] lg:h-[234px] rounded align-self-end aspect-video object-cover object-cover"
-                                      style="color: transparent;"
-                                      srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fa03a2f5c6a3e8950f99bce5aec662aeaa6b3a06d-4807x3311.jpg%3Fauto%3Dformat&amp;w=1920&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fa03a2f5c6a3e8950f99bce5aec662aeaa6b3a06d-4807x3311.jpg%3Fauto%3Dformat&amp;w=3840&amp;q=75 2x"
-                                      src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fa03a2f5c6a3e8950f99bce5aec662aeaa6b3a06d-4807x3311.jpg%3Fauto%3Dformat&amp;w=3840&amp;q=75"></a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-span-1 md:col-span-2 lg:col-span-1">
-                              <div>
-                                <div class="
-                                flex gap-4
-                                false ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/business/2025/03/21/german-regulator-identifies-deficiencies-in-ethena-s-usde-stablecoin">
-                                        <h2 class="font-headline-2xs font-medium">German Regulator Identifies 'Deficiencies' in
-                                          Ethena's USDe, Orders Immediate Issuance Halt</h2>
-                                      </a>
-                                      <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="py-4">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                                </div>
-                              </div>
-                              <div>
-                                <div class="
-                                flex gap-4
-                                false
-                              ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/business/2025/03/21/crypto-whale-that-punted-millions-on-leverage-trading-is-a-convicted-fraudster-zachxbt">
-                                        <h2 class="font-headline-2xs font-medium">Crypto Whale Who Made Millions on Leverage
-                                          Trading Is a Convicted Fraudster: ZachXBT</h2>
-                                      </a>
-                                      <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 21, 2025</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="py-4">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                                </div>
-                              </div>
-                              <div>
-                                <div class="
-                                flex gap-4
-                                false
-                              ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
-                                        href="/business/2025/03/20/tether-ranks-among-top-foreign-buyers-of-u-s-treasuries-in-2024-firm-says">
-                                        <h2 class="font-headline-2xs font-medium">Tether Ranks Among Top Buyers of U.S. Treasuries
-                                          in 2024, Firm Says</h2>
-                                      </a>
-                                      <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">Mar 20, 2025</span></p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="hidden">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="hidden justify-center items-center"></div>
-                        <div class="hidden justify-center items-center"></div>
-                        <div class="hidden justify-center items-center"></div>
-                      </div>
+                      @endif
+                      @endforeach
                     </div>
                      
                   </div>
-                  @endif
-                  @endfor 
                   
+                   
+                
                    
                   <div class="flex pt-6">
                     <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">

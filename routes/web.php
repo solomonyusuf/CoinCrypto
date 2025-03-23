@@ -4,11 +4,13 @@ use App\Http\Controllers\EditorController;
 use App\Http\Livewire\Admin\ArticleComponent;
 use App\Http\Livewire\Admin\ArticleTagComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\EditorComponent;
 use App\Http\Livewire\Admin\EventComponent;
 use App\Http\Livewire\Admin\NewsletterComponent;
 use App\Http\Livewire\Admin\PodcastsComponent;
 use App\Http\Livewire\Admin\UsersComponent;
 use App\Http\Livewire\Admin\VideosComponent;
+use App\Http\Livewire\AuthorComponent;
 use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
@@ -60,8 +62,9 @@ Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_passwo
 
 Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
 
+Route::get('/category-{category_id}',TopTickerComponent::class)->name('category_detail');
 Route::get('/newsletter-{news_id}',TopTickerComponent::class)->name('newsletter_detail');
-Route::get('/author-{auth_id}',TopTickerComponent::class)->name('author_detail');
+Route::get('/author-{auth_id}',AuthorComponent::class)->name('author_detail');
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 Route::get('/podcast-details-{news_id}',NewsDetailComponent::class)->name('podcast_detail');
 
@@ -94,6 +97,7 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-newsletter', NewsletterComponent::class)->name('admin_newsletter');
     Route::get('/admin-podcasts', PodcastsComponent::class)->name('admin_podcasts');
     Route::get('/admin-app-videos', VideosComponent::class)->name('admin_videos');
+    Route::get('/admin-editor-{temp_id}', EditorComponent::class)->name('admin_editor');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');

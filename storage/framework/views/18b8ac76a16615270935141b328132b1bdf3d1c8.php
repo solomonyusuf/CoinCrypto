@@ -172,7 +172,7 @@
                                     <label  class="form-label">Tag *</label>
                                     <select required name='category_id' class="form-control">
                                       <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($item->id == $item->category_id): ?>
+                                      <?php if($item->id == $data->category_id): ?>
                                         <option selected value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
                                         <?php else: ?>
                                         <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>

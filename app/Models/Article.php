@@ -1,10 +1,13 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,25 +15,26 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property string $id
  * @property string $title
+ * @property string|null $info
  * @property string|null $slug
  * @property string|null $content
  * @property string|null $image
- * @property string|null $info
  * @property bool $sponsored
  * @property bool $visible
  * @property string $category_id
  * @property int $views
+ * @property string $newsletter_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
  * @property ArticleCategory $article_category
+ * @property Newsletter $newsletter
  * @property Collection|ArticleCreator[] $article_creators
  *
  * @package App\Models
  */
 class Article extends Model
 {
-	use HasUuids;
 	protected $table = 'articles';
 	public $incrementing = false;
 
@@ -50,12 +54,18 @@ class Article extends Model
 		'sponsored',
 		'visible',
 		'category_id',
-		'views'
+		'views',
+		'newsletter_id'
 	];
 
 	public function article_category()
 	{
 		return $this->belongsTo(ArticleCategory::class, 'category_id');
+	}
+
+	public function newsletter()
+	{
+		return $this->belongsTo(Newsletter::class);
 	}
 
 	public function article_creators()

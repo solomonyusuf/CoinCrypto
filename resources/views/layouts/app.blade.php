@@ -26,7 +26,52 @@ $user = \App\Models\User::find(auth()->user()?->id);
 
     
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-   
+    
+    <!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+   <style>
+    /* Adjust table styles */
+    table.dataTable thead {
+        background-color: #f3f4f6; /* Tailwind gray-200 */
+    }
+
+    table.dataTable {
+        width: 100% !important;
+        border-collapse: collapse;
+    }
+
+    /* Customize pagination buttons */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 6px;
+        background-color: #2563eb; /* Tailwind blue-600 */
+        color: white !important;
+        border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background-color: #1e40af; /* Tailwind blue-700 */
+    }
+
+    /* Search box */
+    .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #d1d5db; /* Tailwind gray-300 */
+        border-radius: 6px;
+        padding: 6px;
+        margin-left: 10px;
+    }
+
+    /* Table Rows */
+    table.dataTable tbody tr:nth-child(even) {
+        background-color: #f9fafb; /* Tailwind gray-100 */
+    }
+</style>
 
     <style>
         .slide-container {

@@ -6,8 +6,9 @@
       <div
         class="article-content-wrapper font-title_5 text-charcoal-600 tracking-normal flex justify-between m-auto items-center row-start-1">
         <div class="flex gap-2 font-title">
-          <a class="uppercase" href="{{ route('category_detail', $article->category_id) }}">
-            {{ $article->article_category->title }}
+          <a class="uppercase" href="<?php echo e(route('category_detail', $article->category_id)); ?>">
+            <?php echo e($article->article_category->title); ?>
+
           </a>
         </div>
         <div data-submodule-name="social-share" class="relative">
@@ -77,46 +78,49 @@
       <div  class="article-content-wrapper flex flex-col gap-4 row-start-2">
         <div class="flex flex-col gap-4">
           <h1 class="font-headline-lg font-medium">
-            {{ $article->title }}
+            <?php echo e($article->title); ?>
+
           </h1>
           <h2 class="font-headline-xs text-charcoal-600">
-            {{ $article->info }}
+            <?php echo e($article->info); ?>
+
           </h2>
           <div class="uppercase font-metadata font-medium">By 
-            @for ($i = 0; $i < count($article->article_creators); $i++)
-            @php
+            <?php for($i = 0; $i < count($article->article_creators); $i++): ?>
+            <?php
               $item = $article->article_creators[$i];
-            @endphp
-            @if($i > 0)
+            ?>
+            <?php if($i > 0): ?>
                 ,
-            @endif
+            <?php endif; ?>
             <span class="mr-2">
               <a class="text-color-charcoal-900 hover:underline"
-                href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
+                href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->last_name); ?></a></span>
               </span>
-            @endfor
+            <?php endfor; ?>
             </div>
 
           <div class="font-metadata flex gap-4 text-charcoal-600 flex-col md:block">
-            <span>Updated {{ \Carbon\Carbon::parse($article->updated_at, 'UTC')->format('M d, Y')}} {{ \Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')}}  UTC</span>      
-            <span class="md:ml-2"> Published {{ \Carbon\Carbon::parse($article->created_at, 'UTC')->format('M d, Y')}} {{ \Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')}}</span>
+            <span>Updated <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('M d, Y')); ?> <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')); ?>  UTC</span>      
+            <span class="md:ml-2"> Published <?php echo e(\Carbon\Carbon::parse($article->created_at, 'UTC')->format('M d, Y')); ?> <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')); ?></span>
           </div>
       
         </div>
         <div class="article-content-wrapper flex flex-col justify-end gap-4 row-start-3 empty:hidden">
-          {!! $article->content !!}
+          <?php echo $article->content; ?>
+
         </div>
-        <form action="{{ route('subscribe', 'test') }}" method="post" class="flex flex-col gap-2">
-          @csrf
+        <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2">
+          <?php echo csrf_field(); ?>
           <div
             class="border p-6 md:p-10 lg:p-6">
             <span
               class="text-color-dark-grey font-headline-xs font-medium text-charcoal-900">Don't miss another story.</span><span
-              class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the {{ $article->newsletter->title }} Newsletter
+              class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the <?php echo e($article->newsletter->title); ?> Newsletter
               today
               <!-- -->.
               <!-- --> 
-              <a class="font-medium" href="{{ route('newsletters') }}">See all newsletters</a>
+              <a class="font-medium" href="<?php echo e(route('newsletters')); ?>">See all newsletters</a>
             </span>
             <div class="flex flex-col md:flex-row gap-4 justify-start items-center pt-2">
               <div class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]">
@@ -125,7 +129,7 @@
                     class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 border-medium border-default-200 data-[hover=true]:border-default-400 group-data-[focus=true]:border-default-foreground h-10 min-h-10 rounded-small transition-background !duration-150 transition-colors motion-reduce:transition-none !h-12"
                     style="cursor:text">
                     <div class="inline-flex w-full items-center h-full box-border">
-                      <input value="{{ $article->newsletter_id }}" name="letter_id[]" hidden/>
+                      <input value="<?php echo e($article->newsletter_id); ?>" name="letter_id[]" hidden/>
                       <input
                         class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small border-transparent focus:border-transparent focus:ring-0 focus:outline-none font-label"
                         aria-label="Enter your Email" type="email" placeholder="Enter your Email" name="email"
@@ -165,26 +169,28 @@
           </div>
         </form>
 
-        @for ($i = 0; $i < count($article->article_creators); $i++)
-        @php
+        <?php for($i = 0; $i < count($article->article_creators); $i++): ?>
+        <?php
           $item = $article->article_creators[$i];
-        @endphp
+        ?>
           <div class="article-content-wrapper mt-6 flex gap-8 justify-between">
             <div class="flex flex-col">
               <h5 class="font-headline-sm font-medium">
-                <a class="hover:underline" href="{{ route('author_detail', $item->user->id) }}"> 
-                 {{ $item->user->first_name.' '.$item->user->last_name }}
+                <a class="hover:underline" href="<?php echo e(route('author_detail', $item->user->id)); ?>"> 
+                 <?php echo e($item->user->first_name.' '.$item->user->last_name); ?>
+
                 </a>
               </h5>
               <p class="my-2 line-clamp-3 text-charcoal-600 font-body">
-                 {!! $item->user->info !!}
+                 <?php echo $item->user->info; ?>
+
               </p>
               <div class="mt-2 flex flex-wrap gap-2 items-center [&amp;_svg]:w-3 [&amp;_svg]:h-3">
-               @if($item->user->twitter)
+               <?php if($item->user->twitter): ?>
                 <a target="_blank"
                   title="X"
                   class="w-6 h-6 rounded-full bg-charcoal-25 cursor-pointer inline-flex justify-center items-center"
-                  href="{{ $item->user->twitter }}">
+                  href="<?php echo e($item->user->twitter); ?>">
                   <svg width="16" height="16" viewBox="0 0 1400 1027" fill="none"
                     xmlns="http://www.w3.org/2000/svg" aria-labelledby="twitter-svg-a11y-label-id">
                     <title id="twitter-svg-a11y-label-id">X icon</title>
@@ -193,11 +199,11 @@
                       fill="#262626"></path>
                   </svg>
                 </a>
-                @endif
-                @if( $item->user->linkedin)
+                <?php endif; ?>
+                <?php if( $item->user->linkedin): ?>
                 <a target="_blank" title="LinkedIn"
                   class="w-6 h-6 rounded-full bg-charcoal-25 cursor-pointer inline-flex justify-center items-center"
-                  href="{{ $item->user->linkedin }}">
+                  href="<?php echo e($item->user->linkedin); ?>">
                   <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -205,11 +211,11 @@
                       fill="#262626"></path>
                   </svg>
                 </a>
-                @endif
-                @if($item->user->email)
+                <?php endif; ?>
+                <?php if($item->user->email): ?>
                 <a target="_blank" title="Email"
                   class="w-6 h-6 rounded-full bg-charcoal-25 cursor-pointer inline-flex justify-center items-center"
-                  href="mailto:{{ $item->user->email }}">
+                  href="mailto:<?php echo e($item->user->email); ?>">
                   <svg width="16" height="16" fill="#262626" version="1.1" id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.294 75.294">
                     <g>
@@ -219,16 +225,16 @@
                     </g>
                   </svg>
                 </a>
-              @endif
+              <?php endif; ?>
             </div> 
                 </div>
-            <a href="{{ route('author_detail', $item->user->id) }}"> 
+            <a href="<?php echo e(route('author_detail', $item->user->id)); ?>"> 
               <img  class="rounded-full min-w-16 min-h-16 w-16 h-16" style="color: transparent;"
-                 src="{{ $item->user->image }}"></a>
+                 src="<?php echo e($item->user->image); ?>"></a>
           </div>
-        @endfor
+        <?php endfor; ?>
     </div>
-    @if($advert)
+    <?php if($advert): ?>
     <div class="col-span-4 px-6 flex-col h-full row-start-2 row-end-5 justify-between hidden lg:flex lg:col-start-9 xl:col-start-13">
       <div class="relative">
         <div class="color-black relative flex items-start justify-center stickyad top-0 aw336px ah600px"
@@ -239,5 +245,6 @@
         </div>
       </div>
     </div>
-    @endif
+    <?php endif; ?>
   </section>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/news-detail-component.blade.php ENDPATH**/ ?>

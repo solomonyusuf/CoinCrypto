@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Http\Middleware\TrustHosts;
 use App\Models\AppVideo;
 use App\Models\ArticleCreator;
+use App\Models\Newsletter;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Article;
@@ -61,6 +62,7 @@ class DatabaseSeeder extends Seeder
             'first_name'=> 'Shola',
             'last_name'=> 'Davis',
             'email'=> 'admin@coincrypto.com.ng',
+            'title'=> 'Co-regional news chief, Americas',
             'password'=> bcrypt(12345),
 
         ]);
@@ -93,6 +95,15 @@ class DatabaseSeeder extends Seeder
         $cat9 = ArticleCategory::create([
             'title' => 'Learn'
         ]);
+        $news = Newsletter::create([
+            'host_image'=> asset('icon.png'),
+            'host_name'=> 'CoinCrypto',
+            'sponsored'=> true,
+            'visible'=> true,
+            'title'=> 'Crypto Daily Falls',
+            'description'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
+        ]);
 
         $a2 = Article::create([
             'title'=> 'Interest Rate Fears Replace Tariff Fears as Crypto Pulls Back',
@@ -100,6 +111,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fba35b36b71c9ef79a95988afed29eb11ae4b8d7a-5462x3641.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat1->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
         
@@ -109,6 +121,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat2->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
         $a12 = Article::create([
@@ -117,6 +130,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat3->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
         $a13 = Article::create([
@@ -125,6 +139,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat2->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
 
@@ -137,6 +152,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat3->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
         $a4 = Article::create([
@@ -144,6 +160,7 @@ class DatabaseSeeder extends Seeder
             'content'=> 'The much-anticipated White House Crypto Summit on Friday ended with a whimper rather than a bang for cryptocurrency traders, sending altcoins like XRP, Cardano’s ADA, and Solana’s SOL into steeper declines than market leader bitcoin (BTC).Investors had pinned high hopes on President Donald Trump’s pro-crypto stance, expecting bold announcements about a U.S. strategic crypto reserve that would prominently feature major altcoins.',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat4->id,
+            'newsletter_id'=> $news->id,
             'slug'=> 'test_1',
             'info'=> 'Paid for by gate.io'
         ]);
@@ -153,6 +170,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat5->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);$a51 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
@@ -160,6 +178,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat5->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);$a6 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
@@ -167,6 +186,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat6->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);$a7 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
@@ -174,6 +194,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat7->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);$a8 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
@@ -181,6 +202,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat8->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);$a9 = Article::create([
             'title'=> 'XRP, ADA, SOL Fall Harder Than BTC as White House Crypto Summit Fails to Wow Traders',
@@ -188,6 +210,7 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat9->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
         $a10 = Article::create([
@@ -196,8 +219,11 @@ class DatabaseSeeder extends Seeder
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdef0d98b21aeaaed3c0847566a33f7c63142d271-4032x3024.jpg%3Fauto%3Dformat&w=1080&q=75',
             'category_id'=> $cat9->id,
             'slug'=> 'test_1',
+            'newsletter_id'=> $news->id,
             'info'=> 'Paid for by gate.io'
         ]);
+        
+       
 
         ArticleCreator::create([
             'article_id'=> $a12->id,

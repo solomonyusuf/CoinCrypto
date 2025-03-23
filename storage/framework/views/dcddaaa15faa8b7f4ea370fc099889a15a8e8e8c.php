@@ -26,7 +26,52 @@ $user = \App\Models\User::find(auth()->user()?->id);
 
     
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-   
+    
+    <!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<!-- DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+   <style>
+    /* Adjust table styles */
+    table.dataTable thead {
+        background-color: #f3f4f6; /* Tailwind gray-200 */
+    }
+
+    table.dataTable {
+        width: 100% !important;
+        border-collapse: collapse;
+    }
+
+    /* Customize pagination buttons */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 6px;
+        background-color: #2563eb; /* Tailwind blue-600 */
+        color: white !important;
+        border: none;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background-color: #1e40af; /* Tailwind blue-700 */
+    }
+
+    /* Search box */
+    .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #d1d5db; /* Tailwind gray-300 */
+        border-radius: 6px;
+        padding: 6px;
+        margin-left: 10px;
+    }
+
+    /* Table Rows */
+    table.dataTable tbody tr:nth-child(even) {
+        background-color: #f9fafb; /* Tailwind gray-100 */
+    }
+</style>
 
     <style>
         .slide-container {
@@ -69,15 +114,15 @@ $user = \App\Models\User::find(auth()->user()?->id);
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('POsj43k')) {
-    $componentId = $_instance->getRenderedChildComponentId('POsj43k');
-    $componentTag = $_instance->getRenderedChildComponentTagName('POsj43k');
+} elseif ($_instance->childHasBeenRendered('EyvLWSV')) {
+    $componentId = $_instance->getRenderedChildComponentId('EyvLWSV');
+    $componentTag = $_instance->getRenderedChildComponentTagName('EyvLWSV');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('POsj43k');
+    $_instance->preserveRenderedChild('EyvLWSV');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('POsj43k', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('EyvLWSV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -85,15 +130,15 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('8kbwiZq')) {
-    $componentId = $_instance->getRenderedChildComponentId('8kbwiZq');
-    $componentTag = $_instance->getRenderedChildComponentTagName('8kbwiZq');
+} elseif ($_instance->childHasBeenRendered('RcF1iSA')) {
+    $componentId = $_instance->getRenderedChildComponentId('RcF1iSA');
+    $componentTag = $_instance->getRenderedChildComponentTagName('RcF1iSA');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('8kbwiZq');
+    $_instance->preserveRenderedChild('RcF1iSA');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('8kbwiZq', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('RcF1iSA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -102,15 +147,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('yk5mNPv')) {
-    $componentId = $_instance->getRenderedChildComponentId('yk5mNPv');
-    $componentTag = $_instance->getRenderedChildComponentTagName('yk5mNPv');
+} elseif ($_instance->childHasBeenRendered('v04MmYv')) {
+    $componentId = $_instance->getRenderedChildComponentId('v04MmYv');
+    $componentTag = $_instance->getRenderedChildComponentTagName('v04MmYv');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('yk5mNPv');
+    $_instance->preserveRenderedChild('v04MmYv');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('yk5mNPv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('v04MmYv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

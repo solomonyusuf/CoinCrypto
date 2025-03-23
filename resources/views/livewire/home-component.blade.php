@@ -235,7 +235,8 @@
             <div class="flex">
               <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
             </div>
-            <div class="uppercase"><a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="/newsletters">
+            <div class="uppercase">
+              <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('newsletters') }}">
                 <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Newsletters</h2><svg class=""
                   fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -392,7 +393,7 @@
                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
                            class="text-color-charcoal-900 hover:underline"
                             href="{{ route('author_detail', $data->user->id) }}">
-                            {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                            {{ $data->user->first_name.' '.$data->user->last_name }}
                           </a>
                         </span>
                         @endfor
@@ -451,7 +452,7 @@
                           class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
                               class="text-color-charcoal-900 hover:underline"
                               href="{{ route('author_detail', $data->user->id) }}">
-                              {{ $data->user->first_name.' '.$data->user->lastt_name }}
+                              {{ $data->user->first_name.' '.$data->user->last_name }}
                             </a>
                             </span>
                         @endfor
@@ -506,7 +507,7 @@
                                 @endif
                                 <span class="mr-2">
                                   <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->lastt_name }}</a></span>
+                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
                                   </span>
                                 @endfor
                               
@@ -547,8 +548,8 @@
                     <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                   </div>
                   <div class="pb-6 uppercase">
-                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Opinion</h2><svg
+                    <a target="__blank" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('category_detail', $cat1->id) }}">
+                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">{{ $cat1->title}}</h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
@@ -580,7 +581,7 @@
                                 @endif
                                 <span class="mr-2">
                                   <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->lastt_name }}</a></span>
+                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
                                   </span>
                                 @endfor
                                   </p>
@@ -612,8 +613,9 @@
                   <div class="pb-6">
                     <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                   </div>
-                  <div class="pb-6 uppercase"><a target="" class="flex gap-2 items-center z-50 hover:z-50 "
-                      href="/press-release">
+                  <div class="pb-6 uppercase">
+                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
+                      href="{{ route('category_detail', $cat2->id) }}">
                       <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Press Releases</h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -630,7 +632,7 @@
                             <div class="bg-white flex gap-6 w-full shrink">
                               <div class="flex flex-col">
                                 <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                  href="/press-release/2025/03/12/lbank-launches-usd100m-futures-protection-fund-for-traders">
+                                  href="{{ route('article_detail', [$data->slug, $data->id]) }}">
                                   <h2 class="font-headline-2xs font-medium">
                                     {{ $data->title }}
                                   </h2>
@@ -682,8 +684,9 @@
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div class="flex py-6">
           <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
-        </div><a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
-          href="">
+        </div>
+        <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
+          href="{{route('events')}}">
           <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">CONSENSUS</h2>
           <svg class=""
             fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
@@ -912,7 +915,7 @@
                         <div class="flex flex-col">
                           <div class="flex py-6 uppercase">
                             <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
-                              href="">
+                              href="{{ route('category_detail', $category->id) }}">
                               <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">{{$category->title}}</h2>
                               <svg
                                 class="" fill="none" height="24" viewBox="0 0 25 24" width="25"

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->string('info')->nullable();
+            $table->string('title')->nullable();
+            $table->text('info')->nullable();
             $table->string('slug')->nullable();
             $table->text('content')->nullable();
             $table->string('image')->nullable();
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->boolean('visible')->default(true);
             $table->foreignUuid('category_id')->references('id')->on('article_categories')->nullable();
             $table->integer('views')->default(0);
+            $table->foreignUuid('newsletter_id')->references('id')->on('newsletters')->nullable();
             $table->timestamps();
         });
     }

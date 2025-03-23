@@ -168,8 +168,8 @@
                                     <label  class="form-label">Tag *</label>
                                     <select required name='category_id' class="form-control">
                                       @foreach ($categories as $item)
-                                      @if($item->id == $item->category_id)
-                                        <option selected value="{{  $item->id }}">{{ $item->title }}</option>
+                                      @if($item->id == $data->category_id)
+                                        <option selected value="{{$item->id}}">{{ $item->title }}</option>
                                         @else
                                         <option value="{{  $item->id }}">{{ $item->title }}</option>
                                       @endif

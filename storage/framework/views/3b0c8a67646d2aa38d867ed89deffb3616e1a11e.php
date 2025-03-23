@@ -108,7 +108,7 @@
                              let indicatorElement = $(`#indicator-${item.id}`);
      
                              if (priceElement.length && changeElement.length) {
-                                 let newPrice = `$${item.current_price.toFixed(2)}`;
+                                 let newPrice = `$${item.current_price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
                                  let newChange = `${item.price_change_percentage_24h.toFixed(2)}%`;
      
                                  // ✅ Update Price and Percentage Change

@@ -48,28 +48,28 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($price as $coin)
+            <?php $__currentLoopData = $price; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $coin): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr class="border-b">
               <td class="p-3 flex items-center gap-3">
-                <img src="{{ $coin['image'] }}" class="rounded-full w-10 h-10">
+                <img src="<?php echo e($coin['image']); ?>" class="rounded-full w-10 h-10">
                 <div>
-                  <h6 class="text-lg font-semibold">{{ ucfirst($coin['name']) }}</h6>
-                  <small class="text-gray-500">{{ strtoupper($coin['symbol']) }}</small>
+                  <h6 class="text-lg font-semibold"><?php echo e(ucfirst($coin['name'])); ?></h6>
+                  <small class="text-gray-500"><?php echo e(strtoupper($coin['symbol'])); ?></small>
                 </div>
               </td>
-              <td class="p-3">${{ number_format($coin['current_price'], 2) }}</td>
+              <td class="p-3">$<?php echo e(number_format($coin['current_price'], 2)); ?></td>
               <td class="p-3">
                 <span
-                  class="{{ ($coin['price_change_percentage_24h'] ?? 0) >= 0 ? 'text-green-500' : 'text-red-500' }}">
-                  {{ number_format($coin['price_change_percentage_24h'] ?? 0, 2) }}%
+                  class="<?php echo e(($coin['price_change_percentage_24h'] ?? 0) >= 0 ? 'text-green-500' : 'text-red-500'); ?>">
+                  <?php echo e(number_format($coin['price_change_percentage_24h'] ?? 0, 2)); ?>%
                 </span>
               </td>
-              <td class="p-3">${{ number_format($coin['market_cap'] ?? 0, 0) }}</td>
-              <td class="p-3">${{ number_format($coin['high_24h'] ?? 0, 2) }}</td>
-              <td class="p-3">${{ number_format($coin['low_24h'] ?? 0, 2) }}</td>
-              <td class="p-3">${{ number_format($coin['total_volume'] ?? 0, 0) }}</td>
+              <td class="p-3">$<?php echo e(number_format($coin['market_cap'] ?? 0, 0)); ?></td>
+              <td class="p-3">$<?php echo e(number_format($coin['high_24h'] ?? 0, 2)); ?></td>
+              <td class="p-3">$<?php echo e(number_format($coin['low_24h'] ?? 0, 2)); ?></td>
+              <td class="p-3">$<?php echo e(number_format($coin['total_volume'] ?? 0, 0)); ?></td>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </tbody>
         </table>
       </div>
@@ -88,4 +88,4 @@
               }, 30000); 
         });
   </script>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-price-component.blade.php ENDPATH**/ ?>

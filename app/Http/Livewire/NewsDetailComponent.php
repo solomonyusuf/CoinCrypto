@@ -10,6 +10,7 @@ class NewsDetailComponent extends Component
 {
     public $slug;
     public $news_id;
+    public $advert = true;
     public function mount($slug, $news_id)
     {
         $this->slug = $slug;

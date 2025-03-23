@@ -12,6 +12,7 @@ class AuthorComponent extends Component
     public $auth_id;
 
     public $paginate = false;
+    public $advert = true;
 
     public function togglePaginate()
     {

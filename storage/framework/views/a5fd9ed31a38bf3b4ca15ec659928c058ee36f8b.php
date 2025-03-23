@@ -29,7 +29,7 @@
                         ,
                         <?php endif; ?>
                         <a title="" class="text-color-charcoal-900 hover:underline"
-                        href=""><?php echo e($latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name); ?>
+                        href="<?php echo e(route('author_detail', $latest->article_creators[$i]->user->id)); ?>"><?php echo e($latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name); ?>
 
                       </a>
                       <?php endfor; ?>
@@ -352,11 +352,11 @@ echo $html;
                         </div>
                         <div class="col-start-2 col-span-3 flex flex-col gap-1">
                           <div><a class="hover:underline" href="<?php echo e(route('newsletter_detail', $data->id)); ?>">
-                              <h3 class="font-headline-2xs font-normal"><?php echo e($data->title); ?></h3>
+                              <h3 class="font-headline-2xs font-normal"><?php echo e(\Illuminate\Support\Str::limit($data->title, 25, '..')); ?></h3>
                             </a></div>
                           <div>
                             <span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">
-                            <?php echo $data->description; ?>
+                            <?php echo \Illuminate\Support\Str::limit($data->description, 60, '..'); ?>
 
                           </span>
                           </div>

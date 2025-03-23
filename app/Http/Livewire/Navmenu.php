@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\VideoCategory;
+use App\Models\Event;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class Navmenu extends Component
@@ -27,6 +30,20 @@ class Navmenu extends Component
     }
     public function render()
     {
-        return view('livewire.navmenu');
+        $event = Event::where('event_date', '>', Carbon::now())
+                    ->orderBy('event_date', 'asc')  
+                    ->first();
+                    
+       $events = Event::where('event_date', '>', Carbon::now())
+                    ->orderBy('event_date', 'asc')  
+                    ->get();
+
+
+        $video_category = VideoCategory::get();
+        return view('livewire.navmenu',[
+            'video_category'=> $video_category,
+            'event'=> $event,
+            'events'=> $events,
+        ]);
     }
 }

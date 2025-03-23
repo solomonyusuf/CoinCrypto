@@ -5,26 +5,26 @@ namespace App\Http\Livewire;
 use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\Event;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class PageSponsorsComponent extends Component
 {
+
     public function render()
     {
         $articles = Article::orderByDesc('created_at')
-        ->where(['sponsored'=> true])
-        ->paginate(20);
+                        ->paginate(10);
 
-        $videos = AppVideo::orderByDesc('created_at')
-        ->paginate(20);
-        
-        $events = Event::orderByDesc('created_at')
-        ->paginate(2);
+        $groupedArticles = $articles->groupBy(function ($article) {
+            return Carbon::parse($article->created_at)->format('M d');
+        });
+
         
         return view('livewire.page-sponsors-component', [
             'articles'=> $articles,
-            'videos'=> $videos,
-            'events'=> $events,
+            'groupedArticles'=> $groupedArticles,
+            
         ]);
     }
 }

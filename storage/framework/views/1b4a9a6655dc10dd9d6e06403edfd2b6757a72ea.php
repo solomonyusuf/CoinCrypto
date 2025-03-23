@@ -91,137 +91,36 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                         <div class="border-b-1"></div>
                         <ul>
                             <li class="m-2 flex flex-col items-center">
-                                <div class="group flex w-full flex-row justify-between"><a
+                                <div class="group flex w-full flex-row justify-between">
+                                    <a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/"><span class="h-auto"><span
+                                        href="<?php echo e(route('home')); ?>"><span class="h-auto"><span
                                                 class="font-title font-bold">News</span></span></a>
                                 </div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">News</span>
-                                        <ul></ul>
-                                    </div>
+                              
+                            </li>
+                            <li class="m-2 flex flex-col items-center">
+                                <div class="group flex w-full flex-row justify-between"><a
+                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
+                                        href="<?php echo e(route('prices')); ?>"><span class="h-auto"><span
+                                                class="font-title font-bold">Prices</span></span></a>
+                                            </div>
+                            </li>
+                            <li class="m-2 flex flex-col items-center">
+                                <div class="group flex w-full flex-row justify-between"><a
+                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="__blank"
+                                        href="<?php echo e($event->link); ?>">
+                                        <span class="h-auto">
+                                            <span class="font-title font-bold">Consensus</span></span></a>
                                 </div>
                             </li>
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/price"><span class="h-auto"><span
-                                                class="font-title font-bold">Prices</span></span></a></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Prices</span>
-                                        <ul></ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="m-2 flex flex-col items-center">
-                                <div class="group flex w-full flex-row justify-between"><a
-                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="https://consensus.coindesk.com/"><span class="h-auto"><span
-                                                class="font-title font-bold">Consensus</span></span></a></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Consensus</span>
-                                        <ul></ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="m-2 flex flex-col items-center">
-                                <div class="group flex w-full flex-row justify-between"><a
-                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="https://www.coindesk.com/sponsored-content"><span class="h-auto"><span
-                                                class="font-title font-bold">Sponsored</span></span></a></div>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4"><button
-                                            class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
-                                                class="h-full rotate-180" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="chevron_forward">
-                                                    <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                        </rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2411_5870)">
-                                                        <path id="chevron_forward_2"
-                                                            d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
-                                                    </g>
-                                                </g>
-                                            </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                            menu</span></div>
-                                    <div class="border-b-1 mx-8 mb-2"></div>
-                                    <div class="flex w-full flex-col px-8"><span
-                                            class="font-title ml-2 py-4 font-bold">Sponsored</span>
-                                        <ul></ul>
-                                    </div>
-                                </div>
+                                        href="<?php echo e(route('sponsored')); ?>"><span class="h-auto"><span
+                                                class="font-title font-bold">Sponsored</span></span>
+                                            </a>
+                            </div>
                             </li>
                         </ul>
                         <div class="border-b-1"></div>
@@ -231,7 +130,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 <div class="group flex w-full flex-row justify-between">
                                     <a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="<?php echo e(route('videos')); ?>">
+                                        >
                                         <span class="h-auto">
                                             <span
                                                 class="font-title">Videos</span>
@@ -339,30 +238,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         </svg></button></div>
                                 
                             </li>
-                            <li class="m-2 flex flex-col items-center">
-                                <div class="group flex w-full flex-row justify-between"><a
-                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/sponsored-content"><span class="h-auto"><span
-                                                class="font-title">Sponsored</span></span></a>
-                                    <button wire:click="selecturllate('sponsored')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
-                                        <svg
-                                            class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g id="chevron_forward">
-                                                <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                    <rect id="Bounding box" width="24" height="24" fill="#D9D9D9">
-                                                    </rect>
-                                                </mask>
-                                                <g mask="url(#mask0_2411_5870)">
-                                                    <path id="chevron_forward_2"
-                                                        d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
-                                                </g>
-                                            </g>
-                                        </svg></button></div>
-                                
-                            </li>
+                             
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
@@ -390,7 +266,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             <?php endif; ?>
 
                             <?php if($urllate == 'videos'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out <?php echo e($urllate == 'videos' ? ' translate-x-0' : ' translate-x-full'); ?>">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -412,27 +288,31 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         </svg>
                                     </button><span
                                         class="font-sans font-semibold text-2xs text-color-black ">Back to
-                                        menu</span></div>
+                                        menu
+                                    </span>
+                                </div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
                                         class="font-title ml-2 py-4 font-bold">Videos</span>
                                     <ul>
+                                        <?php $__currentLoopData = $video_category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li
                                             class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/videos/coindesk-daily">CoinDesk Daily</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/videos/shorts">Shorts</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/videos/editors-picks">Editor's Picks</a></li>
-                                    </ul>
+                                            <a target="_self" href="<?php echo e(route('video_detail', $data->id)); ?>">
+                                            <?php echo e($data->title); ?>
+
+                                            </a>
+                                        </li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+
+                                      </ul>
                                 </div>
                             </div>
                             <?php endif; ?>
 
                             <?php if($urllate == 'podcasts'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
+                            <div class="<?php echo e($urllate == 'podcasts' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
                                         <svg
@@ -482,7 +362,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             <?php endif; ?>
 
                             <?php if($urllate == 'newsletters'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'newsletters' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -533,7 +413,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             <?php endif; ?>
 
                             <?php if($urllate == 'events'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'events' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                     <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                         <button wire:click="selecturllate('default')"
                                             class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -559,22 +439,24 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                             class="font-title ml-2 py-4 font-bold">Webinars &amp;
                                             Events</span>
                                         <ul>
+                                            <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="https://consensus2025.coindesk.com/">Consensus
-                                                    2025</a></li>
-                                            <li
-                                                class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                                <a target="_self" href="https://policy-regulation.coindesk.com/">Policy
-                                                    &amp;
-                                                    Regulation Conference</a></li>
+                                                    class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
+                                                    <a target="_blank" href="<?php echo e($data->category); ?>">
+                                                    <?php echo e($data->title); ?>
+
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            
+                                            
                                         </ul>
                                     </div>
                             </div>
                             <?php endif; ?>
 
                             <?php if($urllate == 'sponsored'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'sponsored' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -624,7 +506,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             <?php endif; ?>
 
                             <?php if($urllate == 'sections'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'sections' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -673,87 +555,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
 
 
                         </ul>
-                        <div class="mb-16 mt-8 flex flex-row justify-between space-x-4">
-                            <div class="flex flex-1"><button
-                                    class="flex h-[42px] w-full flex-row items-center justify-between rounded border border-[#A6A6A6] pl-4 pr-2"><span
-                                        class="inline-flex items-center gap-1"><span
-                                            class="font-sans font-normal text-2xs text-color-black capitalize text-[#676767]">English</span></span><svg
-                                        class="h-full rotate-90" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g id="chevron_forward">
-                                            <mask id="mask0_2411_5870" style="mask-type:alpha"
-                                                maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                <rect id="Bounding box" width="24" height="24" fill="#D9D9D9"></rect>
-                                            </mask>
-                                            <g mask="url(#mask0_2411_5870)">
-                                                <path id="chevron_forward_2"
-                                                    d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                    fill="#262626"></path>
-                                            </g>
-                                        </g>
-                                    </svg></button>
-                                <div
-                                    class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out translate-x-full">
-                                    <div class="flex flex-row items-center justify-between p-6"><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Select
-                                            Language</span><button><svg height="24" viewBox="0 0 24 24" width="24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M6.40001 18.3076L5.69226 17.5999L11.2923 11.9999L5.69226 6.39989L6.40001 5.69214L12 11.2921L17.6 5.69214L18.3078 6.39989L12.7078 11.9999L18.3078 17.5999L17.6 18.3076L12 12.7076L6.40001 18.3076Z">
-                                                </path>
-                                            </svg></button></div>
-                                    <div class="right-0 top-full flex flex-col overflow-hidden bg-white">
-                                        <div class="h-full"><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4] pointer-events-none touch-none bg-[#f4f4f4] font-bold"
-                                                href="/">English
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">en</span><svg
-                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg" class="ml-auto">
-                                                    <mask id="mask0_2158_165" style="mask-type:alpha"
-                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                                        <rect width="24" height="24" fill="#D9D9D9"></rect>
-                                                    </mask>
-                                                    <g mask="url(#mask0_2158_165)">
-                                                        <path
-                                                            d="M9.5503 17.3078L4.58105 12.3386L5.29455 11.6251L9.5503 15.8808L18.7061 6.7251L19.4196 7.4386L9.5503 17.3078Z"
-                                                            fill="#1C1B1F"></path>
-                                                    </g>
-                                                </svg>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/es">Español
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">es</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/fil">Filipino
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">fil</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/fr">Français
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">fr</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/it">Italiano
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">it</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/pt-br">Português
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">pt-br</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/ru">Русский
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">ru</span>
-                                            </a><a
-                                                class="inline-flex w-full items-center gap-2 px-6 py-4 text-sm leading-[1] outline-0 hover:bg-[#f4f4f4] focus:bg-[#f4f4f4]"
-                                                href="/uk">Українська
-                                                <!-- --> <span class="text-xs uppercase text-[#676767]">uk</span>
-                                            </a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-submodule-name="price/currency-display-settings" data-submodule-version="1.0.0"
-                                data-submodule-instance="default" class="flex grow"></div>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -778,7 +580,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
             
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="<?php echo e(route('events')); ?>"><span
+                        href="<?php echo e($event->category); ?>"><span
                             class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">Consensus</span></a>
                 </li>
                 <li class="undefined ˙">

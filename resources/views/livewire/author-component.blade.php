@@ -90,12 +90,15 @@
                         </div>
                     </div>
                 </div>
-                <div 
-                    class="w-full flex flex-wrap justify-center flex-col border-0 md:gap-6 mdmax:gap-4 md:mt-8 mdmax:mt-4  border-solid border-t border-charcoal-600">
+                
+                <div  class="w-full flex flex-wrap justify-center flex-col border-0 md:gap-6 mdmax:gap-4 md:mt-8 mdmax:mt-4  border-solid border-t border-charcoal-600">
                     <p class="font-title text-color-charcoal-600 pt-6 uppercase">
                         Latest from  {{ $author->first_name.' '.$author->last_name }}
                     </p>
+                    
+                   
                     <div class="flex flex-col w-full gap-4">
+                       
                         <hr class="py-6 last:mb-0">
                         @foreach ($creation as $data)
                         <?php
@@ -216,6 +219,7 @@
                         </div>
                       </div>
                     @endif
+                    
                 </div>
             </div>
         </div>

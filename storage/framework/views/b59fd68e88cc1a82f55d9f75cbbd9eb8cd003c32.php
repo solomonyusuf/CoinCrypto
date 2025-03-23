@@ -6,7 +6,7 @@
       </div>
       <div>
         <div class="flex flex-wrap justify-center flex-col border-0 md:gap-6 mdmax:gap-4 container-mobile-md container-tablet-medium container-desktop-lg md:mt-8 mdmax:mt-6 mdmax:mx-0">
-          @foreach($groupedArticles as $date => $group)
+          <?php $__currentLoopData = $groupedArticles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date => $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <div class="flex flex-col text-color-black border-solid border-0 border-b border-t border-charcoal-50 gap-6 md:pb-6 mdmax:pb-4 md:pt-6 mdmax:pt-4 w-full">
             <div  class="font-metadata text-color-charcoal-600 uppercase flex flex-row justify-start border-solid border-0 gap-6">
               <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
@@ -19,55 +19,57 @@
                   </path>
                 </g>
               </svg> 
-              <span class="flex self-center ml-2">{{ $date }}</span></div>
+              <span class="flex self-center ml-2"><?php echo e($date); ?></span></div>
           </div>
-          @foreach($group as $article)
+          <?php $__currentLoopData = $group; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <div class="flex gap-4 false ">
             <div class="bg-white flex gap-6 w-full shrink justify-between">
               <div class="flex flex-col">
                 <a class="text-color-charcoal-900 mb-4 hover:underline"
-                  href="{{ route('article_detail', [$article->slug, $article->id]) }}">
+                  href="<?php echo e(route('article_detail', [$article->slug, $article->id])); ?>">
                   <h2 class="font-headline-xs font-normal">
-                  {{ $article->title }}  
+                  <?php echo e($article->title); ?>  
                   </h2>
                 </a>
                 <p class="flex gap-2 flex-col">
                   <span
                     class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
                     <span class="mr-2">
-                     {{ $article->info }}
+                     <?php echo e($article->info); ?>
+
                       </span>
                     </span>
                     <span class="font-metadata text-color-charcoal-600 uppercase">
-                      {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
+                      <?php echo e(\Carbon\Carbon::parse($article->created_at)->diffForHumans()); ?>
+
                     </span>
                   </p>
               </div>
               <a class="flex shrink-0 flex-col"
-                href="{{ route('article_detail', [$article->slug, $article->id]) }}">
+                href="<?php echo e(route('article_detail', [$article->slug, $article->id])); ?>">
                 <img  width="1920" height="1080" 
                   class="content-card-image--livewire rounded align-self-end object-cover" style="color: transparent;"
-                  src="{{ $article->image }}">
+                  src="<?php echo e($article->image); ?>">
                 </a>
             </div>
           </div>
-          @endforeach
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
           
         
           
         </div>
-        @if($articles->hasMorePages())
+        <?php if($articles->hasMorePages()): ?>
         <div  class="flex justify-center self-center">
-          <a href="{{ $articles->nextPageUrl() }}" class="bg-white hover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
+          <a href="<?php echo e($articles->nextPageUrl()); ?>" class="bg-white hover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
             stories
           </a>
         </div>
-        @endif
+        <?php endif; ?>
       </div>
        </div>
   </section>
   
-</div>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-sponsors-component.blade.php ENDPATH**/ ?>

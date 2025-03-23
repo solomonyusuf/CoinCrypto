@@ -7,6 +7,7 @@ use App\Http\Middleware\TrustHosts;
 use App\Models\AppVideo;
 use App\Models\ArticleCreator;
 use App\Models\Newsletter;
+use App\Models\VideoCategory;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Article;
@@ -280,12 +281,139 @@ class DatabaseSeeder extends Seeder
             'event_date'=> \Carbon\Carbon::now()->addMonth()
             
         ]);
+
+       $v1 =  VideoCategory::create([
+            'description' => 'TV quick roundup of the top news of the day that you may have missed in the cryptocurrency, digital assets and Web3 space.',
+		    'title' => 'CoinCrypto Daily'
+        ]);
+
         AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/ellipse.png',
+            'image'=> 'img/elipse.png',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
+            'visible'=> true
+        ]);AppVideo::create([
+            'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
+            'image'=> 'img/elipse.png',
+            'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
+            'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
+            'sponsored' => true,
+            'category_id' => $v1->id,
             'visible'=> true
         ]);
     }

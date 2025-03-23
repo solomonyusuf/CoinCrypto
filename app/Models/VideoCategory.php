@@ -12,47 +12,32 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Podcast
+ * Class VideoCategory
  * 
  * @property string $id
- * @property string|null $link
- * @property string|null $image
- * @property string|null $host
- * @property string|null $title
  * @property string|null $description
- * @property bool $sponsored
- * @property bool $visible
+ * @property string|null $title
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property Collection|Episode[] $episodes
+ * @property Collection|AppVideo[] $app_videos
  *
  * @package App\Models
  */
-class Podcast extends Model
+class VideoCategory extends Model
 {
 	use HasUuids;
-	protected $table = 'podcasts';
+	protected $table = 'video_categories';
 	public $incrementing = false;
-
-	protected $casts = [
-		'sponsored' => 'bool',
-		'visible' => 'bool'
-	];
 
 	protected $fillable = [
 		'id',
-		'link',
-		'image',
-		'host',
-		'title',
 		'description',
-		'sponsored',
-		'visible'
+		'title'
 	];
 
-	public function episodes()
+	public function app_videos()
 	{
-		return $this->hasMany(Episode::class);
+		return $this->hasMany(AppVideo::class, 'category_id');
 	}
 }

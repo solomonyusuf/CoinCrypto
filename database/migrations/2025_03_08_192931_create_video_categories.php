@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_videos', function (Blueprint $table) {
+        Schema::create('video_categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('link')->nullable();
-            $table->text('image')->nullable();
-            $table->text('title')->nullable();
-            $table->foreignUuid('category_id')->references('id')->on('video_categories')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('sponsored')->default(false);
-            $table->boolean('visible')->default(true);
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_videos');
+        Schema::dropIfExists('video_categories');
     }
 };

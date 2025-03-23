@@ -11,47 +11,46 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class AppVideo
+ * Class Episode
  * 
  * @property string $id
+ * @property string $podcast_id
  * @property string|null $link
  * @property string|null $image
  * @property string|null $title
- * @property string $category_id
+ * @property string|null $castbox
+ * @property string|null $itunes
+ * @property string|null $spotify
+ * @property string|null $podchaser
  * @property string|null $description
- * @property bool $sponsored
- * @property bool $visible
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property VideoCategory $video_category
+ * @property Podcast $podcast
  *
  * @package App\Models
  */
-class AppVideo extends Model
+class Episode extends Model
 {
 	use HasUuids;
-	protected $table = 'app_videos';
+	protected $table = 'episodes';
 	public $incrementing = false;
-
-	protected $casts = [
-		'sponsored' => 'bool',
-		'visible' => 'bool'
-	];
 
 	protected $fillable = [
 		'id',
+		'podcast_id',
 		'link',
 		'image',
 		'title',
-		'category_id',
-		'description',
-		'sponsored',
-		'visible'
+		'castbox',
+		'itunes',
+		'spotify',
+		'podchaser',
+		'description'
 	];
 
-	public function video_category()
+	public function podcast()
 	{
-		return $this->belongsTo(VideoCategory::class, 'category_id');
+		return $this->belongsTo(Podcast::class);
 	}
 }

@@ -7,7 +7,8 @@
           <div
             class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
             <h1 class="text-white font-headline-lg font-medium mb-10">
-              {{ $category->title }}
+              <?php echo e($category->title); ?>
+
             </h1>
             <?php
               $first = request()->video ? \App\Models\AppVideo::find(request()->video) :  $top->first();
@@ -17,16 +18,18 @@
                 <div class="w-full">
                   <div class="grid">
                     <div class="plyr__video-embed" id="player">
-                      <iframe src="{{ $first->link }}"
+                      <iframe src="<?php echo e($first->link); ?>"
                               allow="autoplay"></iframe>
                     </div>
                   </div>
                 </div>
                 <h3 class="text-center text-white font-headline font-medium text-balance mdmax:mt-4 md:mt-6"> 
-                  {{ $first->title }}
+                  <?php echo e($first->title); ?>
+
                 </h3>
                 <p class="text-center font-body font-normal text-charcoal-100 mt-4"> 
-                  {!! \Illuminate\Support\Str::limit($first->description, 30, '..') !!}
+                  <?php echo \Illuminate\Support\Str::limit($first->description, 30, '..'); ?>
+
                 </p>
               </div>
               <div class="min-w-[416px] text-charcoal-100">
@@ -34,21 +37,22 @@
                   Next</span>
                 <div class="relative lg:h-[calc(100%-40px)] w-full lg:overflow-x-hidden">
                   <div class="w-full flex gap-6 lg:pr-6 lgmax:video-list-gradient-right lg:video-list-gradient-bottom pr-16 lg:pb-16 lg:absolute lg:top-0 lg:bottom-0 lg:-right-6 lg:overflow-y-scroll lgmax:overflow-x-scroll lg:block items-baseline">
-                    @foreach ($top as $data)
+                    <?php $__currentLoopData = $top; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="cursor-pointer flex gap-2 lg:gap-6 py-2 select-none lgmax:flex-col-reverse lgmax:justify-evenly">
-                      <a href="{{ route('video_detail', $data->category_id).'?video='.$data->id }}" class="w-[136px] lg:w-[calc(100%-152px)] font-headline-3xs font-medium"> 
-                        {{ $data->title }}
+                      <a href="<?php echo e(route('video_detail', $data->category_id).'?video='.$data->id); ?>" class="w-[136px] lg:w-[calc(100%-152px)] font-headline-3xs font-medium"> 
+                        <?php echo e($data->title); ?>
+
                       </a>
                       <div class="relative">
                         <div style="width:13rem;" >
-                          <iframe src="{{ $data->link }}"
+                          <iframe src="<?php echo e($data->link); ?>"
                                   allow="autoplay"></iframe>
                         </div>
                       </div>
                     </div>
                     <hr class="mt-4 mb-4 border-[#515151] lgmax:hidden">
                    
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
                   </div>
                 </div>
@@ -79,13 +83,14 @@
             </div>
             <div class="font-body-lg flex flex-col gap-6">
               <div>
-                {!! $category->description !!}
+                <?php echo $category->description; ?>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-      @if($advert)
+      <?php if($advert): ?>
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height: 250px;">
           <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
@@ -93,16 +98,16 @@
           </div>
         </div>
       </div>
-      @endif
+      <?php endif; ?>
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div  class="bg-white flex flex-wrap flex-col flex-start container-desktop-large mt-8 gap-6 content-card-section">
           <h2
             class="w-full flex flex-row align-middle justify-start border-t-[1px] border-charcoal-600 pt-6 uppercase font-title text-color-charcoal-600">
-            {{ $category->title }} Series</h2>
+            <?php echo e($category->title); ?> Series</h2>
           <div class="flex flex-row justify-start gap-6 content-card-section mdmax:overflow-x-auto pb-1">
-            @foreach ($videos as $data)
+            <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="bg-white flex gap-6 flex-col  content-card-image--video-container"><a
-              href="{{ route('video_detail', $data->category_id).'?video='.$data->id }}">
+              href="<?php echo e(route('video_detail', $data->category_id).'?video='.$data->id); ?>">
               <div class="relative visible content-card-image--videoseries mdmax:top-3">
                 <div class="video-card-shadow--light"></div>
                 <div class="video-card-shadow--dark"></div>
@@ -122,28 +127,31 @@
                   <div class="font-metadata text-white text-[0.625rem] uppercase">0 episodes</div>
                 </div>
                 <img class="z-10 relative content-card-image--videoseries bg-[#D4D4D4]"
-                  src="{{ asset($data->image) }}">
+                  src="<?php echo e(asset($data->image)); ?>">
               </div>
             </a>
             <div class="flex flex-col h-auto mdmax:flex-shrink"><a
                 class="md:mb-4 mdmax:mb-1 hover:underline text-color-charcoal-900"
-                href="{{ route('video_detail', $data->category_id).'?video='.$data->id }}">
+                href="<?php echo e(route('video_detail', $data->category_id).'?video='.$data->id); ?>">
                 <h3 class="font-headline-2xs font-medium text-color-charcoal-900 ">
-                {{ $data->title }}
+                <?php echo e($data->title); ?>
+
                 </h3>
               </a>
               <p class="md:mb-4 mdmax:mb-1 text-color-charcoal-600 font-body-sm"> 
-                {!! \Illuminate\Support\Str::limit($data->description, 60, '..') !!}
+                <?php echo \Illuminate\Support\Str::limit($data->description, 60, '..'); ?>
+
                 
               </p>
               <p><span class="font-metadata font-normal text-color-charcoal-600 uppercase">
-                {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
+
                      
               </span>
             </p>
             </div>
           </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
             
           </div>
@@ -151,10 +159,10 @@
           <div>
              
             <hr class="my-6 border-charcoal-50">
-            @if(count($videos) > 1)
+            <?php if(count($videos) > 1): ?>
               <div class="flex gap-4 items-center justify-center my-12 font-[100] text-[#676767] font-sans text-[12px]">
-                  @if($videos->onFirstPage())
-                  <a href="{{ $videos->previousPageUrl() }}">
+                  <?php if($videos->onFirstPage()): ?>
+                  <a href="<?php echo e($videos->previousPageUrl()); ?>">
                       <svg width="11" height="20" viewBox="0 0 11 20" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -162,7 +170,7 @@
                               fill="#676767"></path>
                       </svg>
                   </a>
-                  @endif
+                  <?php endif; ?>
                   <div class="flex gap-4 items-center"><span>Page</span>
                       <button
                           wire:click='togglePaginate'
@@ -171,7 +179,7 @@
                           <div style="width:7rem;" class="flex py-2 px-4 gap-2 focus:bg-light-yellow-1">
                               <div class="focus:bg-light-yellow-1">
                                   <input type="number" class="w-full p-0 border-none bg-inherit focus:border-none focus:bg-light-yellow-1 focus:ring-0 outline-offset-[-1px] focus:outline-offset-[-1px] text-[12px] text-center pagination_page_input__wZ8VL"
-                                  value="{{ $videos->currentPage() }}">
+                                  value="<?php echo e($videos->currentPage()); ?>">
                                   </div>
                               <div class="w-[1px] bg-light-grey"></div>
                               <div class="flex justify-center items-center">
@@ -182,24 +190,26 @@
                                   </svg>
                               </div>
                           </div>
-                          <nav class="absolute left-0 h-[360px] overflow-y-scroll rounded-lg shadow-md bg-white {{ $paginate ? '' :  'hidden'}}"
+                          <nav class="absolute left-0 h-[360px] overflow-y-scroll rounded-lg shadow-md bg-white <?php echo e($paginate ? '' :  'hidden'); ?>"
                               role="navigation">
-                              @foreach(range(1, $videos->lastPage()) as $page)
+                              <?php $__currentLoopData = range(1, $videos->lastPage()); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                               <a class="block py-2 px-4 text-start hover:bg-light-yellow-1 cursor-pointer first:rounded-t-lg last:rounded-b-lg"
-                              href="{{ route('video_detail', $category->id) . '?page=' . $page }}"
+                              href="<?php echo e(route('video_detail', $category->id) . '?page=' . $page); ?>"
                               >
-                                  {{ $page }}
+                                  <?php echo e($page); ?>
+
                               </a>
-                              @endforeach
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                   
                           </nav>
                             
                       </button>
-                      <span>of {{ $videos->lastPage() }}
+                      <span>of <?php echo e($videos->lastPage()); ?>
+
                       </span>
                   </div>
-                  @if($videos->hasMorePages())
-                  <a href="{{ $videos->nextPageUrl() }}">
+                  <?php if($videos->hasMorePages()): ?>
+                  <a href="<?php echo e($videos->nextPageUrl()); ?>">
                       <svg width="11" height="20"
                           viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -207,48 +217,10 @@
                               fill="#676767"></path>
                       </svg>
                   </a>
-                  @endif
+                  <?php endif; ?>
               </div>
-              @endif
-            {{-- <div class="w-full flex justify-between items-center font-metadata leading-5 tracking-[0.4px]">
-              <div class="w-full grid gap-y-4 xl:gap-y-0 grid-cols-3 grid-rows-2 xl:grid-rows-[40px_minmax(1px,_1fr)] gap-0">
-                <div class="row-start-1 col-start-2 row-end-2 col-end-3 flex justify-center items-center gap-6">
-                  <div class="cursor-pointer"><svg class="cursor-pointer" width="11" height="20" viewBox="0 0 11 20"
-                      fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M9.50001 19.3077L0.192261 10L9.50001 0.692245L10.5635 1.75574L2.31926 10L10.5635 18.2442L9.50001 19.3077Z"
-                        fill="#676767"></path>
-                    </svg></div>
-                  <div class="flex gap-4 items-center">
-                    <div>Page</div><button
-                      class="rounded-lg bg-light-grey-1 hover:bg-light-dark-grey focus:bg-light-yellow-1 cursor-pointer relative z-20"
-                      style="box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;">
-                      <div class="flex w-full py-2 px-4 gap-2 focus:bg-light-yellow-1">
-                        <div class="w-[15px] focus:bg-light-yellow-1"><input min="1" max="17"
-                            class="w-full p-0 border-none bg-inherit focus:border-none focus:bg-light-yellow-1 focus:ring-0 outline-offset-[-1px] focus:outline-offset-[-1px] no-number-controls font-sans text-xs font-normal leading-5 tracking-wide appearance-none"
-                            type="number" value="1"></div>
-                        <div class="w-[1px] bg-light-grey"></div>
-                        <div class="flex justify-center items-center"><svg width="9" height="4" viewBox="0 0 9 4"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.50004 3.94346L0.653442 0.0968628H8.34664L4.50004 3.94346Z" fill="#676767">
-                            </path>
-                          </svg></div>
-                      </div>
-                    </button>
-                    <div class="flex gap-2">
-                      <div>of</div>
-                      <div>17</div>
-                    </div>
-                  </div>
-                  <div class="cursor-pointer"><svg class="cursor-pointer" width="11" height="20" viewBox="0 0 11 20"
-                      fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.50576 19.3078L0.442261 18.2443L8.68651 10L0.442261 1.75576L1.50576 0.692261L10.8135 10L1.50576 19.3078Z"
-                        fill="#676767"></path>
-                    </svg></div>
-                </div>
-              </div>
-            </div> --}}
+              <?php endif; ?>
+            
           </div>
 
           </div>
@@ -259,4 +231,4 @@
   
   
 
-</div>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-video-component.blade.php ENDPATH**/ ?>

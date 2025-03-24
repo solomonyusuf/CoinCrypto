@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Episode;
 use App\Models\Newsletter;
 use App\Models\Event;
 use App\Models\Podcast;
@@ -53,7 +54,7 @@ class HomeComponent extends Component
 
         $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
        
-        $podcasts = Podcast::orderByDesc('created_at')->limit(6)->get();
+        $podcasts = Episode::orderByDesc('created_at')->limit(6)->get();
         
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  

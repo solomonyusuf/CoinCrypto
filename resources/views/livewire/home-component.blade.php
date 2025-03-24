@@ -759,7 +759,7 @@
                       </svg>
                     </a></div>
                   <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
-                    <div class="order-1 lg:order-2 col-span-4 lg:col-span-6 xl:col-span-8">
+                    {{-- <div class="order-1 lg:order-2 col-span-4 lg:col-span-6 xl:col-span-8">
                       <div class="relative">
                         <div class="art19-player medium h-52"><iframe title="Podcast Player" class="w-full h-full"
                             src="https://art19.com/shows/e05bbfac-7bd7-476a-a0ad-2eea41553323/episodes/4b99cb1c-1985-40a8-961c-fe7aaa775ff2/embed?type=medium&amp;theme=dark-green&amp;primary_color=%23FFD200"
@@ -822,11 +822,11 @@
                           <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     <div class="hidden lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       @for ($i = 0; $i < min(3, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->id) }}">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$data->id }}">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>

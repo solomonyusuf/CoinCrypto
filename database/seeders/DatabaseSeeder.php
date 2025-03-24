@@ -290,7 +290,7 @@ class DatabaseSeeder extends Seeder
 
         AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -298,7 +298,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -306,7 +306,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -314,7 +314,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -322,7 +322,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -330,7 +330,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -338,7 +338,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -346,7 +346,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -354,7 +354,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -362,7 +362,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -370,7 +370,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -378,7 +378,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -386,7 +386,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -394,7 +394,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -402,7 +402,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -410,7 +410,7 @@ class DatabaseSeeder extends Seeder
             'visible'=> true
         ]);AppVideo::create([
             'link' => 'https://www.youtube.com/embed/XniK10GsmwA?si=BFYev4snlcpqiS87',
-            'image'=> 'img/elipse.png',
+            'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'EASY Crypto Trading Strategy I Used to Make 10x',
             'description'=>'This video is for entertainment purposes only. It is not financial advice and is not an endorsement of any provider, product, asset or service. ',
             'sponsored' => true,
@@ -419,7 +419,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $pod = Podcast::create([
-            'image' => 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png',
+            'image' => 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'user_id'=> $u3->id,
             'title'=> 'Market Daily',
             'description'=> 'The latest price moves and insights with Jennifer Sanasie and Token Metrics CEO Ian Balina and Titan Founder Chris Chung.',
@@ -430,10 +430,10 @@ class DatabaseSeeder extends Seeder
             'link'=> 'https://www.example.com/audio/sample.mp3',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'What Are Perpetual Futures Contracts?',
-            'castbox'=> 'castbox.com',
-            'itunes'=> 'itunes.com',
-            'spotify'=> 'spotify.com',
-            'podchaser'=> 'podchaser.com',
+            'castbox'=> 'https://castbox.com',
+            'itunes'=> 'https://itunes.com',
+            'spotify'=> 'https://spotify.com',
+            'podchaser'=> 'https://podchaser.com',
             'description'=> 'The latest price moves and insights with Jennifer Sanasie and Token Metrics CEO Ian Balina and Titan Founder Chris Chung.'
         ]);
         Episode::create([
@@ -452,10 +452,10 @@ class DatabaseSeeder extends Seeder
             'link'=> 'https://www.example.com/audio/sample.mp3',
             'image'=> 'https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fdcb53cd25cdc93d87970998094977a84be89acb8-1024x768.png%3Fauto%3Dformat&w=3840&q=75',
             'title'=> 'These Are Perpetual Futures Contracts?',
-            'castbox'=> 'castbox.com',
-            'itunes'=> 'itunes.com',
-            'spotify'=> 'spotify.com',
-            'podchaser'=> 'podchaser.com',
+            'castbox'=> 'https://castbox.com',
+            'itunes'=> 'https://itunes.com',
+            'spotify'=> 'https://spotify.com',
+            'podchaser'=> 'https://podchaser.com',
             'description'=> 'The latest price moves and insights with Jennifer Sanasie and Token Metrics CEO Ian Balina and Titan Founder Chris Chung.'
         ]);
     }

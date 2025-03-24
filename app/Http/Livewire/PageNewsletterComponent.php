@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Mail\AppMail;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Newsletter;
 use App\Models\Subscription;
 use Livewire\Component;
@@ -13,6 +15,12 @@ class PageNewsletterComponent extends Component
 {
     public $count = 0;
 
+    public $news_id;
+    public $advert = true;
+    public function mount($news_id)
+    {
+        $this->news_id = $news_id;
+    }
     public function subscribe($id, Request $request)
     {
         
@@ -102,9 +110,15 @@ class PageNewsletterComponent extends Component
     }
     public function render()
     {
-        $newsletters = Newsletter::orderByDesc('created_at')->get();
+        $newsletter = Newsletter::find($this->news_id);
+        $category = ArticleCategory::where('title', '=', 'Opinion')->first();
+        
+        $opinions = Article::orderByDesc('created_at')->where(['category_id'=> $category->id])
+        ->paginate(10);
+        
         return view('livewire.page-newsletter-component',[
-            'newsletters'=> $newsletters
+            'newsletter'=> $newsletter,
+            'opinions'=> $opinions,
         ]);
     }
 }

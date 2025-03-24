@@ -17,14 +17,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id
  * @property string|null $image
  * @property string|null $title
- * @property string|null $host_image
- * @property string|null $host_name
+ * @property string $user_id
  * @property string|null $description
  * @property bool $sponsored
  * @property bool $visible
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
+ * @property User $user
+ * @property Collection|Article[] $articles
  * @property Collection|Release[] $releases
  * @property Collection|Subscription[] $subscriptions
  *
@@ -42,14 +43,24 @@ class Newsletter extends Model
 	];
 
 	protected $fillable = [
+		'id',
 		'image',
 		'title',
-		'host_image',
-		'host_name',
+		'user_id',
 		'description',
 		'sponsored',
 		'visible'
 	];
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
+
+	public function articles()
+	{
+		return $this->hasMany(Article::class);
+	}
 
 	public function releases()
 	{

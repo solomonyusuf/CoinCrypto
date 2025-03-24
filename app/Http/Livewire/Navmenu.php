@@ -61,7 +61,7 @@ class Navmenu extends Component
             'event'=> $event,
             'events'=> $events,
             'podcasts'=> $podcasts,
-            'newsletters'=> $newsletters,
+            'newsletter'=> $newsletters,
             'categories'=> $categories_display,
         ]);
     }

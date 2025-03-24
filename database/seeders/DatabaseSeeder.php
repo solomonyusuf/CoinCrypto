@@ -97,8 +97,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Learn'
         ]);
         $news = Newsletter::create([
-            'host_image'=> asset('icon.png'),
-            'host_name'=> 'CoinCrypto',
+            'user_id'=> $u3->id,
             'sponsored'=> true,
             'visible'=> true,
             'title'=> 'Crypto Daily Falls',

@@ -7,9 +7,10 @@
           class="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16 gap-x-[35px] lg:gap-x-[70px] container">
           <div class="col-span-4 md:col-span-5 lg:col-span-6 xl:col-span-8 "><span
               class="text-color-white font-headline-xs font-medium">CoinCrypto Newsletters</span>
-            <h1 class="text-color-white font-headline py-8">{{ $newsletter->title }}</h1>
+            <h1 class="text-color-white font-headline py-8"><?php echo e($newsletter->title); ?></h1>
             <p class="text-color-white font-body-lg italic tracking-[0.15px] pb-5">
-              {!! $newsletter->description !!}
+              <?php echo $newsletter->description; ?>
+
             </p>
 
             <?php
@@ -17,19 +18,20 @@
             
             ?>
             <div class="flex pb-10 gap-6 items-center">
-              <a href="{{ route('author_detail', $author->id) }}">
+              <a href="<?php echo e(route('author_detail', $author->id)); ?>">
                 <img width="84" height="84"  
                   class="object-cover rounded-full max-w-full max-h-full" style="color: transparent;"
-                  src="{{ $author->image }}"></a>
+                  src="<?php echo e($author->image); ?>"></a>
                   
-                  <a href="{{ route('author_detail', $author->id) }}"><span
+                  <a href="<?php echo e(route('author_detail', $author->id)); ?>"><span
                   class="text-color-white font-body-lg hover:underline decoration-white">
-                  {{ $author->first_name.' '.$author->last_name }}
+                  <?php echo e($author->first_name.' '.$author->last_name); ?>
+
                 </span>
               </a>
             </div>
-            <form action="{{ route('subscribe', $newsletter->id) }}" method="POST" class="pb-6">
-              @csrf
+            <form action="<?php echo e(route('subscribe', $newsletter->id)); ?>" method="POST" class="pb-6">
+              <?php echo csrf_field(); ?>
               <div class="flex justify-start items-center p-[10px] md:p-[10px] lg:p-[10px] w-full">
                 <div class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]">
                   <div class="h-full flex flex-col">
@@ -65,7 +67,7 @@
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div class="w-full flex flex-wrap justify-center flex-col border-0 md:gap-6 mdmax:gap-4 md:mt-8 mdmax:mt-4 ">
           <div class="flex flex-col w-full gap-4">
-            @foreach ($opinions as $data)
+            <?php $__currentLoopData = $opinions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="flex flex-col gap-4">
               <div class=" flex gap-4 false ">
                 <div class="bg-white flex gap-6 w-full shrink justify-between">
@@ -73,63 +75,68 @@
                   <div class="flex flex-col">
                     <p class="mb-4">
                       <a class="font-title text-charcoal-600 uppercase"
-                        href="{{ route('category_detail', $data->category_id) }}">
-                        {{ $data->article_category->title }}
+                        href="<?php echo e(route('category_detail', $data->category_id)); ?>">
+                        <?php echo e($data->article_category->title); ?>
+
                       </a>
                       </p>
                       <a class="text-color-charcoal-900 mb-4 hover:underline"
-                      href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                      href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                       <h2 class="font-headline-xs medium">
-                        {{ $data->title }}
+                        <?php echo e($data->title); ?>
+
                       </h2>
                     </a>
                     <p class="font-body text-charcoal-600 mb-4">
-                      {!! \Illuminate\Support\Str::limit($data->content, 60, '..') !!}
+                      <?php echo \Illuminate\Support\Str::limit($data->content, 60, '..'); ?>
+
                     </p>
                     <p class="flex gap-2 flex-col">
                       <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
                         <span class="mr-2">By 
-                       @for ($i = 0; $i < count($data->article_creators); $i++)
-                        @if($i > 0)
+                       <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
+                        <?php if($i > 0): ?>
                         ,
-                        @endif
+                        <?php endif; ?>
                         <a  class="text-color-charcoal-900 hover:underline"
-                        href="{{ route('author_detail', $data->article_creators[$i]->user->id) }}">{{ $data->article_creators[$i]->user->first_name.' '.$data->article_creators[$i]->user->last_name }}
+                        href="<?php echo e(route('author_detail', $data->article_creators[$i]->user->id)); ?>"><?php echo e($data->article_creators[$i]->user->first_name.' '.$data->article_creators[$i]->user->last_name); ?>
+
                         </a>
-                        @endfor
+                        <?php endfor; ?>
                         </span>
                         </span>
                         <span class="font-metadata text-color-charcoal-600 uppercase">
-                          {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                          <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
+
                       
                         </span>
                       </p>
                   </div>
-                  <a  href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                  <a  href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                     <img
                        width="416" height="234" 
                       class="content-card-image--default rounded align-self-end object-cover object-cover"
                       style="color: transparent;"
-                      src="{{ asset($data->image) }}"></a>
+                      src="<?php echo e(asset($data->image)); ?>"></a>
                 </div>
               </div>
               <hr class="my-4">
             </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
            
             <div class="flex gap-4 items-center justify-center my-12 font-[100] text-[#676767] font-sans text-[12px]">
-              @if($opinions->hasMorePages())
+              <?php if($opinions->hasMorePages()): ?>
               <div  class="flex justify-center self-center">
-                <a href="{{ $opinions->nextPageUrl() }}" class="bg-white hover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
+                <a href="<?php echo e($opinions->nextPageUrl()); ?>" class="bg-white hover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
                   stories
                 </a>
               </div>
-              @endif
+              <?php endif; ?>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-newsletter-component.blade.php ENDPATH**/ ?>

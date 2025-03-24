@@ -6,6 +6,7 @@ use App\Http\Controllers\UploadController;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCreator;
+use App\Models\Newsletter;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
@@ -40,12 +41,14 @@ class ArticleComponent extends Component
         
         $entity = Article::create([
             'title' => $request->title, 
+            'info' => $request->info, 
             'slug'=> Str::slug($request->title, '_'),
             'content' => $request->content,
             'image' => $image,
             'sponsored' => $request->sponsored,
             'visible' => $request->visible,
             'category_id' => $request->category_id,
+            'newsletter_id' => $request->newsletter_id,
         ]);
 
         ArticleCreator::create([
@@ -54,9 +57,9 @@ class ArticleComponent extends Component
             'originator'=> true
         ]);
 
-        //toast('Creation Successful', 'success');
+        toast('Creation Successful', 'success');
 
-        return redirect()->back();
+        return redirect()->route('admin_editor', $entity->id);
     }
     public function update($id, Request $request)
     {
@@ -70,12 +73,14 @@ class ArticleComponent extends Component
         
         $model->update([
             'title' => $request->title, 
+            'info' => $request->info, 
             'slug'=> Str::slug($request->title, '_'),
-            'content' => $request->content,
+            'content' => $model->content,
             'image' => $image,
             'sponsored' => $request->sponsored,
             'visible' => $request->visible,
             'category_id' => $request->category_id,
+            'newsletter_id' => $request->newsletter_id,
         ]);
         $model->save();
 
@@ -122,7 +127,13 @@ class ArticleComponent extends Component
         else
         $articles = $this->GetAll();
 
-        return view('livewire.admin.article-component', ['articles' => $articles ])
+        $newsletters = Newsletter::get();
+
+        return view('livewire.admin.article-component', 
+        [
+            'articles' => $articles ,
+            'newsletters' => $newsletters ,
+        ])
         ->layout('layouts.admin');
     }
 }

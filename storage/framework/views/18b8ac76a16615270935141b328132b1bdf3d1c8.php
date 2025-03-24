@@ -39,15 +39,25 @@
                                         <label  class="form-label">Title *</label>
                                         <input required name='title' placeholder="" type="text" class="form-control">
                                       </div>
-                                       <div class="mb-3"  wire:ignore>
-                                        <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Info</label>
+                                        <textarea  name='info' placeholder="" type="text" class="form-control"></textarea>
                                       </div>
+                                       
                                       <div class="mb-3">
                                         <label  class="form-label">Tag *</label>
                                         <select required name='category_id' class="form-control">
                                           <option selected value="">--- Choose ---</option>
                                           <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </select>
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Newsletter *</label>
+                                        <select required name='newsletter_id' class="form-control">
+                                          <option selected value="">--- Choose ---</option>
+                                          <?php $__currentLoopData = $newsletters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
@@ -76,7 +86,7 @@
                             <div class="modal-footer">
                               <div class="d-flex gap-6">
                                 <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
-                                <button type="submit" data-bs-dismiss="modal"  class="btn btn-primary">Submit</button>
+                                <button type="submit" data-bs-dismiss="modal"  class="btn btn-primary">Proceed To Editor</button>
                               </div>
                     
                             </div>
@@ -105,8 +115,12 @@
               <div class="col-md-12">
                 <div class="card card-body">
                   <span class="side-stick"></span>
+                  <h6 class="note-title text-truncate text-uppercase w-75 mb-0"> 
+                    <?php echo e($data->article_category->title); ?> 
+                  </h6>
                   <h6 class="note-title text-truncate w-75 mb-0"> 
-                    <?php echo e($data->title); ?> </h6>
+                    <?php echo e($data->title); ?> 
+                  </h6>
                   <p class="note-date fs-2">
                     <?php echo e(\Carbon\Carbon::parse($data->created_at)->toFormattedDateString()); ?>
 
@@ -161,12 +175,28 @@
                                     <label  class="form-label">Title *</label>
                                     <input required name='title' value="<?php echo e($data->title); ?>" type="text" class="form-control">
                                   </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Info *</label>
+                                    <textarea  name='info' value="" type="text" class="form-control"><?php echo e($data->info); ?></textarea>
+                                  </div>
                                   <div class="mb-3"  wire:ignore>
-                                    <label  class="form-label">Content *</label>
-                                    <textarea id="text<?php echo e($count); ?>" name="content" style="height:400px;"  placeholder="" type="text" class="form-control">
-                                      <?php echo $data->content; ?>
-
-                                    </textarea>
+                                    
+                                    
+                                    <a href="<?php echo e(route('admin_editor', $data->id)); ?>"  class="btn btn-primary"> Proceed To Editor </a>
+                         
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Newsletter *</label>
+                                    <select required name='newsletter_id' class="form-control">
+                                      <option selected value="">--- Choose ---</option>
+                                      <?php $__currentLoopData = $newsletters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <?php if($item->id == $data->newsletter_id): ?>
+                                      <option selected value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                      <?php else: ?>
+                                      <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                    <?php endif; ?>
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
                                   </div>
                                   <div class="mb-3">
                                     <label  class="form-label">Tag *</label>

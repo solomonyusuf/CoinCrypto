@@ -21,7 +21,11 @@ class ArticleTagComponent extends Component
     }
     public function create()
     {
-         ArticleCategory::create($this->add);
+         ArticleCategory::create([
+            'title' => $this->add['title'] ,
+            'slug' => \Str::slug($this->add['title']) ,
+         
+         ]);
 
         toast('Creation Successful', 'success');
 
@@ -36,6 +40,7 @@ class ArticleTagComponent extends Component
         $query = ArticleCategory::find($id);
         $query->update([
                 'title' => $this->add['title'] == '' ? $query->title : $this->add['title'],
+                'slug' => $this->add['title'] == '' ? \Str::slug($query->title) : \Str::slug($this->add['title']),
              ]);
         $query->save();
 

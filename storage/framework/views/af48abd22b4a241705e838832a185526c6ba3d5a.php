@@ -21,8 +21,8 @@
                 </button>
                 <div class="modal modal-lg fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
                     <div class="modal-dialog">
-                        <form enctype="multipart/form-data" action="{{ route('create_user') }}" method="POST" class="modal-content border-0">
-                          @csrf 
+                        <form enctype="multipart/form-data" action="<?php echo e(route('create_user')); ?>" method="POST" class="modal-content border-0">
+                          <?php echo csrf_field(); ?> 
                           <div class="modal-header text-bg-primary">
                               <h6 class="modal-title text-white">Add User</h6>
                               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -51,9 +51,9 @@
                                       <label for="exampleInputEmail1" class="form-label">Role</label>
                                       <select  name='role_id' class="form-control">
                                           <option value="">-- Choose --</option>
-                                          @foreach ($roles as $item)
-                                           <option value="{{$item->id}}">{{ $item->title }}</option>
-                                        @endforeach
+                                          <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                           <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                       </select>
                                     </div>
                                     <div class="mb-3">
@@ -118,29 +118,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $data)
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                     <td>
                         <div class="d-flex align-items-center">
                             
-                            <img src="{{ asset($data->image) ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg' }}" class="rounded-circle" width="40" height="40">
+                            <img src="<?php echo e(asset($data->image) ?? 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg'); ?>" class="rounded-circle" width="40" height="40">
                             <div class="ms-3">
-                                <h6 class="fs-4 fw-semibold mb-0">{{ $data->first_name.' '.$data->last_name}}</h6>
-                                <span class="fw-normal">{{ $data->email }}</span>
+                                <h6 class="fs-4 fw-semibold mb-0"><?php echo e($data->first_name.' '.$data->last_name); ?></h6>
+                                <span class="fw-normal"><?php echo e($data->email); ?></span>
                             </div>
                         </div>
                     </td>
                     <td>
                         <span class="badge bg-primary-subtle text-primary d-inline-flex align-items-center gap-1">
-                            {{ $data?->role?->title }}
+                            <?php echo e($data?->role?->title); ?>
+
                         </span>
                     </td>
                     <td>
-                        <span class="fw-normal">{{ $data->email }}</span>
+                        <span class="fw-normal"><?php echo e($data->email); ?></span>
                     </td>
                     <td>
                         <div class="d-flex align-items-center gap-3">
-                            <span class="fw-normal">{{ count($data?->article_creators) }}</span>
+                            <span class="fw-normal"><?php echo e(count($data?->article_creators)); ?></span>
                         </div>
                     </td>
                     <td>
@@ -150,17 +151,17 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li>
-                                    <button  data-bs-toggle="modal" data-bs-target="#edit{{ ++$count }}"  class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Edit</button>
+                                    <button  data-bs-toggle="modal" data-bs-target="#edit<?php echo e(++$count); ?>"  class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Edit</button>
                                   
                                 </li>
                                 <li>
-                                    <button wire:click="delete('{{$data->id}}')" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</button>
+                                    <button wire:click="delete('<?php echo e($data->id); ?>')" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</button>
                                 </li>
                             </ul>
-                            <div class="modal fade modal-lg" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                            <div class="modal fade modal-lg" id="edit<?php echo e($count); ?>" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
                                 <div class="modal-dialog">
-                                    <form enctype="multipart/form-data" action="{{ route('update_user', $data->id) }}" method="post" class="modal-content border-0">
-                                      @csrf  
+                                    <form enctype="multipart/form-data" action="<?php echo e(route('update_user', $data->id)); ?>" method="post" class="modal-content border-0">
+                                      <?php echo csrf_field(); ?>  
                                       <div class="modal-header text-bg-primary">
                                           <h6 class="modal-title text-white">Edit User</h6>
                                           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -169,54 +170,54 @@
                                           <div class="notes-box">
                                             <div class="notes-content">
                                               <div>
-                                                @if($data->image)
+                                                <?php if($data->image): ?>
                                                 <div class="mb-3">
-                                                   <img src="{{ asset($data->image) }}" style="height:60px;" />
+                                                   <img src="<?php echo e(asset($data->image)); ?>" style="height:60px;" />
                                                   </div>
-                                                  @endif
+                                                  <?php endif; ?>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Image</label>
                                                     <input  name='image'  type="file" class="form-control" accept="image">
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Title </label>
-                                                    <input  name='title' value="{{ $data->title }}"   type="text" class="form-control">
+                                                    <input  name='title' value="<?php echo e($data->title); ?>"   type="text" class="form-control">
                                                   </div>
                                                    <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">First Name *</label>
-                                                    <input  name='first_name' value="{{ $data->first_name }}" type="text" class="form-control">
+                                                    <input  name='first_name' value="<?php echo e($data->first_name); ?>" type="text" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Last Name *</label>
-                                                    <input  name='last_name' value="{{ $data->last_name }}" type="text" class="form-control">
+                                                    <input  name='last_name' value="<?php echo e($data->last_name); ?>" type="text" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
-                                                    <label for="exampleInputEmail1" class="form-label">Role : {{ $data?->role->title}}</label>
+                                                    <label for="exampleInputEmail1" class="form-label">Role : <?php echo e($data?->role->title); ?></label>
                                                     <select  name='role_id' class="form-control">
-                                                        @foreach ($roles as $item)
-                                                        @if($data->role_id == $item->id)
-                                                         <option value="{{$item->id}}" selected>{{ $item->title }}</option>
-                                                         @else
-                                                         <option value="{{$item->id}}">{{ $item->title }}</option>
-                                                      @endif
-                                                         @endforeach
+                                                        <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($data->role_id == $item->id): ?>
+                                                         <option value="<?php echo e($item->id); ?>" selected><?php echo e($item->title); ?></option>
+                                                         <?php else: ?>
+                                                         <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                                      <?php endif; ?>
+                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Info</label>
-                                                    <textarea name='info' value="" type="text" class="form-control">{!! $data->info !!}</textarea>
+                                                    <textarea name='info' value="" type="text" class="form-control"><?php echo $data->info; ?></textarea>
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Linkedin Url</label>
-                                                    <input  name='linkedin' value="{{ $data->linkedin }}"    type="text" class="form-control">
+                                                    <input  name='linkedin' value="<?php echo e($data->linkedin); ?>"    type="text" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Twitter Url</label>
-                                                    <input  name='twitter' value="{{ $data->twitter }}"    type="text" class="form-control">
+                                                    <input  name='twitter' value="<?php echo e($data->twitter); ?>"    type="text" class="form-control">
                                                   </div>
                                                    <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Email *</label>
-                                                    <input  name='email' value="{{ $data->email }}" disabled type="email" class="form-control"  >
+                                                    <input  name='email' value="<?php echo e($data->email); ?>" disabled type="email" class="form-control"  >
                                                   </div>
                                                   <div class="mb-4">
                                                     <label for="exampleInputPassword1" class="form-label">New Password </label>
@@ -242,7 +243,7 @@
                         </div>
                     </td>
                 </tr> 
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
 
             </tbody>
@@ -254,3 +255,4 @@
 
 
  
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/users-component.blade.php ENDPATH**/ ?>

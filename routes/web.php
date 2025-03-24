@@ -107,6 +107,7 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
 
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
     Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
+    Route::post('/update_editor/{id}', [EditorComponent::class, 'update_editor'])->name('update_editor');
     Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
  
     Route::post('/create_events', [EventComponent::class, 'create'])->name('create_event');

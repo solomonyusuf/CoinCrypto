@@ -29,7 +29,7 @@ class PagePodcastComponent extends Component
                     where(['podcast_id' => $podcast->id])->paginate(20);
 
 
-        $first = request()?->episode ? Episode::find(request()?->episode): Episode::orderByDesc('created_at')->first();
+        $first = request()?->episode != null ? Episode::find(request()->episode): Episode::orderByDesc('created_at')->first();
 
         return view('livewire.page-podcast-component',[
             'podcasts'=> $podcasts,

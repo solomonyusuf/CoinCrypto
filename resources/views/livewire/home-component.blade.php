@@ -750,7 +750,7 @@
                   <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                   
                   <div class="py-6 uppercase">
-                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="">
+                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 "href="{{ isset($podcasts[0]) ? route('podcast_detail', $podcasts[0]->podcast_id).'?episode='.$podcasts[0]->id : '' }}">
                       <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Podcasts</h2><svg class=""
                         fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -823,10 +823,10 @@
                         </div>
                       </div>
                     </div> --}}
-                    <div class="lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       @for ($i = 0; $i < min(3, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$data->id }}">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>
@@ -843,11 +843,11 @@
                       
                        
                     </div>
-                    <div class="lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       @for ($i = 3; $i < min(6, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$data->id }}">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>
@@ -871,7 +871,7 @@
 
                       @for ($i = 0; $i < min(0, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->id) }}">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>

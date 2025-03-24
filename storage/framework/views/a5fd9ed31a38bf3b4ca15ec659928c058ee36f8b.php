@@ -792,7 +792,7 @@ echo $html;
                   <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
                   
                   <div class="py-6 uppercase">
-                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="">
+                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 "href="<?php echo e(isset($podcasts[0]) ? route('podcast_detail', $podcasts[0]->podcast_id).'?episode='.$podcasts[0]->id : ''); ?>">
                       <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Podcasts</h2><svg class=""
                         fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -801,74 +801,11 @@ echo $html;
                       </svg>
                     </a></div>
                   <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
-                    <div class="order-1 lg:order-2 col-span-4 lg:col-span-6 xl:col-span-8">
-                      <div class="relative">
-                        <div class="art19-player medium h-52"><iframe title="Podcast Player" class="w-full h-full"
-                            src="https://art19.com/shows/e05bbfac-7bd7-476a-a0ad-2eea41553323/episodes/4b99cb1c-1985-40a8-961c-fe7aaa775ff2/embed?type=medium&amp;theme=dark-green&amp;primary_color=%23FFD200"
-                            scrolling="no"></iframe></div>
-                      </div>
-                      <div class="flex flex-col gap-6">
-                        <div class="flex pt-4">
-                          <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                        </div>
-                        <div class="flex flex-col gap-2">
-                          <div class="flex justify-center text-center"><span
-                              class="text-color-black font-body leading-5 tracking-[0.4px] text-[#676767]">Listen or watch all the
-                              new CoinCrypto podcast episodes wherever you want.</span></div><a target="_blank"
-                            class="hidden gap-2 items-center justify-start xl:justify-center" href=""><span
-                              class="text-color-black font-headline-2xs font-medium">Label</span><svg class="" fill="none"
-                              height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                                fill="#262626"></path>
-                            </svg></a>
-                        </div>
-                        <div class="flex justify-center gap-6">
-                          <div
-                            class="grid grid-cols-6 gap-2 md:gap-4 lg:gap-2 md:grid-cols-9 lg:grid-cols-9 space-x-0 lg:self-center">
-                            <a href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe1db402cdb2af7b3d2dd6c66047e7b1f0d88ff7a-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F18db0f315956f23ec81d4c08932994584c49b535-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fa4636af1d0075fe11da69ac54e71161daf1aa3e7-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F2e9fd85a44b19ea513b09fcbd87de46ba9376d6a-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Ffaa7f70762ec242837dc43bc7f7820f0a6a8fa2e-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F477e27f4df4e4647ab22163731550b681e4cee7f-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fce9bf982682015b0c620743dec694de2ad133168-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F73c7a6f6b32d92bc4139636098ca0c7da6611da9-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a>
-                          </div>
-                        </div>
-                        <div class="flex md:hidden">
-                          <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                        </div>
-                      </div>
-                    </div>
+                    
                     <div class="hidden lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       <?php for($i = 0; $i < min(3, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 
@@ -891,7 +828,7 @@ echo $html;
                     
                       <?php for($i = 3; $i < min(6, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 
@@ -917,7 +854,7 @@ echo $html;
 
                       <?php for($i = 0; $i < min(0, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->id)); ?>">
+                          <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
                               <h3 class="text-color-black font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 

@@ -861,8 +861,7 @@
                       @endfor
                        
                     </div>
-                    
-                    <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-0 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       @for ($i = 6; $i < min(9, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -881,6 +880,26 @@
                       @endfor
                        
                     </div>
+                    
+                    {{-- <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
+                    
+                      @for ($i = 6; $i < min(9, count($podcasts)); $i++)
+                      <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
+                              <h3 class="text-color-black font-headline-2xs font-normal">
+                                  {{ $podcasts[$i]->title }}
+                              </h3>
+                          </a>
+                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                              {!! $podcasts[$i]->description !!}
+                          </span>
+                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                          </div>
+                      </div>
+                      @endfor
+                       
+                    </div> --}}
 
                     <div class="order-4 col-span-4 lg:col-span-6 xl:col-span-4 pb-6 md:pb-0
           						grid grid-rows-1 grid-flow-col grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
@@ -1000,6 +1019,7 @@
                             <div class="col-span-1 md:col-span-2 lg:col-span-1">
                               
                               @foreach ($category->articles as $article)
+                              @if( $first->id != $article->id)
                               <div>
                                 <div class="flex gap-4 false ">
                                   <div class="bg-white flex gap-6 w-full shrink">
@@ -1020,6 +1040,7 @@
                                   <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                                 </div>
                               </div>
+                              @endif
                               @endforeach
                               
                                

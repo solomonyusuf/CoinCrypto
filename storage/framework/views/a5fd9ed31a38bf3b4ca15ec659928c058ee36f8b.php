@@ -844,8 +844,7 @@ echo $html;
                       <?php endfor; ?>
                        
                     </div>
-                    
-                    <div class="hidden lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-0 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       <?php for($i = 6; $i < min(9, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -866,6 +865,8 @@ echo $html;
                       <?php endfor; ?>
                        
                     </div>
+                    
+                    
 
                     <div class="order-4 col-span-4 lg:col-span-6 xl:col-span-4 pb-6 md:pb-0
           						grid grid-rows-1 grid-flow-col grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
@@ -990,6 +991,7 @@ echo $html;
                             <div class="col-span-1 md:col-span-2 lg:col-span-1">
                               
                               <?php $__currentLoopData = $category->articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              <?php if( $first->id != $article->id): ?>
                               <div>
                                 <div class="flex gap-4 false ">
                                   <div class="bg-white flex gap-6 w-full shrink">
@@ -1012,6 +1014,7 @@ echo $html;
                                   <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                                 </div>
                               </div>
+                              <?php endif; ?>
                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               
                                

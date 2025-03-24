@@ -67,7 +67,7 @@ Route::get('/category-{category_id}',CategoryDetailComponent::class)->name('cate
 Route::get('/newsletter-{news_id}',PageNewsletterComponent::class)->name('newsletter_detail');
 Route::get('/author-{auth_id}',AuthorComponent::class)->name('author_detail');
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
-Route::get('/podcast-details-{news_id}',NewsDetailComponent::class)->name('podcast_detail');
+Route::get('/podcast-details-{podcast_id}',PagePodcastComponent::class)->name('podcast_detail');
 Route::get('/videos-{video_id}',PageVideoComponent::class)->name('video_detail');
 
 Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'activate_sub'])->name('activate_sub');

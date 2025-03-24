@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('link')->nullable();
             $table->text('image')->nullable();
             $table->text('host')->nullable();
+            $table->foreignUuid('user_id')->references('id')->on('users')->nullable();
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->boolean('sponsored')->default(false);

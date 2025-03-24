@@ -4,7 +4,8 @@
         <div
             class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
             <h1 class="text-[0px]">
-                {{ $podcast->title }}
+                <?php echo e($podcast->title); ?>
+
             </h1>
             <div>
                 <div style="height: 379px;">
@@ -15,20 +16,22 @@
                                         width="1200" height="800"
                                         class="w-full h-auto object-cover"
                                         style="color: transparent;"
-                                        src="{{ asset($podcast->image) }}">
+                                        src="<?php echo e(asset($podcast->image)); ?>">
                                 </div>
                                 <div
                                     class="flex-1 w-full p-2 flex-row md:flex-col lg:flex-col lg:w-2/3 md:w-2/3 self-start text-white">
                                     <h2 class="font-headline mb-2">
-                                        {{ $podcast->title }}
+                                        <?php echo e($podcast->title); ?>
+
                                     </h2><span class="font-body">
-                                        {!! \Illuminate\Support\Str::limit($podcast->description, 200, '..') !!}
+                                        <?php echo \Illuminate\Support\Str::limit($podcast->description, 200, '..'); ?>
+
                                     </span>
                                     <div class="flex flex-col lg:flex-row py-4 bg-hamburger-menu space-y-4 lg:space-y-0 flex-start ">
                                         <div class="flex align-middle">
                                             <div class="inline-flex items-center bg-hamburger-menu py-2 px-2 text-white text-center border border-white hover:underline rounded-sm mb-2 md:mb-0 transition duration-150 ease-in-out max-w-[225px] min-w-[225px]"
                                                 rel="noreferrer"
-                                                href="{{ route('podcast_detail', $podcast->id) }}">
+                                                href="<?php echo e(route('podcast_detail', $podcast->id)); ?>">
                                                 <svg
                                                     class="w-6 h-6 font-sans stroke-white-900 fill-white-900 mr-2"
                                                     width="48" height="48" viewBox="0 0 48 48" fill="none"
@@ -46,28 +49,28 @@
                                                 on:</span></div>
                                         <div class="grid grid-cols-6 gap-2 md:gap-4 lg:gap-2 md:grid-cols-9 lg:grid-cols-9 space-x-0 lg:self-center">
                                             
-                                            <a href="{{ $podcast->spotify }}"
+                                            <a href="<?php echo e($podcast->spotify); ?>"
                                                 target="_blank" rel="noreferrer"
                                                 class="hover:opacity-80 transition-opacity">
                                                 <img width="24" height="24"
                                                     style="color: transparent;"
                                                     src="https://img.icons8.com/?size=100&id=G9XXzb9XaEKX&format=png&color=000000">
                                             </a>
-                                            <a href="{{ $podcast->castbox }}"
+                                            <a href="<?php echo e($podcast->castbox); ?>"
                                                 target="_blank" rel="noreferrer"
                                                 class="hover:opacity-80 transition-opacity">
                                                 <img width="24" height="24"
                                                     style="color: transparent;"
                                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAUVBMVEVHcEz/cTf/l1H/jkv/cTb/cTb/l1H/hkX/f0H/cTb/fED/djn/cTf/nFX/bTL/bjT/Yiv/lW//+PX/2s3/WCT/wa//////hl7/Tgb/Tx7/UB/+pY21AAAAG3RSTlMAfP7/Tg7A/8CL//8nyP/I/////////////8NLEf4cAAAA8UlEQVR4AW3RB5KEMAxEUXKwSc4w9z/otlxSoZ2aT+aRaXRt17fN74aup4YfNE7V5nlexm9bu44IGWPWryuKGWStfa+97WIIho5zk2dkewldLdmoTeE1MopZGJOgmHUO8h/ZjD28P4JjumJFMlDKxvuSUySBCeK81KfsKppUTRDmckoZBVqW+46CMONIks+e0IQAfRSGkAtdltD7Oz6MBgWXXnTueRTa40rZFXclcxVAFCSzFljwlE+MNCJB2HFYx+/HxkiGmGCREbVirASo5Z99ir3nfbZGGpTVhka3alu1UOOHTV1RNVxkUV9R18ozcn98kx7AXW2G8AAAAABJRU5ErkJggg==">
                                             </a> 
-                                            <a href="{{ $podcast->itunes }}"
+                                            <a href="<?php echo e($podcast->itunes); ?>"
                                                 target="_blank" rel="noreferrer"
                                                 class="hover:opacity-80 transition-opacity">
                                                 <img width="24" height="24"
                                                     style="color: transparent;"
                                                     src="https://img.icons8.com/?size=100&id=63304&format=png&color=000000">
                                             </a>
-                                        <a href="{{ $podcast->podchaser }}"
+                                        <a href="<?php echo e($podcast->podchaser); ?>"
                                                 target="_blank" rel="noreferrer"
                                                 class="hover:opacity-80 transition-opacity">
                                                 <img width="24" height="24"
@@ -90,14 +93,14 @@
                                     <h2 class="font-sans font-bold text-2xl text-color-black ">Host</h2>
                                 </div>
                                 <div class="flex items-center space-x-4"><a
-                                        href="{{ route('author_detail', $podcast->user->id) }}">
+                                        href="<?php echo e(route('author_detail', $podcast->user->id)); ?>">
                                         <img class="rounded-full cursor-pointer hover:opacity-80 object-cover"
                                             style="width: 84px; height: 84px;"
-                                            src="{{  asset($podcast->user->image) }}"></a>
-                                     <a href="{{ route('author_detail', $podcast->user->id) }}">
+                                            src="<?php echo e(asset($podcast->user->image)); ?>"></a>
+                                     <a href="<?php echo e(route('author_detail', $podcast->user->id)); ?>">
                                         <div class=" hover:underline">
                                             <span
-                                                class="font-sans font-bold text-xl text-color-black ">{{ $podcast->user->first_name.' '.$podcast->user->last_name}}</span>
+                                                class="font-sans font-bold text-xl text-color-black "><?php echo e($podcast->user->first_name.' '.$podcast->user->last_name); ?></span>
                                         </div>
                                     </a></div>
                             </div>
@@ -113,39 +116,41 @@
                                 </h2>
                                 <div class="flex flex-col max-w-auto lg:max-w-[730px]">
                                    
-                                    @foreach ($podcasts as $data)
+                                    <?php $__currentLoopData = $podcasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="bg-white py-4 mb-4 flex justify-start"><a
-                                            href="{{  route('podcast_detail', $data->id) }}">
+                                            href="<?php echo e(route('podcast_detail', $data->id)); ?>">
                                             <img
                                                 height="600"  
                                                 class="max-w-48 h-48 rounded mr-4" style="color: transparent;"
-                                                src="{{ $data->image }}">
+                                                src="<?php echo e($data->image); ?>">
                                             </a>
                                         <div>
                                             <a class="mb-4 hover:underline"
-                                                href="{{  route('podcast_detail', $data->id) }}">
+                                                href="<?php echo e(route('podcast_detail', $data->id)); ?>">
                                                 <h3 class="font-headline-2xs">
-                                                    {{ $data->title }}
+                                                    <?php echo e($data->title); ?>
+
                                                 </h3>
                                             </a>
                                             <div class="">
                                                 <span class="font-metadata-lg">
-                                                    {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y, g:i a') }}
+                                                    <?php echo e(\Carbon\Carbon::parse($data->created_at)->format('M d, Y, g:i a')); ?>
+
                      
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                       
                                 </div>
-                                @if($podcasts->hasMorePages())
+                                <?php if($podcasts->hasMorePages()): ?>
                                 <div  class="flex justify-center self-center">
-                                    <a href="{{ $podcasts->nextPageUrl() }}" class="bg-coindeskyellow-primarycolorhover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
+                                    <a href="<?php echo e($podcasts->nextPageUrl()); ?>" class="bg-coindeskyellow-primarycolorhover:opacity-80 cursor-pointer border border-color-yellow-900 border-solid rounded-lg mb-8 text-color-charcoal-700 font-label font-medium py-1 px-4 h-10 flex items-center justify-center">More
                                     Show More
                                     </a>
                                 </div>
-                                @endif
+                                <?php endif; ?>
                                  
                             </div>
                         </div>
@@ -159,4 +164,4 @@
                 href="?page=10">10</a><a aria-label="Go to page 2" href="?page=2">next page</a><a
                 aria-label="Go to last page (132)" href="?page=132">last page</a></nav>
     </section>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-podcast-component.blade.php ENDPATH**/ ?>

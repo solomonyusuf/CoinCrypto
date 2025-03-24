@@ -7,21 +7,37 @@ use Livewire\Component;
 
 class PagePodcastComponent extends Component
 {
-   
-    public $podcast;
+
+    public $podcast_id;
+
+    public function mount($podcast_id)
+    {
+        $this->podcast_id = $podcast_id;
+    }
 
     public $count = 0;
 
     public function play($id)
     {
-        $this->podcast = Podcast::find($id);
-    }
+     }
     public function render()
     {
-        $podcasts = Podcast::orderByDesc('created_at')->limit(20)->get();
+        $podcast = Podcast::find($this->podcast_id);
+   
+        $podcasts = Podcast::find($this->podcast_id)
+                    ->with(['episodes' => function ($query) {
+                        $query->orderByDesc('created_at')->take(4);  
+                    }])->paginate(10);
+
+        $first = Podcast::find($this->podcast_id)
+                    ->with(['episodes' => function ($query) {
+                        $query->orderByDesc('created_at')->take(1);  
+                    }])->first();
 
         return view('livewire.page-podcast-component',[
-            'podcasts'=> $podcasts
+            'podcasts'=> $podcasts,
+            'first'=> $first,
+            'podcast'=> $podcast,
         ]);
     }
 }

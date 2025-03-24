@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $link
  * @property string|null $image
  * @property string|null $host
+ * @property string $user_id
  * @property string|null $title
  * @property string|null $description
  * @property bool $sponsored
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
+ * @property User $user
  * @property Collection|Episode[] $episodes
  *
  * @package App\Models
@@ -45,11 +47,17 @@ class Podcast extends Model
 		'link',
 		'image',
 		'host',
+		'user_id',
 		'title',
 		'description',
 		'sponsored',
 		'visible'
 	];
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 
 	public function episodes()
 	{

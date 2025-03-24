@@ -2,6 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\Newsletter;
+use App\Models\Podcast;
 use App\Models\VideoCategory;
 use App\Models\Event;
 use Illuminate\Support\Carbon;
@@ -40,10 +44,25 @@ class Navmenu extends Component
 
 
         $video_category = VideoCategory::get();
+        
+        $podcasts = Podcast::get();
+
+        $newsletters = Newsletter::get();
+        
+        $excludedTitles = ['Press release', 'Crypto', 'Opinion'];
+
+        $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)
+                            ->with(['articles' => function ($query) {
+                                $query->orderByDesc('created_at')->take(4);  
+                            }])->get();
+
         return view('livewire.navmenu',[
             'video_category'=> $video_category,
             'event'=> $event,
             'events'=> $events,
+            'podcasts'=> $podcasts,
+            'newsletters'=> $newsletters,
+            'categories'=> $categories_display,
         ]);
     }
 }

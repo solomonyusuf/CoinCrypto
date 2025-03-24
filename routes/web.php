@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\PodcastsComponent;
 use App\Http\Livewire\Admin\UsersComponent;
 use App\Http\Livewire\Admin\VideosComponent;
 use App\Http\Livewire\AuthorComponent;
+use App\Http\Livewire\CategoryDetailComponent;
 use App\Http\Livewire\ForgotPasswordComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\LoginComponent;
@@ -62,7 +63,7 @@ Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_passwo
 
 Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
 
-Route::get('/category-{category_id}',TopTickerComponent::class)->name('category_detail');
+Route::get('/category-{category_id}',CategoryDetailComponent::class)->name('category_detail');
 Route::get('/newsletter-{news_id}',TopTickerComponent::class)->name('newsletter_detail');
 Route::get('/author-{auth_id}',AuthorComponent::class)->name('author_detail');
 Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');

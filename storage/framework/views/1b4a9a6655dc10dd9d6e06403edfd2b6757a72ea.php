@@ -69,8 +69,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                 </svg>
             </button>
             <div class="flex h-full cursor-pointer items-center">
-                <div id="wrapper1"
-                class="bg-hamburger-menu absolute  <?php echo e($openNav ? '' : 'hidden'); ?> left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
+                <div id="wrapper1"  class="bg-hamburger-menu absolute  <?php echo e($openNav ? '' : 'hidden'); ?> left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
                 </div>
                 <div id="modal"
                     
@@ -337,25 +336,16 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 <div class="flex w-full flex-col px-8"><span
                                         class="font-title ml-2 py-4 font-bold">Podcasts</span>
                                     <ul>
+                                        <?php $__currentLoopData = $podcasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li
                                             class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/podcasts/coindesk-podcast-network">CoinDesk
-                                                Podcast
-                                                Network</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/podcasts/markets-daily">Markets Daily</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/podcasts/generation-c">Gen C</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/podcasts/unchained">Unchained with Laura
-                                                Shin</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/podcasts/coindesk-podcast-network">The Mining
-                                                Pod</a></li>
+                                            <a target="_self" href="<?php echo e(route('podcast_detail', $data->id)); ?>">
+                                            <?php echo e($data->title); ?>    
+                                            </a>
+                                        </li> 
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -387,27 +377,15 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 <div class="flex w-full flex-col px-8"><span
                                         class="font-title ml-2 py-4 font-bold">Newsletters</span>
                                     <ul>
+                                        <?php $__currentLoopData = $newsletter; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li
                                             class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/newsletters/the-node">The Node</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/newsletters/daybook-us">Crypto Daybook
-                                                Americas</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/newsletters/state-of-crypto">State of
-                                                Crypto</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/newsletters/crypto-long-short">Crypto Long
-                                                &amp; Short</a>
+                                            <a target="_self" href="<?php echo e(route('newsletter_detail', $data->id)); ?>"><?php echo e($data->title); ?></a>
                                         </li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/newsletters/crypto-for-advisors">Crypto for
-                                                Advisors</a></li>
-                                    </ul>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                       
+
+                                        </ul>
                                 </div>
                             </div>
                             <?php endif; ?>
@@ -533,22 +511,18 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         class="font-title ml-2 py-4 font-bold">News
                                         Sections</span>
                                     <ul>
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <li
                                             class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/markets">Markets</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/business">Finance</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/tech">Tech</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/policy">Policy</a></li>
-                                        <li
-                                            class="font-title font-normal hover:bg-bg-grey cursor-pointer rounded py-4 pl-6">
-                                            <a target="_self" href="/focus">Focus</a></li>
-                                    </ul>
+                                            <a target="_self" href="<?php echo e(route('category_detail', $data->id)); ?>">
+                                                <?php echo e($data->title); ?>
+
+                                            </a>
+                                        </li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+
+                                        </ul>
                                 </div>
                             </div>
                             <?php endif; ?>
@@ -570,12 +544,12 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e(route('home')); ?>">
                         <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm font-bold">News</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm<?php echo e(Route::is('home') ? 'font-bold' : ''); ?>">News</span></a>
                 </li>
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="<?php echo e(route('prices')); ?>"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">Prices</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('prices') ? 'font-bold' : ''); ?> ">Prices</span></a>
                 </li>
             
                 <li class="undefined ˙">
@@ -586,7 +560,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="<?php echo e(route('sponsored')); ?>"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">Sponsored</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('sponsored') ? 'font-bold' : ''); ?>">Sponsored</span></a>
                 </li>
                 <div
                     class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
@@ -627,18 +601,18 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                 </li>
                 <?php else: ?>
                 <div class="flex h-full items-center justify-center px-4">
-                    <button wire:click='toggleAvatar'
+                    <button id="avattar" wire:click='toggleAvatar'
                         class="flex relative justify-center items-center box-border overflow-hidden align-middle outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-default text-default-foreground z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased h-8 w-8 rounded-full"
                         type="button">
                         <img src="<?php echo e(asset($user?->image)); ?>"
-                            class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
+                            class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-1 data-[loaded=true]:opacity-100"
                             alt="Profile avatar" />
                     </button>
                 </div>
                 <?php if($openAvatar): ?>
                 <div
                     class="z-10 inline-flex flex-col items-center justify-center subpixel-antialiased outline-none box-border text-small bg-content1 rounded-large shadow-medium w-full p-1 min-w-[200px]">
-                    <span data-focus-scope-start="true" hidden=""></span>
+                    <span  hidden=""></span>
                     <div class="w-full relative flex flex-col gap-1 p-1 overflow-clip">
                         <ul class="w-full flex flex-col gap-0.5 outline-none" role="menu">
                             <li role="menuitem">
@@ -653,7 +627,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                             </li>
                             <li role="menuitem">
                                 <a href="<?php echo e(route('logout')); ?>" rel="nofollow"
-                                    class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer hover:bg-danger hover:text-danger-foreground text-danger">
+                                    class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer  hover:text-danger-foreground text-danger">
                                     <span class="iconify material-symbols--exit-to-app-rounded h-5 w-5"></span>
                                     <span class="text-small font-normal">Log out</span>
                                 </a>

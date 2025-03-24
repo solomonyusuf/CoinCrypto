@@ -54,9 +54,6 @@
           @endforeach
           @endforeach
 
-
-          
-        
           
         </div>
         @if($articles->hasMorePages())

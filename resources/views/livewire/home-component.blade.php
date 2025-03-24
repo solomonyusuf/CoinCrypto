@@ -862,7 +862,7 @@
                        
                     </div>
                     
-                    <div class="hidden lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       @for ($i = 6; $i < min(9, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">

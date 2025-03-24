@@ -23,22 +23,15 @@ class NewsletterComponent extends Component
             $image = UploadController::UploadFile($request); 
         
         }
-        
-        $host_image = '';
 
-        if ($request->host_image) {
-            $host_image = UploadController::UploadFile2($request); 
-         
-        }
         Newsletter::create([
             'title'=> $request->title,
             'description'=> $request->description,
-            //'sponsored'=> $request->sponsored,
             'image'=> $image,
+            'user_id'=> $request->user_id,
             'visible'=> $request->visible,
             'link'=> $request->link,
-            'host_image'=> $host_image,
-            'host_name'=> $request->host_name,
+           
         ]);
 
         //toast('Creation Successful', 'success');
@@ -55,19 +48,12 @@ class NewsletterComponent extends Component
             $image = UploadController::UploadFile($request);
         }
         
-        $host_image = $model->host_image;
-
-        if ($request->host_image) {
-            $host_image = UploadController::UploadFile2($request); 
-        }
         $model->update([
             'title'=> $request->title,
             'description'=> $request->description,
-            //'sponsored'=> $request->sponsored,
             'image'=> $image,
+            'user_id'=> $model->user_id,
             'visible'=> $request->visible,
-            'host_image'=> $host_image,
-            'host_name'=> $request->host_name,
         ]);
         $model->save();
 

@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\EditorController;
+use App\Http\Livewire\Admin\AllEpisodesComponent;
 use App\Http\Livewire\Admin\ArticleComponent;
+use App\Http\Livewire\Admin\PodcastTagComponent;
+use App\Http\Livewire\Admin\VideoTagComponent;
 use App\Http\Livewire\Admin\ArticleTagComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\EditorComponent;
@@ -100,6 +103,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-podcasts', PodcastsComponent::class)->name('admin_podcasts');
     Route::get('/admin-app-videos', VideosComponent::class)->name('admin_videos');
     Route::get('/admin-editor-{temp_id}', EditorComponent::class)->name('admin_editor');
+    Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
+    Route::get('/admin-podcast-tags', AllEpisodesComponent::class)->name('admin_podcast_tags');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
@@ -121,6 +126,15 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::post('/create_podcast', [PodcastsComponent::class, 'create'])->name('create_podcast');
     Route::post('/update_podcast/{id}', [PodcastsComponent::class, 'update'])->name('update_podcast');
     Route::get('/delete_podcast/{id}', [PodcastsComponent::class, 'delete'])->name('delete_podcast');
+ 
+    Route::post('/create_episode', [AllEpisodesComponent::class, 'create'])->name('create_episode');
+    Route::post('/update_episode/{id}', [AllEpisodesComponent::class, 'update'])->name('update_episode');
+    Route::get('/delete_episode/{id}', [AllEpisodesComponent::class, 'delete'])->name('delete_episode');
+ 
+ 
+    Route::post('/create_videotag', [VideoTagComponent::class, 'create'])->name('create_videotag');
+    Route::post('/update_videotag/{id}', [VideoTagComponent::class, 'update'])->name('update_videotag');
+    Route::get('/delete_videotag/{id}', [VideoTagComponent::class, 'delete'])->name('delete_videotag');
  
     Route::post('/create_publication/{id}', [NewsletterComponent::class, 'publish'])->name('create_publication');
     

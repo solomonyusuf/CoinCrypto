@@ -108,6 +108,14 @@
                   </a> 
                 </li>
                <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_video_tags') ? 'active' : '' }}" href="{{ route('admin_video_tags') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-tag"></i>
+                    </span>
+                    <span class="hide-menu">Video Tags</span>
+                  </a> 
+                </li>
+                <li class="sidebar-item">
                   <a class="sidebar-link  {{ Route::is('admin_videos') ? 'active' : '' }}" href="{{ route('admin_videos') }}" aria-expanded="false">
                     <span class="d-flex">
                       <i class="ti ti-video"></i>

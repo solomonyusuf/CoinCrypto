@@ -13,7 +13,7 @@
                     <li class="breadcrumb-item" aria-current="page">Podcasts</li>
                   </ol>
                 </nav>
-              </div>
+              </div> 
               <div class="col-2">
                 <button  data-bs-toggle="modal" data-bs-target="#add" class="btn btn-primary d-flex align-items-center px-3 gap-6 mb-3">
                     <i class="ti ti-plus fs-4"></i>

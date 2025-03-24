@@ -54,7 +54,7 @@ class HomeComponent extends Component
 
         $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
        
-        $podcasts = Episode::orderByDesc('created_at')->limit(6)->get();
+        $podcasts = Episode::orderByDesc('created_at')->limit(9)->get();
         
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  

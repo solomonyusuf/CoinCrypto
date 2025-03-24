@@ -823,7 +823,7 @@
                         </div>
                       </div>
                     </div> --}}
-                    <div class="hidden lg:flex lg:flex-col order-2 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class="hidden lg:flex lg:flex-col order-1 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       @for ($i = 0; $i < min(3, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
@@ -839,11 +839,10 @@
                           </div>
                       </div>
                     @endfor
-                  
-                      
-                       
-                    </div>
-                    <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
+                  </div>
+
+                
+                  <div class="hidden lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       @for ($i = 3; $i < min(6, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -859,7 +858,27 @@
                               <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                           </div>
                       </div>
-                    @endfor
+                      @endfor
+                       
+                    </div>
+                    
+                    <div class="hidden lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
+                    
+                      @for ($i = 6; $i < min(9, count($podcasts)); $i++)
+                      <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
+                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
+                              <h3 class="text-color-black font-headline-2xs font-normal">
+                                  {{ $podcasts[$i]->title }}
+                              </h3>
+                          </a>
+                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                              {!! $podcasts[$i]->description !!}
+                          </span>
+                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                          </div>
+                      </div>
+                      @endfor
                        
                     </div>
 

@@ -820,11 +820,10 @@ echo $html;
                           </div>
                       </div>
                     <?php endfor; ?>
-                  
-                      
-                       
-                    </div>
-                    <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
+                  </div>
+
+                
+                  <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       <?php for($i = 3; $i < min(6, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -842,7 +841,7 @@ echo $html;
                               <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                           </div>
                       </div>
-                    <?php endfor; ?>
+                      <?php endfor; ?>
                        
                     </div>
 

@@ -1,5 +1,6 @@
 <?php
 $user = \App\Models\User::find(auth()->user()?->id);
+$advert = true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,15 +115,15 @@ $user = \App\Models\User::find(auth()->user()?->id);
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('EyvLWSV')) {
-    $componentId = $_instance->getRenderedChildComponentId('EyvLWSV');
-    $componentTag = $_instance->getRenderedChildComponentTagName('EyvLWSV');
+} elseif ($_instance->childHasBeenRendered('Y3fInlJ')) {
+    $componentId = $_instance->getRenderedChildComponentId('Y3fInlJ');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Y3fInlJ');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('EyvLWSV');
+    $_instance->preserveRenderedChild('Y3fInlJ');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('EyvLWSV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Y3fInlJ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -130,32 +131,54 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('RcF1iSA')) {
-    $componentId = $_instance->getRenderedChildComponentId('RcF1iSA');
-    $componentTag = $_instance->getRenderedChildComponentTagName('RcF1iSA');
+} elseif ($_instance->childHasBeenRendered('NZb9Np5')) {
+    $componentId = $_instance->getRenderedChildComponentId('NZb9Np5');
+    $componentTag = $_instance->getRenderedChildComponentTagName('NZb9Np5');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('RcF1iSA');
+    $_instance->preserveRenderedChild('NZb9Np5');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('RcF1iSA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('NZb9Np5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
                 </div>
+                
             </header>
+            <?php if($advert): ?>
+            <div data-module-name="high-impact" data-module-version="1.0.0" data-module-instance="default">
+                <div style="height:auto"></div>
+                <div class="">
+                    <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
+                        <div id="highimpact" style="width:1440px;height:280px"
+                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
+                            name="coindesk_podcast_desktop_highimpactdsk">
+                            <div id="google_ads_iframe_/22031491390/cddesktop/article_0__container__" style="border: 0pt;background:#a6abae;">
+                                <iframe
+                                    id="google_ads_iframe_/22031491390/cddesktop/article_0"
+                                    class="animate-shimmer"
+                                    name="google_ads_iframe_/22031491390/cddesktop/article_0" title="3rd party ad content"
+                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
+                                    style="border: 0px; vertical-align: bottom;" aria-label="Advertisement" tabindex="0"
+                                    data-google-container-id="1" data-load-complete="true"></iframe>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div><?php endif; ?>
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('v04MmYv')) {
-    $componentId = $_instance->getRenderedChildComponentId('v04MmYv');
-    $componentTag = $_instance->getRenderedChildComponentTagName('v04MmYv');
+} elseif ($_instance->childHasBeenRendered('U11v26R')) {
+    $componentId = $_instance->getRenderedChildComponentId('U11v26R');
+    $componentTag = $_instance->getRenderedChildComponentTagName('U11v26R');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('v04MmYv');
+    $_instance->preserveRenderedChild('U11v26R');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('v04MmYv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('U11v26R', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

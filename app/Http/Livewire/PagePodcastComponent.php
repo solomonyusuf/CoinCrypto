@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Episode;
 use App\Models\Podcast;
 use Livewire\Component;
 
@@ -24,10 +25,9 @@ class PagePodcastComponent extends Component
     {
         $podcast = Podcast::find($this->podcast_id);
    
-        $podcasts = Podcast::find($this->podcast_id)
-                    ->with(['episodes' => function ($query) {
-                        $query->orderByDesc('created_at')->take(4);  
-                    }])->paginate(10);
+        $podcasts =  Episode::orderByDesc('created_at')->
+                    where(['podcast_id' => $podcast->id])->paginate(20);
+
 
         $first = Podcast::find($this->podcast_id)
                     ->with(['episodes' => function ($query) {

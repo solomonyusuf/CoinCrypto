@@ -13,6 +13,7 @@ use Livewire\Component;
 
 class Navmenu extends Component
 {
+    public $advert = true;
     public $openNav = false;
     public $openAvatar = false;
 

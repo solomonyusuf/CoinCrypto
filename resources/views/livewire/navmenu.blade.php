@@ -621,7 +621,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="{{ route('home') }}">
                         <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm{{ Route::is('home') ? 'font-bold' : '' }}">News</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('home') ? 'font-bold' : '' }}">News</span></a>
                 </li>
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
@@ -719,6 +719,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
             
             </ul>
         </div>
+        
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {

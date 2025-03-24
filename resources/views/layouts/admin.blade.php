@@ -131,6 +131,14 @@
                     <span class="hide-menu">Podcasts</span>
                   </a> 
                 </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_episode') ? 'active' : '' }}" href="{{ route('admin_episode') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-music"></i>
+                    </span>
+                    <span class="hide-menu">Episodes</span>
+                  </a> 
+                </li>
                   <li class="sidebar-item">
                   <a class="sidebar-link  {{ Route::is('admin_newsletter') ? 'active' : '' }}" href="{{ route('admin_newsletter') }}" aria-expanded="false">
                     <span class="d-flex">

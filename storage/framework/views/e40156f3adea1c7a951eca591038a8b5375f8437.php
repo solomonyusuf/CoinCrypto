@@ -21,8 +21,8 @@
                 </button>
                 <div class="modal fade" id="add" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
                     <div class="modal-dialog modal-lg">
-                        <form action="{{ route('create_episode') }}" method="post" class="modal-content border-0">
-                            @csrf
+                        <form action="<?php echo e(route('create_episode')); ?>" method="post" class="modal-content border-0">
+                            <?php echo csrf_field(); ?>
                             <div class="modal-header text-bg-primary">
                               <h6 class="modal-title text-white">Add Episode</h6>
                               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -49,9 +49,9 @@
                                           <label  class="form-label">Podcast *</label>
                                           <select required name='podcast_id' class="form-control">
                                             <option selected value="">--- Choose ---</option>
-                                            @foreach ($podcasts as $data)
-                                              <option value="{{  $data->id }}">{{ $data->title }}</option>
-                                            @endforeach
+                                            <?php $__currentLoopData = $podcasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                              <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                           </select>
                                         </div>
                                         <div class="mb-3">
@@ -108,21 +108,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($episodes as $data)
+                <?php $__currentLoopData = $episodes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                     
                     <td>
                         <div class="d-flex align-items-center">
                             
-                            <img src="{{ asset($data->image) }}" class="rounded-circle" width="40" height="40">
+                            <img src="<?php echo e(asset($data->image)); ?>" class="rounded-circle" width="40" height="40">
                             <div class="ms-3">
-                                <h6 class="fs-4 fw-semibold mb-0">{{ $data->title}}</h6>
+                                <h6 class="fs-4 fw-semibold mb-0"><?php echo e($data->title); ?></h6>
                              </div>
                         </div>
                    </td>
 
                     <td>
-                        <span class="fw-normal">{{ $data->podcast->title}}</span>
+                        <span class="fw-normal"><?php echo e($data->podcast->title); ?></span>
                     </td>
                     <td>
                         <div class="dropdown dropstart">
@@ -131,17 +131,17 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li>
-                                    <button  data-bs-toggle="modal" data-bs-target="#edit{{ ++$count }}"  class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Edit</button>
+                                    <button  data-bs-toggle="modal" data-bs-target="#edit<?php echo e(++$count); ?>"  class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-edit"></i>Edit</button>
                                   
                                 </li>
                                 <li>
-                                    <a href="{{ route('delete_episode', $data->id) }}" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</a>
+                                    <a href="<?php echo e(route('delete_episode', $data->id)); ?>" class="dropdown-item d-flex align-items-center gap-3"><i class="fs-4 ti ti-trash"></i>Delete</a>
                                 </li>
                             </ul>
-                            <div class="modal fade" id="edit{{ $count }}" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
+                            <div class="modal fade" id="edit<?php echo e($count); ?>" tabindex="-1"  aria-hidden="true"  wire:ignore.self>
                                 <div class="modal-dialog modal-lg">
-                                    <form action="{{ route('update_episode', $data->id) }}" method="post" class="modal-content border-0">
-                                        @csrf
+                                    <form action="<?php echo e(route('update_episode', $data->id)); ?>" method="post" class="modal-content border-0">
+                                        <?php echo csrf_field(); ?>
                                         <div class="modal-header text-bg-primary">
                                           <h6 class="modal-title text-white">Edit Episode</h6>
                                           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -150,57 +150,57 @@
                                           <div class="notes-box">
                                             <div class="notes-content">
                                               <div>
-                                                @if($data->image)
+                                                <?php if($data->image): ?>
                                                 <div class="mb-3">
-                                                   <img src="{{ asset($data->image) }}" style="height:60px;" />
+                                                   <img src="<?php echo e(asset($data->image)); ?>" style="height:60px;" />
                                                   </div>
-                                                  @endif
+                                                  <?php endif; ?>
                                                 <div class="mb-3">
                                                     <label  class="form-label">Image</label>
                                                     <input  name='image'  type="file" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
                                                       <label class="form-label">Title *</label>
-                                                      <input value="{{ $data->title }}" name='title' placeholder="" type="text" class="form-control">
+                                                      <input value="<?php echo e($data->title); ?>" name='title' placeholder="" type="text" class="form-control">
                                                     </div>
                                                     <div class="mb-3">
                                                       <label  class="form-label">Description</label>
-                                                      <textarea  name='description' placeholder="" type="text" class="form-control">{{ $data->description }}</textarea>
+                                                      <textarea  name='description' placeholder="" type="text" class="form-control"><?php echo e($data->description); ?></textarea>
                                                     </div>
                                                       
                                                     <div class="mb-3">
                                                       <label  class="form-label">Podcast *</label>
                                                       <select name='podcast_id' class="form-control">
                                                         <option selected value="">--- Choose ---</option>
-                                                        @foreach ($podcasts as $item)
-                                                        @if($data->podcast_id == $item->id)
-                                                          <option value="{{  $item->id }}" selected>{{ $item->title }}</option>
-                                                          @else
-                                                          <option value="{{  $item->id }}">{{ $item->title }}</option>
-                                                        @endif
-                                                        @endforeach
+                                                        <?php $__currentLoopData = $podcasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($data->podcast_id == $item->id): ?>
+                                                          <option value="<?php echo e($item->id); ?>" selected><?php echo e($item->title); ?></option>
+                                                          <?php else: ?>
+                                                          <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                                        <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                       </select>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label  class="form-label">Link *</label>
-                                                        <input value="{{ $data->link }}" name='link' placeholder="" type="text" class="form-control">
+                                                        <input value="<?php echo e($data->link); ?>" name='link' placeholder="" type="text" class="form-control">
                                                       </div>
                                                       <div class="mb-3">
                                                         <label  class="form-label">Castbox </label>
-                                                        <input value="{{ $data->castbox }}" name='castbox' placeholder="" type="text" class="form-control">
+                                                        <input value="<?php echo e($data->castbox); ?>" name='castbox' placeholder="" type="text" class="form-control">
                                                       </div>
                                                       <div class="mb-3">
                                                         <label  class="form-label">Itunes </label>
-                                                        <input value="{{ $data->itunes }}" name='itunes' placeholder="" type="text" class="form-control">
+                                                        <input value="<?php echo e($data->itunes); ?>" name='itunes' placeholder="" type="text" class="form-control">
                                                       </div>
                                                         
                                                       <div class="mb-3">
                                                         <label  class="form-label">Spotify </label>
-                                                        <input value="{{ $data->spotify }}" name='spotify' placeholder="" type="text" class="form-control">
+                                                        <input value="<?php echo e($data->spotify); ?>" name='spotify' placeholder="" type="text" class="form-control">
                                                       </div>
                                                        <div class="mb-3">
                                                         <label  class="form-label">Podchaser </label>
-                                                        <input name='podchaser' value="{{ $data->podchaser }}" placeholder="" type="text" class="form-control">
+                                                        <input name='podchaser' value="<?php echo e($data->podchaser); ?>" placeholder="" type="text" class="form-control">
                                                       </div>
                                             
                                                 </div>
@@ -222,10 +222,11 @@
                         </div>
                     </td>
                 </tr> 
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
 
             </tbody>
         </table>
       </div>
 </div>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/all-episodes-component.blade.php ENDPATH**/ ?>

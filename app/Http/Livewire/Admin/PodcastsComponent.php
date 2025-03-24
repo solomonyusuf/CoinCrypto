@@ -23,11 +23,9 @@ class PodcastsComponent extends Component
         Podcast::create([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=> false,
             'image'=> $image,
-            'host'=> $request->host,
             'visible'=> $request->visible,
-            'link'=> $request->link
+            'user_id'=> auth()->user()->id
         ]);
 
         //toast('Creation Successful', 'success');
@@ -46,11 +44,9 @@ class PodcastsComponent extends Component
         $model->update([
             'title'=> $request->title,
             'description'=> $request->description,
-            'sponsored'=>false,
             'image'=> $image,
-            'host'=> $request->host,
             'visible'=> $request->visible,
-            'link'=> $request->link
+            'user_id'=> $model->user_id
         ]);
 
         //toast('Update Successful', 'success');

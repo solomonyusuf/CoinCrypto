@@ -132,6 +132,14 @@
                     <span class="hide-menu">Podcasts</span>
                   </a> 
                 </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  <?php echo e(Route::is('admin_episode') ? 'active' : ''); ?>" href="<?php echo e(route('admin_episode')); ?>" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-music"></i>
+                    </span>
+                    <span class="hide-menu">Episodes</span>
+                  </a> 
+                </li>
                   <li class="sidebar-item">
                   <a class="sidebar-link  <?php echo e(Route::is('admin_newsletter') ? 'active' : ''); ?>" href="<?php echo e(route('admin_newsletter')); ?>" aria-expanded="false">
                     <span class="d-flex">

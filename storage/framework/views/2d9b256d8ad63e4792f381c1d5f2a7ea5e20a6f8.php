@@ -39,17 +39,10 @@
                                         <label  class="form-label">Title *</label>
                                         <input required name='title' placeholder="" type="text" class="form-control">
                                       </div>
-                                      <div class="mb-3">
-                                        <label  class="form-label">Cover Audio *</label>
-                                        <input required name='link' placeholder="" type="text" class="form-control">
-                                      </div>
-                                       <div class="mb-3">
-                                        <label  class="form-label">Host *</label>
-                                        <input required name='host' placeholder="" type="text" class="form-control">
-                                      </div>
+                                       
                                        <div class="mb-3" >
                                         <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
+                                        <textarea id="editor"  name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
                                        
                                       
@@ -94,7 +87,7 @@
                         <h6 class="fs-4 fw-semibold mb-0">Host</h6>
                     </th>
                     <th>
-                        <h6 class="fs-4 fw-semibold mb-0">Sponsored</h6>
+                        <h6 class="fs-4 fw-semibold mb-0">Visible</h6>
                     </th>
                     
                     <th></th>
@@ -114,11 +107,11 @@
                        
                     </td>
                     <td>
-                        <h6 class="fw-semibold mb-0"><?php echo e($data->host); ?></h6>
+                        <h6 class="fw-semibold mb-0"><?php echo e($data->user->first_name.' '. $data->user->last_name); ?></h6>
                     </td> 
                     <td>
                         <span class="badge bg-primary-subtle text-primary d-inline-flex align-items-center gap-1">
-                            <?php if($data->sponsored == true): ?>
+                            <?php if($data->visible == true): ?>
                                 true
                                 <?php else: ?>
                                 false
@@ -166,14 +159,7 @@
                                                       <label  class="form-label">Title *</label>
                                                       <input required value="<?php echo e($data->title); ?>" name='title' placeholder="" type="text" class="form-control">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label  class="form-label">Cover Audio *</label>
-                                                        <input value="<?php echo e($data->link); ?>" required name='link' placeholder="" type="text" class="form-control">
-                                                      </div>
-                                                      <div class="mb-3">
-                                                        <label  class="form-label">Host *</label>
-                                                        <input value="<?php echo e($data->host); ?>" required name='host' placeholder="" type="text" class="form-control">
-                                                      </div>
+                                                    
                                                      <div class="mb-3"  wire:ignore>
                                                       <label  class="form-label">Content *</label>
                                                       <textarea id="text<?php echo e($count); ?>"  name="description" style="height:400px;"  placeholder="" type="text" class="form-control"><?php echo $data->description; ?></textarea>

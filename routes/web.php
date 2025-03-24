@@ -104,7 +104,7 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-app-videos', VideosComponent::class)->name('admin_videos');
     Route::get('/admin-editor-{temp_id}', EditorComponent::class)->name('admin_editor');
     Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
-    Route::get('/admin-podcast-tags', AllEpisodesComponent::class)->name('admin_podcast_tags');
+    Route::get('/admin-episodes', AllEpisodesComponent::class)->name('admin_episode');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');

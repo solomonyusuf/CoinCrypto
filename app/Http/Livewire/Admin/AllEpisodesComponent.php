@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Admin;
 use App\Http\Controllers\UploadController;
+use App\Models\Podcast;
 use Illuminate\Http\Request;
 use App\Models\Episode;
 use Livewire\Component;
 
 class AllEpisodesComponent extends Component
 {
+    public $count= 0;
     public function create(Request $request)
     {
         Episode::create([
@@ -55,6 +57,13 @@ class AllEpisodesComponent extends Component
     }
     public function render()
     {
-        return view('livewire.admin.all-episodes-component');
+        $podcasts = Podcast::get();
+        $episodes = Episode::orderByDesc('created_at')->get();
+
+        return view('livewire.admin.all-episodes-component',[
+            'podcasts'=> $podcasts,
+            'episodes'=> $episodes,
+        ])
+        ->layout('layouts.admin');
     }
 }

@@ -77,6 +77,14 @@
                     <span class="hide-menu">Users</span>
                   </a>
                 </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_setting') ? 'active' : '' }}" href="{{ route('admin_setting') }}" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-settings"></i>
+                    </span>
+                    <span class="hide-menu">Settings</span>
+                  </a>
+                </li>
                 @endif
                 
                  <li class="nav-small-cap">

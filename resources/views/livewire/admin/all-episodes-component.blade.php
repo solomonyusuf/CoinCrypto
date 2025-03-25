@@ -83,7 +83,7 @@
                             <div class="modal-footer">
                               <div class="d-flex gap-6">
                                 <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal">Discard</button>
-                                <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Submit</button>
+                                <button type="submit"  class="btn btn-primary">Submit</button>
                               </div>
                     
                             </div>

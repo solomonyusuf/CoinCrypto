@@ -78,6 +78,14 @@
                     <span class="hide-menu">Users</span>
                   </a>
                 </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  <?php echo e(Route::is('admin_setting') ? 'active' : ''); ?>" href="<?php echo e(route('admin_setting')); ?>" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-settings"></i>
+                    </span>
+                    <span class="hide-menu">Settings</span>
+                  </a>
+                </li>
                 <?php endif; ?>
                 
                  <li class="nav-small-cap">

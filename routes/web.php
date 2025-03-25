@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EditorController;
 use App\Http\Livewire\Admin\AllEpisodesComponent;
+use App\Http\Livewire\Admin\AppSettingComponent;
 use App\Http\Livewire\Admin\ArticleComponent;
 use App\Http\Livewire\Admin\PodcastTagComponent;
 use App\Http\Livewire\Admin\VideoTagComponent;
@@ -105,9 +106,11 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-editor-{temp_id}', EditorComponent::class)->name('admin_editor');
     Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
     Route::get('/admin-episodes', AllEpisodesComponent::class)->name('admin_episode');
+    Route::get('/admin-settings', AppSettingComponent::class)->name('admin_setting');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
+    Route::post('/update-setting', [AppSettingComponent::class, 'update'])->name('update_setting');
 
 
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');

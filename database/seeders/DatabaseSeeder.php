@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Http\Middleware\TrustHosts;
+use App\Models\AppSetting;
 use App\Models\AppVideo;
 use App\Models\ArticleCreator;
 use App\Models\Episode;
@@ -523,6 +524,57 @@ class DatabaseSeeder extends Seeder
             'spotify'=> 'https://spotify.com',
             'podchaser'=> 'https://podchaser.com',
             'description'=> 'The latest price moves and insights with Jennifer Sanasie and Token Metrics CEO Ian Balina and Titan Founder Chris Chung.'
+        ]);
+
+        AppSetting::create([
+            'logo' =>'logo.png',
+            'name'=> 'CoinCrypto',
+            'email'=> 'suppoer@coincrypto.ng',
+            'address'=> '67 Adeniyi uprat Lagos',
+            'contact'=> '',
+            //-------------------------------
+            'news'=> 'News',
+            'prices'=> 'Prices',
+            'concensus'=> 'Concensus',
+            'sponsored'=> 'Sponsored',
+            'videos'=> 'Videos',
+            'podcasts'=> 'Podcasts',
+            'newsletters'=> 'Newsletters',
+            'webinar'=> 'Webinar & Events',
+             //-------------------------------
+            'footer_info'=> 'CoinCrypto is an award-winning media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. CoinCrypto has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications. CoinCrypto is part of the Bullish group, which owns and invests in digital asset businesses and digital assets. CoinCrypto employees, including journalists, may receive Bullish group equity-based compensation. Bullish was incubated by technology investor Block.one',
+            'footer_name'=> 'CoinCrypto',
+            'do_not_sell'=> '',
+            'about'=>'',
+            'sitemap'=> '',
+            'ethics'=> '',
+            'terms'=> '',
+            'privacy'=> '',
+            'cookie'=>'',
+            'accessibility'=> '',
+            'advertising'=> '',
+             //-------------------------------
+            'langugage'=> true,
+            'top_ticker'=> true,
+            'advert'=> true,
+            'top_event'=> true,
+            'event_section'=> true,
+            'podcast'=> true,
+            'most_read'=> true,
+            'newsletter'=> true,
+             //-------------------------------
+            'twitter'=> '',
+            'facebook'=> '',
+            'linkedin'=> '',
+            'instagram'=> '',
+            'youtube'=> '',
+            'tiktok'=> '',
+            'discord'=> '',
+            'telegram'=> '',
+             //-------------------------------
+            'apple'=> 'apple.com',
+            'google'=> 'google.com'
+        
         ]);
     }
 }

@@ -97,6 +97,12 @@
                         <span class="d-none d-md-block ms-2">Accessibility</span>
                     </a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link d-flex" data-bs-toggle="tab" href="#item13" role="tab">
+                        <span><i class="ti ti-pencil"></i> </span>
+                        <span class="d-none d-md-block ms-2">About</span>
+                    </a>
+                </li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -269,12 +275,27 @@
                                   <div class="col-lg-12">
                                    
                                     <div class="mb-3">
-                                        <label  class="form-label">Langugage Section</label>
-                                        <select required name="langugage" class="form-control">
-                                          <?php if($setting->langugage == true): ?>
+                                        <label  class="form-label">First Section</label>
+                                        <select required name="first" class="form-control">
+                                          <?php if($setting->first == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          <?php elseif($setting->langugage == false): ?>
+                                          <?php elseif($setting->first == false): ?>
+                                          <option  value="1"> true</option>
+                                          <option selected value="0"> false</option>
+                                          <?php else: ?> 
+                                          <option  value="1"> true</option>
+                                          <option value="0"> false</option>
+                                          <?php endif; ?>
+                                        </select>
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Langugage Section</label>
+                                        <select required name="language" class="form-control">
+                                          <?php if($setting->language == true): ?>
+                                          <option selected value="1"> true</option>
+                                          <option value="0"> false</option>
+                                          <?php elseif($setting->language == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
                                           <?php else: ?> 
@@ -393,7 +414,9 @@
                                           <?php endif; ?>
                                         </select>
                                       </div>
-                                
+                                      
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                          
 
                                    
                                     
@@ -547,6 +570,14 @@
                     <h6>Accessibility</h6>
                     <div class="mb-3 mt-2">
                         <textarea name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->accessibility); ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                       
+                </div>
+                 <div class="tab-pane p-3" id="item13" role="tabpanel">
+                    <h6>About</h6>
+                    <div class="mb-3 mt-2">
+                        <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->about); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        

@@ -45,7 +45,8 @@ return new class extends Migration
             $table->text('accessibility')->nullable();
             $table->text('advertising')->nullable();
             //-------------------------------------------------
-            $table->boolean('langugage')->nullable();
+            $table->boolean('first')->nullable();
+            $table->boolean('language')->nullable();
             $table->boolean('top_ticker')->nullable();
             $table->boolean('advert')->nullable();
             $table->boolean('top_event')->nullable();

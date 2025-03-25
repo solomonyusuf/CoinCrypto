@@ -179,9 +179,11 @@
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="">
                                         <span class="h-auto">
-                                            <span lass="font-title">
+                                            <span class="font-title">
                                             <?php echo e($setting->podcasts); ?>    
-                                            </span></span></a>
+                                            </span>
+                                        </span>
+                                    </a>
                                         <button wire:click="selecturllate('podcasts')"
                                         class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
@@ -209,7 +211,8 @@
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href=""><span class="h-auto"><span
+                                        href=""><span class="h-auto">
+                                            <span
                                                 class="font-title"><?php echo e($setting->newsletters); ?></span></span></a>
                                         <button wire:click="selecturllate('newsletters')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
@@ -576,22 +579,29 @@
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">
-                <li class="undefined ˙">
+            <?php if($setting?->news): ?>    
+            <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e(route('home')); ?>">
                         <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('home') ? 'font-bold' : ''); ?>"><?php echo e($setting->news); ?></span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('home') ? 'font-bold' : ''); ?>"><?php echo e($setting?->news); ?></span></a>
                 </li>
+                <?php endif; ?>
+                <?php if($setting->prices): ?>
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="<?php echo e(route('prices')); ?>"><span
                             class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('prices') ? 'font-bold' : ''); ?> "><?php echo e($setting->prices); ?></span></a>
                 </li>
+                <?php endif; ?>
             
+                <?php if($setting->concensus && $event->category): ?>
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="<?php echo e($event->category); ?>"><span
                             class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm "><?php echo e($setting->concensus); ?></span></a>
                 </li>
+                <?php endif; ?>
+                <?php if($setting->sponsored): ?>
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="<?php echo e(route('sponsored')); ?>"><span
@@ -600,6 +610,7 @@
 
                         </span></a>
                 </li>
+                <?php endif; ?>
                 <?php if($setting->language): ?>
                 <div class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
             

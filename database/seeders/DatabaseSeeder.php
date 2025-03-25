@@ -535,7 +535,7 @@ class DatabaseSeeder extends Seeder
             //-------------------------------
             'news_section'=> 'News & Section',
             'news'=> 'News',
-            'prices'=> 'Prices',
+            'prices'=> null,
             'concensus'=> 'Concensus',
             'sponsored'=> 'Sponsored',
             'videos'=> 'Videos',
@@ -544,7 +544,7 @@ class DatabaseSeeder extends Seeder
             'webinar'=> 'Webinar & Events',
              //-------------------------------
             'footer_info'=> 'CoinCrypto is an award-winning media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. CoinCrypto has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications. CoinCrypto is part of the Bullish group, which owns and invests in digital asset businesses and digital assets. CoinCrypto employees, including journalists, may receive Bullish group equity-based compensation. Bullish was incubated by technology investor Block.one',
-            'footer_name'=> 'CoinCrypto',
+            'footer_name'=> '© 2025 CoinCrypto',
             'do_not_sell'=> '',
             'about'=>'',
             'sitemap'=> '',
@@ -555,7 +555,8 @@ class DatabaseSeeder extends Seeder
             'accessibility'=> '',
             'advertising'=> '',
              //-------------------------------
-            'langugage'=> true,
+            'first'=> true,
+            'language'=> true,
             'top_ticker'=> true,
             'advert'=> true,
             'top_event'=> true,

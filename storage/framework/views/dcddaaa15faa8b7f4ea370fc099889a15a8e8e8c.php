@@ -117,15 +117,15 @@ $advert = $setting->advert;
                        <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('7a03vtz')) {
-    $componentId = $_instance->getRenderedChildComponentId('7a03vtz');
-    $componentTag = $_instance->getRenderedChildComponentTagName('7a03vtz');
+} elseif ($_instance->childHasBeenRendered('uCSIp4j')) {
+    $componentId = $_instance->getRenderedChildComponentId('uCSIp4j');
+    $componentTag = $_instance->getRenderedChildComponentTagName('uCSIp4j');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('7a03vtz');
+    $_instance->preserveRenderedChild('uCSIp4j');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('7a03vtz', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('uCSIp4j', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -133,15 +133,15 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('1QDBbNI')) {
-    $componentId = $_instance->getRenderedChildComponentId('1QDBbNI');
-    $componentTag = $_instance->getRenderedChildComponentTagName('1QDBbNI');
+} elseif ($_instance->childHasBeenRendered('Grt1cOZ')) {
+    $componentId = $_instance->getRenderedChildComponentId('Grt1cOZ');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Grt1cOZ');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('1QDBbNI');
+    $_instance->preserveRenderedChild('Grt1cOZ');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('1QDBbNI', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Grt1cOZ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -149,13 +149,13 @@ echo $html;
                 
             </header>
             <?php if($advert): ?>
-            <div data-module-name="high-impact" data-module-version="1.0.0" data-module-instance="default">
+            <div>
                 <div style="height:auto"></div>
                 <div class="">
                     <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
                         <div id="highimpact" style="width:1440px;height:280px"
                             class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
-                            name="coindesk_podcast_desktop_highimpactdsk">
+                            >
                             <div id="google_ads_iframe_/22031491390/cddesktop/article_0__container__" style="border: 0pt;background:#a6abae;">
                                 <iframe
                                     id="google_ads_iframe_/22031491390/cddesktop/article_0"
@@ -168,23 +168,25 @@ echo $html;
                         </div>
                     </div>
                 </div>
-            </div><?php endif; ?>
+            </div>
+            <?php endif; ?>
+            <?php if($setting->top_event): ?>
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('Ebo0nED')) {
-    $componentId = $_instance->getRenderedChildComponentId('Ebo0nED');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Ebo0nED');
+} elseif ($_instance->childHasBeenRendered('mxdtBeR')) {
+    $componentId = $_instance->getRenderedChildComponentId('mxdtBeR');
+    $componentTag = $_instance->getRenderedChildComponentTagName('mxdtBeR');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Ebo0nED');
+    $_instance->preserveRenderedChild('mxdtBeR');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('Ebo0nED', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('mxdtBeR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
- 
+            <?php endif; ?>
                 <?php echo e($slot); ?>
 
 
@@ -195,98 +197,80 @@ echo $html;
                     <div class="max-w-[100%]">
                         <div class="mb-8 flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
                             <div class="mb-0 lg:mb-0">
-                                <a class="flex items-center justify-center" data-position="Logo" href="/">
-                                    <img src="/logo.png" style="height: 40px;" />
+                                <a class="flex items-center justify-center" href="/">
+                                    <img src="<?php echo e(asset($setting->logo)); ?>" style="height: 40px;" />
                                 </a>
                             </div>
                         </div>
                         <hr class="my-6 border-[#A6A6A6]" />
                         <div class="grid grid-cols-2 gap-8 lg:grid-cols-6">
-                            <div class="column" data-submodule-name="About">
-                                <p
-                                    class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
-                                    About</p>
+                            <div class="column">
+                                <p class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
+                                    About
+                                </p>
                                 <ul class="column-items mt-6 font-serif">
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="About Us" href="">About Us</a>
+                                        <a aria-label="About Us" href="<?php echo e(route('about_us')); ?>">About Us</a>
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Masthead" href="">Masthead</a>
+                                        <a aria-label="Masthead" href="<?php echo e(route('masthead')); ?>">Masthead</a>
+                                    </li>
+                                    
+                                    <li
+                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
+                                        <a target="_blank"  href="<?php echo e(route('cookie')); ?>">Cookie</a>
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a target="_blank" aria-label="Careers" href="">Careers</a>
+                                        <a href="">CoinCrypto News</a>
                                     </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="CoinDesk News" href="">CoinDesk News</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Crypto API Documentation" href="">Crypto
-                                            API Documentation</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
-                            <div class="column" data-submodule-name="Contact">
+                            <div class="column">
                                 <p
                                     class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
                                     Contact</p>
                                 <ul class="column-items mt-6 font-serif">
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Contact Us" href="">Contact Us</a>
+                                        <a aria-label="Contact Us" href="<?php echo e(route('contact')); ?>">Contact Us</a>
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Accessibility" href="">Accessibility</a>
+                                        <a aria-label="Accessibility" href="<?php echo e(route('accessibility')); ?>">Accessibility</a>
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Advertise" href="">Advertise</a>
+                                        <a aria-label="Advertise" href="<?php echo e(route('advertise')); ?>">Advertise</a>
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a href="">Sitemap</a>
+                                        <a href="<?php echo e(route('sitemap')); ?>">Sitemap</a>
                                     </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="System Status" href="">System
-                                            Status</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
-                            <div data-submodule-name="disclaimer" data-submodule-version="1.0.0"
-                                data-submodule-instance="default" class="col-span-4 flex flex-col gap-4">
+                            <div class="col-span-4 flex flex-col gap-4">
                                 <div class="font-title uppercase text-sm text-[#1A1A1A] leading-none">DISCLOSURE &amp;
                                     POLICES</div>
-                                <div class="font-metadata leading-[1.5] tracking-[0.4px] text-[#676767]">CoinCrypto is
-                                    an
-                                    <!-- --> <a rel="noopener noreferrer" class="text-[#1A1A1A] underline"
-                                        href="">award-winning</a>
-                                    <!-- -->media outlet that covers the cryptocurrency industry. Its journalists abide
-                                    by a strict set of
-                                    <!-- --> <a rel="noopener noreferrer" class="text-[#1A1A1A] underline"
-                                        href="/">editorial policies</a>.
-                                    CoinCrypto has adopted a set of principles aimed at ensuring the integrity,
-                                    editorial independence and freedom from bias of its publications. CoinCrypto is part
-                                    of the Bullish group, which owns and invests in digital asset businesses and digital
-                                    assets. CoinCrypto employees, including journalists, may receive Bullish group
-                                    equity-based compensation. Bullish was incubated by technology investor Block.one.
+                                <div class="font-metadata leading-[1.5] tracking-[0.4px] text-[#676767]">
+                                    <?php echo $setting->footer_info; ?>
+
                                 </div>
                                 <div class="flex-start flex flex-wrap gap-x-4 gap-y-2 self-stretch"><span
                                         class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Ethics" href="">Ethics</a></span><span
+                                            aria-label="Ethics" href="<?php echo e(route('ethics')); ?>">Ethics</a></span><span
                                         class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Privacy" href="">Privacy</a></span><span
+                                            aria-label="Privacy" href="<?php echo e(route('privacy')); ?>">Privacy</a></span><span
                                         class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Terms of Use" href="">Terms of Use</a></span><span
+                                            aria-label="Terms of Use" href="<?php echo e(route('terms')); ?>">Terms of Use</a></span><span
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-black hover:underline"><a
-                                            aria-label="Cookie Consent">Cookie Consent</a></span><span
+                                            href="<?php echo e(route('cookie')); ?>">Cookie Consent</a></span><span
                                         class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Do Not Sell My Info" href="">Do Not Sell My
+                                            href="<?php echo e(route('sell_info')); ?>">Do Not Sell My
                                             Info</a></span></div>
                             </div>
                         </div>
@@ -295,16 +279,16 @@ echo $html;
                             class="xl:grid-cols-16 grid grid-cols-1 items-center gap-6 md:grid-cols-8 lg:grid-cols-12 lg:gap-0">
                             <div
                                 class="year-dropdown font-metadata order-3 tracking-wide text-[#676767] md:col-span-8 lg:order-1 lg:col-span-3 xl:col-span-7">
-                                © 2025 CoinCrypto.</div>
+                                 <?php echo $setting->footer_name; ?>.</div>
                             <div
                                 class="order-1 flex h-full w-full flex-col items-center space-y-2 md:col-span-4 md:flex-col md:justify-between md:space-y-0 lg:order-2 lg:col-span-4 lg:w-auto lg:flex-row lg:justify-between xl:col-span-5">
                                 <div class="social-icons flex h-full w-full items-center">
                                     <div class="flex w-full flex-col">
-                                        <div data-submodule-name="social" data-submodule-version="1.0.0"
-                                            data-submodule-instance="default"
-                                            class="flex w-full flex-row items-center justify-between"><a
-                                                aria-label="Twitter" data-position="Twitter" class="lg:pl-4 xl:pl-6"
-                                                target="_blank" href=" "><svg width="16" height="16"
+                                        <div  class="flex w-full flex-row items-center justify-between">
+                                            <?php if($setting->twitter): ?>
+                                            <a class="lg:pl-4 xl:pl-6"
+                                                target="_blank" href="<?php echo e($setting->twitter); ?>">
+                                                <svg width="16" height="16"
                                                     viewBox="0 0 1400 1027" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     aria-labelledby="twitter-svg-a11y-label-id">
@@ -312,32 +296,34 @@ echo $html;
                                                     <path
                                                         d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="Facebook" data-position="Facebook"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=" "><svg width="24"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                            <?php if($setting->facebook): ?>
+                                                <a  class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->facebook); ?>"><svg width="24"
                                                     height="24" fill="none" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M16.3447 13.6068L16.863 10.1942H13.621V7.9796C13.621 7.04596 14.0739 6.13593 15.526 6.13593H17V3.2306C17 3.2306 15.6623 3 14.3834 3C11.7132 3 9.96805 4.63437 9.96805 7.59321V10.1942H7V13.6068H9.96805V21.8566C10.5632 21.9509 11.1732 22 11.7945 22C12.4159 22 13.0259 21.9509 13.621 21.8566V13.6068H16.3447Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="LinkedIn" data-position="LinkedIn"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=" "><svg width="24"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                            <?php if($setting->linkedin): ?>
+                                            <a class="lg:pl-4 xl:pl-6" target="_blank" 
+                                                href="<?php echo e($setting->linkedin); ?>">
+                                                <svg width="24"
                                                     height="24" fill="none" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M2.25362 9.21772H6.53986V22.1164H2.25362V9.21772ZM4.42543 3C2.95843 3 2 3.9631 2 5.22719C2 6.46529 2.93038 7.45638 4.36933 7.45638H4.39667C5.89171 7.45638 6.82276 6.46524 6.82276 5.22719C6.79471 3.9631 5.89176 3 4.42543 3ZM17.0638 8.91471C14.7886 8.91471 13.7693 10.1661 13.2007 11.0438V9.21772H8.91314C8.9699 10.4278 8.91314 22.1164 8.91314 22.1164H13.2007V14.9129C13.2007 14.527 13.2287 14.1427 13.3415 13.8663C13.652 13.0961 14.3574 12.2985 15.5407 12.2985C17.0931 12.2985 17.7131 13.4819 17.7131 15.2151V22.1163H22V14.72C22 10.7581 19.8856 8.91471 17.0638 8.91471Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="RSSFeed" data-position="RSSFeed"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=" "><svg width="22"
-                                                    height="22" fill="none" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6.18 19.9999C7.38398 19.9999 8.36 19.0239 8.36 17.8199C8.36 16.6159 7.38398 15.6399 6.18 15.6399C4.97602 15.6399 4 16.6159 4 17.8199C4 19.0239 4.97602 19.9999 6.18 19.9999Z"
-                                                        fill="#676767"></path>
-                                                    <path
-                                                        d="M5.59 10.2301C4.75 10.0901 4 10.7801 4 11.6301C4 12.3401 4.53 12.9101 5.23 13.0301C8.15 13.5401 10.45 15.8501 10.97 18.7701C11.09 19.4701 11.66 20.0001 12.37 20.0001C13.22 20.0001 13.91 19.2501 13.78 18.4101C13.1 14.2101 9.79 10.9001 5.59 10.2301ZM5.56 4.52009C4.73 4.43009 4 5.10009 4 5.93009C4 6.66009 4.55 7.26009 5.27 7.33009C11.28 7.93009 16.06 12.7101 16.66 18.7201C16.73 19.4501 17.33 20.0001 18.06 20.0001C18.9 20.0001 19.56 19.2701 19.48 18.4401C18.75 11.1001 12.91 5.25009 5.56 4.52009Z"
-                                                        fill="#676767"></path>
-                                                </svg></a><a aria-label="Instagram" data-position="Instagram"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=" "><svg width="22"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                                
+                                                <?php if($setting->instagram): ?>
+                                                <a  class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->instagram); ?>"><svg width="22"
                                                     height="22" fill="none" viewBox="0 0 22 21"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -349,42 +335,61 @@ echo $html;
                                                     <path
                                                         d="M11.9902 9.03738C12.6752 9.037 13.3449 9.2398 13.9147 9.62012C14.4844 10.0005 14.9285 10.5412 15.1908 11.174C15.4531 11.8068 15.5219 12.5032 15.3883 13.175C15.2548 13.8469 14.925 14.4641 14.4406 14.9484C13.9562 15.4328 13.3391 15.7626 12.6672 15.8962C11.9953 16.0297 11.299 15.961 10.6662 15.6987C10.0334 15.4363 9.49261 14.9922 9.11228 14.4225C8.73196 13.8528 8.52916 13.183 8.52954 12.498C8.5311 11.5807 8.8962 10.7014 9.54486 10.0527C10.1935 9.40404 11.0729 9.03894 11.9902 9.03738ZM11.9902 7.47059C10.9958 7.47253 10.0243 7.76919 9.19848 8.32309C8.37264 8.87699 7.72954 9.66327 7.35043 10.5826C6.97133 11.5018 6.87324 12.5129 7.06856 13.4879C7.26389 14.4629 7.74386 15.3582 8.44782 16.0605C9.15178 16.7628 10.0481 17.2407 11.0236 17.4337C11.9991 17.6268 13.0099 17.5263 13.9283 17.1451C14.8467 16.7638 15.6315 16.1189 16.1834 15.2917C16.7354 14.4646 17.0298 13.4924 17.0294 12.498C17.0291 11.8369 16.8985 11.1823 16.6451 10.5717C16.3916 9.9611 16.0202 9.40646 15.5522 8.93951C15.0841 8.47257 14.5286 8.10248 13.9174 7.85043C13.3062 7.59838 12.6513 7.4693 11.9902 7.47059Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="YouTube" data-position="YouTube"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=" "><svg width="24"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                            <?php if($setting->youtube): ?>
+                                            <a class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->youtube); ?>"><svg width="24"
                                                     height="24" fill="none" viewBox="0 0 24 19"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M23.4986 5.65459C23.2227 4.60964 22.4095 3.78682 21.3768 3.50753C19.505 3 12 3 12 3C12 3 4.49499 3 2.62318 3.50753C1.59071 3.78682 0.777377 4.60964 0.501423 5.65459C0 7.5485 0 11.5001 0 11.5001C0 11.5001 0 15.4517 0.501423 17.3454C0.777377 18.3904 1.59071 19.2134 2.62318 19.4927C4.49499 20 12 20 12 20C12 20 19.505 20 21.3768 19.4927C22.4095 19.2134 23.2227 18.3904 23.4986 17.3454C24 15.4517 24 11.5001 24 11.5001C24 11.5001 24 7.5485 23.4986 5.65459ZM9.59988 15.143V7.85719L15.8352 11.5001L9.59988 15.143Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="TikTok" data-position="TikTok"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=""><svg width="24"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                            <?php if($setting->tiktok): ?>
+                                            <a class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->tiktok); ?>"><svg width="24"
                                                     height="24" fill="none" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M9.78998 17.745C11.2577 17.745 12.4475 16.61 12.4475 14.8745V2H15.6346C15.4559 4.34796 17.6168 6.61603 20 6.56415V9.80125C17.9619 9.80125 16.2288 8.87041 15.6256 8.35382V14.8745C15.6256 17.745 13.5349 21 9.78998 21C6.04501 21 4 17.745 4 14.8745C4 10.8231 7.96936 8.47349 10.5984 9.04778V12.3449C10.4661 12.2944 10.125 12.2197 9.83453 12.2197C8.35462 12.1608 7.13245 13.4572 7.13245 14.8745C7.13245 16.4598 8.32227 17.745 9.78998 17.745Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="Discord" data-position="Discord"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=""><svg width="24"
+                                                </svg>
+                                            </a>
+                                            <?php endif; ?>
+                                            <?php if( $setting->discord ): ?>
+                                            <a aria-label="Discord" data-position="Discord"
+                                                class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->discord); ?>"><svg width="24"
                                                     height="24" fill="none" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M19.6239 4.40921C18.2217 3.75695 16.7181 3.27639 15.1459 3.00116C15.1173 2.99585 15.0887 3.00912 15.0739 3.03567C14.8805 3.38436 14.6663 3.83925 14.5163 4.1968C12.8254 3.94015 11.1431 3.94015 9.48679 4.1968C9.33676 3.83131 9.11478 3.38436 8.92053 3.03567C8.90578 3.01001 8.87718 2.99673 8.84855 3.00116C7.27725 3.27551 5.7736 3.75607 4.37052 4.40921C4.35838 4.41452 4.34797 4.42338 4.34106 4.43488C1.48894 8.75461 0.707629 12.9682 1.09092 17.1295C1.09265 17.1498 1.10392 17.1693 1.11953 17.1817C3.00127 18.5827 4.82406 19.4332 6.61301 19.9969C6.64164 20.0058 6.67197 19.9951 6.69019 19.9712C7.11337 19.3854 7.49059 18.7676 7.81402 18.118C7.83311 18.08 7.81489 18.0348 7.77588 18.0198C7.17754 17.7897 6.6078 17.5091 6.05975 17.1906C6.0164 17.1649 6.01293 17.102 6.05281 17.0719C6.16814 16.9843 6.2835 16.8932 6.39363 16.8011C6.41355 16.7843 6.44131 16.7808 6.46474 16.7914C10.0652 18.4579 13.9631 18.4579 17.521 16.7914C17.5445 16.7799 17.5722 16.7834 17.593 16.8003C17.7032 16.8923 17.8185 16.9843 17.9347 17.0719C17.9746 17.102 17.972 17.1649 17.9286 17.1906C17.3806 17.5153 16.8108 17.7897 16.2116 18.0189C16.1726 18.034 16.1553 18.08 16.1744 18.118C16.5047 18.7667 16.882 19.3845 17.2973 19.9704C17.3147 19.9951 17.3459 20.0058 17.3745 19.9969C19.1721 19.4332 20.9949 18.5827 22.8766 17.1817C22.8931 17.1693 22.9035 17.1507 22.9053 17.1304C23.364 12.3194 22.1369 8.14042 19.6525 4.43576C19.6465 4.42338 19.6361 4.41452 19.6239 4.40921ZM8.35169 14.5957C7.26771 14.5957 6.37454 13.5868 6.37454 12.3478C6.37454 11.1087 7.25039 10.0998 8.35169 10.0998C9.46163 10.0998 10.3462 11.1176 10.3288 12.3478C10.3288 13.5868 9.45296 14.5957 8.35169 14.5957ZM15.6619 14.5957C14.5779 14.5957 13.6847 13.5868 13.6847 12.3478C13.6847 11.1087 14.5606 10.0998 15.6619 10.0998C16.7718 10.0998 17.6563 11.1176 17.639 12.3478C17.639 13.5868 16.7718 14.5957 15.6619 14.5957Z"
                                                         fill="#676767"></path>
-                                                </svg></a><a aria-label="Telegram" data-position="Telegram"
-                                                class="lg:pl-4 xl:pl-6" target="_blank" href=""><svg width="24"
+                                                </svg></a>
+                                                <?php endif; ?>
+                                                <?php if($setting->telegram): ?>
+                                                <a aria-label="Telegram" data-position="Telegram"
+                                                class="lg:pl-4 xl:pl-6" target="_blank" href="<?php echo e($setting->telegram); ?>"><svg width="24"
                                                     height="24" viewBox="0 0 27 22" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M2.5 21L23.5 12L2.5 3V10L17.5 12L2.5 14V21Z"
                                                         fill="#676767"></path>
-                                                </svg></a></div>
+                                                </svg>
+                                            </a>
+                                          
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div
                                 class="order-2 flex flex-col justify-start md:col-span-4 md:justify-end lg:order-3 lg:col-span-4 xl:col-span-4">
                                 <div class="flex w-full flex-col">
-                                    <div class="flex flex-row items-center justify-start gap-4 md:justify-end"><a
-                                            aria-label="AppStore" data-position="AppStore" target="_blank" href=""><svg
+                                    <div class="flex flex-row items-center justify-start gap-4 md:justify-end">
+                                       <?php if($setting->apple): ?>
+                                        <a target="_blank" href="<?php echo e($setting->apple); ?>">
+                                            <svg
                                                 xmlns="http://www.w3.org/2000/svg" width="120" height="40"
                                                 viewBox="0 0 120 40" fill="none">
                                                 <g clip-path="url(#clip0_211_554)">
@@ -469,8 +474,12 @@ echo $html;
                                                             transform="translate(0.335938)"></rect>
                                                     </clipPath>
                                                 </defs>
-                                            </svg></a><a aria-label="GooglePlay" data-position="GooglePlay"
-                                            target="_blank" href=""><svg xmlns="http://www.w3.org/2000/svg" width="135"
+                                            </svg>
+                                        </a>
+                                        <?php endif; ?>
+                                        <?php if($setting->google): ?>
+                                        <a target="_blank" href="<?php echo e($setting->google); ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="135"
                                                 height="40" viewBox="0 0 135 40" fill="none">
                                                 <path
                                                     d="M130 0H5C2.23858 0 0 2.23858 0 5V35C0 37.7614 2.23858 40 5 40H130C132.761 40 135 37.7614 135 35V5C135 2.23858 132.761 0 130 0Z"
@@ -519,7 +528,10 @@ echo $html;
                                                 <path
                                                     d="M20.7998 20L26.3098 14.49L14.3398 7.55001C13.9098 7.29001 13.3998 7.14001 12.8498 7.14001C11.5198 7.14001 10.3998 8.05002 10.0698 9.27002L20.7998 19.99V20Z"
                                                     fill="#34A853"></path>
-                                            </svg></a></div>
+                                            </svg>
+                                        </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -39,13 +39,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $cookie
  * @property string|null $accessibility
  * @property string|null $advertising
- * @property bool|null $langugage
+ * @property bool|null $language
  * @property bool|null $top_ticker
  * @property bool|null $advert
  * @property bool|null $top_event
  * @property bool|null $event_section
  * @property bool|null $podcast
  * @property bool|null $most_read
+ * @property bool|null $first
  * @property bool|null $newsletter
  * @property string|null $twitter
  * @property string|null $facebook
@@ -106,7 +107,7 @@ class AppSetting extends Model
 		'cookie',
 		'accessibility',
 		'advertising',
-		'langugage',
+		'language',
 		'top_ticker',
 		'advert',
 		'top_event',

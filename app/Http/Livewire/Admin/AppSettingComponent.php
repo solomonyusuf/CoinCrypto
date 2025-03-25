@@ -41,7 +41,7 @@ class AppSettingComponent extends Component
             'accessibility'=> $request->accessibility,
             'advertising'=> $request->advertising,
              //-------------------------------
-            'langugage'=> $request->lanugage,
+            'language'=> $request->language,
             'top_ticker'=> $request->top_ticker,
             'advert'=> $request->advert,
             'top_event'=> $request->top_event,

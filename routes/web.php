@@ -29,6 +29,17 @@ use App\Http\Livewire\PageVideoComponent;
 use App\Http\Livewire\ProfileComponent;
 use App\Http\Livewire\RegisterComponent;
 use App\Http\Livewire\ResetComponent;
+use App\Http\Livewire\Static\AboutComponent;
+use App\Http\Livewire\Static\AccessibilityComponent;
+use App\Http\Livewire\Static\AdvertiseComponent;
+use App\Http\Livewire\Static\ContactComponent;
+use App\Http\Livewire\Static\CookieComponent;
+use App\Http\Livewire\Static\EthicsComponent;
+use App\Http\Livewire\Static\MastheadComponent;
+use App\Http\Livewire\Static\PrivacyComponent;
+use App\Http\Livewire\Static\SellInfoComponent;
+use App\Http\Livewire\Static\SitemapComponent;
+use App\Http\Livewire\Static\TermsComponent;
 use App\Http\Livewire\TopTickerComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +76,19 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
 
+Route::get('/about-us', AboutComponent::class)->name('about_us');
+Route::get('/accessibility', AccessibilityComponent::class)->name('accessibility');
+Route::get('/advertise', AdvertiseComponent::class)->name('advertise');
+Route::get('/contact', ContactComponent::class)->name('contact');
+Route::get('/cookie', CookieComponent::class)->name('cookie');
+Route::get('/ethics', EthicsComponent::class)->name('ethics');
+Route::get('/masthead', MastheadComponent::class)->name('masthead');
+Route::get('/privacy', PrivacyComponent::class)->name('privacy');
+Route::get('/sell-info', SellInfoComponent::class)->name('sell_info');
+Route::get('/sitemap', SitemapComponent::class)->name('sitemap');
+Route::get('/terms', TermsComponent::class)->name('terms');
+
+//-----Static---------------------------------------
 Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
 
 Route::get('/category-{category_id}',CategoryDetailComponent::class)->name('category_detail');

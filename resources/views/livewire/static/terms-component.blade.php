@@ -1,3 +1,5 @@
 <div>
-    {{-- The best athlete wants his opponent at his best. --}}
+    <section  class="flex-grow flex flex-wrap justify-center flex-col items-center">
+         {!! $setting->terms !!}
+    </section>
 </div>

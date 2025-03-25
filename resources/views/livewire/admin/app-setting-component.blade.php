@@ -250,10 +250,11 @@
                                         <input name="footer_name" value="{{ $setting?->footer_name }}"  type="text" class="form-control" id="exampleInputname" placeholder="">
                                       </div>
 
-                                    <div class="mb-3 mt-2">
+                                      <div class="mb-3 mt-2">
                                         <textarea name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->footer_info }}</textarea>
                                     </div>
-                                    
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                     
                                    </div>
                                 </div>
                               </div>

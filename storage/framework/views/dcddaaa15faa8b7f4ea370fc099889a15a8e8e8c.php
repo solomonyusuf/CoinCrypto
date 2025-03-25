@@ -117,15 +117,15 @@ $advert = $setting->advert;
                        <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('uCSIp4j')) {
-    $componentId = $_instance->getRenderedChildComponentId('uCSIp4j');
-    $componentTag = $_instance->getRenderedChildComponentTagName('uCSIp4j');
+} elseif ($_instance->childHasBeenRendered('BAfNWWV')) {
+    $componentId = $_instance->getRenderedChildComponentId('BAfNWWV');
+    $componentTag = $_instance->getRenderedChildComponentTagName('BAfNWWV');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('uCSIp4j');
+    $_instance->preserveRenderedChild('BAfNWWV');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('uCSIp4j', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('BAfNWWV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -133,15 +133,15 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('Grt1cOZ')) {
-    $componentId = $_instance->getRenderedChildComponentId('Grt1cOZ');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Grt1cOZ');
+} elseif ($_instance->childHasBeenRendered('1jDr3c6')) {
+    $componentId = $_instance->getRenderedChildComponentId('1jDr3c6');
+    $componentTag = $_instance->getRenderedChildComponentTagName('1jDr3c6');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Grt1cOZ');
+    $_instance->preserveRenderedChild('1jDr3c6');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('Grt1cOZ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('1jDr3c6', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -174,15 +174,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('mxdtBeR')) {
-    $componentId = $_instance->getRenderedChildComponentId('mxdtBeR');
-    $componentTag = $_instance->getRenderedChildComponentTagName('mxdtBeR');
+} elseif ($_instance->childHasBeenRendered('XP8zeIa')) {
+    $componentId = $_instance->getRenderedChildComponentId('XP8zeIa');
+    $componentTag = $_instance->getRenderedChildComponentTagName('XP8zeIa');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('mxdtBeR');
+    $_instance->preserveRenderedChild('XP8zeIa');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('mxdtBeR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('XP8zeIa', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -192,8 +192,7 @@ echo $html;
 
             <footer 
                 class="bottom-0 flex w-full flex-col items-center bg-[#FAFAFA] px-0 pb-[64px] pt-4 lg:pb-0">
-                <div
-                    class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
+                <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
                     <div class="max-w-[100%]">
                         <div class="mb-8 flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
                             <div class="mb-0 lg:mb-0">
@@ -203,77 +202,9 @@ echo $html;
                             </div>
                         </div>
                         <hr class="my-6 border-[#A6A6A6]" />
-                        <div class="grid grid-cols-2 gap-8 lg:grid-cols-6">
-                            <div class="column">
-                                <p class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
-                                    About
-                                </p>
-                                <ul class="column-items mt-6 font-serif">
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="About Us" href="<?php echo e(route('about_us')); ?>">About Us</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Masthead" href="<?php echo e(route('masthead')); ?>">Masthead</a>
-                                    </li>
-                                    
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a target="_blank"  href="<?php echo e(route('cookie')); ?>">Cookie</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a href="">CoinCrypto News</a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="column">
-                                <p
-                                    class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
-                                    Contact</p>
-                                <ul class="column-items mt-6 font-serif">
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Contact Us" href="<?php echo e(route('contact')); ?>">Contact Us</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Accessibility" href="<?php echo e(route('accessibility')); ?>">Accessibility</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a aria-label="Advertise" href="<?php echo e(route('advertise')); ?>">Advertise</a>
-                                    </li>
-                                    <li
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a href="<?php echo e(route('sitemap')); ?>">Sitemap</a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="col-span-4 flex flex-col gap-4">
-                                <div class="font-title uppercase text-sm text-[#1A1A1A] leading-none">DISCLOSURE &amp;
-                                    POLICES</div>
-                                <div class="font-metadata leading-[1.5] tracking-[0.4px] text-[#676767]">
-                                    <?php echo $setting->footer_info; ?>
+                        
+                        <?php echo $setting->footer_info; ?>
 
-                                </div>
-                                <div class="flex-start flex flex-wrap gap-x-4 gap-y-2 self-stretch"><span
-                                        class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Ethics" href="<?php echo e(route('ethics')); ?>">Ethics</a></span><span
-                                        class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Privacy" href="<?php echo e(route('privacy')); ?>">Privacy</a></span><span
-                                        class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            aria-label="Terms of Use" href="<?php echo e(route('terms')); ?>">Terms of Use</a></span><span
-                                        class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-black hover:underline"><a
-                                            href="<?php echo e(route('cookie')); ?>">Cookie Consent</a></span><span
-                                        class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a
-                                            href="<?php echo e(route('sell_info')); ?>">Do Not Sell My
-                                            Info</a></span></div>
-                            </div>
-                        </div>
                         <hr class="my-6 border-[#A6A6A6]" />
                         <div
                             class="xl:grid-cols-16 grid grid-cols-1 items-center gap-6 md:grid-cols-8 lg:grid-cols-12 lg:gap-0">

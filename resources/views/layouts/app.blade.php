@@ -148,8 +148,7 @@ $advert = $setting->advert;
 
             <footer 
                 class="bottom-0 flex w-full flex-col items-center bg-[#FAFAFA] px-0 pb-[64px] pt-4 lg:pb-0">
-                <div
-                    class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
+                <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
                     <div class="max-w-[100%]">
                         <div class="mb-8 flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
                             <div class="mb-0 lg:mb-0">
@@ -159,7 +158,7 @@ $advert = $setting->advert;
                             </div>
                         </div>
                         <hr class="my-6 border-[#A6A6A6]" />
-                        <div class="grid grid-cols-2 gap-8 lg:grid-cols-6">
+                        {{-- <div class="grid grid-cols-2 gap-8 lg:grid-cols-6">
                             <div class="column">
                                 <p class="font-title text-sm break-keep uppercase leading-[1.5] tracking-[0.1px] text-[#1A1A1A]">
                                     About
@@ -176,7 +175,7 @@ $advert = $setting->advert;
                                     {{-- <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
                                         <a target="_blank" aria-label="Careers" href="">Careers</a>
-                                    </li> --}}
+                                    </li> 
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
                                         <a target="_blank"  href="{{ route('cookie') }}">Cookie</a>
@@ -189,7 +188,7 @@ $advert = $setting->advert;
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
                                         <a aria-label="Crypto API Documentation" href="">Crypto
                                             API Documentation</a>
-                                    </li> --}}
+                                    </li> --
                                 </ul>
                             </div>
                             <div class="column">
@@ -217,7 +216,7 @@ $advert = $setting->advert;
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
                                         <a aria-label="System Status" href="">System
                                             Status</a>
-                                    </li> --}}
+                                    </li> --
                                 </ul>
                             </div>
                             <div class="col-span-4 flex flex-col gap-4">
@@ -239,7 +238,8 @@ $advert = $setting->advert;
                                             href="{{ route('sell_info') }}">Do Not Sell My
                                             Info</a></span></div>
                             </div>
-                        </div>
+                        </div> --}}
+                        {!! $setting->footer_info !!}
                         <hr class="my-6 border-[#A6A6A6]" />
                         <div
                             class="xl:grid-cols-16 grid grid-cols-1 items-center gap-6 md:grid-cols-8 lg:grid-cols-12 lg:gap-0">

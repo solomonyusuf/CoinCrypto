@@ -1,3 +1,5 @@
 <div>
-    {{-- Do your work, then step back. --}}
+    <section  class="flex-grow flex flex-wrap justify-center flex-col items-center">
+         {!! $setting->advertise !!}
+    </section>
 </div>

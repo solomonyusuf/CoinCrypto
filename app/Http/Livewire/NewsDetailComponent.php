@@ -11,10 +11,15 @@ class NewsDetailComponent extends Component
     public $slug;
     public $news_id;
     public $advert = true;
+    public $setting;
+
+
     public function mount($slug, $news_id)
     {
         $this->slug = $slug;
         $this->news_id = $news_id;
+        $this->setting = \App\Models\AppSetting::first();
+        $this->advert = $this->setting->advert;
     }
     public function render()
     {

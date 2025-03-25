@@ -1,3 +1,5 @@
 <div>
-    {{-- The Master doesn't talk, he acts. --}}
+    <section  class="flex-grow flex flex-wrap justify-center flex-col items-center">
+         {!! $setting->accessibility !!}
+    </section>
 </div>

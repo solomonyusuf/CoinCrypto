@@ -1,3 +1,5 @@
 <div>
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+    <section  class="flex-grow flex flex-wrap justify-center flex-col items-center">
+         {!! $setting->contact !!}
+    </section>
 </div>

@@ -1,10 +1,11 @@
 <div>
     <?php
         $user = \App\Models\User::find(auth()->user()?->id);
-        ?>
+        $setting = \App\Models\AppSetting::first();
+    ?>
         
         
-        <script>
+ <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuButton = document.getElementById("menu-button");
             const modal = document.getElementById("modal");
@@ -33,30 +34,31 @@
             });
         });
         
-let activeurllate = 'default'; // Default state
+        let activeurllate = 'default'; // Default state
 
-function seturllate(urllateId) {
-    activeurllate = urllateId;  
+        function seturllate(urllateId) {
+            activeurllate = urllateId;  
 
-    document.getElementById('default').classList.remove('hidden');
-
-
-    if (activeurllate === 'videos') {
-        document.getElementById('videosurllate').classList.add('hidden');
-    }
-}
-
- 
-document.getElementById('openVideos').addEventListener('click', function () {
-    seturllate('videos');
-});
-
-document.getElementById('closeVideos').addEventListener('click', function () {
-    seturllate('default');
-});
+            document.getElementById('default').classList.remove('hidden');
 
 
-        </script>
+            if (activeurllate === 'videos') {
+                document.getElementById('videosurllate').classList.add('hidden');
+            }
+        }
+
+        
+        document.getElementById('openVideos').addEventListener('click', function () {
+            seturllate('videos');
+        });
+
+        document.getElementById('closeVideos').addEventListener('click', function () {
+            seturllate('default');
+        });
+
+
+</script>
+
    <div class="relative flex h-[4rem] items-center justify-between border-b border-b-gray-300 p-0 md:p-[1.25rem]">
         <div class="md:justify-unset flex h-full items-center">
 
@@ -89,42 +91,55 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                        @endif
                         <div class="border-b-1"></div>
                         <ul>
+                            @if($setting->news)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between">
                                     <a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="{{  route('home') }}"><span class="h-auto"><span
-                                                class="font-title font-bold">News</span></span></a>
+                                                class="font-title font-bold">{{ $setting->news}}
+                                            </span></span>
+                                        </a>
                                 </div>
                               
                             </li>
+                            @endif
+                            @if($setting->prices)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="{{ route('prices') }}"><span class="h-auto"><span
-                                                class="font-title font-bold">Prices</span></span></a>
+                                                class="font-title font-bold">{{ $setting->prices}}</span></span></a>
                                             </div>
                             </li>
+                            @endif
+                            @if($setting->concensus)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="__blank"
                                         href="{{ $event->link }}">
                                         <span class="h-auto">
-                                            <span class="font-title font-bold">Consensus</span></span></a>
+                                            <span class="font-title font-bold">{{ $setting->concensus}}</span></span></a>
                                 </div>
                             </li>
+                            @endif
+
+                            @if($setting->sponsored)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="{{ route('sponsored') }}"><span class="h-auto"><span
-                                                class="font-title font-bold">Sponsored</span></span>
+                                                class="font-title font-bold">{{ $setting->sponsored}}</span></span>
                                             </a>
                             </div>
                             </li>
+                            @endif
                         </ul>
                         <div class="border-b-1"></div>
                         <ul class="pb-2 lg:pb-4" >
                             @if($urllate == 'default')
+
+                            @if($setting->videos)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between">
                                     <a
@@ -132,7 +147,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         >
                                         <span class="h-auto">
                                             <span
-                                                class="font-title">Videos</span>
+                                                class="font-title">{{$setting->videos}}</span>
                                             </span>
                                         </a>
                                             <button wire:click="selecturllate('videos')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
@@ -156,12 +171,16 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                     </div>
                                 
                             </li>
+                            @endif
+                            @if($setting->podcasts)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href="">
-                                        <span class="h-auto"><span
-                                                class="font-title">Podcasts</span></span></a>
+                                        <span class="h-auto">
+                                            <span lass="font-title">
+                                            {{ $setting->podcasts }}    
+                                            </span></span></a>
                                         <button wire:click="selecturllate('podcasts')"
                                         class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
@@ -184,11 +203,13 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 </div>
                                 
                             </li>
+                            @endif
+                            @if($setting->newsletters)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
                                         href=""><span class="h-auto"><span
-                                                class="font-title">Newsletters</span></span></a>
+                                                class="font-title">{{ $setting->newsletters}}</span></span></a>
                                         <button wire:click="selecturllate('newsletters')" class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
@@ -210,13 +231,16 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                 </div>
                                 
                             </li>
+                            @endif
                              
+                            @if($setting->webinar)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_blank"
-                                        href="https://events.coindesk.com/"><span class="h-auto"><span
-                                                class="font-title">Webinars &amp;
-                                                Events</span></span></a>
+                                        href=""><span class="h-auto"><span
+                                                class="font-title">
+                                                {{ $setting->webinar }}
+                                            </span></span></a>
                                     <button wire:click="selecturllate('events')"
                                         class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
@@ -237,12 +261,17 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         </svg></button></div>
                                 
                             </li>
+                            @endif
                              
+                            @if($setting->news_section)
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between"><a
                                         class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
-                                        href="/"><span class="h-auto"><span class="font-title">News
-                                                Sections</span></span></a>
+                                        href="/">
+                                        <span class="h-auto">
+                                            <span class="font-title">
+                                            {{ $setting->news_section }}
+                                        </span></span></a>
                                        <button wire:click="selecturllate('sections')"  class="hover:bg-bg-grey flex w-10 cursor-pointer justify-center">
                                         <svg
                                             class="h-full pb-2 pt-2" width="24" height="24" viewBox="0 0 24 24"
@@ -262,6 +291,7 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                                         </svg></button></div>
                                 
                             </li>
+                            @endif
                             @endif
 
                             @if($urllate == 'videos')
@@ -613,34 +643,38 @@ document.getElementById('closeVideos').addEventListener('click', function () {
             </div>
             <!--/$-->
         </div>
-        <div class="flex h-full items-center"><a class="px-4" href="/"><img alt="Logo" width="169" height="32"
-                    src="/logo.png" style="height:40px;" /></a>
+        <div class="flex h-full items-center">
+            <a class="px-4" href="/">
+            <img alt="{{ $setting->name }}" width="169" height="32"
+                    src="{{ asset($setting->logo) }}" style="height:40px;" /></a>
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="{{ route('home') }}">
                         <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('home') ? 'font-bold' : '' }}">News</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('home') ? 'font-bold' : '' }}">{{$setting->news}}</span></a>
                 </li>
                 <li class="undefined ˙">
                     <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="{{ route('prices') }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('prices') ? 'font-bold' : '' }} ">Prices</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('prices') ? 'font-bold' : '' }} ">{{ $setting->prices}}</span></a>
                 </li>
             
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="{{ $event->category }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">Consensus</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">{{ $setting->concensus}}</span></a>
                 </li>
                 <li class="undefined ˙">
                     <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
                         href="{{ route('sponsored') }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('sponsored') ? 'font-bold' : '' }}">Sponsored</span></a>
+                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('sponsored') ? 'font-bold' : '' }}">
+                        {{ $setting->sponsored }}
+                        </span></a>
                 </li>
-                <div
-                    class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
+                @if($setting->language)
+                <div class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
             
                     <div class="inline-flex h-full">
                         <button
@@ -662,8 +696,10 @@ document.getElementById('closeVideos').addEventListener('click', function () {
                         </button>
                     </div>
                    </div>
-                @if(!$user)
-                <li class="hidden h-full items-center justify-center lg:flex">
+                     @endif
+                   @if(!$user)
+                
+                   <li class="hidden h-full items-center justify-center lg:flex">
                     <a class="hover:bg-bg-grey flex h-[2.5rem] items-center justify-center rounded px-4"
                         href="{{ route('login') }}">
                         <span

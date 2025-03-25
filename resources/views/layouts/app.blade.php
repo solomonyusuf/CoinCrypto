@@ -1,6 +1,7 @@
 <?php
 $user = \App\Models\User::find(auth()->user()?->id);
-$advert = true;
+$setting = \App\Models\AppSetting::first();
+$advert = $setting->advert;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,8 +112,9 @@ $advert = true;
             <header 
                 class="top-0 z-[100] bg-white">
                 <div class="bg-white">
-                    @livewire('top-ticker-component')
-
+                    @if($setting->top_ticker)
+                       @livewire('top-ticker-component')
+                    @endif
                     @livewire('navmenu')
                 </div>
                 

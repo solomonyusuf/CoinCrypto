@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $sponsored
  * @property string|null $videos
  * @property string|null $podcasts
+ * @property string|null $news_section
  * @property string|null $newsletters
  * @property string|null $webinar
  * @property string|null $footer_info
@@ -91,6 +92,7 @@ class AppSetting extends Model
 		'sponsored',
 		'videos',
 		'podcasts',
+		'news_section',
 		'newsletters',
 		'webinar',
 		'footer_info',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Newsletter;
@@ -35,6 +36,8 @@ class Navmenu extends Component
     }
     public function render()
     {
+        $setting = AppSetting::first();
+
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  
                     ->first();
@@ -63,6 +66,7 @@ class Navmenu extends Component
             'events'=> $events,
             'podcasts'=> $podcasts,
             'newsletter'=> $newsletters,
+            'setting'=> $setting,
             'categories'=> $categories_display,
         ]);
     }

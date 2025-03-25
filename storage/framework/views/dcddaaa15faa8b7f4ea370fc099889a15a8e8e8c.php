@@ -1,6 +1,7 @@
 <?php
 $user = \App\Models\User::find(auth()->user()?->id);
-$advert = true;
+$setting = \App\Models\AppSetting::first();
+$advert = $setting->advert;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,34 +113,35 @@ $advert = true;
             <header 
                 class="top-0 z-[100] bg-white">
                 <div class="bg-white">
-                    <?php
+                    <?php if($setting->top_ticker): ?>
+                       <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('2wAwuDS')) {
-    $componentId = $_instance->getRenderedChildComponentId('2wAwuDS');
-    $componentTag = $_instance->getRenderedChildComponentTagName('2wAwuDS');
+} elseif ($_instance->childHasBeenRendered('7a03vtz')) {
+    $componentId = $_instance->getRenderedChildComponentId('7a03vtz');
+    $componentTag = $_instance->getRenderedChildComponentTagName('7a03vtz');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('2wAwuDS');
+    $_instance->preserveRenderedChild('7a03vtz');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('2wAwuDS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('7a03vtz', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
-
+                    <?php endif; ?>
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('IaZBVTs')) {
-    $componentId = $_instance->getRenderedChildComponentId('IaZBVTs');
-    $componentTag = $_instance->getRenderedChildComponentTagName('IaZBVTs');
+} elseif ($_instance->childHasBeenRendered('1QDBbNI')) {
+    $componentId = $_instance->getRenderedChildComponentId('1QDBbNI');
+    $componentTag = $_instance->getRenderedChildComponentTagName('1QDBbNI');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('IaZBVTs');
+    $_instance->preserveRenderedChild('1QDBbNI');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('IaZBVTs', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('1QDBbNI', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -152,19 +154,17 @@ echo $html;
                 <div class="">
                     <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
                         <div id="highimpact" style="width:1440px;height:280px"
-                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px">
-                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6192119897634735"
-                                crossorigin="anonymous"></script>
-                            <!-- banner -->
-                            <ins class="adsbygoogle"
-                                style="display:block"
-                                data-ad-client="ca-pub-6192119897634735"
-                                data-ad-slot="5420507746"
-                                data-ad-format="auto"
-                                data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
+                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
+                            name="coindesk_podcast_desktop_highimpactdsk">
+                            <div id="google_ads_iframe_/22031491390/cddesktop/article_0__container__" style="border: 0pt;background:#a6abae;">
+                                <iframe
+                                    id="google_ads_iframe_/22031491390/cddesktop/article_0"
+                                    class="animate-shimmer"
+                                    name="google_ads_iframe_/22031491390/cddesktop/article_0" title="3rd party ad content"
+                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
+                                    style="border: 0px; vertical-align: bottom;" aria-label="Advertisement" tabindex="0"
+                                    data-google-container-id="1" data-load-complete="true"></iframe>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -172,15 +172,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('ZJhl666')) {
-    $componentId = $_instance->getRenderedChildComponentId('ZJhl666');
-    $componentTag = $_instance->getRenderedChildComponentTagName('ZJhl666');
+} elseif ($_instance->childHasBeenRendered('Ebo0nED')) {
+    $componentId = $_instance->getRenderedChildComponentId('Ebo0nED');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Ebo0nED');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ZJhl666');
+    $_instance->preserveRenderedChild('Ebo0nED');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('ZJhl666', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Ebo0nED', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

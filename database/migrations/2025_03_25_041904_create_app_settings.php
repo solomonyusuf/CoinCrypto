@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('videos')->nullable();
             $table->string('podcasts')->nullable();
             $table->string('newsletters')->nullable();
+            $table->string('news_section')->nullable();
             $table->string('webinar')->nullable();
             //--------------------------------------------
             $table->text('footer_info')->nullable();

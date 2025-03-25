@@ -533,6 +533,7 @@ class DatabaseSeeder extends Seeder
             'address'=> '67 Adeniyi uprat Lagos',
             'contact'=> '',
             //-------------------------------
+            'news_section'=> 'News & Section',
             'news'=> 'News',
             'prices'=> 'Prices',
             'concensus'=> 'Concensus',

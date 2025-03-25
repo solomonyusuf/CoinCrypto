@@ -115,15 +115,15 @@ $advert = true;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('Y3fInlJ')) {
-    $componentId = $_instance->getRenderedChildComponentId('Y3fInlJ');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Y3fInlJ');
+} elseif ($_instance->childHasBeenRendered('2wAwuDS')) {
+    $componentId = $_instance->getRenderedChildComponentId('2wAwuDS');
+    $componentTag = $_instance->getRenderedChildComponentTagName('2wAwuDS');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Y3fInlJ');
+    $_instance->preserveRenderedChild('2wAwuDS');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('Y3fInlJ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('2wAwuDS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -131,15 +131,15 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('NZb9Np5')) {
-    $componentId = $_instance->getRenderedChildComponentId('NZb9Np5');
-    $componentTag = $_instance->getRenderedChildComponentTagName('NZb9Np5');
+} elseif ($_instance->childHasBeenRendered('IaZBVTs')) {
+    $componentId = $_instance->getRenderedChildComponentId('IaZBVTs');
+    $componentTag = $_instance->getRenderedChildComponentTagName('IaZBVTs');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('NZb9Np5');
+    $_instance->preserveRenderedChild('IaZBVTs');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('NZb9Np5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('IaZBVTs', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -152,17 +152,19 @@ echo $html;
                 <div class="">
                     <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
                         <div id="highimpact" style="width:1440px;height:280px"
-                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
-                            name="coindesk_podcast_desktop_highimpactdsk">
-                            <div id="google_ads_iframe_/22031491390/cddesktop/article_0__container__" style="border: 0pt;background:#a6abae;">
-                                <iframe
-                                    id="google_ads_iframe_/22031491390/cddesktop/article_0"
-                                    class="animate-shimmer"
-                                    name="google_ads_iframe_/22031491390/cddesktop/article_0" title="3rd party ad content"
-                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
-                                    style="border: 0px; vertical-align: bottom;" aria-label="Advertisement" tabindex="0"
-                                    data-google-container-id="1" data-load-complete="true"></iframe>
-                                </div>
+                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6192119897634735"
+                                crossorigin="anonymous"></script>
+                            <!-- banner -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-6192119897634735"
+                                data-ad-slot="5420507746"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -170,15 +172,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('U11v26R')) {
-    $componentId = $_instance->getRenderedChildComponentId('U11v26R');
-    $componentTag = $_instance->getRenderedChildComponentTagName('U11v26R');
+} elseif ($_instance->childHasBeenRendered('ZJhl666')) {
+    $componentId = $_instance->getRenderedChildComponentId('ZJhl666');
+    $componentTag = $_instance->getRenderedChildComponentTagName('ZJhl666');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('U11v26R');
+    $_instance->preserveRenderedChild('ZJhl666');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('U11v26R', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('ZJhl666', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

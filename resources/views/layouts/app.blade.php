@@ -123,17 +123,19 @@ $advert = true;
                 <div class="">
                     <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
                         <div id="highimpact" style="width:1440px;height:280px"
-                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
-                            name="coindesk_podcast_desktop_highimpactdsk">
-                            <div id="google_ads_iframe_/22031491390/cddesktop/article_0__container__" style="border: 0pt;background:#a6abae;">
-                                <iframe
-                                    id="google_ads_iframe_/22031491390/cddesktop/article_0"
-                                    class="animate-shimmer"
-                                    name="google_ads_iframe_/22031491390/cddesktop/article_0" title="3rd party ad content"
-                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
-                                    style="border: 0px; vertical-align: bottom;" aria-label="Advertisement" tabindex="0"
-                                    data-google-container-id="1" data-load-complete="true"></iframe>
-                                </div>
+                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6192119897634735"
+                                crossorigin="anonymous"></script>
+                            <!-- banner -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-6192119897634735"
+                                data-ad-slot="5420507746"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div>
                 </div>

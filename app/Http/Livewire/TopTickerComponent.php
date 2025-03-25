@@ -14,7 +14,7 @@ class TopTickerComponent extends Component
     {
         try
         {
-            $this->fetchPrice();
+           // $this->fetchPrice();
           //dd($this->price);
         }  
         catch(\Exception $ex)

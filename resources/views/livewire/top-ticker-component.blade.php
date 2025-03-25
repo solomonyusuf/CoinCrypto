@@ -23,7 +23,23 @@
     </style>
     
     <div class="slide-container relative box-content flex h-9 items-center justify-between overflow-hidden">
-        <!-- Play/Pause Button -->
+        <!-- TradingView Ticker Tape Widget -->
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                { "proName": "COINBASE:BTCUSD", "title": "Bitcoin" },
+                { "proName": "COINBASE:ETHUSD", "title": "Ethereum" },
+                { "proName": "BINANCE:BNBUSDT", "title": "Binance Coin" },
+                { "proName": "COINBASE:XRPUSD", "title": "XRP" }
+            ],
+            "theme": "light",
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "locale": "en"
+            }
+            </script>
+    
+        {{-- <!-- Play/Pause Button -->
         <div class="bg-charcoal-25 absolute left-0 top-0 z-20 flex h-full items-center">
             <button id="togglePlay" class="flex h-full cursor-pointer items-center px-4 lg:px-6">
                 <svg id="playIcon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +76,7 @@
             @endforeach
 
         
-        </div>
+        </div> --}}
     </div>
     
     <!-- JavaScript -->
@@ -89,7 +105,9 @@
         });
     </script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script>
+    
+{{--     
+    <script>
          $(document).ready(function () {
              function fetchUpdatedPrices() {
                  $.ajax({
@@ -134,7 +152,7 @@
              
              setInterval(fetchUpdatedPrices, 10000);
          });
-     </script>
+     </script> --}}
      
     
     
@@ -144,5 +162,6 @@
                 Livewire.emit('fetchPrice'); // Auto refresh every 60s
             }, 60000); // 60,000 ms = 60 seconds
         });
+    
     </script> --}}
 </div>

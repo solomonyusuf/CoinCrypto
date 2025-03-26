@@ -790,6 +790,16 @@
 
     menuButton.addEventListener("click", toggleModal);
     wrapper.addEventListener("click", toggleModal);
+
+    document.addEventListener("click", function (event) {
+    const videoSection = event.target.closest("#modal");
+
+    if (videoSection) {
+        videoSection.scrollTo({ top: 0, behavior: "smooth" });
+    }
+});
+
+
 });
 
     </script>

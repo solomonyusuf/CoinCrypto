@@ -29,7 +29,19 @@
       display:flex;
       gap:2rem;
     }
+    #dt-length-0{
+      margin-right:5px;
+    }
     </style>
+<!-- jQuery (Must come first) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+
+<!-- DataTables JS (Must come after jQuery) -->
+<script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -1544,6 +1556,19 @@
     });
 </script>  --}}
 
+<script>
+        
+  let table = new DataTable('#table',{
+          "paging": true,          // Enable pagination
+          "ordering": true,        // Enable sorting
+          "info": true,            // Show table info
+          "searching": true,       // Enable search
+          "autoWidth": false,      // Prevent width changes
+          "columnDefs": [
+              { "orderable": false, "targets": [0] } // Disable sorting for first column if needed
+          ]
+      });
+</script>
 
 
 

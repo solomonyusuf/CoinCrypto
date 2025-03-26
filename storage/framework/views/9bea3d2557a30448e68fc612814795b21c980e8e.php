@@ -30,7 +30,19 @@
       display:flex;
       gap:2rem;
     }
+    #dt-length-0{
+      margin-right:5px;
+    }
     </style>
+<!-- jQuery (Must come first) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
+
+<!-- DataTables JS (Must come after jQuery) -->
+<script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -1488,6 +1500,7 @@
 
   
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
 
 
 

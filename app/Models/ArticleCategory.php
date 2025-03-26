@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id
  * @property string $title
  * @property string $slug
+ * @property bool|null $visisble
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -31,6 +32,7 @@ class ArticleCategory extends Model
 	protected $fillable = [
 		'id',
 		'slug',
+		'visible',
 		'title'
 	];
 

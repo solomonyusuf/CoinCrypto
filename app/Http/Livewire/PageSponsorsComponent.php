@@ -13,7 +13,8 @@ class PageSponsorsComponent extends Component
 
     public function render()
     {
-        $articles = Article::orderByDesc('created_at')
+        $articles = Article::where(['visible'=> true])
+                        ->orderByDesc('created_at')
                         ->paginate(10);
 
         $groupedArticles = $articles->groupBy(function ($article) {

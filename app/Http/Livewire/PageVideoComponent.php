@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\AppVideo;
 use App\Models\VideoCategory;
 use Livewire\Component;
@@ -22,7 +23,7 @@ class PageVideoComponent extends Component
     }
     public function render()
     {
-       
+       $this->advert = AppSetting::first()->advert;
         $category = VideoCategory::find($this->video_id);
         $top = AppVideo::orderByDesc('created_at')
                 ->where('category_id', $category->id)
@@ -30,6 +31,7 @@ class PageVideoComponent extends Component
                 ->get();   
 
         $videos = AppVideo::orderByDesc('created_at')
+            ->where(['visible'=> true])    
             ->where('category_id', $category->id)
             ->skip(10) 
             ->paginate(4);
@@ -38,6 +40,7 @@ class PageVideoComponent extends Component
             'category'=> $category,
             'top'=> $top,
             'videos'=> $videos,
+             
         ]);
     }
 }

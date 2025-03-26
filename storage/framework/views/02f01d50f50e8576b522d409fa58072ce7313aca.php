@@ -103,6 +103,12 @@
                         <span class="d-none d-md-block ms-2">About</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex" data-bs-toggle="tab" href="#item14" role="tab">
+                        <span><i class="ti ti-book"></i> </span>
+                        <span class="d-none d-md-block ms-2">Masthead</span>
+                    </a>
+                </li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -579,6 +585,14 @@
                     <h6>About</h6>
                     <div class="mb-3 mt-2">
                         <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->about); ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                       
+                </div>
+                <div class="tab-pane p-3" id="item14" role="tabpanel">
+                    <h6>Masthead</h6>
+                    <div class="mb-3 mt-2">
+                        <textarea name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->masthead); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        

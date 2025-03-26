@@ -35,6 +35,15 @@
                                         <label for="exampleInputEmail1" class="form-label">Title *</label>
                                         <input required wire:model='add.title' placeholder="Enter Title" type="text" class="form-control">
                                       </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Visible * (show to users)</label>
+                                        <select required wire:model="add.visible" class="form-control">
+                                          <option selected value=""> ----Choose ----</option>
+                                          <option value="1"> true</option>
+                                          <option value="0"> false</option>
+                                          
+                                        </select>
+                                      </div>
                                 
                                     </div>
                                 </div>
@@ -62,6 +71,9 @@
                         <h6 class="fs-4 fw-semibold mb-0">Tag</h6>
                     </th>
                     <th>
+                        <h6 class="fs-4 fw-semibold mb-0">Visible</h6>
+                    </th>
+                    <th>
                         <h6 class="fs-4 fw-semibold mb-0">Articles</h6>
                     </th>
                     <th></th>
@@ -75,6 +87,15 @@
                         <span class="fw-normal">{{ $data->title }}</span>
                     </td>
 
+                    <td>
+                        <span class="fw-normal">
+                          @if($data->visisble)
+                          true
+                          @else 
+                          false
+                          @endif
+                        </span>
+                    </td>
                     <td>
                         <span class="fw-normal">{{ count($data?->articles) }}</span>
                     </td>
@@ -107,6 +128,19 @@
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Title *</label>
                                                     <input required wire:model='add.title' placeholder="{{ $data->title }}" type="text" class="form-control">
+                                                  </div>
+                                                  
+                                                  <div class="mb-3">
+                                                    <label  class="form-label">Visible * (show to users)</label>
+                                                    <select required wire:model="add.visible" class="form-control">
+                                                      @if ($data->visible == true)
+                                                      <option selected value="1"> true</option>
+                                                      <option value="0"> false</option>
+                                                      @else 
+                                                      <option  value="1"> true</option>
+                                                      <option selected value="0"> false</option>
+                                                      @endif
+                                                    </select>
                                                   </div>
                                             
                                                 </div>

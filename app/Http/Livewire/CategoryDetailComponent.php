@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Article;
+use App\Models\AppSetting;
 use App\Models\ArticleCategory;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
@@ -19,6 +20,7 @@ class CategoryDetailComponent extends Component
     }
     public function render()
     {
+        $this->advert = AppSetting::first()->advert;
         $category = ArticleCategory::find($this->category_id);
 
         $categories = ArticleCategory::whereNotIn('title', [$category->title])->limit(2)->get();

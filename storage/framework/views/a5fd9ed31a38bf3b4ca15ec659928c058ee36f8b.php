@@ -6,6 +6,7 @@
       
       
       <div class="grid gap-4 md:gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
+        <?php if($setting->first): ?>
         <div class="col-start-1 col-span-full row-start-1 lg:col-end-8 xl:col-end-9">
           <div class="flex flex-col gap-1 md:flex-row xlmax:w-full ">
             <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
@@ -41,7 +42,8 @@
 
                       </span>
                     </p>
-              </div><a  
+              </div>
+              <a  
                 class="flex shrink-0 flex-col"
                 href="<?php echo e(route('article_detail', [$latest->slug, $latest->id])); ?>">
                 <img
@@ -82,8 +84,11 @@
             </div>
           </div>
         </div>
+        <?php endif; ?>
+
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
+          
             <div class="pb-6">
               <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
             </div>
@@ -109,6 +114,8 @@ echo $html;
             <div class="py-4">
               <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
             </div>
+
+            <?php if($setting->advert): ?>
             <div class="flex flex-col min-h-[228px]">
               <div class="min-w-full min-h-full">
                 <div class="color-black relative flex items-start justify-center aw100% ah100%" style="height:100%">
@@ -122,123 +129,127 @@ echo $html;
                 </div>
               </div>
             </div>
+            <?php endif; ?>
+
           </div>
         </div>
-        <div class="col-span-full md:row-start-2 md:col-start-4 lg:row-start-2 lg:col-start-4 -lg:col-end-1 md:row-start-3">
-          <div class="pb-6">
-            <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
-          </div>
-          <div class="flex pb-6 items-center">
-            <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Top Stories</h2>
-          </div>
-          
-          <?php for($i = 0; $i < count($top); $i += 3): ?>
-            <div class="flex">
-                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
-                    <div class="col-span-1 lg:col-span-5 xl:col-span-1">
-                        <div class="flex gap-4 false">
-                            <div class="bg-white flex gap-6 w-full shrink">
-                                <div class="flex flex-col">
-                                    <?php if(isset($top[$i])): ?>
-                                        <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                          href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
-                                            <h2 class="font-headline-2xs font-medium">
-                                                <?php echo e($top[$i]->title); ?>
+        
+          <div class="col-span-full md:row-start-2 md:col-start-4 lg:row-start-2 lg:col-start-4 -lg:col-end-1 md:row-start-3">
+                <div class="pb-6">
+                  <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+                </div>
+                <div class="flex pb-6 items-center">
+                  <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Top Stories</h2>
+                </div>
+        
+                  <?php for($i = 0; $i < count($top); $i += 3): ?>
+                    <div class="flex">
+                        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
+                            <div class="col-span-1 lg:col-span-5 xl:col-span-1">
+                                <div class="flex gap-4 false">
+                                    <div class="bg-white flex gap-6 w-full shrink">
+                                        <div class="flex flex-col">
+                                            <?php if(isset($top[$i])): ?>
+                                                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                  href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
+                                                    <h2 class="font-headline-2xs font-medium">
+                                                        <?php echo e($top[$i]->title); ?>
 
-                                            </h2>
-                                        </a>
-                                        <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
-                                            <?php echo \Illuminate\Support\Str::limit($top[$i]->content, 60, '..'); ?>
+                                                    </h2>
+                                                </a>
+                                                <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
+                                                    <?php echo \Illuminate\Support\Str::limit($top[$i]->content, 60, '..'); ?>
 
-                                        </p>
-                                        <p class="flex gap-2 flex-col">
-                                            <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                <?php echo e(\Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans()); ?>
+                                                </p>
+                                                <p class="flex gap-2 flex-col">
+                                                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                        <?php echo e(\Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans()); ?>
 
-                                            </span>
-                                        </p>
-                                    <?php endif; ?>
+                                                    </span>
+                                                </p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if(isset($top[$i]) && !empty($top[$i]->image)): ?>
+                                            <a title="<?php echo e($top[$i]->title); ?>" class="flex shrink-0 flex-col"
+                                              href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
+                                                <img width="1280" height="960" class="lg:w-[9.5rem] lg:h-[9.5rem] sm:w-16 sm:h-16 xs:w-16 xs:h-16 rounded align-self-end object-cover"
+                                                    src="<?php echo e($top[$i]->image); ?>" />
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                                <?php if(isset($top[$i]) && !empty($top[$i]->image)): ?>
-                                    <a title="<?php echo e($top[$i]->title); ?>" class="flex shrink-0 flex-col"
-                                      href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
-                                        <img width="1280" height="960" class="lg:w-[9.5rem] lg:h-[9.5rem] sm:w-16 sm:h-16 xs:w-16 xs:h-16 rounded align-self-end object-cover"
-                                            src="<?php echo e($top[$i]->image); ?>" />
-                                    </a>
+                            </div>
+                            
+                            <div class="col-span-1 md:col-span-1 lg:col-span-4 xl:col-span-1 grid grid-cols-1 xl:grid-cols-2 xl:gap-6">
+                                <?php if(isset($top[$i+1])): ?>
+                                    <div>
+                                        <div class="flex gap-4 false">
+                                            <div class="bg-white flex gap-6 w-full shrink">
+                                                <div class="flex flex-col">
+                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                      href="<?php echo e(route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id])); ?>">
+                                                        <h2 class="font-headline-2xs font-medium">
+                                                            <?php echo e($top[$i+1]->title); ?>
+
+                                                        </h2>
+                                                    </a>
+                                                    <p class="flex gap-2 flex-col">
+                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                            <?php echo e(\Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans()); ?>
+
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <?php if(isset($top[$i+2])): ?>
+                                    <div>
+                                        <div class="flex gap-4 false">
+                                            <div class="bg-white flex gap-6 w-full shrink">
+                                                <div class="flex flex-col">
+                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                      href="<?php echo e(route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id])); ?>">
+                                                        <h2 class="font-headline-2xs font-medium">
+                                                            <?php echo e($top[$i+2]->title); ?>
+
+                                                        </h2>
+                                                    </a>
+                                                    <p class="flex gap-2 flex-col">
+                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                            <?php echo e(\Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans()); ?>
+
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-span-1 md:col-span-1 lg:col-span-4 xl:col-span-1 grid grid-cols-1 xl:grid-cols-2 xl:gap-6">
-                        <?php if(isset($top[$i+1])): ?>
-                            <div>
-                                <div class="flex gap-4 false">
-                                    <div class="bg-white flex gap-6 w-full shrink">
-                                        <div class="flex flex-col">
-                                            <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                              href="<?php echo e(route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id])); ?>">
-                                                <h2 class="font-headline-2xs font-medium">
-                                                    <?php echo e($top[$i+1]->title); ?>
-
-                                                </h2>
-                                            </a>
-                                            <p class="flex gap-2 flex-col">
-                                                <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                    <?php echo e(\Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans()); ?>
-
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                        
-                        <?php if(isset($top[$i+2])): ?>
-                            <div>
-                                <div class="flex gap-4 false">
-                                    <div class="bg-white flex gap-6 w-full shrink">
-                                        <div class="flex flex-col">
-                                            <a class="text-color-charcoal-900 mb-4 hover:underline"
-                                              href="<?php echo e(route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id])); ?>">
-                                                <h2 class="font-headline-2xs font-medium">
-                                                    <?php echo e($top[$i+2]->title); ?>
-
-                                                </h2>
-                                            </a>
-                                            <p class="flex gap-2 flex-col">
-                                                <span class="font-metadata text-color-charcoal-600 uppercase">
-                                                    <?php echo e(\Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans()); ?>
-
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                    <div class="py-4">
+                        <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
                     </div>
-                </div>
-            </div>
-            <div class="py-4">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
-            </div>
-        <?php endfor; ?>
+                <?php endfor; ?>
 
-         
-                </div>
-                <div class="hidden xl:hidden">
-                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
-                </div>
+        
+              </div>
+              <div class="hidden xl:hidden">
+                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
       
       <div class="grid">
         <div class="order-1"></div>
+        <?php if($setting->advert): ?>
         <div class="hidden md:flex flex-col justify-center items-center order-2 pt-5">
           <div class="min-w-full min-h-full justify-center items-center">
             <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
@@ -251,12 +262,16 @@ echo $html;
             </div>
           </div>
         </div>
+        <?php endif; ?>
       </div>
     </div>
     <div class="flex"></div>
+
    <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
       <div class="grid">
         <div class="flex md:hidden flex-col justify-center items-center order-1"></div>
+        <?php if($setting->newsletter): ?>
+   
         <div class="order-2">
           <div class="flex flex-col gap-6">
             <div class="flex">
@@ -376,6 +391,8 @@ echo $html;
             </form>
           </div>
         </div>
+        <?php endif; ?>
+        <?php if($setting->most_read): ?>
         <div class="order-3">
           <div class="grid gap-4 grid-cols-4 md:gap-6 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
             <div class="order-1 col-span-4 md:col-span-8 lg:col-span-12 xl:order-2 xl:col-span-12 xl:row-span-2">
@@ -564,6 +581,7 @@ echo $html;
               </div>
             </div>
 
+            <?php if($setting->advert): ?>
             <div class="order-3 col-span-full">
               <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
                 <div id="homepage_mid_dynamic_1"  style="width:970px;height:250px"
@@ -573,6 +591,8 @@ echo $html;
                 </div>
               </div>
             </div>
+            <?php endif; ?>
+
             <div class="grid order-4 xl:order-1 md:order-3 col-span-4 md:col-span-8 lg:col-span-12 xl:col-span-4 xl:row-span-8 gap-6">
               <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
                 <?php
@@ -718,74 +738,82 @@ echo $html;
             </div>
           </div>
         </div>
+        <?php endif; ?>
       </div>
     </div>
+   
   
-    <div>
-      <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-        <div class="flex py-6">
-          <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
-        </div>
-        <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
-          href="<?php echo e(route('events')); ?>">
-          <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">CONSENSUS</h2>
-          <svg class=""
-            fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-              fill="#676767"></path>
-          </svg>
-        </a>
-      </div>
-      <div class="w-full overflow-hidden relative flex flex-col">
-        <div class="relative">
-          <div class="flex flex-col gap-4 self-stretch pt-4 lg:py-4">
-            <div
-              class="flex bg-[#000] py-8 flex-col justify-center items-center self-stretch h-[580px] md:h-[665px] lg:h-[281px] xl:h-[368px]">
-              <div
-                class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div
-                    class="transition-opacity duration-300 order-1 lg:order-2  flex gap-6 w-full shrink items-center justify-center">
-                    <div class="flex flex-col shrink-0 items-center justify-center w-full"><img alt="Consensus Toronto 2025"
-                       width="585" height="329" decoding="async" data-nimg="1"
-                        class="object-cover h-[300px] w-full  md:h-[383px] lg:w-[585px] lg:h-[329px] xl:w-[728px] xl:h-[432px] rounded align-self-end"
-                        style="color: transparent;"
-                        src="<?php echo e(asset($event->image)); ?>">
-                    </div>
-                  </div>
-                  <div
-                    class="transition-opacity duration-300 order-2 lg:order-1 justify-start lg:justify-center flex flex-col gap-6 h-[290px] md:h-[290px] lg:h-full">
-                    <div class="flex flex-col gap-2">
-                      <h3 class="text-color-black font-headline-sm font-medium text-[#fff]">
-                      <?php echo e($event->title); ?>  
-                      </h3><span
-                        class="text-color-black font-body font-medium text-[#D4D4D4]">
-                      <?php echo $event->content; ?>
+        <div>
+        <?php if($setting->event_section): ?>
+          <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
+            <div class="flex py-6">
+              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+            </div>
+            <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
+              href="<?php echo e(route('events')); ?>">
+              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline uppercase"><?php echo e($setting->concensus); ?></h2>
+              <svg class=""
+                fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
+                  fill="#676767"></path>
+              </svg>
+            </a>
+          </div>
 
-                      </span>
+          <div class="w-full overflow-hidden relative flex flex-col">
+            <div class="relative">
+              <div class="flex flex-col gap-4 self-stretch pt-4 lg:py-4">
+                <div class="flex bg-[#000] py-8 flex-col justify-center items-center self-stretch h-[580px] md:h-[665px] lg:h-[281px] xl:h-[368px]">
+                  <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <div
+                        class="transition-opacity duration-300 order-1 lg:order-2  flex gap-6 w-full shrink items-center justify-center">
+                        <div class="flex flex-col shrink-0 items-center justify-center w-full">
+                          <img width="585" height="329" 
+                            class="object-cover h-[300px] w-full  md:h-[383px] lg:w-[585px] lg:h-[329px] xl:w-[728px] xl:h-[432px] rounded align-self-end"
+                            style="color: transparent;"
+                            src="<?php echo e(asset($event->image)); ?>">
+                        </div>
+                      </div>
+                      <div
+                        class="transition-opacity duration-300 order-2 lg:order-1 justify-start lg:justify-center flex flex-col gap-6 h-[290px] md:h-[290px] lg:h-full">
+                        <div class="flex flex-col gap-2">
+                          <h3 class="text-color-black font-headline-sm font-medium text-[#fff]">
+                          <?php echo e($event->title); ?>  
+                          </h3><span
+                            class="text-color-black font-body font-medium text-[#D4D4D4]">
+                          <?php echo $event->content; ?>
+
+                          </span>
+                        </div>
+                        <?php if($event->category): ?>
+                        <a href="<?php echo e($event->category); ?>"  class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-small [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover h-10 w-[140px] border border-[#FFD200]"><span
+                            class="text-color-black font-label font-medium leading-6">Learn More</span><svg class="" fill="none"
+                            height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
+                              fill="#262626"></path>
+                          </svg>
+                        </a>
+                        <?php endif; ?>
+                      </div>
                     </div>
-                    <?php if($event->category): ?>
-                    <a href="<?php echo e($event->category); ?>"  class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 text-small gap-2 rounded-small [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover h-10 w-[140px] border border-[#FFD200]"><span
-                        class="text-color-black font-label font-medium leading-6">Learn More</span><svg class="" fill="none"
-                        height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#262626"></path>
-                      </svg>
-                    </a>
-                    <?php endif; ?>
                   </div>
                 </div>
               </div>
+              <div class="container">
+                <div class="flex flex-row justify-center lg:justify-start"></div>
+              </div>
             </div>
           </div>
-          <div class="container">
-            <div class="flex flex-row justify-center lg:justify-start"></div></div></div></div>
-          </div>
+          <?php endif; ?>
+        </div>
+           
           <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
             <div class="grid">
               <div class="flex flex-col justify-center items-center order-1 lg:order-2 xl:hidden"></div>
+              <?php if($setting->podcast): ?>
               <div class="order-2 lg:order-1">
                 <div class="flex flex-col">
       
@@ -896,12 +924,11 @@ echo $html;
                   </div>
                 </div>
               </div>
+              <?php endif; ?>
 
 
               <div class="order-3">
                 <div class="flex flex-col">
-
-                
                   <div>
                     <div class="hidden lg:grid lg:grid-cols-2 gap-6 pt-8">
                       <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
@@ -1041,17 +1068,8 @@ echo $html;
                 </div>
               </div>
             </div>
-          </div>
-          
-          
+          </div>     
           
           </section>
-          
-          
-          
-          
-          
-          
-          
-          
+        
           </div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/home-component.blade.php ENDPATH**/ ?>

@@ -51,8 +51,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $twitter
  * @property string|null $facebook
  * @property string|null $linkedin
+ * @property string|null $first
  * @property string|null $instagram
  * @property string|null $youtube
+ * @property string|null $masthead
  * @property string|null $tiktok
  * @property string|null $discord
  * @property string|null $telegram
@@ -93,6 +95,7 @@ class AppSetting extends Model
 		'sponsored',
 		'videos',
 		'podcasts',
+		'masthead',
 		'news_section',
 		'newsletters',
 		'webinar',
@@ -119,6 +122,7 @@ class AppSetting extends Model
 		'facebook',
 		'linkedin',
 		'instagram',
+		'first',
 		'youtube',
 		'tiktok',
 		'discord',

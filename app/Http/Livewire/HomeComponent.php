@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\ArticleCategory;
@@ -43,18 +44,19 @@ class HomeComponent extends Component
                             
         $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
 
-        $categories =  ArticleCategory::get();
+        $categories =  ArticleCategory::where(['visible'=> true])->get();
 
         $excludedTitles = ['Press release', 'Crypto', 'Opinion'];
 
         $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)
+                            ->where(['visible'=> true])
                             ->with(['articles' => function ($query) {
                                 $query->orderByDesc('created_at')->take(4);  
                             }])->get();
 
-        $newsletters = Newsletter::orderByDesc('created_at')->limit(6)->get();
+        $newsletters = Newsletter::where(['visible'=> true])->orderByDesc('created_at')->limit(6)->get();
        
-        $podcasts = Episode::orderByDesc('created_at')->limit(9)->get();
+        $podcasts = Episode::where(['visible'=> true])->orderByDesc('created_at')->limit(9)->get();
         
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  
@@ -76,6 +78,7 @@ class HomeComponent extends Component
             'newsletters'=> $newsletters,
             'categories'=> $categories,
             'breakdown'=> $categories_display,
+            'setting'=> AppSetting::first(),
         ]);
     }
 }

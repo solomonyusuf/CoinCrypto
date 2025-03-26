@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $spotify
  * @property string|null $podchaser
  * @property string|null $description
+ * @property bool|null $visible
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -46,6 +47,7 @@ class Episode extends Model
 		'itunes',
 		'spotify',
 		'podchaser',
+		'visible',
 		'description'
 	];
 

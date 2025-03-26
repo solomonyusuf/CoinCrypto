@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('spotify')->nullable();
             $table->text('podchaser')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('visible')->default(true)->nullable();
             $table->timestamps();
         });
     }

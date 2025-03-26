@@ -13,6 +13,7 @@ class ArticleTagComponent extends Component
     public $count = 0;
     public $add = [
 		'title' => '',
+        'visible'=> ''
     ];
 
     public function GetAll()
@@ -24,7 +25,7 @@ class ArticleTagComponent extends Component
          ArticleCategory::create([
             'title' => $this->add['title'] ,
             'slug' => \Str::slug($this->add['title']) ,
-         
+             'visible' => $this->add['visible'] 
          ]);
 
         toast('Creation Successful', 'success');
@@ -41,6 +42,7 @@ class ArticleTagComponent extends Component
         $query->update([
                 'title' => $this->add['title'] == '' ? $query->title : $this->add['title'],
                 'slug' => $this->add['title'] == '' ? \Str::slug($query->title) : \Str::slug($this->add['title']),
+                'visible' => $this->add['visible'] == '' ? $query->visible : $this->add['visible'],
              ]);
         $query->save();
 

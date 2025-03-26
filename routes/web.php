@@ -75,6 +75,11 @@ Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/forgot-password', ForgotPasswordComponent::class)->name('forgot_password');
 Route::get('/reset-password/{token}', ResetComponent::class)->name('reset_password');
+Route::get('/videos', PageVideoComponent::class)->name('videos');
+Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
+Route::get('/podcasts', PagePodcastComponent::class)->name('podcasts');
+Route::get('/newsletter', PageNewsletterComponent::class)->name('newsletters');
+
 
 Route::get('/about-us', AboutComponent::class)->name('about_us');
 Route::get('/accessibility', AccessibilityComponent::class)->name('accessibility');
@@ -104,10 +109,6 @@ Route::get('/confirm-subscription-{sub_id}',[PageNewsletterComponent::class, 'ac
 Route::post('/subscribe/{id}', [PageNewsletterComponent::class, 'subscribe'])->name('subscribe');
     
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/videos', PageVideoComponent::class)->name('videos');
-    Route::get('/sponsored', PageSponsorsComponent::class)->name('sponsored');
-    Route::get('/podcasts', PagePodcastComponent::class)->name('podcasts');
-    Route::get('/newsletter', PageNewsletterComponent::class)->name('newsletters');
     Route::get('/profile', ProfileComponent::class)->name('profile');
     
     //REQUEST

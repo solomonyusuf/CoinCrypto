@@ -33,17 +33,18 @@ return new class extends Migration
             $table->string('news_section')->nullable();
             $table->string('webinar')->nullable();
             //--------------------------------------------
-            $table->text('footer_info')->nullable();
-            $table->text('footer_name')->nullable();
-            $table->text('do_not_sell')->nullable();
-            $table->text('about')->nullable();
-            $table->text('sitemap')->nullable();
-            $table->text('ethics')->nullable();
-            $table->text('terms')->nullable();
-            $table->text('privacy')->nullable();
-            $table->text('cookie')->nullable();
-            $table->text('accessibility')->nullable();
-            $table->text('advertising')->nullable();
+            $table->longText('masthead')->nullable();
+            $table->longText('footer_info')->nullable();
+            $table->longText('footer_name')->nullable();
+            $table->longText('do_not_sell')->nullable();
+            $table->longText('about')->nullable();
+            $table->longText('sitemap')->nullable();
+            $table->longText('ethics')->nullable();
+            $table->longText('terms')->nullable();
+            $table->longText('privacy')->nullable();
+            $table->longText('cookie')->nullable();
+            $table->longText('accessibility')->nullable();
+            $table->longText('advertising')->nullable();
             //-------------------------------------------------
             $table->boolean('first')->nullable();
             $table->boolean('language')->nullable();

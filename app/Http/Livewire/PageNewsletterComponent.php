@@ -113,7 +113,8 @@ class PageNewsletterComponent extends Component
         $newsletter = Newsletter::find($this->news_id);
         $category = ArticleCategory::where('title', '=', 'Opinion')->first();
         
-        $opinions = Article::orderByDesc('created_at')->where(['category_id'=> $category->id])
+        $opinions = Article::where(['visible'=> true])
+        ->orderByDesc('created_at')->where(['category_id'=> $category->id])
         ->paginate(10);
         
         return view('livewire.page-newsletter-component',[

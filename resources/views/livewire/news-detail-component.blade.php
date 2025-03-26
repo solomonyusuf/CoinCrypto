@@ -10,9 +10,8 @@
             {{ $article->article_category->title }}
           </a>
         </div>
-        <div data-submodule-name="social-share" class="relative">
-          <button
-            class="share-dialog-button flex gap-1 items-center outline-0 text-charcoal-600 font-title font-medium"><svg
+        <div class="relative">
+          <button wire:click="toggleShare" class="share-dialog-button flex gap-1 items-center outline-0 text-charcoal-600 font-title font-medium"><svg
               xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <mask id="mask0_5141_6895" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                 <rect width="20" height="20" fill="#D9D9D9"></rect>
@@ -24,45 +23,59 @@
               </g>
             </svg>Share
           </button>
-          <div class="fixed left-0 top-auto h-[300px] right-0 bottom-0 md:absolute md:bottom-auto md:left-auto md:top-[calc(100%_+_8px)] md:h-max md:right-[-3px] md:transition-none z-[100] bg-[#fff] p-8 shadow rounded-lg translate-x-0 transition-transform translate-y-full md:hidden"><button class="absolute top-4 right-4"><svg height="24" viewBox="0 0 24 24" width="24"
+          @if($open)
+          <div class="fixed left-0 top-auto h-[300px] right-0 bottom-0 md:absolute md:bottom-auto md:left-auto md:top-[calc(100%_+_8px)] md:h-max md:right-[-3px] md:transition-none z-[100] bg-[#fff] p-8 shadow rounded-lg translate-x-0 transition-transform translate-y-0 {{ $open ? '' : 'md:hidden' }}">
+           <button wire:click="toggleShare" class="absolute top-4 right-4">
+            <svg height="24" viewBox="0 0 24 24" width="24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.40001 18.3076L5.69226 17.5999L11.2923 11.9999L5.69226 6.39989L6.40001 5.69214L12 11.2921L17.6 5.69214L18.3078 6.39989L12.7078 11.9999L18.3078 17.5999L17.6 18.3076L12 12.7076L6.40001 18.3076Z">
                 </path>
               </svg>
-            </button><span class="block mb-6 text-charcoal-900 font-title">Share this article</span>
+            </button>
+            <span class="block mb-6 text-charcoal-900 font-title">Share this article</span>
             <div class="dialog grid grid-cols-[repeat(3,_minmax(64px,_1fr))] xxs_smax:gap-x-6 gap-x-12 gap-y-6 font-normal tracking-wide text-xs [&amp;_.share-button]:text-charcoal-900 [&amp;_.share-button]:flex [&amp;_.share-button]:flex-col [&amp;_.share-button]:gap-2 [&amp;_.share-button]:shadow-none [&amp;_.share-button]:items-center [&amp;_span]:flex [&amp;_span]:justify-center [&amp;_span]:items-center [&amp;_span]:w-10 [&amp;_span]:h-10 [&amp;_span]:rounded-full [&amp;_span]:bg-charcoal-25">
-              <button class="share-button"><span><svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              
+              <button id="share-button" class="share-button">
+                <span>
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M17 7H14C13.45 7 13 7.45 13 8C13 8.55 13.45 9 14 9H17C18.65 9 20 10.35 20 12C20 13.65 18.65 15 17 15H14C13.45 15 13 15.45 13 16C13 16.55 13.45 17 14 17H17C19.76 17 22 14.76 22 12C22 9.24 19.76 7 17 7ZM8 12C8 12.55 8.45 13 9 13H15C15.55 13 16 12.55 16 12C16 11.45 15.55 11 15 11H9C8.45 11 8 11.45 8 12ZM10 15H7C5.35 15 4 13.65 4 12C4 10.35 5.35 9 7 9H10C10.55 9 11 8.55 11 8C11 7.45 10.55 7 10 7H7C4.24 7 2 9.24 2 12C2 14.76 4.24 17 7 17H10C10.55 17 11 16.55 11 16C11 15.45 10.55 15 10 15Z"
                         fill="#262626"></path>
                     </svg>
                   </svg>
-                </span>Copy link</button>
-                <a class="share-button" target="_blank"
-                href="https://x.com/intent/tweet?utm_source=twitter&amp;text=SEC+%27Earnest%27+About+Finding+Workable+Crypto+Policy%2C+Commissioners+Say+at+Roundtable+https%3A%2F%2Fwww.coindesk.com%2Fpolicy%2F2025%2F03%2F21%2Fsec-earnest-about-finding-workable-crypto-policy-commissioners-say-at-roundtable+via+%40coindesk&amp;editorial=utm_content&amp;social=utm_medium&amp;organic=utm_term"><span><svg
+                </span>Copy link
+              </button>
+             <a class="share-button" target="_blank"
+                href="https://x.com/intent/tweet?utm_source=twitter&amp;text={{ route('article_detail', [$article->slug, $article->id]) }}"><span><svg
                     width="16" height="16" viewBox="0 0 1400 1027" fill="none" xmlns="http://www.w3.org/2000/svg"
                     aria-labelledby="twitter-svg-a11y-label-id">
                     <title id="twitter-svg-a11y-label-id">X icon</title>
                     <path
                       d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
                       fill="#262626"></path>
-                  </svg></span>X (Twitter)</a><a class="share-button" target="_blank"
-                href="https://www.linkedin.com/shareArticle?utm_source=linkedin&amp;mini=true&amp;summary=The+Securities+and+Exchange+Commission%27s+first+gathering+on+crypto+issues+kicked+off+with+assurances+from+commissioners+that+they%27re+aiming+to+set+effective+policy.&amp;url=https%3A%2F%2Fwww.coindesk.com%2Fpolicy%2F2025%2F03%2F21%2Fsec-earnest-about-finding-workable-crypto-policy-commissioners-say-at-roundtable&amp;editorial=utm_content&amp;social=utm_medium&amp;organic=utm_term"><span><svg
+                  </svg></span>X (Twitter)</a>
+                  <a class="share-button" target="_blank"
+                href="https://www.linkedin.com/shareArticle?utm_source=linkedin&amp;mini=true&amp;summary={{ $article->slug }}&amp;url={{ route('article_detail', [$article->slug, $article->id]) }}"><span><svg
                     width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M2.25362 9.21772H6.53986V22.1164H2.25362V9.21772ZM4.42543 3C2.95843 3 2 3.9631 2 5.22719C2 6.46529 2.93038 7.45638 4.36933 7.45638H4.39667C5.89171 7.45638 6.82276 6.46524 6.82276 5.22719C6.79471 3.9631 5.89176 3 4.42543 3ZM17.0638 8.91471C14.7886 8.91471 13.7693 10.1661 13.2007 11.0438V9.21772H8.91314C8.9699 10.4278 8.91314 22.1164 8.91314 22.1164H13.2007V14.9129C13.2007 14.527 13.2287 14.1427 13.3415 13.8663C13.652 13.0961 14.3574 12.2985 15.5407 12.2985C17.0931 12.2985 17.7131 13.4819 17.7131 15.2151V22.1163H22V14.72C22 10.7581 19.8856 8.91471 17.0638 8.91471Z"
                       fill="#262626"></path>
-                  </svg></span>LinkedIn</a><a class="share-button" target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?utm_source=facebook&amp;u=https%3A%2F%2Fwww.coindesk.com%2Fpolicy%2F2025%2F03%2F21%2Fsec-earnest-about-finding-workable-crypto-policy-commissioners-say-at-roundtable&amp;editorial=utm_content&amp;social=utm_medium&amp;organic=utm_term"><span><svg
+                  </svg></span>LinkedIn
+                </a>
+                <a class="share-button" target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?utm_source=facebook&amp;u={{ route('article_detail', [$article->slug, $article->id]) }}"><span><svg
                     width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M16.3447 13.6068L16.863 10.1942H13.621V7.9796C13.621 7.04596 14.0739 6.13593 15.526 6.13593H17V3.2306C17 3.2306 15.6623 3 14.3834 3C11.7132 3 9.96805 4.63437 9.96805 7.59321V10.1942H7V13.6068H9.96805V21.8566C10.5632 21.9509 11.1732 22 11.7945 22C12.4159 22 13.0259 21.9509 13.621 21.8566V13.6068H16.3447Z"
                       fill="#262626"></path>
-                  </svg></span>Facebook</a><a class="share-button" target="_blank"
-                href="mailto:%20?subject=SEC%20'Earnest'%20About%20Finding%20Workable%20Crypto%20Policy%2C%20Commissioners%20Say%20at%20Roundtable%20%E2%80%94%20CoinDesk&amp;body=SEC%20'Earnest'%20About%20Finding%20Workable%20Crypto%20Policy%2C%20Commissioners%20Say%20at%20Roundtable%0AThe%20Securities%20and%20Exchange%20Commission's%20first%20gathering%20on%20crypto%20issues%20kicked%20off%20with%20assurances%20from%20commissioners%20that%20they're%20aiming%20to%20set%20effective%20policy.%0A%0ARead%20the%20full%20article%20on%20CoinDesk%3A%0A%0Ahttps%3A%2F%2Fwww.coindesk.com%2Fpolicy%2F2025%2F03%2F21%2Fsec-earnest-about-finding-workable-crypto-policy-commissioners-say-at-roundtable"><span><svg
+                  </svg></span>Facebook
+                </a>
+                  <a class="share-button" target="_blank"
+                href="mailto:%20?subject={{ $article->slug.' view full story at '.route('article_detail', [$article->slug, $article->id]) }}"><span><svg
                     width="16" height="16" fill="#262626" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 75.294 75.294">
                     <g>
@@ -72,6 +85,7 @@
                     </g>
                   </svg></span>Email</a></div>
           </div>
+          @endif
         </div>
       </div>
       <div  class="article-content-wrapper flex flex-col gap-4 row-start-2">
@@ -151,13 +165,13 @@
             <span class="pt-4 font-metadata text-charcoal-600"><span class="text-color-dark-grey ">By signing up, you will
                 receive emails about CoinCrypto's products and you agree to our </span>
                 <a
-                class="border-b-[1px] border-black !no-underline" href="">
+                class="border-b-[1px] border-black !no-underline" href="{{ route('terms') }}">
                 <span class="text-color-dark-grey ">terms of
                   use</span>
                 </a>
                 <span class="text-color-dark-grey "> and </span>
                 <a
-                class="border-b-[1px] border-black !no-underline" href="">
+                class="border-b-[1px] border-black !no-underline" href="{{ route('privacy') }}">
                 <span class="text-color-dark-grey ">privacy
                   policy</span>
                 </a>
@@ -240,4 +254,24 @@
       </div>
     </div>
     @endif
+    
+    <script>
+      document.addEventListener("click", function (event) {
+    const shareButton = event.target.closest("#share-button");
+
+    if (shareButton) {
+        const url = "{{ route('article_detail', [$article->slug, $article->id]) }}"; // Laravel Blade inside JS
+
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert("✅ Link copied to clipboard!");
+                })
+                .catch(err => {
+                    console.error("❌ Failed to copy:", err);
+                });
+        }
+    });
+
+      </script>
+      
   </section>

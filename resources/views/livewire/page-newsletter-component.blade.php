@@ -52,9 +52,9 @@
               </form>
             <span>
               <span class="text-color-white font-label italic">By signing up, you will receive emails about
-                CoinDesk products and you agree to our </span><a href="" class="underline decoration-white"><span
+                CoinDesk products and you agree to our </span><a href="{{ route('terms') }}" class="underline decoration-white"><span
                   class="text-color-white font-label italic">terms of use</span></a><span
-                class="text-color-white font-label italic"> and </span><a href=""
+                class="text-color-white font-label italic"> and </span><a href="{{ route('privacy') }}"
                 class="underline decoration-white"><span class="text-color-white font-label italic">privacy
                   policy</span></a><span class="text-color-white font-label">.</span></span>
           </div>

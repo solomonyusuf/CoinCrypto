@@ -99,7 +99,7 @@ Route::get('/fetch-prices', [TopTickerComponent::class, 'fetchAPIPrice']);
 Route::get('/category-{category_id}',CategoryDetailComponent::class)->name('category_detail');
 Route::get('/newsletter-{news_id}',PageNewsletterComponent::class)->name('newsletter_detail');
 Route::get('/author-{auth_id}',AuthorComponent::class)->name('author_detail');
-Route::get('/details-{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
+Route::get('/news/{slug}-{news_id}',NewsDetailComponent::class)->name('article_detail');
 Route::get('/podcast-details-{podcast_id}',PagePodcastComponent::class)->name('podcast_detail');
 Route::get('/videos-{video_id}',PageVideoComponent::class)->name('video_detail');
 

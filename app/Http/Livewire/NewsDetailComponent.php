@@ -11,8 +11,13 @@ class NewsDetailComponent extends Component
     public $slug;
     public $news_id;
     public $advert = true;
+    public $open = false;
     public $setting;
 
+    public function toggleShare()
+    {
+        $this->open = !$this->open;
+    }
 
     public function mount($slug, $news_id)
     {

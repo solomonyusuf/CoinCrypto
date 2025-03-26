@@ -60,7 +60,8 @@
                </div>
           </div>
         </div>
-        <table class="table text-nowrap mb-0 align-middle">
+        </div>
+        <table id="table"  class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
                 <tr>
                     <th>

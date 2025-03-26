@@ -85,7 +85,7 @@
           </div>
         </div>
         
-        <table class="table text-nowrap mb-0 align-middle">
+        <table id="table" class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
                 <tr>
                     <th>
@@ -227,7 +227,7 @@
       
    <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('textarea').forEach((textarea) => {
+        document.querySelectorAll('textarea:not(.ignore-editor)').forEach((textarea) => {
             ClassicEditor
                 .create(textarea, {
                     toolbar: [

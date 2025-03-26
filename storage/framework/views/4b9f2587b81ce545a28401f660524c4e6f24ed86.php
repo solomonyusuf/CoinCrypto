@@ -172,18 +172,6 @@
       </div>
 
 
-      <script>
-        
-        let table = new DataTable('#table',{
-                "paging": true,          // Enable pagination
-                "ordering": true,        // Enable sorting
-                "info": true,            // Show table info
-                "searching": true,       // Enable search
-                "autoWidth": false,      // Prevent width changes
-                "columnDefs": [
-                    { "orderable": false, "targets": [0] } // Disable sorting for first column if needed
-                ]
-            });
-      </script>
+     
 </div>
 <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/article-tag-component.blade.php ENDPATH**/ ?>

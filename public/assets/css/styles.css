@@ -25316,7 +25316,7 @@ fieldset:disabled .btn {
     --bs-pagination-focus-bg: var(--bs-secondary-bg);
     --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(93, 135, 255, 0.25);
     --bs-pagination-active-color: #fff;
-    --bs-pagination-active-bg: #5d87ff;
+    --bs-pagination-active-bg: #200bff;
     --bs-pagination-active-border-color: #5d87ff;
     --bs-pagination-disabled-color: var(--bs-secondary-color);
     --bs-pagination-disabled-bg: var(--bs-secondary-bg);

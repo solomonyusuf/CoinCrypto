@@ -33,6 +33,9 @@
     #dt-length-0{
       margin-right:5px;
     }
+    .active{
+      background: #200bff;
+    }
     </style>
 <!-- jQuery (Must come first) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

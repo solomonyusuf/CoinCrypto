@@ -30,7 +30,7 @@ class ArticleComponent extends Component
 
     public function GetAll()
     {
-        return Article::orderByDesc('created_at')->paginate(20);
+        return Article::orderByDesc('created_at')->paginate(10);
     }
     public function create(Request $request)
     {
@@ -122,10 +122,12 @@ class ArticleComponent extends Component
         {
             $articles = Article::Where('content', 'LIKE', "%{$search}%")
             ->orwhere('title', 'LIKE', "%{$search}%")
-            ->paginate(20);
+            ->paginate(10);
         }
         else
         $articles = $this->GetAll();
+
+        //dd(count($articles));
 
         $newsletters = Newsletter::get();
 

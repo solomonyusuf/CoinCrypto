@@ -103,7 +103,8 @@
             </div>
           </div>
         </div>
-        
+       
+      
         <div class="tab-content">
           <form class="input-group mt-2 mb-2">
             @csrf
@@ -112,6 +113,28 @@
                 <i class="ti ti-search"></i>
             </button>
           </form>
+          <div class="container mt-2 mb-2">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <!-- Previous Button -->
+                    <li class="page-item {{ $articles->onFirstPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $articles->previousPageUrl() }}" tabindex="-1">Previous</a>
+                    </li>
+        
+                    <!-- Page Numbers -->
+                    @for ($i = 1; $i <= $articles->lastPage(); $i++)
+                        <li class="page-item {{ $articles->currentPage() == $i ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $articles->url($i) }}">{{ $i }}</a>
+                        </li>
+                    @endfor
+        
+                    <!-- Next Button -->
+                    <li class="page-item {{ $articles->hasMorePages() ? '' : 'disabled' }}">
+                        <a class="page-link" href="{{ $articles->nextPageUrl() }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
           <div class="row">
          
             @foreach ($articles as $data)
@@ -257,9 +280,31 @@
             
              
           </div>
+          <div class="container mt-2 mb-2">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <!-- Previous Button -->
+                    <li class="page-item {{ $articles->onFirstPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $articles->previousPageUrl() }}" tabindex="-1">Previous</a>
+                    </li>
+        
+                    <!-- Page Numbers -->
+                    @for ($i = 1; $i <= $articles->lastPage(); $i++)
+                        <li class="page-item {{ $articles->currentPage() == $i ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $articles->url($i) }}">{{ $i }}</a>
+                        </li>
+                    @endfor
+        
+                    <!-- Next Button -->
+                    <li class="page-item {{ $articles->hasMorePages() ? '' : 'disabled' }}">
+                        <a class="page-link" href="{{ $articles->nextPageUrl() }}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         
         </div>
-        {{ $articles->links() }}
+      
       </div>
       
    <script>

@@ -228,8 +228,28 @@
           </div>
         
         </div>
-        <?php echo e($letters->links()); ?>
-
+        <div class="container mt-2 mb-2">
+          <nav>
+              <ul class="pagination justify-content-center">
+                  <!-- Previous Button -->
+                  <li class="page-item <?php echo e($letters->onFirstPage() ? 'disabled' : ''); ?>">
+                      <a class="page-link" href="<?php echo e($letters->previousPageUrl()); ?>" tabindex="-1">Previous</a>
+                  </li>
+      
+                  <!-- Page Numbers -->
+                  <?php for($i = 1; $i <= $letters->lastPage(); $i++): ?>
+                      <li class="page-item <?php echo e($letters->currentPage() == $i ? 'active' : ''); ?>">
+                          <a class="page-link" href="<?php echo e($letters->url($i)); ?>"><?php echo e($i); ?></a>
+                      </li>
+                  <?php endfor; ?>
+      
+                  <!-- Next Button -->
+                  <li class="page-item <?php echo e($letters->hasMorePages() ? '' : 'disabled'); ?>">
+                      <a class="page-link" href="<?php echo e($letters->nextPageUrl()); ?>">Next</a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
       </div>
       
    <script>

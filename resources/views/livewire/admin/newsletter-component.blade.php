@@ -250,7 +250,28 @@
           </div>
         
         </div>
-        {{ $letters->links() }}
+        <div class="container mt-2 mb-2">
+          <nav>
+              <ul class="pagination justify-content-center">
+                  <!-- Previous Button -->
+                  <li class="page-item {{ $letters->onFirstPage() ? 'disabled' : '' }}">
+                      <a class="page-link" href="{{ $letters->previousPageUrl() }}" tabindex="-1">Previous</a>
+                  </li>
+      
+                  <!-- Page Numbers -->
+                  @for ($i = 1; $i <= $letters->lastPage(); $i++)
+                      <li class="page-item {{ $letters->currentPage() == $i ? 'active' : '' }}">
+                          <a class="page-link" href="{{ $letters->url($i) }}">{{ $i }}</a>
+                      </li>
+                  @endfor
+      
+                  <!-- Next Button -->
+                  <li class="page-item {{ $letters->hasMorePages() ? '' : 'disabled' }}">
+                      <a class="page-link" href="{{ $letters->nextPageUrl() }}">Next</a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
       </div>
       
    <script>

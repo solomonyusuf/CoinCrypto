@@ -28,7 +28,7 @@ class NewsletterComponent extends Component
             'title'=> $request->title,
             'description'=> $request->description,
             'image'=> $image,
-            'user_id'=> $request->user_id,
+            'user_id'=> auth()->user()->id,
             'visible'=> $request->visible,
             'link'=> $request->link,
            

@@ -8,7 +8,7 @@
            
      </textarea>
     
-          <button type="submit" class="btn btn-primary mt-3 mb-3">Submit Article</button>
+          <button type="submit" class="btn btn-primary mt-3 mb-3">Submit Publication</button>
                              
     
         </form>

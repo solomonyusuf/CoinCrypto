@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h4 class="mb-3">
+    <h4 class="mb-3 px-3">
         Publication Release
     </h4>
     <form enctype="multipart/form-data" action="<?php echo e(route('create_publication', $subscription->id)); ?>" method="post" class="container-fluid">

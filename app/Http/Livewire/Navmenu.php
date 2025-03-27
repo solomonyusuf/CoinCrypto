@@ -47,7 +47,7 @@ class Navmenu extends Component
                     ->get();
 
 
-        $video_category = VideoCategory::get();
+        $video_category = VideoCategory::where(['active' => true])->get();
         
         $podcasts = Podcast::get();
 

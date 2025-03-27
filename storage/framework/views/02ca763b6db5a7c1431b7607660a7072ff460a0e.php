@@ -107,10 +107,11 @@
                     </p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <button data-bs-toggle="modal" data-bs-target="#release<?php echo e(++$count); ?>" style="background: transparent; border:0;" class="link me-1">
+                    
+                     <a href="<?php echo e(route('release_news', $data->id)); ?>" style="background: transparent; border:0;" class="link me-1">
                       <i class="ti ti-article fs-4 "></i>
-                      Release
-                    </button>
+                      Release news
+                     </a>
                     
                     <button data-bs-toggle="modal" data-bs-target="#edit<?php echo e($count); ?>" style="background: transparent; border:0;" class="link me-1">
                       <i class="ti ti-edit fs-4 favourite-note"></i>

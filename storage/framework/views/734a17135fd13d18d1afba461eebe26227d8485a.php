@@ -1,9 +1,9 @@
 <div class="container-fluid">
-    <h4 class="mb-3 px-3">
+    <h4 class="mb-3">
         Publication Release
     </h4>
-    <form enctype="multipart/form-data" action="{{ route('create_publication', $subscription->id) }}" method="post" class="container-fluid">
-      @csrf  
+    <form enctype="multipart/form-data" action="<?php echo e(route('create_publication', $subscription->id)); ?>" method="post" class="container-fluid">
+      <?php echo csrf_field(); ?>  
       <textarea name="content" id="classic" rows="20" cols="20">
            
      </textarea>
@@ -39,4 +39,4 @@
         });
     </script>
     </div>
-    
+    <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/release-component.blade.php ENDPATH**/ ?>

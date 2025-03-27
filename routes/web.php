@@ -133,7 +133,7 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
     Route::get('/admin-episodes', AllEpisodesComponent::class)->name('admin_episode');
     Route::get('/admin-settings', AppSettingComponent::class)->name('admin_setting');
-    Route::get('/admin-release_news/{sub_id}', ReleaseComponent::class)->name('release_news');
+    Route::get('/admin-release_news-{sub_id}', ReleaseComponent::class)->name('release_news');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');

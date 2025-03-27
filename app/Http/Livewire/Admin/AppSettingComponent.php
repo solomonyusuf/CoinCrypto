@@ -19,6 +19,7 @@ class AppSettingComponent extends Component
             'email'=> $request->email,
             'address'=> $request->address,
             'contact'=> $request->contact,
+            'first'=> $request->first,
             //-------------------------------
             'masthead'=> $request->masthead,
             'news'=> $request->news,

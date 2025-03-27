@@ -112,10 +112,14 @@
                     </p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <button data-bs-toggle="modal" data-bs-target="#release{{ ++$count }}" style="background: transparent; border:0;" class="link me-1">
+                    {{-- <button data-bs-toggle="modal" data-bs-target="#release{{ ++$count }}" style="background: transparent; border:0;" class="link me-1">
                       <i class="ti ti-article fs-4 "></i>
                       Release
-                    </button>
+                    </button> --}}
+                     <a href="{{ route('release_news', $data->id) }}" style="background: transparent; border:0;" class="link me-1">
+                      <i class="ti ti-article fs-4 "></i>
+                      Release news
+                     </a>
                     
                     <button data-bs-toggle="modal" data-bs-target="#edit{{ $count }}" style="background: transparent; border:0;" class="link me-1">
                       <i class="ti ti-edit fs-4 favourite-note"></i>

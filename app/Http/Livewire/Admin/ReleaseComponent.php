@@ -15,7 +15,7 @@ class ReleaseComponent extends Component
     }
     public function render()
     {
-        $subscription = Newsletter::first($this->sub_id);
+        $subscription = Newsletter::find($this->sub_id);
 
         return view('livewire.admin.release-component',[
             'subscription'=> $subscription

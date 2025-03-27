@@ -13,6 +13,7 @@ class VideoTagComponent extends Component
     {
         VideoCategory::create([
             'description' => $request->description,
+            'active' => $request->active,
 		    'title' => $request->title
         ]);
         
@@ -25,6 +26,7 @@ class VideoTagComponent extends Component
         $query = VideoCategory::find($id);
         $query->update([
             'description' => $request->description,
+            'active' => $request->active,
 		    'title' => $request->title
         ]);
         

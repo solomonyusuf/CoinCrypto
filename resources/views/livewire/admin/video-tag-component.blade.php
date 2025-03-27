@@ -40,6 +40,14 @@
                                         <label class="form-label">Description *</label>
                                         <textarea required name='description' type="text" class="form-control"></textarea>
                                     </div>
+                                    <div class="mb-3">
+                                      <label  class="form-label">Visible * (show to users)</label>
+                                      <select name="active" class="form-control">
+                                        <option value="1"> true</option>
+                                        <option value="0"> false</option>
+                                       
+                                      </select>
+                                    </div>
                                 
                                     </div>
                                 </div>
@@ -118,6 +126,18 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Description *</label>
                                                     <textarea  name='description' type="text" class="form-control">{{ $data->description }}</textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                  <label  class="form-label">Visible * (show to users)</label>
+                                                  <select name="active" class="form-control">
+                                                    @if ($data->active == true)
+                                                    <option selected value="1"> true</option>
+                                                    <option value="0"> false</option>
+                                                    @else 
+                                                    <option  value="1"> true</option>
+                                                    <option selected value="0"> false</option>
+                                                    @endif
+                                                  </select>
                                                 </div>
                                             </div>
                                           </div>

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $id
  * @property string|null $description
  * @property string|null $title
+ * @property boolean|null $active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -33,6 +34,7 @@ class VideoCategory extends Model
 	protected $fillable = [
 		'id',
 		'description',
+		'active',
 		'title'
 	];
 

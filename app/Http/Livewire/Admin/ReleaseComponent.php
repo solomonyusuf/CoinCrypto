@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Newsletter;
 use App\Models\Subscription;
 use Livewire\Component;
 
@@ -14,7 +15,7 @@ class ReleaseComponent extends Component
     }
     public function render()
     {
-        $subscription = Subscription::first($this->sub_id);
+        $subscription = Newsletter::first($this->sub_id);
 
         return view('livewire.admin.release-component',[
             'subscription'=> $subscription

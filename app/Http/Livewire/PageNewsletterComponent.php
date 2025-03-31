@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\AppMail;
+use App\Models\AppSetting;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Newsletter;
@@ -51,12 +52,13 @@ class PageNewsletterComponent extends Component
                 ]);
 
                 $url = route('activate_sub', $sub->id);
+                $setting = AppSetting::first();
+                
+                $body = str_replace('[url]', $url, $setting->activate_newsletter_mail);
+                
                 Mail::to($request->email)->send(new AppMail(
-                    'Activate Subscription',
-                    "
-                    <p>Welcome to our newsletter! Your subscription is successfully created.</p>
-                        <p>To get started, please verify your email by clicking the button below.</p>
-                        <a href=\"{$url}\" class=\"button\">Activate</a>"
+                    $setting->activate_newsletter_subject,
+                    $body
                 ));
            }
 
@@ -82,12 +84,13 @@ class PageNewsletterComponent extends Component
             ]);
 
             $url = route('activate_sub', $sub->id);
+            $setting = AppSetting::first();
+            
+            $body = str_replace('[url]', $url, $setting->activate_newsletter_mail);
+            
             Mail::to($request->email)->send(new AppMail(
-                'Activate Subscription',
-                "
-                <p>Welcome to our newsletter! Your subscription is successfully created.</p>
-                    <p>To get started, please verify your email by clicking the button below.</p>
-                    <a href=\"{$url}\" class=\"button\">Activate</a>"
+                $setting->activate_newsletter_subject,
+                $body
             ));
 
         }

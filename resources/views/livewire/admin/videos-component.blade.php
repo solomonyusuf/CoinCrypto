@@ -94,7 +94,10 @@
                         <h6 class="fs-4 fw-semibold mb-0">Title</h6>
                     </th>
                     <th>
-                        <h6 class="fs-4 fw-semibold mb-0">Sponsored</h6>
+                        <h6 class="fs-4 fw-semibold mb-0">Category</h6>
+                    </th>
+                    <th>
+                        <h6 class="fs-4 fw-semibold mb-0">Visible</h6>
                     </th>
                     
                     <th></th>
@@ -114,8 +117,13 @@
                        
                     </td>
                     <td>
+                        <h6>
+                           {{ $data?->video_category?->title }}
+                        </h6>
+                    </td>
+                    <td>
                         <span class="badge bg-primary-subtle text-primary d-inline-flex align-items-center gap-1">
-                            @if($data->sponsored == true)
+                            @if($data->visible == true)
                                 true
                                 @else
                                 false

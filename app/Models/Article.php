@@ -15,10 +15,12 @@ use Illuminate\Database\Eloquent\Model;
  * Class Article
  * 
  * @property string $id
- * @property string $title
+ * @property string|null $title
  * @property string|null $info
  * @property string|null $slug
  * @property string|null $content
+ * @property string|null $meta_tags
+ * @property string|null $meta_description
  * @property string|null $image
  * @property bool $sponsored
  * @property bool $visible
@@ -52,6 +54,8 @@ class Article extends Model
 		'info',
 		'slug',
 		'content',
+		'meta_tags',
+		'meta_description',
 		'image',
 		'sponsored',
 		'visible',

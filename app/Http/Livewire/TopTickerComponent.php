@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use Log;
@@ -77,6 +78,11 @@ class TopTickerComponent extends Component
     protected $listeners = ['fetchPrice'];
     public function render()
     {
-        return view('livewire.top-ticker-component');
+        $setting = AppSetting::first();
+ 
+        return view('livewire.top-ticker-component',[
+        'setting'=> $setting,
+
+        ]);
     }
 }

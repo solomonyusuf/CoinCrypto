@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('info')->nullable();
             $table->string('slug')->nullable();
-            $table->text('content')->nullable();
+            $table->longText('content')->nullable();
+            $table->text('meta_tags')->nullable();
+            $table->text('meta_description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('sponsored')->default(false);
             $table->boolean('visible')->default(true);

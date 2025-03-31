@@ -1,4 +1,10 @@
 <div>
+     
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
     <div class="container-fluid">
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
           <div class="card-body px-4 py-3">
@@ -109,6 +115,19 @@
                         <span class="d-none d-md-block ms-2">Masthead</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex" data-bs-toggle="tab" href="#item15" role="tab">
+                        <span><i class="ti ti-ad"></i> </span>
+                        <span class="d-none d-md-block ms-2">Advertising</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex" data-bs-toggle="tab" href="#item16" role="tab">
+                        <span><i class="ti ti-home"></i> </span>
+                        <span class="d-none d-md-block ms-2">Homepage</span>
+                    </a>
+                </li>
+               
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -129,6 +148,18 @@
                                   <label  class="form-label">Image</label>
                                   <input name="image"  type="file" class="form-control">
                                 </div>
+                                <div class="mb-3">
+                                  <label  class="form-label">Theme</label>
+                                  <select required name="theme" class="form-control">
+                                    <?php if($setting->theme == 'black'): ?>
+                                    <option selected value="black"> Black</option>
+                                    <option value="white">White</option>
+                                    <?php else: ?> 
+                                    <option value="black"> Black</option>
+                                    <option selected value="white">White</option>
+                                    <?php endif; ?>
+                                  </select>
+                                </div>
                               <div class="mb-3">
                                 <label for="exampleInputname" class="form-label">Name</label>
                                 <input name="name" value="<?php echo e($setting?->name); ?>"  type="text" class="form-control" id="exampleInputname" placeholder="">
@@ -140,6 +171,14 @@
                               <div class="mb-3">
                                 <label for="exampleInputtext1" class="form-label">Address</label>
                                 <input name="address" value="<?php echo e($setting?->address); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                              </div>
+                               <div class="mb-3">
+                                <label for="exampleInputtext1" class="form-label">Default Event Text Color</label>
+                                <input name="default_event_color" value="<?php echo e($setting?->default_event_color); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputtext1" class="form-label">Default Event Background</label>
+                                <input name="default_event_background" value="<?php echo e($setting?->default_event_background); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                               </div>
                               <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -281,7 +320,8 @@
                                 <div class="row">
                                   <div class="col-lg-12">
                                    
-                                    <div class="mb-3">
+                                    
+                                       <div class="mb-3">
                                         <label  class="form-label">First Section</label>
                                         <select required name="first" class="form-control">
                                           <?php if($setting->first == true): ?>
@@ -597,6 +637,124 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
                 </div>
+                 <div class="tab-pane p-3" id="item15" role="tabpanel">
+                    <h6>Advertising</h6>
+                    <div class="mb-3 mt-2">
+                        <textarea name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->advertising); ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                       
+                </div>
+                <div class="tab-pane p-3" id="item16" role="tabpanel">
+                    <h6>Homepage</h6>
+                    <div class="mt-3">
+                       <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Top Left Article</label>
+                                <select name="top_left_article" id="top-left" class="form-control">
+                                  <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($setting->top_left_article == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group mb-3">
+                              <label>Top Right Video </label>
+                              <select name="top_right_article" id="top-right" class="form-control">
+                                <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->top_right_article == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </select>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Second Section Left Category</label>
+                                <select name="second_left" id="second-left" class="form-control">
+                                  <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($setting->second_left == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group mb-3">
+                              <label>Second Section Right Category </label>
+                              <select name="second_right" id="second-right" class="form-control">
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->second_right == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </select>
+                            </div>
+                          </div>
+                           <div class="col-md-12">
+                            <div class="form-group mb-3">
+                              <label>Third Section Category </label>
+                              <select name="third_section" id="third_section" class="form-control">
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->third_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </select>
+                            </div>
+                          </div>
+                           <div class="col-md-6">
+                            <div class="form-group mb-3">
+                              <label>Fourth Section Category </label>
+                              <select name="fourth_section" id="fourth_section" class="form-control">
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->fourth_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group mb-3">
+                              <label>Fifth Section Category </label>
+                              <select name="fifth_section" id="fifth_section" class="form-control">
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->fifth_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                              </select>
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                       
+                </div>
+                
             </div>
         </div>
 
@@ -626,6 +784,37 @@
     ],
     ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
     });
+</script>
+
+<script>
+    $('#top-left').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+        $('#top-right').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+        $('#second-right').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+         $('#second-left').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+          $('#third_section').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+         $('#fourth_section').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
+         $('#fifth_section').select2({
+            placeholder: "Search for info...",
+            allowClear: true
+        });
 </script>
 </div>
  <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/app-setting-component.blade.php ENDPATH**/ ?>

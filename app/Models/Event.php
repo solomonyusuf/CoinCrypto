@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -13,8 +17,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string|null $content
  * @property bool $sponsored
+ * @property bool $visible
  * @property string|null $image
  * @property string|null $category
+ * @property string|null $text_color
+ * @property string|null $background
  * @property Carbon|null $event_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -29,6 +36,7 @@ class Event extends Model
 
 	protected $casts = [
 		'sponsored' => 'bool',
+		'visible' => 'bool',
 		'event_date' => 'datetime'
 	];
 
@@ -37,8 +45,11 @@ class Event extends Model
 		'title',
 		'content',
 		'sponsored',
+		'visible',
 		'image',
 		'category',
+		'text_color',
+		'background',
 		'event_date'
 	];
 }

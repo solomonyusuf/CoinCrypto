@@ -9,6 +9,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
   @livewireStyles
 
     <!-- solar icons -->
@@ -96,6 +97,22 @@
                       <i class="ti ti-settings"></i>
                     </span>
                     <span class="hide-menu">Settings</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_templates') ? 'active' : '' }}" href="{{ route('admin_templates') }}" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-mail"></i>
+                    </span>
+                    <span class="hide-menu">Email Templates</span>
+                  </a>
+                </li>
+                 <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_navigations') ? 'active' : '' }}" href="{{ route('admin_navigations') }}" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-link"></i>
+                    </span>
+                    <span class="hide-menu">Navigation Links</span>
                   </a>
                 </li>
                 @endif

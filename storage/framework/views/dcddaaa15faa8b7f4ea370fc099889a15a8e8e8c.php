@@ -24,10 +24,10 @@ $advert = $setting->advert;
         }
     </style>
 
-    <meta name="theme-color" content="#000" />
+<meta name="theme-color" content="#000" />
 
     
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+ <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     
     <!-- DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -36,46 +36,7 @@ $advert = $setting->advert;
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-   <style>
-    /* Adjust table styles */
-    table.dataTable thead {
-        background-color: #f3f4f6; /* Tailwind gray-200 */
-    }
-
-    table.dataTable {
-        width: 100% !important;
-        border-collapse: collapse;
-    }
-
-    /* Customize pagination buttons */
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
-        padding: 6px 12px;
-        margin: 2px;
-        border-radius: 6px;
-        background-color: #2563eb; /* Tailwind blue-600 */
-        color: white !important;
-        border: none;
-    }
-
-    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-        background-color: #1e40af; /* Tailwind blue-700 */
-    }
-
-    /* Search box */
-    .dataTables_wrapper .dataTables_filter input {
-        border: 1px solid #d1d5db; /* Tailwind gray-300 */
-        border-radius: 6px;
-        padding: 6px;
-        margin-left: 10px;
-    }
-
-    /* Table Rows */
-    table.dataTable tbody tr:nth-child(even) {
-        background-color: #f9fafb; /* Tailwind gray-100 */
-    }
-</style>
-
-    <style>
+<style>
         .slide-container {
             overflow: hidden;
             width: 100%;
@@ -100,32 +61,37 @@ $advert = $setting->advert;
         opacity: 1;
     }
 
+    .bg-yellow{
+        background: #ffd200;
+        border-color: #ffd200;
+    }
     </style>
     <?php echo \Livewire\Livewire::styles(); ?>
 
+
 </head>
 
-<body class="light bg-background-default text-text-primary overflow-x">
+<body class="<?php echo e($setting->theme); ?> bg-<?php echo e($setting->theme); ?> text-text-primary overflow-x">
     <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
     <div data-overlay-container="true">
         <main class="flex min-h-screen flex-col">
             <header 
-                class="top-0 z-[100] bg-white">
-                <div class="bg-white">
+                class="top-0 z-[100] bg-<?php echo e($setting->theme); ?>">
+                <div class="bg-<?php echo e($setting->theme); ?>">
                     <?php if($setting->top_ticker): ?>
                        <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('BAfNWWV')) {
-    $componentId = $_instance->getRenderedChildComponentId('BAfNWWV');
-    $componentTag = $_instance->getRenderedChildComponentTagName('BAfNWWV');
+} elseif ($_instance->childHasBeenRendered('lQb5ZND')) {
+    $componentId = $_instance->getRenderedChildComponentId('lQb5ZND');
+    $componentTag = $_instance->getRenderedChildComponentTagName('lQb5ZND');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('BAfNWWV');
+    $_instance->preserveRenderedChild('lQb5ZND');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('BAfNWWV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('lQb5ZND', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -133,15 +99,15 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('1jDr3c6')) {
-    $componentId = $_instance->getRenderedChildComponentId('1jDr3c6');
-    $componentTag = $_instance->getRenderedChildComponentTagName('1jDr3c6');
+} elseif ($_instance->childHasBeenRendered('bbly6WU')) {
+    $componentId = $_instance->getRenderedChildComponentId('bbly6WU');
+    $componentTag = $_instance->getRenderedChildComponentTagName('bbly6WU');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('1jDr3c6');
+    $_instance->preserveRenderedChild('bbly6WU');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('1jDr3c6', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('bbly6WU', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -174,15 +140,15 @@ echo $html;
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('XP8zeIa')) {
-    $componentId = $_instance->getRenderedChildComponentId('XP8zeIa');
-    $componentTag = $_instance->getRenderedChildComponentTagName('XP8zeIa');
+} elseif ($_instance->childHasBeenRendered('tZUYG5z')) {
+    $componentId = $_instance->getRenderedChildComponentId('tZUYG5z');
+    $componentTag = $_instance->getRenderedChildComponentTagName('tZUYG5z');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('XP8zeIa');
+    $_instance->preserveRenderedChild('tZUYG5z');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('XP8zeIa', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('tZUYG5z', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -190,8 +156,7 @@ echo $html;
                 <?php echo e($slot); ?>
 
 
-            <footer 
-                class="bottom-0 flex w-full flex-col items-center bg-[#FAFAFA] px-0 pb-[64px] pt-4 lg:pb-0">
+            <footer class="bottom-0 flex w-full flex-col items-center  <?php echo e($setting->theme == 'white' ? 'bg-[#FAFAFA]'  : 'bg-black'); ?> px-0 pb-[64px] pt-4 lg:pb-0">
                 <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
                     <div class="max-w-[100%]">
                         <div class="mb-8 flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">

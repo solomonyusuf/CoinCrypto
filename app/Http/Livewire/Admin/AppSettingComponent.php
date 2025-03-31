@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Admin;
 
 use App\Http\Controllers\UploadController;
 use App\Models\AppSetting;
+use App\Models\AppVideo;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
@@ -20,6 +23,9 @@ class AppSettingComponent extends Component
             'address'=> $request->address,
             'contact'=> $request->contact,
             'first'=> $request->first,
+            'theme'=> $request->theme,
+            'default_event_color'=> $request->default_event_color,
+		    'default_event_background'=> $request->default_event_background,
             //-------------------------------
             'masthead'=> $request->masthead,
             'news'=> $request->news,
@@ -30,6 +36,24 @@ class AppSettingComponent extends Component
             'podcasts'=> $request->podcasts,
             'newsletters'=> $request->newsletters,
             'webinar'=> $request->webinar,
+             //-------------------------------
+            'login_subject' => $query->login_subject,
+            'login_mail'=> $query->login_mail,
+            'register_subject'=> $query->register_subject,
+            'register_mail'=> $query->register_mail,
+            'reset_subject'=> $query->reset_subject,
+            'reset_mail'=> $query->reset_mail,
+            'activate_newsletter_subject'=> $query->activate_newsletter_subject,
+            'activate_newsletter_mail'=> $query->activate_newsletter_mail,
+             
+             //-------------------------------
+            'top_left_article'=> $request->top_left_article,
+            'top_right_article'=> $request->top_right_article,
+            'second_left'=> $request->second_left,
+            'second_right'=> $request->second_right,
+            'third_section'=> $request->third_section,
+            'fourth_section'=> $request->fourth_section,
+            'fifth_section'=> $request->fifth_section,
              //-------------------------------
             'footer_info'=> $request->footer_info,
             'footer_name'=> $request->footer_name,
@@ -73,9 +97,14 @@ class AppSettingComponent extends Component
     public function render()
     {
         $setting = AppSetting::first();
-
+        $articles = Article::orderByDesc('created_at')->get();
+        $videos = AppVideo::orderByDesc('created_at')->get();
+        $categories = ArticleCategory::orderByDesc('created_at')->get();
         return view('livewire.admin.app-setting-component',[
-            'setting'=> $setting
+            'setting'=> $setting,
+            'articles'=> $articles,
+            'videos'=> $videos,
+            'categories'=> $categories,
         ])->layout('layouts.admin');
     }
 }

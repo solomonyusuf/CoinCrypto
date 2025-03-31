@@ -24,6 +24,22 @@
     
     <div class="slide-container relative box-content flex h-9 items-center justify-between overflow-hidden">
         <!-- TradingView Ticker Tape Widget -->
+        @if( $setting->theme == 'black')
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                { "proName": "COINBASE:BTCUSD", "title": "Bitcoin" },
+                { "proName": "COINBASE:ETHUSD", "title": "Ethereum" },
+                { "proName": "BINANCE:BNBUSDT", "title": "Binance Coin" },
+                { "proName": "COINBASE:XRPUSD", "title": "XRP" }
+            ],
+            "theme": "dark",
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "locale": "en"
+            }
+            </script>
+        @else
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
             {
             "symbols": [
@@ -38,7 +54,8 @@
             "locale": "en"
             }
             </script>
-    
+
+        @endif
         {{-- <!-- Play/Pause Button -->
         <div class="bg-charcoal-25 absolute left-0 top-0 z-20 flex h-full items-center">
             <button id="togglePlay" class="flex h-full cursor-pointer items-center px-4 lg:px-6">

@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\AppMail;
+use App\Models\AppSetting;
 use App\Models\Newsletter;
 use App\Models\Release;
 use App\Models\Subscription;
@@ -34,10 +35,11 @@ class SendBulkEmails implements ShouldQueue
         
         if($users)
         {
+            $setting = AppSetting::first();
             foreach ($users as $user) {
                 Mail::to($user->email)
                 ->send(new AppMail(
-                    'CoinCrypto Newsletter',
+                    $setting->name,
                     $letter->content
                 ));
     

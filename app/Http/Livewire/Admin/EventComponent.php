@@ -25,7 +25,9 @@ class EventComponent extends Component
         $model->update([
             'title'=> $request->title,
             'content'=> $request->content,
-            'sponsored'=> $request->sponsored,
+            'visible'=> $request->visible,
+            'text_color'=> $request->text_color,
+            'background'=> $request->background,
             'image'=> $image,
             'category'=> $request->category,
             'event_date'=> $request->event_date
@@ -46,7 +48,9 @@ class EventComponent extends Component
         Event::create([
             'title'=> $request->title,
             'content'=> $request->content,
-            'sponsored'=> $request->sponsored,
+            'visible'=> $request->visible,
+            'text_color'=> $request->text_color,
+            'background'=> $request->background,
             'image'=> $image,
             'category'=> $request->category,
             'event_date'=> $request->event_date

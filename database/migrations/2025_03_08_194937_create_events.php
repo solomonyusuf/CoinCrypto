@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('content')->nullable();
             $table->boolean('sponsored')->default(false);
+            $table->boolean('visible')->default(true);
             $table->string('image')->nullable();
             $table->string('category')->nullable();
+            $table->string('text_color')->nullable();
+            $table->string('background')->nullable();
             $table->datetime('event_date')->nullable();
             $table->timestamps();
         });

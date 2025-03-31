@@ -4,6 +4,8 @@ use App\Http\Controllers\EditorController;
 use App\Http\Livewire\Admin\AllEpisodesComponent;
 use App\Http\Livewire\Admin\AppSettingComponent;
 use App\Http\Livewire\Admin\ArticleComponent;
+use App\Http\Livewire\Admin\EmailTemplateComponent;
+use App\Http\Livewire\Admin\NavigationLinksComponent;
 use App\Http\Livewire\Admin\PodcastTagComponent;
 use App\Http\Livewire\Admin\ReleaseComponent;
 use App\Http\Livewire\Admin\VideoTagComponent;
@@ -133,17 +135,24 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
     Route::get('/admin-episodes', AllEpisodesComponent::class)->name('admin_episode');
     Route::get('/admin-settings', AppSettingComponent::class)->name('admin_setting');
+    Route::get('/admin-email-templates', EmailTemplateComponent::class)->name('admin_templates');
+    Route::get('/admin-navigation-links', NavigationLinksComponent::class)->name('admin_navigations');
     Route::get('/admin-release_news-{sub_id}', ReleaseComponent::class)->name('release_news');
     
     //REQUESTS
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
     Route::post('/update-setting', [AppSettingComponent::class, 'update'])->name('update_setting');
+    Route::post('/update-template', [EmailTemplateComponent::class, 'update'])->name('update_template');
 
 
     Route::post('/create_article', [ArticleComponent::class, 'create'])->name('create_article');
     Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
     Route::post('/update_editor/{id}', [EditorComponent::class, 'update_editor'])->name('update_editor');
     Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
+ 
+    Route::post('/create_nav', [NavigationLinksComponent::class, 'create'])->name('create_nav');
+    Route::post('/update_nav/{id}', [NavigationLinksComponent::class, 'update'])->name('update_nav');
+    Route::get('/delete_nav/{id}', [NavigationLinksComponent::class, 'delete'])->name('delete_nav');
  
     Route::post('/create_events', [EventComponent::class, 'create'])->name('create_event');
     Route::post('/update_events/{id}', [EventComponent::class, 'update'])->name('update_event');

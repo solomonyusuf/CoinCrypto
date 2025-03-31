@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\AppMail;
+use App\Models\AppSetting;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
@@ -40,13 +41,15 @@ class RegisterComponent extends Component
                 ]);
 
    
+                $setting = AppSetting::first();
+
                 $url = route('login');
+               
+                $body = str_replace('[url]', $url, $setting->register_mail);
+                
                 Mail::to($user->email)->send(new AppMail(
-                    'Account Sign up',
-                    "
-                    <p>Welcome to our platform! Your account has been successfully created.</p>
-                        <p>To get started, please verify your email by clicking the button below.</p>
-                        <a style=\"color:white;\" href=\"{$url}\" class=\"button\" >Access Account</a>"
+                    $setting->register_subject,
+                    $body
                 ));
                 
                 toast('Account Created Successfully', 'success');

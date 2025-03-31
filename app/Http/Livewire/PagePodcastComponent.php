@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\Episode;
 use App\Models\Podcast;
 use Livewire\Component;
@@ -35,6 +36,7 @@ class PagePodcastComponent extends Component
             'podcasts'=> $podcasts,
             'first'=> $first,
             'podcast'=> $podcast,
+            'setting'=> AppSetting::first(),
         ]);
     }
 }

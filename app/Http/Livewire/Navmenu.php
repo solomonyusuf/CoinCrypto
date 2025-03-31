@@ -6,6 +6,7 @@ use App\Models\AppSetting;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Newsletter;
+use App\Models\PageLink;
 use App\Models\Podcast;
 use App\Models\VideoCategory;
 use App\Models\Event;
@@ -42,7 +43,7 @@ class Navmenu extends Component
                     ->orderBy('event_date', 'asc')  
                     ->first();
                     
-       $events = Event::where('event_date', '>', Carbon::now())
+        $events = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  
                     ->get();
 
@@ -60,6 +61,8 @@ class Navmenu extends Component
                                 $query->orderByDesc('created_at')->take(4);  
                             }])->get();
 
+        $links = PageLink::get();
+
         return view('livewire.navmenu',[
             'video_category'=> $video_category,
             'event'=> $event,
@@ -67,6 +70,7 @@ class Navmenu extends Component
             'podcasts'=> $podcasts,
             'newsletter'=> $newsletters,
             'setting'=> $setting,
+            'links'=> $links,
             'categories'=> $categories_display,
         ]);
     }

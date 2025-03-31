@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\AppVideo;
 use App\Models\Article;
 use App\Models\Event;
@@ -25,6 +26,7 @@ class PageSponsorsComponent extends Component
         return view('livewire.page-sponsors-component', [
             'articles'=> $articles,
             'groupedArticles'=> $groupedArticles,
+            'setting' => AppSetting::first()
             
         ]);
     }

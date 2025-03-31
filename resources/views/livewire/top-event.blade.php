@@ -1,12 +1,12 @@
 <div>
-    @if($show)
+    @if($show && $event)
     <div>
         <div class="flex relative shadow-md lg:pr-16 lg:pl-16 pr-8 pl-8 justify-center items-center bg-[--bg]"
-            style="--bg: #464DFB;">
+            style="--bg: {{ $event->background ?? $setting->default_event_background }};"> 
             <div
                 class="flex flex-row sm:justify-between justify-center items-center pt-3 pb-3 w-[100%] xl:max-w-[1432px] lg:max-w-[1080px] md:max-w-[728px] md:pr-6 md:pl-6 sm:pr-4 sm:pl-4 pr-2 pl-2">
                 <div class="flex flex-col sm:mr-6 mr-2 sm:grow justify-center ">
-                    <p style="--textColor: #FFFFFF;" class="text-[--textColor] sm:flex hidden font-headline-sm text-[#262626] sm:pb-1">
+                    <p style="--textColor: {{ $event->text_color ?? $setting->default_event_color }};" class="text-[--textColor] sm:flex hidden font-headline-sm text-[#262626] sm:pb-1">
                         {{ $event->title }}
                     </p>
                     <a href="{{ $event->category ?? '' }}" target="_blank" style="--textColor: #FFFFFF;" class="text-[--textColor] sm:hidden flex font-headline-sm text-[#262626] sm:pb-1 underline">{{$event->title}}</a>
@@ -57,8 +57,7 @@
             </button>
         </div>
     </div>
-    @endif
-  
+    
     <script>
         function startCountdown(duration) {
             let countdown = duration;
@@ -83,4 +82,6 @@
         }
         startCountdown({{ $countdownSeconds }});
     </script>
+    @endif
+  
 </div>

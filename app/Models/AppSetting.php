@@ -17,6 +17,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $logo
  * @property string|null $name
  * @property string|null $email
+ * @property string|null $theme
+ * @property string|null $top_left_article
+ * @property string|null $top_right_article
+ * @property string|null $second_left
+ * @property string|null $second_right
+ * @property string|null $third_section
+ * @property string|null $fourth_section
+ * @property string|null $fifth_section
+ * @property string|null $default_event_color
+ * @property string|null $default_event_background
+ * @property string|null $mail_layout
+ * @property string|null $login_mail
+ * @property string|null $register_mail
+ * @property string|null $reset_mail
+ * @property string|null $activate_newsletter_mail
  * @property string|null $address
  * @property string|null $contact
  * @property string|null $news
@@ -25,9 +40,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $sponsored
  * @property string|null $videos
  * @property string|null $podcasts
- * @property string|null $news_section
  * @property string|null $newsletters
+ * @property string|null $news_section
  * @property string|null $webinar
+ * @property string|null $masthead
  * @property string|null $footer_info
  * @property string|null $footer_name
  * @property string|null $do_not_sell
@@ -39,6 +55,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $cookie
  * @property string|null $accessibility
  * @property string|null $advertising
+ * @property bool|null $first
+ * @property bool|null $second
+ * @property bool|null $third
  * @property bool|null $language
  * @property bool|null $top_ticker
  * @property bool|null $advert
@@ -46,15 +65,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool|null $event_section
  * @property bool|null $podcast
  * @property bool|null $most_read
- * @property bool|null $first
  * @property bool|null $newsletter
  * @property string|null $twitter
  * @property string|null $facebook
  * @property string|null $linkedin
- * @property string|null $first
  * @property string|null $instagram
  * @property string|null $youtube
- * @property string|null $masthead
  * @property string|null $tiktok
  * @property string|null $discord
  * @property string|null $telegram
@@ -72,7 +88,10 @@ class AppSetting extends Model
 	public $incrementing = false;
 
 	protected $casts = [
-		'lanugage' => 'bool',
+		'first' => 'bool',
+		'second' => 'bool',
+		'third' => 'bool',
+		'language' => 'bool',
 		'top_ticker' => 'bool',
 		'advert' => 'bool',
 		'top_event' => 'bool',
@@ -87,6 +106,25 @@ class AppSetting extends Model
 		'logo',
 		'name',
 		'email',
+		'theme',
+		'top_left_article',
+		'top_right_article',
+		'second_left',
+		'second_right',
+		'third_section',
+		'fourth_section',
+		'fifth_section',
+		'default_event_color',
+		'default_event_background',
+		'mail_layout',
+		'login_subject',
+		'login_mail',
+		'register_subject',
+		'register_mail',
+		'reset_subject',
+		'reset_mail',
+		'activate_newsletter_subject',
+		'activate_newsletter_mail',
 		'address',
 		'contact',
 		'news',
@@ -95,10 +133,10 @@ class AppSetting extends Model
 		'sponsored',
 		'videos',
 		'podcasts',
-		'masthead',
-		'news_section',
 		'newsletters',
+		'news_section',
 		'webinar',
+		'masthead',
 		'footer_info',
 		'footer_name',
 		'do_not_sell',
@@ -110,6 +148,9 @@ class AppSetting extends Model
 		'cookie',
 		'accessibility',
 		'advertising',
+		'first',
+		'second',
+		'third',
 		'language',
 		'top_ticker',
 		'advert',
@@ -122,7 +163,6 @@ class AppSetting extends Model
 		'facebook',
 		'linkedin',
 		'instagram',
-		'first',
 		'youtube',
 		'tiktok',
 		'discord',

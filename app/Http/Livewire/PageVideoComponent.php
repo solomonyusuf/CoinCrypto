@@ -40,6 +40,7 @@ class PageVideoComponent extends Component
             'category'=> $category,
             'top'=> $top,
             'videos'=> $videos,
+            'setting'=> AppSetting::first()
              
         ]);
     }

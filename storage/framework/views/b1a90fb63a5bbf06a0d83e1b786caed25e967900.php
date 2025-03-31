@@ -6,20 +6,21 @@
                 <div class="grid gap-4 grid-cols-4 md:gap-6 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
                     <div class="order-2 md:order-1 col-span-4 md:col-span-6 lg:col-span-9 xl:col-span-12 items-center ">
                         <div class="flex justify-center md:justify-start">
-                            <h1 class="text-color-black font-headline">   <?php echo e($author->first_name.' '.$author->last_name); ?></h1>
+                            <h1 class="<?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?> font-headline">   <?php echo e($author->first_name.' '.$author->last_name); ?></h1>
                         </div>
                         <div class="pt-2 flex justify-center md:justify-start">
-                            <span class="font-metadata-lg font-medium text-[#676767] uppercase">
+                            <span class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-[#676767]' : 'text-color-white'); ?>  uppercase">
                                 <?php echo e($author->title); ?>
 
-                            </span></div>
+                            </span>
+                        </div>
                         <div class="[&amp;>label]:cursor-pointer [&amp;>label]:font-sans [&amp;>label]:text-sm [&amp;>label]:text-[#676767] [&amp;>label]:font-semibold">
                             <input type="checkbox" id="toggle-text" class="peer hidden">
                             <div style="display: -webkit-box; -moz-box-orient: vertical; -webkit-line-clamp: 3;"
                                 class="overflow-hidden mt-4 font-serif text-[#676767] mb-4 peer-checked:!line-clamp-none pt-8">
                                 <div
                                     class="text-color-charcoal-600 font-body lg:text-xl lg:leading-normal tracking-[0.15px] author-header">
-                                    <div class="document-body  font-body-lg">
+                                    <div class="document-body  font-body-lg <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">
                                         <p><?php echo $author->info; ?></p>
                                     </div>
                                 </div>
@@ -29,13 +30,15 @@
                                     class="undefined mt-[2px]" width="9" height="4" viewBox="0 0 9 4" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.50004 3.94346L0.653442 0.0968628H8.34664L4.50004 3.94346Z"
-                                        fill="#676767"></path>
-                                </svg></label><label for="toggle-text"
+                                        fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
+                                </svg>
+                            </label>
+                            <label for="toggle-text"
                                 class="hidden peer-checked:inline-flex gap-2 items-center">Read less <svg
                                     class="rotate-180 mt-[2px]" width="9" height="4" viewBox="0 0 9 4" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.50004 3.94346L0.653442 0.0968628H8.34664L4.50004 3.94346Z"
-                                        fill="#676767"></path>
+                                        fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
                                 </svg></label>
                         </div>
                         <div class="pt-6 flex flex-wrap gap-6">
@@ -93,7 +96,7 @@
                 </div>
                 
                 <div  class="w-full flex flex-wrap justify-center flex-col border-0 md:gap-6 mdmax:gap-4 md:mt-8 mdmax:mt-4  border-solid border-t border-charcoal-600">
-                    <p class="font-title text-color-charcoal-600 pt-6 uppercase">
+                    <p class="font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> pt-6 uppercase">
                         Latest from  <?php echo e($author->first_name.' '.$author->last_name); ?>
 
                     </p>
@@ -109,30 +112,30 @@
                         ?>
                         <div class="flex flex-col gap-4">
                             <div class=" flex gap-4 false ">
-                                <div class="bg-white flex gap-6 w-full shrink justify-between">
+                                <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink justify-between">
                                     <div class="flex flex-col">
                                         <p class="mb-4">
-                                      <a class="font-title text-charcoal-600 uppercase"
+                                      <a class="font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase"
                                                 href="<?php echo e(route('category_detail', $category->id)); ?>">
                                                 <?php echo e($category->title); ?>
 
                                             </a>
                                         </p>
                                         <a
-                                            class="text-color-charcoal-900 mb-4 hover:underline"
+                                            class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                             href="<?php echo e(route('article_detail', [$article->slug, $article->id])); ?>">
                                             <h2 class="font-headline-xs font-medium">
                                                 <?php echo e($article->title); ?>
 
                                             </h2>
                                         </a>
-                                        <p class="font-body text-charcoal-600 mb-4">
+                                        <p class="font-body <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> mb-4">
                                             <?php echo \Illuminate\Support\Str::limit($article->content, 60, '..'); ?>
 
                                         </p>
                                         <p class="flex gap-2 flex-col">
                                             <span
-                                                class="font-metadata text-color-charcoal-600 uppercase">
+                                                class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
                                                 <?php echo e(\Carbon\Carbon::parse($article->created_at)->diffForHumans()); ?>
 
                                             </span>
@@ -160,7 +163,8 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M9.50001 19.3077L0.192261 10L9.50001 0.692245L10.5635 1.75574L2.31926 10L10.5635 18.2442L9.50001 19.3077Z"
-                                        fill="#676767"></path>
+                                        fill="#676767">
+                                    </path>
                                 </svg>
                             </a>
                             <?php endif; ?>

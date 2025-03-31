@@ -1,4 +1,13 @@
 <div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"> <!-- Classic theme -->
+    <style>
+        #colorPicker {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+    </style>
     <div class="container-fluid">
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
           <div class="card-body px-4 py-3">
@@ -50,8 +59,8 @@
                                     </div>
                                      
                                     <div class="mb-3">
-                                      <label  class="form-label">Sponsored *</label>
-                                      <select required name='sponsored' class="form-control">
+                                      <label  class="form-label">Visible *</label>
+                                      <select required name='visible' class="form-control">
                                           <option selected value=""> --Choose--</option>
                                           <option value="1"> true</option>
                                           <option value="0"> false</option>
@@ -62,7 +71,15 @@
                                       <label  class="form-label">Event Date *</label>
                                       <input required name='event_date' placeholder="" type="datetime-local" class="form-control">
                                     </div>
-                              
+                                    <div class="mb-3">
+                                      <label  class="form-label">Choose Text Color *</label>
+                                      <input name='text_color' placeholder="" type="text" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label  class="form-label">Choose Background *</label>
+                                      <input name='background' placeholder="" type="text" class="form-control">
+                                    </div>
+                                    
                                   </div>
                               </div>
                             </div>
@@ -184,9 +201,9 @@
                                                   </div>
                                                    
                                                   <div class="mb-3">
-                                                    <label  class="form-label">Sponsored *</label>
-                                                    <select required name='sponsored' class="form-control">
-                                                        @if ($data->sponsored == true)
+                                                    <label  class="form-label">Visible (show users) *</label>
+                                                    <select required name='visible' class="form-control">
+                                                        @if ($data->visible == true)
                                                         <option selected value="1"> true</option>
                                                         <option value="0"> false</option>
                                                         @else 
@@ -198,6 +215,14 @@
                                                   <div class="mb-3">
                                                     <label  class="form-label">Event Date *</label>
                                                     <input required name='event_date' value="{{ $data->event_date }}" placeholder="" type="datetime-local" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label  class="form-label">Choose Text Color *</label>
+                                                    <input required value="{{ $data->text_color }}"  name='text_color' placeholder="" type="text" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label  class="form-label">Choose Background *</label>
+                                                    <input required value="{{ $data->background }}"  name='background' placeholder="" type="text" class="form-control">
                                                   </div>
                                             
                                                 </div>
@@ -265,4 +290,5 @@
         });
     });
 </script> 
+
 </div>

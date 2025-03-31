@@ -6,30 +6,32 @@
       
       
       <div class="grid gap-4 md:gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
-        <?php if($setting->first): ?>
+        <?php if($setting?->first ): ?>
+
+        <?php if($latest): ?>
         <div class="col-start-1 col-span-full row-start-1 lg:col-end-8 xl:col-end-9">
           <div class="flex flex-col gap-1 md:flex-row xlmax:w-full ">
-            <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
+            <div class="bg-<?php echo e($setting->theme); ?> flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
               <div class="flex flex-col">
-                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                <a class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                   href="<?php echo e(route('article_detail', [$latest?->slug ?? 'post', $latest?->id])); ?>">
                   <h3 class="font-headline">
                     <?php echo e($latest?->title); ?>
 
                     </h3>
                 </a>
-                <p class="font-body text-color-charcoal-600 mb-4 line-clamp-2 lg:hidden xl:flex">
+                <p class="font-body <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> mb-4 line-clamp-2 lg:hidden xl:flex">
                  <?php echo \Illuminate\Support\Str::limit($latest->content, 50, '..'); ?>
 
                 </p>
                 <p class="flex gap-2 flex-col lg:flex-row items-center"><span
-                    class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
+                    class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> uppercase "><span class="mr-2">By
                       <!-- --> 
                       <?php for($i = 0; $i < count($latest->article_creators); $i++): ?>
                         <?php if($i > 0): ?>
                         ,
                         <?php endif; ?>
-                        <a title="" class="text-color-charcoal-900 hover:underline"
+                        <a title="" class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> hover:underline"
                         href="<?php echo e(route('author_detail', $latest->article_creators[$i]->user->id)); ?>"><?php echo e($latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name); ?>
 
                       </a>
@@ -37,7 +39,7 @@
                     
                     </span>
                   </span>
-                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                    <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> uppercase">
                         <?php echo e(\Carbon\Carbon::parse($latest->created_at)->diffForHumans()); ?>
 
                       </span>
@@ -55,10 +57,12 @@
             </div>
           </div>
         </div>
+        <?php endif; ?>
+        <?php if($video): ?>
         <div class="row-start-2 col-span-full md:col-start-4 lg:row-start-1 lg:col-start-8 -lg:col-end-1 xl:col-start-9 [&amp;_.jw-related-btn]:hidden">
           <div class="flex flex-col lg:flex-row h-full">
             <div class="lg:hidden pb-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
             </div>
             <div class="lgmax:hidden mr-6">
               <div class="shrink-0 bg-divider border-none h-full w-divider" role="separator" data-orientation="vertical"
@@ -73,11 +77,11 @@
                 </div>
          
               </div>
-              <h3 class="font-headline-2xs font-medium tracking-[0.1px] mt-6">
+              <h3 class="font-headline-2xs <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> font-medium tracking-[0.1px] mt-6">
                 <?php echo e($video->title); ?>
 
               </h3>
-              <div class="font-body-sm leading-normal text-color-charcoal-600 hidden lg:block lg:pt-4 xl:hidden">
+              <div class="font-body-sm leading-normal <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> hidden lg:block lg:pt-4 xl:hidden">
               <?php echo \Illuminate\Support\Str::limit($video->description, 400, '..'); ?>
 
               </div>
@@ -85,12 +89,13 @@
           </div>
         </div>
         <?php endif; ?>
+        <?php endif; ?>
 
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
           
             <div class="pb-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
             </div>
             <!--$-->
 
@@ -112,7 +117,7 @@ echo $html;
 
             <!--/$-->
             <div class="py-4">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
             </div>
 
             <?php if($setting->advert): ?>
@@ -136,10 +141,10 @@ echo $html;
         
           <div class="col-span-full md:row-start-2 md:col-start-4 lg:row-start-2 lg:col-start-4 -lg:col-end-1 md:row-start-3">
                 <div class="pb-6">
-                  <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+                  <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
                 </div>
                 <div class="flex pb-6 items-center">
-                  <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Top Stories</h2>
+                  <h2 class="font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?> uppercase"><?php echo e($top_category->title); ?></h2>
                 </div>
         
                   <?php for($i = 0; $i < count($top); $i += 3): ?>
@@ -147,22 +152,22 @@ echo $html;
                         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
                             <div class="col-span-1 lg:col-span-5 xl:col-span-1">
                                 <div class="flex gap-4 false">
-                                    <div class="bg-white flex gap-6 w-full shrink">
+                                    <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink">
                                         <div class="flex flex-col">
                                             <?php if(isset($top[$i])): ?>
-                                                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                <a class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                                   href="<?php echo e(route('article_detail', [$top[$i]->slug, $top[$i]->id])); ?>">
                                                     <h2 class="font-headline-2xs font-medium">
                                                         <?php echo e($top[$i]->title); ?>
 
                                                     </h2>
                                                 </a>
-                                                <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
+                                                <p class="font-body <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> mb-4 line-clamp-3">
                                                     <?php echo \Illuminate\Support\Str::limit($top[$i]->content, 60, '..'); ?>
 
                                                 </p>
                                                 <p class="flex gap-2 flex-col">
-                                                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                    <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> uppercase">
                                                         <?php echo e(\Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans()); ?>
 
                                                     </span>
@@ -184,9 +189,9 @@ echo $html;
                                 <?php if(isset($top[$i+1])): ?>
                                     <div>
                                         <div class="flex gap-4 false">
-                                            <div class="bg-white flex gap-6 w-full shrink">
+                                            <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink">
                                                 <div class="flex flex-col">
-                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                    <a class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                                       href="<?php echo e(route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id])); ?>">
                                                         <h2 class="font-headline-2xs font-medium">
                                                             <?php echo e($top[$i+1]->title); ?>
@@ -194,7 +199,7 @@ echo $html;
                                                         </h2>
                                                     </a>
                                                     <p class="flex gap-2 flex-col">
-                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                        <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?>  uppercase">
                                                             <?php echo e(\Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans()); ?>
 
                                                         </span>
@@ -208,9 +213,9 @@ echo $html;
                                 <?php if(isset($top[$i+2])): ?>
                                     <div>
                                         <div class="flex gap-4 false">
-                                            <div class="bg-white flex gap-6 w-full shrink">
+                                            <div class="<?php echo e($setting->theme == 'white' ?  'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink">
                                                 <div class="flex flex-col">
-                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                    <a class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?>  mb-4 hover:underline"
                                                       href="<?php echo e(route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id])); ?>">
                                                         <h2 class="font-headline-2xs font-medium">
                                                             <?php echo e($top[$i+2]->title); ?>
@@ -218,7 +223,7 @@ echo $html;
                                                         </h2>
                                                     </a>
                                                     <p class="flex gap-2 flex-col">
-                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                        <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?>  uppercase">
                                                             <?php echo e(\Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans()); ?>
 
                                                         </span>
@@ -232,14 +237,14 @@ echo $html;
                         </div>
                     </div>
                     <div class="py-4">
-                        <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+                        <hr class="shrink-0 bg-divider  border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
                     </div>
                 <?php endfor; ?>
 
         
               </div>
               <div class="hidden xl:hidden">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+                <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
               </div>
             </div>
           </div>
@@ -271,28 +276,28 @@ echo $html;
       <div class="grid">
         <div class="flex md:hidden flex-col justify-center items-center order-1"></div>
         <?php if($setting->newsletter): ?>
-   
         <div class="order-2">
           <div class="flex flex-col gap-6">
             <div class="flex">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+              <hr class="shrink-0 border-none w-full h-divider  <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
             </div>
             <div class="uppercase">
               <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="<?php echo e(route('newsletters')); ?>">
-                <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Newsletters</h2><svg class=""
+                <h2 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> font-title  hover:underline">Newsletters</h2><svg class=""
                   fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                    fill="#676767"></path>
+                    fill="<?php echo e($setting->theme == 'white' ? 'black' : 'white'); ?>"></path>
                 </svg>
               </a></div>
             <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
               <?php echo csrf_field(); ?>
               <div class="col-span-4 md:col-span-8 lg:col-span-5 xl:col-span-6 pb-6">
-                <div data-module-name="newsletter-sign-up-module" data-module-version="1.0.0" data-module-instance="default"
-                  class="border p-6 md:p-10 lg:p-6"><span
-                    class="text-color-dark-grey font-headline-xs font-medium text-charcoal-900">Don't miss another
-                    story.</span><span class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the
+                <div class="border p-6 md:p-10 lg:p-6"><span
+                    class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-headline-xs font-medium ">Don't miss another
+                    story.</span>
+                    <span class="block font-headline-3xs font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
+                      Subscribe to the
                     CoinCrypto Newsletter today
                     <!-- -->.
                   </span>
@@ -324,17 +329,22 @@ echo $html;
                           </g>
                         </svg></div>
                     </button>
-                  </div><span class="pt-4 font-metadata text-charcoal-600"><span class="text-color-dark-grey ">By signing
-                      up, you will receive emails about CoinCrypto products and you agree to our </span>
-                      <a class="border-b-[1px] border-black !no-underline" href="/terms"><span
-                        class="text-color-dark-grey ">terms of use</span>
+                  </div>
+                  <span class="pt-4 font-metadata <?php echo e($setting->theme == 'white' ? 'text-charcoal-600' : 'text-color-white'); ?>">
+                    <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?> ">By signing
+                      up, you will receive emails about CoinCrypto products and you agree to our 
+                    </span>
+                      <a class="border-b-[1px] border-black !no-underline" href="/terms">
+                        <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">
+                          terms of use
+                        </span>
                       </a>
-                      <span class="text-color-dark-grey "> and
+                      <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>"> and
                     </span>
                     <a class="border-b-[1px] border-black !no-underline" href="/privacy"><span
-                        class="text-color-dark-grey ">privacy policy</span>
+                        class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">privacy policy</span>
                       </a>
-                      <span  class="text-color-dark-grey font-metadata text-charcoal-600">.</span></span>
+                      <span  class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> font-metadata ">.</span></span>
                 </div>
               </div>
               <div class="col-span-4 md:col-span-8 lg:col-span-11 xl:col-span-10">
@@ -367,10 +377,10 @@ echo $html;
                         </div>
                         <div class="col-start-2 col-span-3 flex flex-col gap-1">
                           <div><a class="hover:underline" href="<?php echo e(route('newsletter_detail', $data->id)); ?>">
-                              <h3 class="font-headline-2xs font-normal"><?php echo e(\Illuminate\Support\Str::limit($data->title, 25, '..')); ?></h3>
+                              <h3 class="font-headline-2xs font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>"><?php echo e(\Illuminate\Support\Str::limit($data->title, 25, '..')); ?></h3>
                             </a></div>
                           <div>
-                            <span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">
+                            <span class="text-color-grey font-body-sm leading-6 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey  text-charcoal-600' : 'text-color-white'); ?> line-clamp-2">
                             <?php echo \Illuminate\Support\Str::limit($data->description, 60, '..'); ?>
 
                           </span>
@@ -379,7 +389,7 @@ echo $html;
                         </div>
                       </div>
                       <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                      <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                     </div>
                   </div>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -389,18 +399,36 @@ echo $html;
                 </div>
               </div>
             </form>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                  document.querySelector("form").addEventListener("submit", function(event) {
+                      let checkboxes = document.querySelectorAll("input[name='letter_id[]']");
+                      let isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                      
+                      if (!isChecked) {
+                          alert("Please select at least one newsletter before subscribing.");
+                          event.preventDefault(); // Prevent form submission
+                      }
+                  });
+              });
+              </script>
+              
           </div>
         </div>
         <?php endif; ?>
-        <?php if($setting->most_read): ?>
+
+        <?php if($setting->most_read && count($articles) > 0): ?>
         <div class="order-3">
           <div class="grid gap-4 grid-cols-4 md:gap-6 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
             <div class="order-1 col-span-4 md:col-span-8 lg:col-span-12 xl:order-2 xl:col-span-12 xl:row-span-2">
               <div class="pb-6">
-                <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                <hr class="shrink-0 border-none w-full h-divider  <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
               </div>
               <div class="flex pb-6 items-center">
-                <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Most Read</h2>
+                <h2 class=" font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
+                  <?php echo e($articles[0]?->article_category->title); ?>
+
+                </h2>
               </div>
               <div class="hidden md:flex">
                 
@@ -409,43 +437,48 @@ echo $html;
                     <img alt="elipse" loading="lazy" width="20" height="20"
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase"><?php echo e(sprintf('%02d', 1)); ?>
+                      class="absolute bottom-0 right-0 font-body <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase"><?php echo e(sprintf('%02d', 1)); ?>
 
                       <!-- -->.
                     </span>
                   </div>
-                  <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
-                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
+                  <div class=" <?php echo e($setting->theme == 'white' ?  'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink flex-col md:flex-row">
+                    <div class="flex flex-col">
+                      <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                         href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                         <h3 class="font-headline font-medium">
                           <?php echo e($articles[0]->title); ?>
 
                         </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                      <p class="font-body  <?php echo e($setting->theme == 'white' ?  'bg-white' : 'bg-black'); ?>  mb-4 line-clamp-3">
                         <?php echo \Illuminate\Support\Str::limit($articles[0]->content, 60, '..'); ?>
 
                       </p>
 
                       <p class="flex gap-2 flex-col">
-                        <?php for($i = 0; $i < count($articles[0]->article_creators); $i++): ?>
-                         <?php
-                          $data = $articles[0]->article_creators[$i];
-                         ?>
-                         <?php if($i > 0): ?>
-                            ,
-                         <?php endif; ?>
-                        <span
-                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                           class="text-color-charcoal-900 hover:underline"
+                       <span
+                        class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase ">
+                        <span class="mr-2">  By 
+                          <?php for($i = 0; $i < count($articles[0]->article_creators); $i++): ?>
+                          <?php
+                           $data = $articles[0]->article_creators[$i];
+                          ?>
+                          <?php if($i > 0): ?>
+                             ,
+                          <?php endif; ?>
+                         
+                          <a
+                           class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                             href="<?php echo e(route('author_detail', $data->user->id)); ?>">
                             <?php echo e($data->user->first_name.' '.$data->user->last_name); ?>
 
                           </a>
+                          <?php endfor; ?>
                         </span>
-                        <?php endfor; ?>
+                       
                         </span>
-                      <span class="font-metadata text-color-charcoal-600 uppercase">
+                      <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
                         <?php echo e(\Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans()); ?>
 
                                                 
@@ -478,16 +511,16 @@ echo $html;
                     </span>
                   </div>
                   
-                    <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
+                    <div class=" <?php echo e($setting->theme == 'white' ?   'bg-white' :'bg-black'); ?> flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col">
-                      <a class="text-color-charcoal-900 mb-4 hover:underline"
+                      <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                         href="<?php echo e(route('article_detail', [$articles[0]->slug, $articles[0]->id])); ?>">
                         <h3 class="font-headline font-medium">
                           <?php echo e($articles[0]->title); ?>
 
                         </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                      <p class="font-body <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>  mb-4 line-clamp-3">
                         <?php echo \Illuminate\Support\Str::limit($articles[0]->content, 60, '..'); ?>
 
                       </p>
@@ -500,8 +533,8 @@ echo $html;
                             ,
                          <?php endif; ?>
                         <span
-                          class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                              class="text-color-charcoal-900 hover:underline"
+                          class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase "><span class="mr-2">By <a
+                              class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                               href="<?php echo e(route('author_detail', $data->user->id)); ?>">
                               <?php echo e($data->user->first_name.' '.$data->user->last_name); ?>
 
@@ -509,7 +542,7 @@ echo $html;
                             </span>
                         <?php endfor; ?>
                         </span><span
-                          class="font-metadata text-color-charcoal-600 uppercase">
+                          class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase">
                           <?php echo e(\Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans()); ?>
 
                         </span></p>
@@ -524,13 +557,13 @@ echo $html;
             </div>
             <div class="order-2 col-span-4 md:order-3 md:col-span-8 lg:col-span-12 xl:order-3 xl:col-span-12 xl:row-span-6">
               <div class="pb-6">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                <hr class="shrink-0 bg-divider border-none w-full h-divider  <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
               </div>
              
               
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($articles[0]->title != $data->title): ?>
+                <?php if($articles[0]->id != $data->id): ?>
                 <div class="flex flex-col">
                   <div class="min-h-[103px]">
                     <div class="flex gap-4 false">
@@ -539,18 +572,18 @@ echo $html;
                           height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
                           style="color: transparent;"
                           src="img/elipse.png">
-                          <span class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase"><?php echo e(sprintf('%02d', $num++)); ?>.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
+                          <span class="absolute bottom-0 right-0 font-body-sm <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase"><?php echo e(sprintf('%02d', $num++)); ?>.</span></div>
+                      <div class=" <?php echo e($setting->theme == 'white' ?  'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink">
                         <div class="flex flex-col">
-                          <a class="text-color-charcoal-900 mb-4 hover:underline"
+                          <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                             href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
-                            <h2 class="font-headline-2xs font-medium">
+                            <h2 class="font-headline-2xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-medium">
                               <?php echo e($data->title); ?>
 
                             </h2>
                           </a>
                           <p class="flex gap-2 flex-col">
-                            <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                            <span class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase ">
                               By
                               <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
                                 <?php
@@ -560,7 +593,7 @@ echo $html;
                                     ,
                                 <?php endif; ?>
                                 <span class="mr-2">
-                                  <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
+                                  <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                                     href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->last_name); ?></a></span>
                                   </span>
                                 <?php endfor; ?>
@@ -572,7 +605,7 @@ echo $html;
                     </div>
                   </div>
                   <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                    <hr class="shrink-0 bg-divider border-none w-full h-divider  <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                   </div>
                 </div>
                 <?php endif; ?>
@@ -597,20 +630,20 @@ echo $html;
               <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
                 <?php
                   $categories = collect($categories);
-                  $cat1 = $categories->where('title', 'Opinion')->first();
+                  $cat1 = $categories->where('id', '=', $setting->fourth_section)->first();
                   $opinion = \App\Models\Article::where([ 'category_id'=> $cat1->id])->limit(4)->get();
                 ?>
                 <div class="flex flex-col col-span-1 lg:col-span-2 xl:col-span-1">
                   <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                   </div>
                   <div class="pb-6 uppercase">
                     <a target="__blank" class="flex gap-2 items-center z-50 hover:z-50 " href="<?php echo e(route('category_detail', $cat1->id)); ?>">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline"><?php echo e($cat1->title); ?></h2><svg
+                      <h2 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-title  hover:underline"><?php echo e($cat1->title); ?></h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
                       </svg>
                     </a>
                   </div>
@@ -618,9 +651,9 @@ echo $html;
                     <?php $__currentLoopData = $opinion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div>
                       <div class="flex gap-4 false ">
-                        <div class="bg-white flex gap-6 w-full shrink justify-between">
+                        <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' :'bg-black'); ?> flex gap-6 w-full shrink justify-between">
                           <div class="flex flex-col-reverse gap-2">
-                            <a class="text-color-charcoal-900 mb-4 hover:underline"
+                            <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                               href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                               <h3 class="font-headline-2xs font-normal">
                                <?php echo e($data->title); ?>
@@ -628,7 +661,7 @@ echo $html;
                               </h3>
                             </a>
                             <p class="flex gap-2 flex-col"><span
-                                class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span
+                                class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase "><span
                                   class="mr-2">By 
                                   <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
                                 <?php
@@ -638,7 +671,7 @@ echo $html;
                                     ,
                                 <?php endif; ?>
                                 <span class="mr-2">
-                                  <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
+                                  <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                                     href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->last_name); ?></a></span>
                                   </span>
                                 <?php endfor; ?>
@@ -652,7 +685,7 @@ echo $html;
                         </div>
                       </div>
                       <div class="py-4 py-4">
-                        <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                        <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                       </div>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -663,22 +696,22 @@ echo $html;
                 </div>
 
                 <?php
-                  $cat2 = $categories->where('title', 'Press release')->first();
-                  $press = \App\Models\Article::where([ 'category_id'=> $cat2?->id])->limit(5)->get();
+                  $cat2 = $categories->where('id', '=', $setting->fifth_section)->first();
+                  $press = \App\Models\Article::where([ 'category_id'=> $cat2->id])->limit(4)->get();
                   $transition = $press[0]->id;
                 ?>
                 <div class="flex flex-col col-span-1">
                   <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                   </div>
                   <div class="pb-6 uppercase">
                     <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
                       href="<?php echo e(route('category_detail', $cat2->id)); ?>">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Press Releases</h2><svg
+                      <h2 class="text-color-dark-grey font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline">Press Releases</h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
                       </svg>
                     </a></div>
                   <div class="flex flex-col gap-6">
@@ -687,18 +720,18 @@ echo $html;
                         <?php $__currentLoopData = $press; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="transition-opacity duration-300 min-h-[130px] <?php echo e($transition == $data->id ? 'block' : 'hidden'); ?>">
                           <div class="">
-                            <div class="bg-white flex gap-6 w-full shrink">
+                            <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex gap-6 w-full shrink">
                               <div class="flex flex-col">
-                                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                   href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
-                                  <h2 class="font-headline-2xs font-medium">
+                                  <h2 class="font-headline-2xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-medium">
                                     <?php echo e($data->title); ?>
 
                                   </h2>
                                 </a>
                                 <p class="flex gap-2 flex-col">
                                   <span
-                                    class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                                    class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase ">
                                     <?php if($data->info): ?>
                                     <span class="mr-2">
                                       <?php echo e($data->info); ?>
@@ -706,7 +739,7 @@ echo $html;
                                     </span>
                                     <?php endif; ?>
                                   </span>
-                                  <span class="font-metadata text-color-charcoal-600 uppercase">
+                                  <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase">
                                     <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
 
                         
@@ -724,7 +757,7 @@ echo $html;
                           <div
                             class="flex justify-center space-x-2 md:space-x-2 lg:space-x-4 px-12 md:px-18 lg:px-18 items-center">
                             <?php $__currentLoopData = $press; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <button wire:click="showTransition('<?php echo e($data->id); ?>')" class="w-2 h-2 bg-black border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
+                            <button wire:click="showTransition('<?php echo e($data->id); ?>')" class="w-2 h-2 <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?> border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             
                           </div>
@@ -744,19 +777,22 @@ echo $html;
    
   
         <div>
-        <?php if($setting->event_section): ?>
+        <?php if($setting->event_section && $event): ?>
           <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
             <div class="flex py-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+              <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
             </div>
             <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
-              href="<?php echo e(route('events')); ?>">
-              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline uppercase"><?php echo e($setting->concensus); ?></h2>
+              href="<?php echo e($event->category); ?>">
+              <h2 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-title  hover:underline uppercase">
+                <?php echo e($setting->concensus); ?>
+
+              </h2>
               <svg class=""
                 fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                  fill="#676767"></path>
+                  fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
               </svg>
             </a>
           </div>
@@ -817,15 +853,15 @@ echo $html;
               <div class="order-2 lg:order-1">
                 <div class="flex flex-col">
       
-                  <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                  <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                   
                   <div class="py-6 uppercase">
                     <a target="" class="flex gap-2 items-center z-50 hover:z-50 "href="<?php echo e(isset($podcasts[0]) ? route('podcast_detail', $podcasts[0]->podcast_id).'?episode='.$podcasts[0]->id : ''); ?>">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Podcasts</h2><svg class=""
+                      <h2 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline">Podcasts</h2><svg class=""
                         fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
                       </svg>
                     </a></div>
                   <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
@@ -834,17 +870,17 @@ echo $html;
                       <?php for($i = 0; $i < min(3, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-body-sm line-clamp-2 ">
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
                     <?php endfor; ?>
@@ -856,17 +892,17 @@ echo $html;
                       <?php for($i = 3; $i < min(6, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="<?php echo e($setting->theme == 'white' ? 'text-color-black text-charcoal-900' : 'text-color-white'); ?>  font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-body-sm line-clamp-2 ">
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
                       <?php endfor; ?>
@@ -877,25 +913,24 @@ echo $html;
                       <?php for($i = 6; $i < min(9, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="font-headline-2xs font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> ">
                                   <?php echo e($podcasts[$i]->title); ?>
 
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-body-sm line-clamp-2">
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
                       <?php endfor; ?>
                        
                     </div>
                     
-                    
-
+    
                     <div class="order-4 col-span-4 lg:col-span-6 xl:col-span-4 pb-6 md:pb-0
           						grid grid-rows-1 grid-flow-col grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
           						md:grid-cols-1 md:grid-rows-none md:grid-flow-row gap-4
@@ -905,17 +940,17 @@ echo $html;
                       <?php for($i = 0; $i < min(0, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-headline-2xs font-normal">
                                   <?php echo e($podcasts[$i]->title); ?>
 
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-body-sm line-clamp-2 ">
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
                      <?php endfor; ?>
@@ -931,8 +966,8 @@ echo $html;
                 <div class="flex flex-col">
                   <div>
                     <div class="hidden lg:grid lg:grid-cols-2 gap-6 pt-8">
-                      <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
-                      <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                      <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
+                      <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                     </div>
                     <div class="grid grid-col-1 lg:grid-cols-2 gap-0 md:gap-6">
                       
@@ -943,20 +978,20 @@ echo $html;
                           ?>
                       <div>
                         <div class="flex pt-8 lg:hidden md:pt-8">
-                          <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                          <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                         </div>
                        
                         <div class="flex flex-col">
                           <div class="flex py-6 uppercase">
                             <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
                               href="<?php echo e(route('category_detail', $category->id)); ?>">
-                              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline"><?php echo e($category->title); ?></h2>
+                              <h2 class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-title hover:underline"><?php echo e($category->title); ?></h2>
                               <svg
                                 class="" fill="none" height="24" viewBox="0 0 25 24" width="25"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                   d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                                  fill="#676767"></path>
+                                  fill="<?php echo e($setting->theme == 'white' ? '#676767' : 'white'); ?>"></path>
                               </svg>
                             </a>
                           </div>
@@ -966,21 +1001,21 @@ echo $html;
 
                               <?php if($first): ?>
                               <div class=" flex gap-4 false ">
-                                <div class="bg-white flex gap-6 w-full shrink flex-col">
+                                <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' :'bg-black'); ?> flex gap-6 w-full shrink flex-col">
                                   <div class="flex flex-col">
-                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                    <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                       href="<?php echo e(route('article_detail', [$first->slug ?? '', $first->id])); ?>">
-                                      <h2 class="font-headline-xs font-normal">
+                                      <h2 class="font-headline-xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-normal">
                                         <?php echo e($first['title']); ?>
 
                                       </h2>
                                     </a>
-                                    <p class="font-body-sm text-color-charcoal-600 mb-4 line-clamp-3 flex md:hidden">
+                                    <p class="font-body-sm <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> mb-4 line-clamp-3 flex md:hidden">
                                       <?php echo \Illuminate\Support\Str::limit($first['content'], 50, '..'); ?>
 
                                     </p>
                                     <p class="flex gap-2 flex-col"><span
-                                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase flex md:hidden"><span
+                                        class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase flex md:hidden"><span
                                           class="mr-2">By
                                           
                                           <?php for($i = 0; $i < count($first->article_creators); $i++): ?>
@@ -991,9 +1026,9 @@ echo $html;
                                              ,
                                           <?php endif; ?>
                                          <span
-                                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2"> 
+                                         class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase "><span class="mr-2"> 
                                           <a
-                                            class="text-color-charcoal-900 hover:underline"
+                                            class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                                              href="<?php echo e(route('author_detail', $creator->user->id)); ?>">
                                              <?php echo e($creator->user['first_name'].' '.$creator->user['last_name']); ?>
 
@@ -1021,16 +1056,17 @@ echo $html;
                               <?php if( $first->id != $article->id): ?>
                               <div>
                                 <div class="flex gap-4 false ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
+                                  <div class="<?php echo e($setting->theme == 'white' ?  'bg-white' :'bg-black'); ?> flex gap-6 w-full shrink">
+                                    <div class="flex flex-col">
+                                      <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                                         href="<?php echo e(route('article_detail', [$article->slug, $article->id])); ?>">
-                                        <h2 class="font-headline-2xs font-medium">
+                                        <h2 class="font-headline-2xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-medium">
                                           <?php echo e($article->title); ?>
 
                                         </h2>
                                       </a>
                                       <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">
+                                          class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
                                           <?php echo e(\Carbon\Carbon::parse($article->created_at)->diffForHumans()); ?>
 
                                         </span></p>
@@ -1038,7 +1074,7 @@ echo $html;
                                   </div>
                                 </div>
                                 <div class="py-4">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                                  <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                                 </div>
                               </div>
                               <?php endif; ?>
@@ -1063,7 +1099,7 @@ echo $html;
                 
                    
                   <div class="flex pt-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                   </div>
                 </div>
               </div>

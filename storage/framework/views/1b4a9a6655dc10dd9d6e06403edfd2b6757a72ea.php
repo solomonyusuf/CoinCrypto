@@ -59,7 +59,7 @@
 
 </script>
 
-   <div class="relative flex h-[4rem] items-center justify-between border-b border-b-gray-300 p-0 md:p-[1.25rem]">
+   <div class="<?php echo e($setting->theme == 'white' ? 'text-dark' : 'text-white'); ?> relative flex h-[4rem] items-center justify-between border-b border-b-gray-300 p-0 md:p-[1.25rem]">
         <div class="md:justify-unset flex h-full items-center">
 
             <button  id="menu-button" class="ml-2 cursor-pointer md:ml-0 xl:ml-0">
@@ -67,15 +67,13 @@
                     xmlns="http://www.w3.org/2000/svg">
                     <path id="menu"
                         d="M0 11.2692V10.2692H16V11.2692H0ZM0 6.49996V5.49996H16V6.49996H0ZM0 1.73071V0.730713H16V1.73071H0Z"
-                        fill="#262626"></path>
+                        fill="<?php echo e($setting->theme == 'white' ?  '#262626' : '#ffffff'); ?>"></path>
                 </svg>
             </button>
             <div class="flex h-full cursor-pointer items-center">
                 <div id="wrapper1"  class="bg-hamburger-menu absolute  <?php echo e($openNav ? '' : 'hidden'); ?> left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
                 </div>
-                <div id="modal"
-                    
-                    class="hamburger-modal bg-white-coindesk absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 <?php echo e($openNav ? '' : 'hidden'); ?>"
+                <div id="modal" class="hamburger-modal bg-<?php echo e($setting->theme); ?> absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 <?php echo e($openNav ? '' : 'hidden'); ?>"
                     style="top: 65px; height: calc(-100px + 100vh);">
                     <div class="relative pb-20 p-4 md:pb-4 lg:px-4">
                         <?php if($user): ?>
@@ -95,7 +93,7 @@
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between">
                                     <a
-                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
+                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey text-dark pt-4" target="_self"
                                         href="<?php echo e(route('home')); ?>"><span class="h-auto"><span
                                                 class="font-title font-bold"><?php echo e($setting->news); ?>
 
@@ -164,7 +162,7 @@
                                                         <g mask="url(#mask0_2411_5870)">
                                                             <path id="chevron_forward_2"
                                                                 d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                                fill="#262626"></path>
+                                                                fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                         </g>
                                                     </g>
                                                 </svg>
@@ -198,7 +196,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg>
@@ -227,7 +225,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg>
@@ -260,7 +258,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg></button></div>
@@ -291,17 +289,19 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
-                                        </svg></button></div>
+                                        </svg>
+                                    </button>
+                                </div>
                                 
                             </li>
                             <?php endif; ?>
                             <?php endif; ?>
 
                             <?php if($urllate == 'videos'): ?>
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out <?php echo e($urllate == 'videos' ? ' translate-x-0' : ' translate-x-full'); ?>">
+                            <div class="bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out <?php echo e($urllate == 'videos' ? ' translate-x-0' : ' translate-x-full'); ?>">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -317,12 +317,12 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg>
                                     </button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                         menu
                                     </span>
                                 </div>
@@ -347,7 +347,7 @@
                             <?php endif; ?>
 
                             <?php if($urllate == 'podcasts'): ?>
-                            <div class="<?php echo e($urllate == 'podcasts' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
+                            <div class="<?php echo e($urllate == 'podcasts' ? ' translate-x-0' : ' translate-x-full'); ?> bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
                                         <svg
@@ -362,11 +362,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -388,7 +388,7 @@
                             <?php endif; ?>
 
                             <?php if($urllate == 'newsletters'): ?>
-                            <div class="<?php echo e($urllate == 'newsletters' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'newsletters' ? ' translate-x-0' : ' translate-x-full'); ?> bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -403,11 +403,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -427,7 +427,7 @@
                             <?php endif; ?>
 
                             <?php if($urllate == 'events'): ?>
-                            <div class="<?php echo e($urllate == 'events' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'events' ? ' translate-x-0' : ' translate-x-full'); ?> bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                     <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                         <button wire:click="selecturllate('default')"
                                             class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -442,11 +442,11 @@
                                                     <g mask="url(#mask0_2411_5870)">
                                                         <path id="chevron_forward_2"
                                                             d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
+                                                            fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                     </g>
                                                 </g>
                                             </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                            class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                             menu</span></div>
                                     <div class="border-b-1 mx-8 mb-2"></div>
                                     <div class="flex w-full flex-col px-8"><span
@@ -470,7 +470,7 @@
                             <?php endif; ?>
 
                             <?php if($urllate == 'sponsored'): ?>
-                            <div class="<?php echo e($urllate == 'sponsored' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'sponsored' ? ' translate-x-0' : ' translate-x-full'); ?> bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -486,11 +486,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -520,7 +520,7 @@
                             <?php endif; ?>
 
                             <?php if($urllate == 'sections'): ?>
-                            <div class="<?php echo e($urllate == 'sections' ? ' translate-x-0' : ' translate-x-full'); ?> bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="<?php echo e($urllate == 'sections' ? ' translate-x-0' : ' translate-x-full'); ?> bg-<?php echo e($setting->theme); ?> absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -536,11 +536,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="<?php echo e($setting->theme == 'white' ? '#262626' : 'white'); ?>"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -579,38 +579,18 @@
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">
-            <?php if($setting?->news): ?>    
-            <li class="undefined ˙">
-                    <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e(route('home')); ?>">
-                        <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('home') ? 'font-bold' : ''); ?>"><?php echo e($setting?->news); ?></span></a>
+           
+            <?php $__currentLoopData = $links; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>    
+                <li class="<?php echo e(Request::is($data->slug) ? 'active' : ''); ?>">
+                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e($data->slug); ?>">
+                        <span class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Request::is($data->slug) ? 'font-bold text-blue-500' : ''); ?>">
+                            <?php echo e($data->name); ?>   
+                        </span>
+                    </a>
                 </li>
-                <?php endif; ?>
-                <?php if($setting->prices): ?>
-                <li class="undefined ˙">
-                    <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="<?php echo e(route('prices')); ?>"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('prices') ? 'font-bold' : ''); ?> "><?php echo e($setting->prices); ?></span></a>
-                </li>
-                <?php endif; ?>
-            
-                <?php if($setting->concensus && $event->category): ?>
-                <li class="undefined ˙">
-                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="<?php echo e($event->category); ?>"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm "><?php echo e($setting->concensus); ?></span></a>
-                </li>
-                <?php endif; ?>
-                <?php if($setting->sponsored): ?>
-                <li class="undefined ˙">
-                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="<?php echo e(route('sponsored')); ?>"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Route::is('sponsored') ? 'font-bold' : ''); ?>">
-                        <?php echo e($setting->sponsored); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                        </span></a>
-                </li>
-                <?php endif; ?>
+               
                 <?php if($setting->language): ?>
                 <div class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
             

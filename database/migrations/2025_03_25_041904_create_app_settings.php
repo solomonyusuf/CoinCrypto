@@ -18,6 +18,33 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('theme')->default('black')->nullable();
+            //----- for sections-----------------------
+            $table->foreignUuid('top_left_article')->nullable();
+            $table->foreignUuid('top_right_article')->nullable();
+             
+            $table->foreignUuid('second_left')->nullable();
+            $table->foreignUuid('second_right')->nullable();
+           
+            $table->foreignUuid('third_section')->nullable();
+            $table->foreignUuid('fourth_section')->nullable();
+            $table->foreignUuid('fifth_section')->nullable();
+             
+            //----- for event bg-----------------------
+            $table->string('default_event_color')->default('white')->nullable();
+            $table->string('default_event_background')->default('#464dfb')->nullable();
+            
+            //----- for mails-----------------------
+            $table->longText('mail_layout')->nullable();
+            $table->string('login_subject')->nullable();
+            $table->longText('login_mail')->nullable();
+            $table->string('register_subject')->nullable();
+            $table->longText('register_mail')->nullable();
+            $table->string('reset_subject')->nullable();
+            $table->longText('reset_mail')->nullable();
+            $table->string('activate_newsletter_subject')->nullable();
+            $table->longText('activate_newsletter_mail')->nullable();
+            
             //----- for contact-----------------------
             $table->text('address')->nullable();
             $table->text('contact')->nullable();
@@ -47,6 +74,8 @@ return new class extends Migration
             $table->longText('advertising')->nullable();
             //-------------------------------------------------
             $table->boolean('first')->nullable();
+            $table->boolean('second')->nullable();
+            $table->boolean('third')->nullable();
             $table->boolean('language')->nullable();
             $table->boolean('top_ticker')->nullable();
             $table->boolean('advert')->nullable();

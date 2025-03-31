@@ -31,40 +31,51 @@ class HomeComponent extends Component
     }
     public function render()
     {
-        $latest = Article::where(['visible'=> true])->orderByDesc('created_at')
-                            ->first();
+        $setting = AppSetting::first();
+
+        $latest = Article::find($setting?->top_left_article);
         
-        $video = AppVideo::where(['visible'=> true])->orderByDesc('created_at')
-                            ->first();
+        $video = AppVideo::find($setting?->top_right_article);
                             
-       $latests = Article::where(['visible'=> true])->orderByDesc('created_at')
+       
+        $latests = Article::where(['visible'=> true])->orderByDesc('created_at')
                             ->whereDate('created_at', '=', Carbon::now())
                             ->limit(5)
                             ->get();
                             
-        $articles = Article::where(['visible'=> true])->orderBy('views', 'desc')->limit(30)->get();
+        $articles = Article::where([
+            'visible'=> true,
+            'category_id'=> $setting?->second_right,
+            ])->orderByDesc('created_at')->limit(30)->get();
 
         $categories =  ArticleCategory::where(['visible'=> true])->get();
 
-        $excludedTitles = ['Press release', 'Crypto', 'Opinion'];
+        $excludedTitles = [ $setting?->second_right, $setting?->second_left, $setting?->third_section, $setting?->fourth_section, $setting?->fifth_section];
 
-        $categories_display = ArticleCategory::whereNotIn('title', $excludedTitles)
+        $categories_display = ArticleCategory::whereNotIn('id', $excludedTitles)
                             ->where(['visible'=> true])
                             ->with(['articles' => function ($query) {
                                 $query->orderByDesc('created_at')->take(4);  
                             }])->get();
 
+   
         $newsletters = Newsletter::where(['visible'=> true])->orderByDesc('created_at')->limit(6)->get();
        
         $podcasts = Episode::where(['visible'=> true])->orderByDesc('created_at')->limit(9)->get();
         
         $event = Event::where('event_date', '>', Carbon::now())
+                    ->where('visible', '=', true)
                     ->orderBy('event_date', 'asc')  
                     ->first();
 
-         $countdownSeconds = $event ? Carbon::parse($event->event_date)->diffInSeconds(Carbon::now()) : 0;
+         $countdownSeconds = $event ? Carbon::parse($event?->event_date)->diffInSeconds(Carbon::now()) : 0;
         
-         $top = Article::where(['visible'=> true])->orderByDesc('created_at')->limit(12)->get();
+         $top_category = ArticleCategory::find($setting?->second_right);
+ 
+         $top = Article::where([
+            'visible'=> true,
+            'category_id'=> $top_category?->id
+            ])->orderByDesc('created_at')->limit(12)->get();
  
         return view('livewire.home-component',[
             'video'=> $video,
@@ -73,12 +84,13 @@ class HomeComponent extends Component
             'articles'=> $articles,
             'podcasts'=> $podcasts,
             'event'=> $event,
+            'top_category'=> $top_category,
             'top'=> $top,
             'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,
             'categories'=> $categories,
             'breakdown'=> $categories_display,
-            'setting'=> AppSetting::first(),
+            'setting'=> $setting,
         ]);
     }
 }

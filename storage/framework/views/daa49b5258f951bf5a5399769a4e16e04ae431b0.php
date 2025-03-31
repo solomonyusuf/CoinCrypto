@@ -1,4 +1,13 @@
 <div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"> <!-- Classic theme -->
+    <style>
+        #colorPicker {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+    </style>
     <div class="container-fluid">
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
           <div class="card-body px-4 py-3">
@@ -50,8 +59,8 @@
                                     </div>
                                      
                                     <div class="mb-3">
-                                      <label  class="form-label">Sponsored *</label>
-                                      <select required name='sponsored' class="form-control">
+                                      <label  class="form-label">Visible *</label>
+                                      <select required name='visible' class="form-control">
                                           <option selected value=""> --Choose--</option>
                                           <option value="1"> true</option>
                                           <option value="0"> false</option>
@@ -62,7 +71,15 @@
                                       <label  class="form-label">Event Date *</label>
                                       <input required name='event_date' placeholder="" type="datetime-local" class="form-control">
                                     </div>
-                              
+                                    <div class="mb-3">
+                                      <label  class="form-label">Choose Text Color *</label>
+                                      <input required name='text_color' placeholder="" type="text" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label  class="form-label">Choose Background *</label>
+                                      <input required name='background' placeholder="" type="text" class="form-control">
+                                    </div>
+                                    
                                   </div>
                               </div>
                             </div>
@@ -182,9 +199,9 @@
                                                   </div>
                                                    
                                                   <div class="mb-3">
-                                                    <label  class="form-label">Sponsored *</label>
-                                                    <select required name='sponsored' class="form-control">
-                                                        <?php if($data->sponsored == true): ?>
+                                                    <label  class="form-label">Visible (show users) *</label>
+                                                    <select required name='visible' class="form-control">
+                                                        <?php if($data->visible == true): ?>
                                                         <option selected value="1"> true</option>
                                                         <option value="0"> false</option>
                                                         <?php else: ?> 
@@ -196,6 +213,14 @@
                                                   <div class="mb-3">
                                                     <label  class="form-label">Event Date *</label>
                                                     <input required name='event_date' value="<?php echo e($data->event_date); ?>" placeholder="" type="datetime-local" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label  class="form-label">Choose Text Color *</label>
+                                                    <input required value="<?php echo e($data->text_color); ?>"  name='text_color' placeholder="" type="text" class="form-control">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label  class="form-label">Choose Background *</label>
+                                                    <input required value="<?php echo e($data->background); ?>"  name='background' placeholder="" type="text" class="form-control">
                                                   </div>
                                             
                                                 </div>
@@ -263,5 +288,6 @@
         });
     });
 </script> 
+
 </div>
 <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/event-component.blade.php ENDPATH**/ ?>

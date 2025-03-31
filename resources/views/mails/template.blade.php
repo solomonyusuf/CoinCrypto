@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+{!! $request_body !!}
+
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -68,11 +71,11 @@
         <img src="{{ asset('logo.png') }}" alt="Logo" class="logo">
         <div class="content">
             <h2>{{ $request_subject }}</h2>
-            {!! $request_body !!}
+            
         </div>
         <div class="footer">
             &copy; 2025 CoinCrypto. All rights reserved.
         </div>
     </div>
 </body>
-</html>
+</html> --}}

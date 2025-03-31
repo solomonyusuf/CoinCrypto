@@ -53,6 +53,7 @@ class CategoryDetailComponent extends Component
             'first'=> $first,
             'second'=> $second,
             'third'=> $third,
+            'setting'=> AppSetting::first(),
         ]);
     }
 }

@@ -1,13 +1,12 @@
 <div>
-  <section
-    class="flex-grow container">
+  <section  class="flex-grow container">
     <div class="pt-8 grid grid-cols-4 gap-2 md:grid-cols-8 md:gap-4 lg:grid-cols-12 xl:grid-cols-16 items-stretch">
       <div class="flex"></div>
       <div
         class="article-content-wrapper font-title_5 text-charcoal-600 tracking-normal flex justify-between m-auto items-center row-start-1">
         <div class="flex gap-2 font-title">
           <a class="uppercase" href="<?php echo e(route('category_detail', $article->category_id)); ?>">
-            <?php echo e($article->article_category->title); ?>
+            <?php echo $article->article_category->title; ?>
 
           </a>
         </div>
@@ -91,15 +90,15 @@
       </div>
       <div  class="article-content-wrapper flex flex-col gap-4 row-start-2">
         <div class="flex flex-col gap-4">
-          <h1 class="font-headline-lg font-medium">
-            <?php echo e($article->title); ?>
+          <h1 class="font-headline-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
+            <?php echo $article->title; ?>
 
           </h1>
-          <h2 class="font-headline-xs text-charcoal-600">
-            <?php echo e($article->info); ?>
+          <h2 class="font-headline-xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?>">
+            <?php echo $article->info; ?>
 
           </h2>
-          <div class="uppercase font-metadata font-medium">By 
+          <div class="uppercase <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-metadata font-medium">By 
             <?php for($i = 0; $i < count($article->article_creators); $i++): ?>
             <?php
               $item = $article->article_creators[$i];
@@ -108,19 +107,19 @@
                 ,
             <?php endif; ?>
             <span class="mr-2">
-              <a class="text-color-charcoal-900 hover:underline"
+              <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> hover:underline"
                 href="<?php echo e(route('author_detail', $item->user->id)); ?>"> <?php echo e($item->user->first_name.' '.$item->user->last_name); ?></a></span>
               </span>
             <?php endfor; ?>
             </div>
 
-          <div class="font-metadata flex gap-4 text-charcoal-600 flex-col md:block">
+          <div class="font-metadata flex gap-4 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> flex-col md:block">
             <span>Updated <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('M d, Y')); ?> <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')); ?>  UTC</span>      
             <span class="md:ml-2"> Published <?php echo e(\Carbon\Carbon::parse($article->created_at, 'UTC')->format('M d, Y')); ?> <?php echo e(\Carbon\Carbon::parse($article->updated_at, 'UTC')->format('g a')); ?></span>
           </div>
       
         </div>
-        <div class="article-content-wrapper flex flex-col justify-end gap-4 row-start-3 empty:hidden">
+        <div class="article-content-wrapper <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> flex flex-col justify-end gap-4 row-start-3 empty:hidden">
           <?php echo $article->content; ?>
 
         </div>
@@ -129,12 +128,12 @@
           <div
             class="border p-6 md:p-10 lg:p-6">
             <span
-              class="text-color-dark-grey font-headline-xs font-medium text-charcoal-900">Don't miss another story.</span><span
-              class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the <?php echo e($article->newsletter->title); ?> Newsletter
+              class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?> font-headline-xs font-medium ">Don't miss another story.</span><span
+              class="block font-headline-3xs font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">Subscribe to the <?php echo e($article->newsletter->title); ?> Newsletter
               today
               <!-- -->.
               <!-- --> 
-              <a class="font-medium" href="<?php echo e(route('newsletters')); ?>">See all newsletters</a>
+              <a class="font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>" href="<?php echo e(route('newsletters')); ?>">See all newsletters</a>
             </span>
             <div class="flex flex-col md:flex-row gap-4 justify-start items-center pt-2">
               <div class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]">
@@ -153,7 +152,8 @@
               </div>
             <button type="submit"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-6 min-w-24 h-12 text-medium gap-3 rounded-large [&amp;>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover w-full md:w-auto bg-new-yellow">
-            <div class="flex gap-2 p-4 pl-6 items-center"><span class="text-color-dark-grey font-label font-medium">Sign me
+            <div class="flex gap-2 p-4 pl-6 items-center">
+              <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> font-label font-medium">Sign me
                 up</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <mask id="mask0_2411_93" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
                   <rect x="0.5" y="0.50061" width="16" height="16" fill="#D9D9D9"></rect>
@@ -166,20 +166,20 @@
               </svg></div>
           </button>
             </div>
-            <span class="pt-4 font-metadata text-charcoal-600"><span class="text-color-dark-grey ">By signing up, you will
+            <span class="pt-4 font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?>"><span class="text-color-dark-grey ">By signing up, you will
                 receive emails about CoinCrypto's products and you agree to our </span>
                 <a
                 class="border-b-[1px] border-black !no-underline" href="<?php echo e(route('terms')); ?>">
-                <span class="text-color-dark-grey ">terms of
+                <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">terms of
                   use</span>
                 </a>
-                <span class="text-color-dark-grey "> and </span>
+                <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey ' : 'text-color-white'); ?> "> and </span>
                 <a
                 class="border-b-[1px] border-black !no-underline" href="<?php echo e(route('privacy')); ?>">
-                <span class="text-color-dark-grey ">privacy
+                <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">privacy
                   policy</span>
                 </a>
-                <span class="text-color-dark-grey font-metadata text-charcoal-600">.</span></span>
+                <span class=" font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?>">.</span></span>
           </div>
         </form>
 
@@ -189,13 +189,13 @@
         ?>
           <div class="article-content-wrapper mt-6 flex gap-8 justify-between">
             <div class="flex flex-col">
-              <h5 class="font-headline-sm font-medium">
+              <h5 class="font-headline-sm font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">
                 <a class="hover:underline" href="<?php echo e(route('author_detail', $item->user->id)); ?>"> 
                  <?php echo e($item->user->first_name.' '.$item->user->last_name); ?>
 
                 </a>
               </h5>
-              <p class="my-2 line-clamp-3 text-charcoal-600 font-body">
+              <p class="my-2 line-clamp-3 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> font-body">
                  <?php echo $item->user->info; ?>
 
               </p>

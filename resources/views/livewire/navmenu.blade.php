@@ -59,7 +59,7 @@
 
 </script>
 
-   <div class="relative flex h-[4rem] items-center justify-between border-b border-b-gray-300 p-0 md:p-[1.25rem]">
+   <div class="{{ $setting->theme == 'white' ? 'text-dark' : 'text-white' }} relative flex h-[4rem] items-center justify-between border-b border-b-gray-300 p-0 md:p-[1.25rem]">
         <div class="md:justify-unset flex h-full items-center">
 
             <button  id="menu-button" class="ml-2 cursor-pointer md:ml-0 xl:ml-0">
@@ -67,15 +67,13 @@
                     xmlns="http://www.w3.org/2000/svg">
                     <path id="menu"
                         d="M0 11.2692V10.2692H16V11.2692H0ZM0 6.49996V5.49996H16V6.49996H0ZM0 1.73071V0.730713H16V1.73071H0Z"
-                        fill="#262626"></path>
+                        fill="{{ $setting->theme == 'white' ?  '#262626' : '#ffffff'}}"></path>
                 </svg>
             </button>
             <div class="flex h-full cursor-pointer items-center">
                 <div id="wrapper1"  class="bg-hamburger-menu absolute  {{ $openNav ? '' : 'hidden' }} left-0 top-16 h-screen w-screen cursor-auto bg-opacity-50">
                 </div>
-                <div id="modal"
-                    
-                    class="hamburger-modal bg-white-coindesk absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 {{ $openNav ? '' : 'hidden' }}"
+                <div id="modal" class="hamburger-modal bg-{{ $setting->theme }} absolute left-0 flex w-screen flex-col overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out sm:w-screen md:w-[328px] translate-x-0 z-20 {{ $openNav ? '' : 'hidden' }}"
                     style="top: 65px; height: calc(-100px + 100vh);">
                     <div class="relative pb-20 p-4 md:pb-4 lg:px-4">
                         @if($user)
@@ -95,7 +93,7 @@
                             <li class="m-2 flex flex-col items-center">
                                 <div class="group flex w-full flex-row justify-between">
                                     <a
-                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey pt-4" target="_self"
+                                        class="grow cursor-pointer pb-4 pl-2 hover:bg-bg-grey text-dark pt-4" target="_self"
                                         href="{{  route('home') }}"><span class="h-auto"><span
                                                 class="font-title font-bold">{{ $setting->news}}
                                             </span></span>
@@ -163,7 +161,7 @@
                                                         <g mask="url(#mask0_2411_5870)">
                                                             <path id="chevron_forward_2"
                                                                 d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                                fill="#262626"></path>
+                                                                fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                         </g>
                                                     </g>
                                                 </svg>
@@ -197,7 +195,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg>
@@ -226,7 +224,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg>
@@ -258,7 +256,7 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg></button></div>
@@ -288,17 +286,19 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
-                                        </svg></button></div>
+                                        </svg>
+                                    </button>
+                                </div>
                                 
                             </li>
                             @endif
                             @endif
 
                             @if($urllate == 'videos')
-                            <div class="bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out {{ $urllate == 'videos' ? ' translate-x-0' : ' translate-x-full' }}">
+                            <div class="bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out {{ $urllate == 'videos' ? ' translate-x-0' : ' translate-x-full' }}">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -314,12 +314,12 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg>
                                     </button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                         menu
                                     </span>
                                 </div>
@@ -343,7 +343,7 @@
                             @endif
 
                             @if($urllate == 'podcasts')
-                            <div class="{{ $urllate == 'podcasts' ? ' translate-x-0' : ' translate-x-full' }} bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
+                            <div class="{{ $urllate == 'podcasts' ? ' translate-x-0' : ' translate-x-full' }} bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out ">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
                                         <svg
@@ -358,11 +358,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -384,7 +384,7 @@
                             @endif
 
                             @if($urllate == 'newsletters')
-                            <div class="{{ $urllate == 'newsletters' ? ' translate-x-0' : ' translate-x-full' }} bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="{{ $urllate == 'newsletters' ? ' translate-x-0' : ' translate-x-full' }} bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')"
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -399,11 +399,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -423,7 +423,7 @@
                             @endif
 
                             @if($urllate == 'events')
-                            <div class="{{ $urllate == 'events' ? ' translate-x-0' : ' translate-x-full' }} bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="{{ $urllate == 'events' ? ' translate-x-0' : ' translate-x-full' }} bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                     <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                         <button wire:click="selecturllate('default')"
                                             class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center"><svg
@@ -438,11 +438,11 @@
                                                     <g mask="url(#mask0_2411_5870)">
                                                         <path id="chevron_forward_2"
                                                             d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                            fill="#262626"></path>
+                                                            fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                     </g>
                                                 </g>
                                             </svg></button><span
-                                            class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                            class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                             menu</span></div>
                                     <div class="border-b-1 mx-8 mb-2"></div>
                                     <div class="flex w-full flex-col px-8"><span
@@ -465,7 +465,7 @@
                             @endif
 
                             @if($urllate == 'sponsored')
-                            <div class="{{ $urllate == 'sponsored' ? ' translate-x-0' : ' translate-x-full' }} bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="{{ $urllate == 'sponsored' ? ' translate-x-0' : ' translate-x-full' }} bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -481,11 +481,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -515,7 +515,7 @@
                             @endif
 
                             @if($urllate == 'sections')
-                            <div class="{{ $urllate == 'sections' ? ' translate-x-0' : ' translate-x-full' }} bg-background absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
+                            <div class="{{ $urllate == 'sections' ? ' translate-x-0' : ' translate-x-full' }} bg-{{ $setting->theme }} absolute left-0 top-0 z-10 h-full min-h-[900px] w-full transition-transform duration-500 ease-in-out">
                                 <div class="z-1 flex flex-row items-center justify-start gap-4 p-6 pb-4">
                                     <button wire:click="selecturllate('default')" 
                                         class="hover:bg-bg-grey flex h-10 w-10 items-center justify-center">
@@ -531,11 +531,11 @@
                                                 <g mask="url(#mask0_2411_5870)">
                                                     <path id="chevron_forward_2"
                                                         d="M14.2924 12L9.69238 7.40001L10.4001 6.69226L15.7079 12L10.4001 17.3078L9.69238 16.6L14.2924 12Z"
-                                                        fill="#262626"></path>
+                                                        fill="{{ $setting->theme == 'white' ? '#262626' : 'white' }}"></path>
                                                 </g>
                                             </g>
                                         </svg></button><span
-                                        class="font-sans font-semibold text-2xs text-color-black ">Back to
+                                        class="font-sans font-semibold text-2xs {{ $setting->theme == 'white' ? 'text-color-black' : 'text-color-white' }}">Back to
                                         menu</span></div>
                                 <div class="border-b-1 mx-8 mb-2"></div>
                                 <div class="flex w-full flex-col px-8"><span
@@ -653,37 +653,18 @@
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">
-            @if($setting?->news)    
-            <li class="undefined ˙">
-                    <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="{{ route('home') }}">
-                        <span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('home') ? 'font-bold' : '' }}">{{$setting?->news}}</span></a>
+           
+            @foreach($links as $data)    
+                <li class="{{ Request::is($data->slug) ? 'active' : '' }}">
+                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="{{ $data->slug }}">
+                        <span class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Request::is($data->slug) ? 'font-bold text-blue-500' : '' }}">
+                            {{ $data->name }}   
+                        </span>
+                    </a>
                 </li>
-                @endif
-                @if($setting->prices)
-                <li class="undefined ˙">
-                    <a  class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="{{ route('prices') }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('prices') ? 'font-bold' : '' }} ">{{ $setting->prices}}</span></a>
-                </li>
-                @endif
-            
-                @if($setting->concensus && $event->category)
-                <li class="undefined ˙">
-                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="{{ $event->category }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm ">{{ $setting->concensus}}</span></a>
-                </li>
-                @endif
-                @if($setting->sponsored)
-                <li class="undefined ˙">
-                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex"
-                        href="{{ route('sponsored') }}"><span
-                            class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm {{ Route::is('sponsored') ? 'font-bold' : '' }}">
-                        {{ $setting->sponsored }}
-                        </span></a>
-                </li>
-                @endif
+            @endforeach
+
+               
                 @if($setting->language)
                 <div class="relative hidden lg:flex w-[2.5rem] h-[2.5rem] rounded-full hover:bg-bg-grey items-center justify-center">
             

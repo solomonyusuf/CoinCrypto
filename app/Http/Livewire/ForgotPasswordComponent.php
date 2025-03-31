@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\AppMail;
+use App\Models\AppSetting;
 use App\Models\User;
 use Livewire\Component;
 use Mail;
@@ -22,12 +23,13 @@ class ForgotPasswordComponent extends Component
             $user->password = bcrypt($password);
             $user->save();
 
+            $setting = AppSetting::first();
+
+            $body = str_replace('[password]', $password, $setting->reset_mail);
+            
             Mail::to($user->email)->send(new AppMail(
-                'Account Reset',
-                "
-                <p>You recently requested to reset your password. </p>
-                <p>Your new password had been generated for you.</p>
-                <span class=\"button\">{$password}</span>"      
+                $setting->reset_subject,
+                $body
             ));
         }
 

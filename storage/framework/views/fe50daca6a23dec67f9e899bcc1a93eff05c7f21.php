@@ -78,10 +78,10 @@
         <hr class="my-6 border-charcoal-600">
         <div class="flex gap-6 w-full lgmax:flex-col lg:flex-row mb-8">
           <div class="flex flex-1 flex-col">
-            <div class="font-title text-color-charcoal-600 mb-6 uppercase">
+            <div class="font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> mb-6 uppercase">
               About
             </div>
-            <div class="font-body-lg flex flex-col gap-6">
+            <div class="font-body-lg flex flex-col gap-6 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">
               <div>
                 <?php echo $category->description; ?>
 
@@ -100,13 +100,13 @@
       </div>
       <?php endif; ?>
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-        <div  class="bg-white flex flex-wrap flex-col flex-start container-desktop-large mt-8 gap-6 content-card-section">
+        <div  class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex flex-wrap flex-col flex-start container-desktop-large mt-8 gap-6 content-card-section">
           <h2
-            class="w-full flex flex-row align-middle justify-start border-t-[1px] border-charcoal-600 pt-6 uppercase font-title text-color-charcoal-600">
+            class="w-full flex flex-row align-middle justify-start border-t-[1px] border-charcoal-600 pt-6 uppercase font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
             <?php echo e($category->title); ?> Series</h2>
           <div class="flex flex-row justify-start gap-6 content-card-section mdmax:overflow-x-auto pb-1">
             <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="bg-white flex gap-6 flex-col  content-card-image--video-container"><a
+            <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex gap-6 flex-col  content-card-image--video-container"><a
               href="<?php echo e(route('video_detail', $data->category_id).'?video='.$data->id); ?>">
               <div class="relative visible content-card-image--videoseries mdmax:top-3">
                 <div class="video-card-shadow--light"></div>
@@ -119,7 +119,7 @@
                       <path fill="#D9D9D9" d="M0 0h24v24H0z"></path>
                     </mask>
                     <g mask="url(#a)">
-                      <path fill="#F8BF1E"
+                      <path fill="<?php echo e($setting->theme == 'white' ? '#F8BF1E' : 'white'); ?>"
                         d="M11.5 13.577 17.077 10 11.5 6.423v7.154ZM8.116 17c-.46 0-.845-.154-1.153-.462a1.565 1.565 0 0 1-.463-1.154V4.616c0-.46.154-.845.463-1.153A1.565 1.565 0 0 1 8.116 3h10.768c.46 0 .845.154 1.154.462.308.309.462.693.462 1.153v10.77c0 .46-.154.844-.462 1.153a1.565 1.565 0 0 1-1.154.462H8.116Zm0-1h10.768a.588.588 0 0 0 .424-.192.588.588 0 0 0 .192-.424V4.616a.588.588 0 0 0-.192-.424.588.588 0 0 0-.424-.192H8.116a.588.588 0 0 0-.424.192.588.588 0 0 0-.192.423v10.77c0 .154.064.295.192.423s.27.192.424.192Zm-3 4c-.46 0-.845-.154-1.153-.462a1.564 1.564 0 0 1-.463-1.153V6.615h1v11.77c0 .154.064.295.192.423s.27.192.423.192h11.77v1H5.114Z">
                       </path>
                     </g>
@@ -131,19 +131,19 @@
               </div>
             </a>
             <div class="flex flex-col h-auto mdmax:flex-shrink"><a
-                class="md:mb-4 mdmax:mb-1 hover:underline text-color-charcoal-900"
+                class="md:mb-4 mdmax:mb-1 hover:underline <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>"
                 href="<?php echo e(route('video_detail', $data->category_id).'?video='.$data->id); ?>">
-                <h3 class="font-headline-2xs font-medium text-color-charcoal-900 ">
+                <h3 class="font-headline-2xs font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
                 <?php echo e($data->title); ?>
 
                 </h3>
               </a>
-              <p class="md:mb-4 mdmax:mb-1 text-color-charcoal-600 font-body-sm"> 
+              <p class="md:mb-4 mdmax:mb-1 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> font-body-sm"> 
                 <?php echo \Illuminate\Support\Str::limit($data->description, 60, '..'); ?>
 
                 
               </p>
-              <p><span class="font-metadata font-normal text-color-charcoal-600 uppercase">
+              <p><span class="font-metadata font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
                 <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
 
                      

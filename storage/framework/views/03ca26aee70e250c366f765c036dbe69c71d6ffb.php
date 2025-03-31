@@ -116,7 +116,7 @@
                         <div class="flex space-x-16 w-full justify-start md:justify-center lg:justify-center">
                             <div class="flex flex-col md:flex-row space-y-4 space-x-4 lg:space-x-16 md:space-y-0">
                                 <div class="mb-4 md:mb-0 self-start md:self-center lg:self-center px-4">
-                                    <h2 class="font-sans font-bold text-2xl text-color-black ">Host</h2>
+                                    <h2 class="font-sans font-bold text-2xl <?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-color-white'); ?>">Host</h2>
                                 </div>
                                 <div class="flex items-center space-x-4"><a
                                         href="<?php echo e(route('author_detail', $podcast->user->id)); ?>">
@@ -126,7 +126,7 @@
                                      <a href="<?php echo e(route('author_detail', $podcast->user->id)); ?>">
                                         <div class=" hover:underline">
                                             <span
-                                                class="font-sans font-bold text-xl text-color-black "><?php echo e($podcast->user->first_name.' '.$podcast->user->last_name); ?></span>
+                                                class="font-sans font-bold text-xl <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>"><?php echo e($podcast->user->first_name.' '.$podcast->user->last_name); ?></span>
                                         </div>
                                     </a></div>
                             </div>
@@ -137,13 +137,13 @@
                     <div class="flex flex-wrap items-center">
                         <div class="flex space-x-16 w-full justify-start md:justify-center lg:justify-center">
                             <div class="w-full md:w-auto flex flex-col space-y-4">
-                                <h2 class="font-headline mb-4 md:mb-0 self-start md:self-start lg:self-start px-4">
+                                <h2 class="font-headline mb-4 md:mb-0 self-start md:self-start lg:self-start px-4 <?php echo e($setting->theme == 'white' ? '' : 'text-color-white'); ?>">
                                     Episodes
                                 </h2>
                                 <div class="flex flex-col max-w-auto lg:max-w-[730px]">
                                    
                                     <?php $__currentLoopData = $podcasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <div class="bg-white py-4 mb-4 flex justify-start"><a
+                                    <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> py-4 mb-4 flex justify-start"><a
                                             href="<?php echo e(route('podcast_detail', $data->podcast_id).'?episode='.$data->id); ?>">
                                             <img
                                                 height="600"  
@@ -153,13 +153,13 @@
                                         <div>
                                             <a class="mb-4 hover:underline"
                                                 href="<?php echo e(route('podcast_detail', $data->podcast_id).'?episode='.$data->id); ?>">
-                                                <h3 class="font-headline-2xs">
+                                                <h3 class="font-headline-2xs <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
                                                     <?php echo e($data->title); ?>
 
                                                 </h3>
                                             </a>
                                             <div class="">
-                                                <span class="font-metadata-lg">
+                                                <span class="font-metadata-lg <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
                                                     <?php echo e(\Carbon\Carbon::parse($data->created_at)->format('M d, Y, g:i a')); ?>
 
                      

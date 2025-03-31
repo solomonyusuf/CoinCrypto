@@ -6,35 +6,37 @@
       
       
       <div class="grid gap-4 md:gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
-        @if($setting->first)
+        @if($setting?->first )
+
+        @if($latest)
         <div class="col-start-1 col-span-full row-start-1 lg:col-end-8 xl:col-end-9">
           <div class="flex flex-col gap-1 md:flex-row xlmax:w-full ">
-            <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
+            <div class="bg-{{ $setting->theme }} flex gap-6 w-full shrink flex-col md:flex-row lg:flex-col-reverse xl:flex-row-reverse">
               <div class="flex flex-col">
-                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                <a class="{{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                   href="{{ route('article_detail', [$latest?->slug ?? 'post', $latest?->id]) }}">
                   <h3 class="font-headline">
                     {{ $latest?->title }}
                     </h3>
                 </a>
-                <p class="font-body text-color-charcoal-600 mb-4 line-clamp-2 lg:hidden xl:flex">
+                <p class="font-body {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} mb-4 line-clamp-2 lg:hidden xl:flex">
                  {!! \Illuminate\Support\Str::limit($latest->content, 50, '..') !!}
                 </p>
                 <p class="flex gap-2 flex-col lg:flex-row items-center"><span
-                    class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By
+                    class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }} uppercase "><span class="mr-2">By
                       <!-- --> 
                       @for ($i = 0; $i < count($latest->article_creators); $i++)
                         @if($i > 0)
                         ,
                         @endif
-                        <a title="" class="text-color-charcoal-900 hover:underline"
+                        <a title="" class="{{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} hover:underline"
                         href="{{ route('author_detail', $latest->article_creators[$i]->user->id) }}">{{ $latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name }}
                       </a>
                       @endfor
                     
                     </span>
                   </span>
-                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                    <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} uppercase">
                         {{ \Carbon\Carbon::parse($latest->created_at)->diffForHumans() }}
                       </span>
                     </p>
@@ -51,10 +53,12 @@
             </div>
           </div>
         </div>
+        @endif
+        @if($video)
         <div class="row-start-2 col-span-full md:col-start-4 lg:row-start-1 lg:col-start-8 -lg:col-end-1 xl:col-start-9 [&amp;_.jw-related-btn]:hidden">
           <div class="flex flex-col lg:flex-row h-full">
             <div class="lg:hidden pb-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
             <div class="lgmax:hidden mr-6">
               <div class="shrink-0 bg-divider border-none h-full w-divider" role="separator" data-orientation="vertical"
@@ -69,22 +73,23 @@
                 </div>
          
               </div>
-              <h3 class="font-headline-2xs font-medium tracking-[0.1px] mt-6">
+              <h3 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }} font-medium tracking-[0.1px] mt-6">
                 {{ $video->title }}
               </h3>
-              <div class="font-body-sm leading-normal text-color-charcoal-600 hidden lg:block lg:pt-4 xl:hidden">
+              <div class="font-body-sm leading-normal {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} hidden lg:block lg:pt-4 xl:hidden">
               {!!  \Illuminate\Support\Str::limit($video->description, 400, '..') !!}
               </div>
             </div>
           </div>
         </div>
         @endif
+        @endif
 
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
           
             <div class="pb-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
             <!--$-->
 
@@ -92,7 +97,7 @@
 
             <!--/$-->
             <div class="py-4">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+              <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
 
             @if($setting->advert)
@@ -116,10 +121,10 @@
         
           <div class="col-span-full md:row-start-2 md:col-start-4 lg:row-start-2 lg:col-start-4 -lg:col-end-1 md:row-start-3">
                 <div class="pb-6">
-                  <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator" />
+                  <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
                 </div>
                 <div class="flex pb-6 items-center">
-                  <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Top Stories</h2>
+                  <h2 class="font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }} uppercase">{{$top_category->title}}</h2>
                 </div>
         
                   @for ($i = 0; $i < count($top); $i += 3)
@@ -127,20 +132,20 @@
                         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9 xl:grid-cols-2 gap-6">
                             <div class="col-span-1 lg:col-span-5 xl:col-span-1">
                                 <div class="flex gap-4 false">
-                                    <div class="bg-white flex gap-6 w-full shrink">
+                                    <div class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
                                         <div class="flex flex-col">
                                             @if(isset($top[$i]))
-                                                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                <a class="{{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                                                   href="{{ route('article_detail', [$top[$i]->slug, $top[$i]->id]) }}">
                                                     <h2 class="font-headline-2xs font-medium">
                                                         {{ $top[$i]->title }}
                                                     </h2>
                                                 </a>
-                                                <p class="font-body text-color-charcoal-600 mb-4 line-clamp-3">
+                                                <p class="font-body {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} mb-4 line-clamp-3">
                                                     {!! \Illuminate\Support\Str::limit($top[$i]->content, 60, '..') !!}
                                                 </p>
                                                 <p class="flex gap-2 flex-col">
-                                                    <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                    <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }} uppercase">
                                                         {{ \Carbon\Carbon::parse($top[$i]->created_at)->diffForHumans() }}
                                                     </span>
                                                 </p>
@@ -161,16 +166,16 @@
                                 @if(isset($top[$i+1]))
                                     <div>
                                         <div class="flex gap-4 false">
-                                            <div class="bg-white flex gap-6 w-full shrink">
+                                            <div class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
                                                 <div class="flex flex-col">
-                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                    <a class="{{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                                                       href="{{ route('article_detail', [$top[$i+1]->slug, $top[$i+1]->id]) }}">
                                                         <h2 class="font-headline-2xs font-medium">
                                                             {{ $top[$i+1]->title }}
                                                         </h2>
                                                     </a>
                                                     <p class="flex gap-2 flex-col">
-                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                        <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }}  uppercase">
                                                             {{ \Carbon\Carbon::parse($top[$i+1]->created_at)->diffForHumans() }}
                                                         </span>
                                                     </p>
@@ -183,16 +188,16 @@
                                 @if(isset($top[$i+2]))
                                     <div>
                                         <div class="flex gap-4 false">
-                                            <div class="bg-white flex gap-6 w-full shrink">
+                                            <div class="{{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
                                                 <div class="flex flex-col">
-                                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                                    <a class="{{ $setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white' }}  mb-4 hover:underline"
                                                       href="{{ route('article_detail', [$top[$i+2]->slug, $top[$i+2]->id]) }}">
                                                         <h2 class="font-headline-2xs font-medium">
                                                             {{ $top[$i+2]->title }}
                                                         </h2>
                                                     </a>
                                                     <p class="flex gap-2 flex-col">
-                                                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                                                        <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white' }}  uppercase">
                                                             {{ \Carbon\Carbon::parse($top[$i+2]->created_at)->diffForHumans() }}
                                                         </span>
                                                     </p>
@@ -205,14 +210,14 @@
                         </div>
                     </div>
                     <div class="py-4">
-                        <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+                        <hr class="shrink-0 bg-divider  border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
                     </div>
                 @endfor
 
         
               </div>
               <div class="hidden xl:hidden">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator" />
+                <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
               </div>
             </div>
           </div>
@@ -244,28 +249,28 @@
       <div class="grid">
         <div class="flex md:hidden flex-col justify-center items-center order-1"></div>
         @if($setting->newsletter)
-   
         <div class="order-2">
           <div class="flex flex-col gap-6">
             <div class="flex">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+              <hr class="shrink-0 border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
             </div>
             <div class="uppercase">
               <a target="" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('newsletters') }}">
-                <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Newsletters</h2><svg class=""
+                <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} font-title  hover:underline">Newsletters</h2><svg class=""
                   fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                    fill="#676767"></path>
+                    fill="{{ $setting->theme == 'white' ? 'black' : 'white' }}"></path>
                 </svg>
               </a></div>
             <form action="{{ route('subscribe', 'test') }}" method="post" class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-16 xl:grid-cols-16">
               @csrf
               <div class="col-span-4 md:col-span-8 lg:col-span-5 xl:col-span-6 pb-6">
-                <div data-module-name="newsletter-sign-up-module" data-module-version="1.0.0" data-module-instance="default"
-                  class="border p-6 md:p-10 lg:p-6"><span
-                    class="text-color-dark-grey font-headline-xs font-medium text-charcoal-900">Don't miss another
-                    story.</span><span class="block font-headline-3xs font-normal text-charcoal-900">Subscribe to the
+                <div class="border p-6 md:p-10 lg:p-6"><span
+                    class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-headline-xs font-medium ">Don't miss another
+                    story.</span>
+                    <span class="block font-headline-3xs font-normal {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}">
+                      Subscribe to the
                     CoinCrypto Newsletter today
                     <!-- -->.
                   </span>
@@ -297,17 +302,22 @@
                           </g>
                         </svg></div>
                     </button>
-                  </div><span class="pt-4 font-metadata text-charcoal-600"><span class="text-color-dark-grey ">By signing
-                      up, you will receive emails about CoinCrypto products and you agree to our </span>
-                      <a class="border-b-[1px] border-black !no-underline" href="/terms"><span
-                        class="text-color-dark-grey ">terms of use</span>
+                  </div>
+                  <span class="pt-4 font-metadata {{ $setting->theme == 'white' ? 'text-charcoal-600' : 'text-color-white' }}">
+                    <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }} ">By signing
+                      up, you will receive emails about CoinCrypto products and you agree to our 
+                    </span>
+                      <a class="border-b-[1px] border-black !no-underline" href="/terms">
+                        <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }}">
+                          terms of use
+                        </span>
                       </a>
-                      <span class="text-color-dark-grey "> and
+                      <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }}"> and
                     </span>
                     <a class="border-b-[1px] border-black !no-underline" href="/privacy"><span
-                        class="text-color-dark-grey ">privacy policy</span>
+                        class="{{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }}">privacy policy</span>
                       </a>
-                      <span  class="text-color-dark-grey font-metadata text-charcoal-600">.</span></span>
+                      <span  class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} font-metadata ">.</span></span>
                 </div>
               </div>
               <div class="col-span-4 md:col-span-8 lg:col-span-11 xl:col-span-10">
@@ -340,10 +350,10 @@
                         </div>
                         <div class="col-start-2 col-span-3 flex flex-col gap-1">
                           <div><a class="hover:underline" href="{{  route('newsletter_detail', $data->id) }}">
-                              <h3 class="font-headline-2xs font-normal">{{ \Illuminate\Support\Str::limit($data->title, 25, '..') }}</h3>
+                              <h3 class="font-headline-2xs font-normal {{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }}">{{ \Illuminate\Support\Str::limit($data->title, 25, '..') }}</h3>
                             </a></div>
                           <div>
-                            <span class="text-color-grey font-body-sm leading-6 text-charcoal-600 line-clamp-2">
+                            <span class="text-color-grey font-body-sm leading-6 {{ $setting->theme == 'white' ? 'text-color-dark-grey  text-charcoal-600' : 'text-color-white' }} line-clamp-2">
                             {!! \Illuminate\Support\Str::limit($data->description, 60, '..') !!}
                           </span>
                           </div>
@@ -353,7 +363,7 @@
                         </div>
                       </div>
                       <div class="pt-4 md:pt-0"></div>
-                      <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                      <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                     </div>
                   </div>
                   @endforeach
@@ -363,18 +373,35 @@
                 </div>
               </div>
             </form>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                  document.querySelector("form").addEventListener("submit", function(event) {
+                      let checkboxes = document.querySelectorAll("input[name='letter_id[]']");
+                      let isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                      
+                      if (!isChecked) {
+                          alert("Please select at least one newsletter before subscribing.");
+                          event.preventDefault(); // Prevent form submission
+                      }
+                  });
+              });
+              </script>
+              
           </div>
         </div>
         @endif
-        @if($setting->most_read)
+
+        @if($setting->most_read && count($articles) > 0)
         <div class="order-3">
           <div class="grid gap-4 grid-cols-4 md:gap-6 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
             <div class="order-1 col-span-4 md:col-span-8 lg:col-span-12 xl:order-2 xl:col-span-12 xl:row-span-2">
               <div class="pb-6">
-                <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                <hr class="shrink-0 border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
               </div>
               <div class="flex pb-6 items-center">
-                <h2 class="text-color-dark-grey font-title text-charcoal-600 uppercase">Most Read</h2>
+                <h2 class=" font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
+                  {{ $articles[0]?->article_category->title }}
+                </h2>
               </div>
               <div class="hidden md:flex">
                 
@@ -383,39 +410,44 @@
                     <img alt="elipse" loading="lazy" width="20" height="20"
                       class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
                       src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">{{ sprintf('%02d', 1) }}
+                      class="absolute bottom-0 right-0 font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', 1) }}
                       <!-- -->.
                     </span>
                   </div>
-                  <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
-                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
+                  <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
+                    <div class="flex flex-col">
+                      <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                         href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
                         <h3 class="font-headline font-medium">
                           {{ $articles[0]->title }}
                         </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                      <p class="font-body  {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'}}  mb-4 line-clamp-3">
                         {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
                       </p>
 
                       <p class="flex gap-2 flex-col">
-                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
-                         @php
-                          $data = $articles[0]->article_creators[$i];
-                         @endphp
-                         @if($i > 0)
-                            ,
-                         @endif
-                        <span
-                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                           class="text-color-charcoal-900 hover:underline"
+                       <span
+                        class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
+                        <span class="mr-2">  By 
+                          @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
+                          @php
+                           $data = $articles[0]->article_creators[$i];
+                          @endphp
+                          @if($i > 0)
+                             ,
+                          @endif
+                         
+                          <a
+                           class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                             href="{{ route('author_detail', $data->user->id) }}">
                             {{ $data->user->first_name.' '.$data->user->last_name }}
                           </a>
+                          @endfor
                         </span>
-                        @endfor
+                       
                         </span>
-                      <span class="font-metadata text-color-charcoal-600 uppercase">
+                      <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
                         {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
                                                 
                       </span>
@@ -446,15 +478,15 @@
                     </span>
                   </div>
                   
-                    <div class="bg-white flex gap-6 w-full shrink flex-col md:flex-row">
+                    <div class=" {{ $setting->theme == 'white' ?   'bg-white' :'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
                     <div class="flex flex-col">
-                      <a class="text-color-charcoal-900 mb-4 hover:underline"
+                      <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                         href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
                         <h3 class="font-headline font-medium">
                           {{ $articles[0]->title }}
                         </h3>
                       </a>
-                      <p class="font-body text-color-charcoal-600  mb-4 line-clamp-3">
+                      <p class="font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}  mb-4 line-clamp-3">
                         {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
                       </p>
                       <p class="flex gap-2 flex-col">
@@ -466,15 +498,15 @@
                             ,
                          @endif
                         <span
-                          class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2">By <a
-                              class="text-color-charcoal-900 hover:underline"
+                          class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span class="mr-2">By <a
+                              class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                               href="{{ route('author_detail', $data->user->id) }}">
                               {{ $data->user->first_name.' '.$data->user->last_name }}
                             </a>
                             </span>
                         @endfor
                         </span><span
-                          class="font-metadata text-color-charcoal-600 uppercase">
+                          class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
                           {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
                         </span></p>
                     </div>
@@ -488,13 +520,13 @@
             </div>
             <div class="order-2 col-span-4 md:order-3 md:col-span-8 lg:col-span-12 xl:order-3 xl:col-span-12 xl:row-span-6">
               <div class="pb-6">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
               </div>
              
               
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach ($articles as $data)
-                @if($articles[0]->title != $data->title)
+                @if($articles[0]->id != $data->id)
                 <div class="flex flex-col">
                   <div class="min-h-[103px]">
                     <div class="flex gap-4 false">
@@ -503,17 +535,17 @@
                           height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
                           style="color: transparent;"
                           src="img/elipse.png">
-                          <span class="absolute bottom-0 right-0 font-body-sm text-color-charcoal-900 uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
-                      <div class="bg-white flex gap-6 w-full shrink">
+                          <span class="absolute bottom-0 right-0 font-body-sm {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
+                      <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'}} flex gap-6 w-full shrink">
                         <div class="flex flex-col">
-                          <a class="text-color-charcoal-900 mb-4 hover:underline"
+                          <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                             href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                            <h2 class="font-headline-2xs font-medium">
+                            <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
                               {{ $data->title }}
                             </h2>
                           </a>
                           <p class="flex gap-2 flex-col">
-                            <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                            <span class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
                               By
                               @for ($i = 0; $i < count($data->article_creators); $i++)
                                 @php
@@ -523,7 +555,7 @@
                                     ,
                                 @endif
                                 <span class="mr-2">
-                                  <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
+                                  <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                                     href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
                                   </span>
                                 @endfor
@@ -535,7 +567,7 @@
                     </div>
                   </div>
                   <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                    <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                   </div>
                 </div>
                 @endif
@@ -560,20 +592,20 @@
               <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
                 @php
                   $categories = collect($categories);
-                  $cat1 = $categories->where('title', 'Opinion')->first();
+                  $cat1 = $categories->where('id', '=', $setting->fourth_section)->first();
                   $opinion = \App\Models\Article::where([ 'category_id'=> $cat1->id])->limit(4)->get();
                 @endphp
                 <div class="flex flex-col col-span-1 lg:col-span-2 xl:col-span-1">
                   <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                   </div>
                   <div class="pb-6 uppercase">
                     <a target="__blank" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('category_detail', $cat1->id) }}">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">{{ $cat1->title}}</h2><svg
+                      <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title  hover:underline">{{ $cat1->title}}</h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
                       </svg>
                     </a>
                   </div>
@@ -581,16 +613,16 @@
                     @foreach ($opinion as $data)
                     <div>
                       <div class="flex gap-4 false ">
-                        <div class="bg-white flex gap-6 w-full shrink justify-between">
+                        <div class="{{ $setting->theme == 'white' ? 'bg-white' :'bg-black'  }} flex gap-6 w-full shrink justify-between">
                           <div class="flex flex-col-reverse gap-2">
-                            <a class="text-color-charcoal-900 mb-4 hover:underline"
+                            <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                               href="{{ route('article_detail', [$data->slug, $data->id]) }}">
                               <h3 class="font-headline-2xs font-normal">
                                {{ $data->title }}
                               </h3>
                             </a>
                             <p class="flex gap-2 flex-col"><span
-                                class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span
+                                class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span
                                   class="mr-2">By 
                                   @for ($i = 0; $i < count($data->article_creators); $i++)
                                 @php
@@ -600,7 +632,7 @@
                                     ,
                                 @endif
                                 <span class="mr-2">
-                                  <a title="Helene Braun" class="text-color-charcoal-900 hover:underline"
+                                  <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                                     href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
                                   </span>
                                 @endfor
@@ -614,7 +646,7 @@
                         </div>
                       </div>
                       <div class="py-4 py-4">
-                        <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                        <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                       </div>
                     </div>
                     @endforeach
@@ -625,22 +657,22 @@
                 </div>
 
                 @php
-                  $cat2 = $categories->where('title', 'Press release')->first();
-                  $press = \App\Models\Article::where([ 'category_id'=> $cat2?->id])->limit(5)->get();
+                  $cat2 = $categories->where('id', '=', $setting->fifth_section)->first();
+                  $press = \App\Models\Article::where([ 'category_id'=> $cat2->id])->limit(4)->get();
                   $transition = $press[0]->id;
                 @endphp
                 <div class="flex flex-col col-span-1">
                   <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                   </div>
                   <div class="pb-6 uppercase">
                     <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
                       href="{{ route('category_detail', $cat2->id) }}">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Press Releases</h2><svg
+                      <h2 class="text-color-dark-grey font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline">Press Releases</h2><svg
                         class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
                       </svg>
                     </a></div>
                   <div class="flex flex-col gap-6">
@@ -649,24 +681,24 @@
                         @foreach ($press as $data)
                         <div class="transition-opacity duration-300 min-h-[130px] {{ $transition == $data->id ? 'block' : 'hidden' }}">
                           <div class="">
-                            <div class="bg-white flex gap-6 w-full shrink">
+                            <div class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
                               <div class="flex flex-col">
-                                <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                                   href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                                  <h2 class="font-headline-2xs font-medium">
+                                  <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
                                     {{ $data->title }}
                                   </h2>
                                 </a>
                                 <p class="flex gap-2 flex-col">
                                   <span
-                                    class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                                    class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
                                     @if($data->info)
                                     <span class="mr-2">
                                       {{ $data->info }}
                                     </span>
                                     @endif
                                   </span>
-                                  <span class="font-metadata text-color-charcoal-600 uppercase">
+                                  <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
                                     {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
                         
                                   </span></p>
@@ -683,7 +715,7 @@
                           <div
                             class="flex justify-center space-x-2 md:space-x-2 lg:space-x-4 px-12 md:px-18 lg:px-18 items-center">
                             @foreach ($press as $data)
-                            <button wire:click="showTransition('{{ $data->id }}')" class="w-2 h-2 bg-black border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
+                            <button wire:click="showTransition('{{ $data->id }}')" class="w-2 h-2 {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }} border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
                             @endforeach
                             
                           </div>
@@ -703,19 +735,21 @@
    
   
         <div>
-        @if($setting->event_section)
+        @if($setting->event_section && $event)
           <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
             <div class="flex py-6">
-              <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+              <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
             </div>
             <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
-              href="{{route('events')}}">
-              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline uppercase">{{$setting->concensus}}</h2>
+              href="{{ $event->category}}">
+              <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title  hover:underline uppercase">
+                {{$setting->concensus}}
+              </h2>
               <svg class=""
                 fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                  fill="#676767"></path>
+                  fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
               </svg>
             </a>
           </div>
@@ -775,95 +809,32 @@
               <div class="order-2 lg:order-1">
                 <div class="flex flex-col">
       
-                  <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                  <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                   
                   <div class="py-6 uppercase">
                     <a target="" class="flex gap-2 items-center z-50 hover:z-50 "href="{{ isset($podcasts[0]) ? route('podcast_detail', $podcasts[0]->podcast_id).'?episode='.$podcasts[0]->id : '' }}">
-                      <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">Podcasts</h2><svg class=""
+                      <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline">Podcasts</h2><svg class=""
                         fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="#676767"></path>
+                          fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
                       </svg>
                     </a></div>
                   <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
-                    {{-- <div class="order-1 lg:order-2 col-span-4 lg:col-span-6 xl:col-span-8">
-                      <div class="relative">
-                        <div class="art19-player medium h-52"><iframe title="Podcast Player" class="w-full h-full"
-                            src="https://art19.com/shows/e05bbfac-7bd7-476a-a0ad-2eea41553323/episodes/4b99cb1c-1985-40a8-961c-fe7aaa775ff2/embed?type=medium&amp;theme=dark-green&amp;primary_color=%23FFD200"
-                            scrolling="no"></iframe></div>
-                      </div>
-                      <div class="flex flex-col gap-6">
-                        <div class="flex pt-4">
-                          <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                        </div>
-                        <div class="flex flex-col gap-2">
-                          <div class="flex justify-center text-center"><span
-                              class="text-color-black font-body leading-5 tracking-[0.4px] text-[#676767]">Listen or watch all the
-                              new CoinCrypto podcast episodes wherever you want.</span></div><a target="_blank"
-                            class="hidden gap-2 items-center justify-start xl:justify-center" href=""><span
-                              class="text-color-black font-headline-2xs font-medium">Label</span><svg class="" fill="none"
-                              height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                                fill="#262626"></path>
-                            </svg></a>
-                        </div>
-                        <div class="flex justify-center gap-6">
-                          <div
-                            class="grid grid-cols-6 gap-2 md:gap-4 lg:gap-2 md:grid-cols-9 lg:grid-cols-9 space-x-0 lg:self-center">
-                            <a href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fe1db402cdb2af7b3d2dd6c66047e7b1f0d88ff7a-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F18db0f315956f23ec81d4c08932994584c49b535-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async"  style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fa4636af1d0075fe11da69ac54e71161daf1aa3e7-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F2e9fd85a44b19ea513b09fcbd87de46ba9376d6a-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Ffaa7f70762ec242837dc43bc7f7820f0a6a8fa2e-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F477e27f4df4e4647ab22163731550b681e4cee7f-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2Fce9bf982682015b0c620743dec694de2ad133168-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a><a
-                              href="" target="_blank" rel="noreferrer"
-                              class="hover:opacity-80 transition-opacity"><img alt="" loading="lazy" width="24" height="24"
-                                decoding="async" data-nimg="1" style="color: transparent;"
-                                src="https://www.coindesk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs3y3vcno%2Fproduction%2F73c7a6f6b32d92bc4139636098ca0c7da6611da9-24x24.svg%3Fauto%3Dformat&amp;w=48&amp;q=75"></a>
-                          </div>
-                        </div>
-                        <div class="flex md:hidden">
-                          <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                        </div>
-                      </div>
-                    </div> --}}
+                    
                     <div class="hidden lg:flex lg:flex-col order-1 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       @for ($i = 0; $i < min(3, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-body-sm line-clamp-2 ">
                               {!! $podcasts[$i]->description !!}
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                           </div>
                       </div>
                     @endfor
@@ -875,15 +846,15 @@
                       @for ($i = 3; $i < min(6, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="{{ $setting->theme == 'white' ? 'text-color-black text-charcoal-900' : 'text-color-white' }}  font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-body-sm line-clamp-2 ">
                               {!! $podcasts[$i]->description !!}
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                           </div>
                       </div>
                       @endfor
@@ -894,41 +865,22 @@
                       @for ($i = 6; $i < min(9, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="font-headline-2xs font-normal {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} ">
                                   {{ $podcasts[$i]->title }}
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-body-sm line-clamp-2">
                               {!! $podcasts[$i]->description !!}
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                           </div>
                       </div>
                       @endfor
                        
                     </div>
                     
-                    {{-- <div class="hidden lg:flex lg:flex-col order-3 col-span-4 lg:col-span-3 xl:col-span-4">
-                    
-                      @for ($i = 6; $i < min(9, count($podcasts)); $i++)
-                      <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
-                          <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
-                                  {{ $podcasts[$i]->title }}
-                              </h3>
-                          </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
-                              {!! $podcasts[$i]->description !!}
-                          </span>
-                          <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                          </div>
-                      </div>
-                      @endfor
-                       
-                    </div> --}}
-
+    
                     <div class="order-4 col-span-4 lg:col-span-6 xl:col-span-4 pb-6 md:pb-0
           						grid grid-rows-1 grid-flow-col grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
           						md:grid-cols-1 md:grid-rows-none md:grid-flow-row gap-4
@@ -938,15 +890,15 @@
                       @for ($i = 0; $i < min(0, count($podcasts)); $i++)
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="{{ route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id }}">
-                              <h3 class="text-color-black font-headline-2xs font-normal">
+                              <h3 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-headline-2xs font-normal">
                                   {{ $podcasts[$i]->title }}
                               </h3>
                           </a>
-                          <span class="text-color-black font-body-sm line-clamp-2 text-[#676767]">
+                          <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-body-sm line-clamp-2 ">
                               {!! $podcasts[$i]->description !!}
                           </span>
                           <div class="hidden md:flex md:py-4 lg:py-6 ">
-                              <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                              <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                           </div>
                       </div>
                      @endfor
@@ -962,8 +914,8 @@
                 <div class="flex flex-col">
                   <div>
                     <div class="hidden lg:grid lg:grid-cols-2 gap-6 pt-8">
-                      <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
-                      <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                      <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                      <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                     </div>
                     <div class="grid grid-col-1 lg:grid-cols-2 gap-0 md:gap-6">
                       
@@ -974,20 +926,20 @@
                           ?>
                       <div>
                         <div class="flex pt-8 lg:hidden md:pt-8">
-                          <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                          <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                         </div>
                        
                         <div class="flex flex-col">
                           <div class="flex py-6 uppercase">
                             <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
                               href="{{ route('category_detail', $category->id) }}">
-                              <h2 class="text-color-dark-grey font-title text-charcoal-600 hover:underline">{{$category->title}}</h2>
+                              <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title hover:underline">{{$category->title}}</h2>
                               <svg
                                 class="" fill="none" height="24" viewBox="0 0 25 24" width="25"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                   d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                                  fill="#676767"></path>
+                                  fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
                               </svg>
                             </a>
                           </div>
@@ -997,19 +949,19 @@
 
                               @if($first)
                               <div class=" flex gap-4 false ">
-                                <div class="bg-white flex gap-6 w-full shrink flex-col">
+                                <div class="{{ $setting->theme == 'white' ? 'bg-white' :'bg-black' }} flex gap-6 w-full shrink flex-col">
                                   <div class="flex flex-col">
-                                    <a class="text-color-charcoal-900 mb-4 hover:underline"
+                                    <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                                       href="{{ route('article_detail', [$first->slug ?? '', $first->id]) }}">
-                                      <h2 class="font-headline-xs font-normal">
+                                      <h2 class="font-headline-xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-normal">
                                         {{ $first['title'] }}
                                       </h2>
                                     </a>
-                                    <p class="font-body-sm text-color-charcoal-600 mb-4 line-clamp-3 flex md:hidden">
+                                    <p class="font-body-sm {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} mb-4 line-clamp-3 flex md:hidden">
                                       {!! \Illuminate\Support\Str::limit($first['content'], 50, '..') !!}
                                     </p>
                                     <p class="flex gap-2 flex-col"><span
-                                        class="font-metadata-lg font-medium text-color-charcoal-900 uppercase flex md:hidden"><span
+                                        class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase flex md:hidden"><span
                                           class="mr-2">By
                                           
                                           @for ($i = 0; $i < count($first->article_creators); $i++)
@@ -1020,9 +972,9 @@
                                              ,
                                           @endif
                                          <span
-                                         class="font-metadata-lg font-medium text-color-charcoal-900 uppercase "><span class="mr-2"> 
+                                         class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span class="mr-2"> 
                                           <a
-                                            class="text-color-charcoal-900 hover:underline"
+                                            class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                                              href="{{ route('author_detail', $creator->user->id) }}">
                                              {{ $creator->user['first_name'].' '.$creator->user['last_name'] }}
                                            </a>
@@ -1049,22 +1001,23 @@
                               @if( $first->id != $article->id)
                               <div>
                                 <div class="flex gap-4 false ">
-                                  <div class="bg-white flex gap-6 w-full shrink">
-                                    <div class="flex flex-col"><a class="text-color-charcoal-900 mb-4 hover:underline"
+                                  <div class="{{ $setting->theme == 'white' ?  'bg-white' :'bg-black' }} flex gap-6 w-full shrink">
+                                    <div class="flex flex-col">
+                                      <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                                         href="{{ route('article_detail', [$article->slug, $article->id]) }}">
-                                        <h2 class="font-headline-2xs font-medium">
+                                        <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
                                           {{ $article->title }}
                                         </h2>
                                       </a>
                                       <p class="flex gap-2 flex-col"><span
-                                          class="font-metadata text-color-charcoal-600 uppercase">
+                                          class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
                                           {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
                                         </span></p>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="py-4">
-                                  <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
+                                  <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                                 </div>
                               </div>
                               @endif
@@ -1089,7 +1042,7 @@
                 
                    
                   <div class="flex pt-6">
-                    <hr class="shrink-0 border-none w-full h-divider bg-black" role="separator">
+                    <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                   </div>
                 </div>
               </div>

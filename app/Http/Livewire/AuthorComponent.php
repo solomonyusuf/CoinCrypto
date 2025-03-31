@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\AppSetting;
 use App\Models\Article;
 use App\Models\ArticleCreator;
 use App\Models\User;
@@ -33,7 +34,8 @@ class AuthorComponent extends Component
 
         return view('livewire.author-component', [
             'author'=> $author,
-            'creation'=> $creation
+            'creation'=> $creation,
+            'setting'=> AppSetting::first(),
         ]);
     }
 }

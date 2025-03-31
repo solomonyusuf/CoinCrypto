@@ -743,7 +743,7 @@
             <a target="_blank" class="flex gap-2 items-center z-50 hover:z-50 "
               href="{{ $event->category}}">
               <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title  hover:underline uppercase">
-                {{$setting->concensus}}
+                {{$event->title}}
               </h2>
               <svg class=""
                 fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">

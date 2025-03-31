@@ -1,5 +1,6 @@
 <div>
-    <section  class="flex-grow flex flex-wrap justify-center flex-col items-center">
+    
+    <section  class="<?php echo e($setting->theme == 'white' ? 'text-color-black' : 'text-white'); ?> flex-grow flex flex-wrap justify-center flex-col items-center">
          <?php echo $setting->contact; ?>
 
     </section>

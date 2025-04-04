@@ -92,17 +92,21 @@
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
           
+            
+            @if($setting->second_left_show)
             <div class="pb-6">
               <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
             <!--$-->
-            @if($setting->second_left_show)
+            
                @livewire('widget.crypto-component')
-            @endif
-            <!--/$-->
+
+                <!--/$-->
             <div class="py-4">
               <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
+            @endif
+           
 
             @if($setting->advert)
             <div class="flex flex-col min-h-[228px]">

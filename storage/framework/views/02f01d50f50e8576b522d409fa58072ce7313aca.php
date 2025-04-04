@@ -25,8 +25,8 @@
         </div>
 
 
-        <form action="{{ route('update_setting') }}" method="POST">
-            @csrf
+        <form action="<?php echo e(route('update_setting')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
@@ -139,11 +139,11 @@
                               <h4 class="card-title mb-0">App Info</h4>
                             </div>
                             <div class="card-body p-4">
-                                @if($setting?->logo)
+                                <?php if($setting?->logo): ?>
                                 <div class="mb-3">
-                                  <img src="{{ asset($setting?->logo) }}" style="height:50px;" />
+                                  <img src="<?php echo e(asset($setting?->logo)); ?>" style="height:50px;" />
                                   </div>
-                                @endif
+                                <?php endif; ?>
                                 <div class="mb-3">
                                   <label  class="form-label">Image</label>
                                   <input name="image"  type="file" class="form-control">
@@ -151,34 +151,34 @@
                                 <div class="mb-3">
                                   <label  class="form-label">Theme</label>
                                   <select required name="theme" class="form-control">
-                                    @if ($setting->theme == 'black')
+                                    <?php if($setting->theme == 'black'): ?>
                                     <option selected value="black"> Black</option>
                                     <option value="white">White</option>
-                                    @else 
+                                    <?php else: ?> 
                                     <option value="black"> Black</option>
                                     <option selected value="white">White</option>
-                                    @endif
+                                    <?php endif; ?>
                                   </select>
                                 </div>
                               <div class="mb-3">
                                 <label for="exampleInputname" class="form-label">Name</label>
-                                <input name="name" value="{{ $setting?->name }}"  type="text" class="form-control" id="exampleInputname" placeholder="">
+                                <input name="name" value="<?php echo e($setting?->name); ?>"  type="text" class="form-control" id="exampleInputname" placeholder="">
                               </div>
                               <div class="mb-3">
                                 <label for="exampleInputtext1" class="form-label">Email</label>
-                                <input name="email" value="{{ $setting?->email }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                                <input name="email" value="<?php echo e($setting?->email); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                               </div>
                               <div class="mb-3">
                                 <label for="exampleInputtext1" class="form-label">Address</label>
-                                <input name="address" value="{{ $setting?->address }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                                <input name="address" value="<?php echo e($setting?->address); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                               </div>
                                <div class="mb-3">
                                 <label for="exampleInputtext1" class="form-label">Default Event Text Color</label>
-                                <input name="default_event_color" value="{{ $setting?->default_event_color }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                                <input name="default_event_color" value="<?php echo e($setting?->default_event_color); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                               </div>
                               <div class="mb-3">
                                 <label for="exampleInputtext1" class="form-label">Default Event Background</label>
-                                <input name="default_event_background" value="{{ $setting?->default_event_background }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
+                                <input name="default_event_background" value="<?php echo e($setting?->default_event_background); ?>"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                               </div>
                               <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -195,7 +195,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="news" value="{{ $setting?->news }}" type="text"  class="form-control ps-2" placeholder="">
+                                  <input name="news" value="<?php echo e($setting?->news); ?>" type="text"  class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -203,7 +203,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="prices" value="{{ $setting?->prices }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="prices" value="<?php echo e($setting?->prices); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                                <div class="mb-3">
@@ -211,7 +211,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="concensus" value="{{ $setting?->concensus }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="concensus" value="<?php echo e($setting?->concensus); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -219,7 +219,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="sponsored" value="{{ $setting?->sponsored }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="sponsored" value="<?php echo e($setting?->sponsored); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -227,7 +227,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="videos" value="{{ $setting?->videos }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="videos" value="<?php echo e($setting?->videos); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -235,7 +235,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="podcasts" value="{{ $setting?->podcasts }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="podcasts" value="<?php echo e($setting?->podcasts); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -243,7 +243,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="newsletters" value="{{ $setting?->newsletters }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="newsletters" value="<?php echo e($setting?->newsletters); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                               <div class="mb-3">
@@ -251,7 +251,7 @@
                                   <span class="input-group-text px-6" id="basic-addon1">
                                     <i class="ti ti-link fs-6"></i>
                                   </span>
-                                  <input name="webinar" value="{{ $setting?->webinar }}"  type="text" class="form-control ps-2" placeholder="">
+                                  <input name="webinar" value="<?php echo e($setting?->webinar); ?>"  type="text" class="form-control ps-2" placeholder="">
                                 </div>
                               </div>
                              
@@ -266,7 +266,7 @@
                 <div class="tab-pane p-3" id="item2" role="tabpanel">
                     <h6>Contact Page</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->contact }}</textarea>
+                        <textarea name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->contact); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                             
@@ -274,7 +274,7 @@
                 <div class="tab-pane p-3" id="item3" role="tabpanel">
                     <h6>Cookies</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->cookie }}</textarea>
+                        <textarea name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->cookie); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -292,11 +292,11 @@
                                    
                                     <div class="mb-3">
                                         <label for="exampleInputname" class="form-label">Footer Name</label>
-                                        <input name="footer_name" value="{{ $setting?->footer_name }}"  type="text" class="form-control" id="exampleInputname" placeholder="">
+                                        <input name="footer_name" value="<?php echo e($setting?->footer_name); ?>"  type="text" class="form-control" id="exampleInputname" placeholder="">
                                       </div>
 
                                       <div class="mb-3 mt-2">
-                                        <textarea name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->footer_info }}</textarea>
+                                        <textarea name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->footer_info); ?></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                      
@@ -324,141 +324,141 @@
                                        <div class="mb-3">
                                         <label  class="form-label">First Section</label>
                                         <select required name="first" class="form-control">
-                                          @if ($setting->first == true)
+                                          <?php if($setting->first == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->first == false)
+                                          <?php elseif($setting->first == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       <div class="mb-3">
                                         <label  class="form-label">Langugage Section</label>
                                         <select required name="language" class="form-control">
-                                          @if ($setting->language == true)
+                                          <?php if($setting->language == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->language == false)
+                                          <?php elseif($setting->language == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
 
                                       <div class="mb-3">
                                         <label  class="form-label">Top Ticker Section</label>
                                         <select required name="top_ticker" class="form-control">
-                                          @if ($setting->top_ticker == true)
+                                          <?php if($setting->top_ticker == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->top_ticker == false)
+                                          <?php elseif($setting->top_ticker == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       
                                       <div class="mb-3">
                                         <label  class="form-label">Advert Section</label>
                                         <select required name="advert" class="form-control">
-                                          @if ($setting->advert == true)
+                                          <?php if($setting->advert == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->advert == false)
+                                          <?php elseif($setting->advert == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       
                                       <div class="mb-3">
                                         <label  class="form-label">Top Event Section</label>
                                         <select required name="top_event" class="form-control">
-                                          @if ($setting->top_event == true)
+                                          <?php if($setting->top_event == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->top_event == false)
+                                          <?php elseif($setting->top_event == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       
                                       <div class="mb-3">
                                         <label  class="form-label">Page Event Section</label>
                                         <select required name="event_section" class="form-control">
-                                          @if ($setting->event_section == true)
+                                          <?php if($setting->event_section == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->event_section == false)
+                                          <?php elseif($setting->event_section == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       <div class="mb-3">
                                         <label  class="form-label"> Podcast Section</label>
                                         <select required name="podcast" class="form-control">
-                                          @if ($setting->podcast == true)
+                                          <?php if($setting->podcast == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->podcast == false)
+                                          <?php elseif($setting->podcast == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       
                                       <div class="mb-3">
                                         <label  class="form-label"> Most Read Section</label>
                                         <select required name="most_read" class="form-control">
-                                          @if ($setting->most_read == true)
+                                          <?php if($setting->most_read == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->most_read == false)
+                                          <?php elseif($setting->most_read == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                        <div class="mb-3">
                                         <label  class="form-label"> Newsletter Section</label>
                                         <select required name="newsletter" class="form-control">
-                                          @if ($setting->newsletter == true)
+                                          <?php if($setting->newsletter == true): ?>
                                           <option selected value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @elseif($setting->newsletter == false)
+                                          <?php elseif($setting->newsletter == false): ?>
                                           <option  value="1"> true</option>
                                           <option selected value="0"> false</option>
-                                          @else 
+                                          <?php else: ?> 
                                           <option  value="1"> true</option>
                                           <option value="0"> false</option>
-                                          @endif
+                                          <?php endif; ?>
                                         </select>
                                       </div>
                                       
@@ -488,7 +488,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="twitter" value="{{ $setting?->twitter }}" placeholder="twitter" type="text"  class="form-control ps-2" >
+                                <input name="twitter" value="<?php echo e($setting?->twitter); ?>" placeholder="twitter" type="text"  class="form-control ps-2" >
                               </div>
                             </div>
                             <div class="mb-3">
@@ -496,7 +496,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="linkedin" value="{{ $setting?->linkedin }}"  type="text" class="form-control ps-2" placeholder="linkedin">
+                                <input name="linkedin" value="<?php echo e($setting?->linkedin); ?>"  type="text" class="form-control ps-2" placeholder="linkedin">
                               </div>
                             </div>
                              <div class="mb-3">
@@ -504,7 +504,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="facebook" value="{{ $setting?->facebook }}"  type="text" class="form-control ps-2" placeholder="facebook">
+                                <input name="facebook" value="<?php echo e($setting?->facebook); ?>"  type="text" class="form-control ps-2" placeholder="facebook">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -512,7 +512,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="instagram" value="{{ $setting?->instagram }}"  type="text" class="form-control ps-2" placeholder="instagram">
+                                <input name="instagram" value="<?php echo e($setting?->instagram); ?>"  type="text" class="form-control ps-2" placeholder="instagram">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -520,7 +520,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="youtube" value="{{ $setting?->youtube }}"  type="text" class="form-control ps-2" placeholder="youtube">
+                                <input name="youtube" value="<?php echo e($setting?->youtube); ?>"  type="text" class="form-control ps-2" placeholder="youtube">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -528,7 +528,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="tiktok" value="{{ $setting?->tiktok }}"  type="text" class="form-control ps-2" placeholder="tiktok">
+                                <input name="tiktok" value="<?php echo e($setting?->tiktok); ?>"  type="text" class="form-control ps-2" placeholder="tiktok">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -536,7 +536,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="discord" value="{{ $setting?->discord }}"  type="text" class="form-control ps-2" placeholder="discord">
+                                <input name="discord" value="<?php echo e($setting?->discord); ?>"  type="text" class="form-control ps-2" placeholder="discord">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -544,7 +544,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="telegram" value="{{ $setting?->telegram }}"  type="text" class="form-control ps-2" placeholder="telegram">
+                                <input name="telegram" value="<?php echo e($setting?->telegram); ?>"  type="text" class="form-control ps-2" placeholder="telegram">
                               </div>
                             </div>
                             <div class="px-4 py-3 border-bottom">
@@ -555,7 +555,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="google" value="{{ $setting?->google }}"  type="text" class="form-control ps-2" placeholder="google store">
+                                <input name="google" value="<?php echo e($setting?->google); ?>"  type="text" class="form-control ps-2" placeholder="google store">
                               </div>
                             </div>
                             <div class="mb-3">
@@ -563,7 +563,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1">
                                   <i class="ti ti-link fs-6"></i>
                                 </span>
-                                <input name="apple" value="{{ $setting?->apple }}"  type="text" class="form-control ps-2" placeholder="apple store">
+                                <input name="apple" value="<?php echo e($setting?->apple); ?>"  type="text" class="form-control ps-2" placeholder="apple store">
                               </div>
                             </div>
                            
@@ -576,7 +576,7 @@
                <div class="tab-pane p-3" id="item7" role="tabpanel">
                     <h6>Terms & Condition</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->terms }}</textarea>
+                        <textarea name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->terms); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -584,7 +584,7 @@
                 <div class="tab-pane p-3" id="item8" role="tabpanel">
                     <h6>Privacy</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->privacy }}</textarea>
+                        <textarea name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->privacy); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -592,7 +592,7 @@
                  <div class="tab-pane p-3" id="item9" role="tabpanel">
                     <h6>Do Not Sell</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->do_not_sell }}</textarea>
+                        <textarea name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->do_not_sell); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -600,7 +600,7 @@
                  <div class="tab-pane p-3" id="item10" role="tabpanel">
                     <h6>Sitemap</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->sitemap }}</textarea>
+                        <textarea name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->sitemap); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -608,7 +608,7 @@
                  <div class="tab-pane p-3" id="item11" role="tabpanel">
                     <h6>Ethics</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->ethics }}</textarea>
+                        <textarea name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->ethics); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -616,7 +616,7 @@
                 <div class="tab-pane p-3" id="item12" role="tabpanel">
                     <h6>Accessibility</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->accessibility }}</textarea>
+                        <textarea name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->accessibility); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -624,7 +624,7 @@
                  <div class="tab-pane p-3" id="item13" role="tabpanel">
                     <h6>About</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->about }}</textarea>
+                        <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->about); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -632,7 +632,7 @@
                 <div class="tab-pane p-3" id="item14" role="tabpanel">
                     <h6>Masthead</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->masthead }}</textarea>
+                        <textarea name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->masthead); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -640,7 +640,7 @@
                  <div class="tab-pane p-3" id="item15" role="tabpanel">
                     <h6>Advertising</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->advertising }}</textarea>
+                        <textarea name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->advertising); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -649,20 +649,20 @@
                     <h6>Homepage</h6>
                     <div class="mt-3">
                        <div class="row">
-                        <a target="__blank" href="{{ route('admin_home') }}" class="btn btn-primary mb-5">Visit Homepage</a>
+                        <a target="__blank" href="<?php echo e(route('admin_home')); ?>" class="btn btn-primary mb-5">Visit Homepage</a>
                      
 
                           <div class="col-md-6">
                               <div class="form-group mb-3">
                                 <label>Top Left Article</label>
                                 <select name="top_left_article" id="top-left" class="form-control">
-                                  @foreach ($articles as $data)
-                                  @if($setting->top_left_article == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                  @endforeach
+                                  <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($setting->top_left_article == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                               </div>
                           </div>
@@ -670,13 +670,13 @@
                             <div class="form-group mb-3">
                               <label>Top Right Video </label>
                               <select name="top_right_article" id="top-right" class="form-control">
-                                @foreach ($videos as $data)
-                                @if($setting->top_right_article == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                @endforeach
+                                <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->top_right_article == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </select>
                             </div>
                           </div>
@@ -686,13 +686,13 @@
                               <div class="form-group mb-3">
                                 <label>Second Section Left Category</label>
                                 <select name="second_left" id="second-left" class="form-control">
-                                  @foreach ($categories as $data)
-                                  @if($setting->second_left == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                  @endforeach
+                                  <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($setting->second_left == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                               </div>
                           </div>
@@ -700,13 +700,13 @@
                             <div class="form-group mb-3">
                               <label>Second Section Right Category </label>
                               <select name="second_right" id="second-right" class="form-control">
-                                @foreach ($categories as $data)
-                                @if($setting->second_right == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                @endforeach
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->second_right == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </select>
                             </div>
                           </div>
@@ -714,13 +714,13 @@
                             <div class="form-group mb-3">
                               <label>Third Section Category </label>
                               <select name="third_section" id="third_section" class="form-control">
-                                @foreach ($categories as $data)
-                                @if($setting->third_section == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                @endforeach
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->third_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </select>
                             </div>
                           </div>
@@ -728,13 +728,13 @@
                             <div class="form-group mb-3">
                               <label>Fourth Section Category </label>
                               <select name="fourth_section" id="fourth_section" class="form-control">
-                                @foreach ($categories as $data)
-                                @if($setting->fourth_section == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                @endforeach
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->fourth_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </select>
                             </div>
                           </div>
@@ -742,13 +742,13 @@
                             <div class="form-group mb-3">
                               <label>Fifth Section Category </label>
                               <select name="fifth_section" id="fifth_section" class="form-control">
-                                @foreach ($categories as $data)
-                                @if($setting->fifth_section == $data->id)
-                                  <option selected value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @else
-                                  <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                  @endif
-                                @endforeach
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($setting->fifth_section == $data->id): ?>
+                                  <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php else: ?>
+                                  <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </select>
                             </div>
                           </div>
@@ -820,4 +820,4 @@
         });
 </script>
 </div>
- 
+ <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/app-setting-component.blade.php ENDPATH**/ ?>

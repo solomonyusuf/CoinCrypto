@@ -1492,7 +1492,7 @@ echo $html;
      
     
           <div>
-          <?php if($setting->event_section && $event): ?>
+          <?php if($event): ?>
             <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
               <div class="flex py-6">
                 <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
@@ -1644,6 +1644,7 @@ echo $html;
               </div>
             </div>
             <?php endif; ?>
+          
           </div>
              
             <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">

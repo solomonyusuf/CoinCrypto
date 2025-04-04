@@ -10,6 +10,7 @@ use App\Models\Episode;
 use App\Models\Newsletter;
 use App\Models\Event;
 use App\Models\Podcast;
+use App\Models\User;
 use Carbon\Carbon;
  
 use Livewire\Component;
@@ -21,6 +22,13 @@ class HomeComponent extends Component
     public $transition = '';
     public bool $show = true;
 
+    public function mount()
+    {
+        $role = User::find(auth()?->user()?->id)?->role;
+
+        if($role?->title == 'superadmin') return redirect()->route('admin_home');
+
+    }
     public function showTransition($param)
     {
         $this->transition = $param;
@@ -31,6 +39,7 @@ class HomeComponent extends Component
     }
     public function render()
     {
+        
         $setting = AppSetting::first();
 
         $latest = Article::find($setting?->top_left_article);
@@ -45,7 +54,7 @@ class HomeComponent extends Component
                             
         $articles = Article::where([
             'visible'=> true,
-            'category_id'=> $setting?->second_right,
+            'category_id'=> $setting?->third_section,
             ])->orderByDesc('created_at')->limit(30)->get();
 
         $categories =  ArticleCategory::where(['visible'=> true])->get();
@@ -53,10 +62,9 @@ class HomeComponent extends Component
         $excludedTitles = [ $setting?->second_right, $setting?->second_left, $setting?->third_section, $setting?->fourth_section, $setting?->fifth_section];
 
         $categories_display = ArticleCategory::whereNotIn('id', $excludedTitles)
-                            ->where(['visible'=> true])
-                            ->with(['articles' => function ($query) {
-                                $query->orderByDesc('created_at')->take(4);  
-                            }])->get();
+                                                ->where(['visible'=> true])                       
+                                                ->with('latestArticles')
+                                                                        ->get();
 
    
         $newsletters = Newsletter::where(['visible'=> true])->orderByDesc('created_at')->limit(6)->get();

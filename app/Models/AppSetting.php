@@ -25,12 +25,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $third_section
  * @property string|null $fourth_section
  * @property string|null $fifth_section
+ * @property bool|null $top_left_article_show
+ * @property bool|null $top_right_article_show
+ * @property bool|null $second_left_show
+ * @property bool|null $second_right_show
+ * @property bool|null $third_section_show
+ * @property bool|null $fourth_section_show
+ * @property bool|null $fifth_section_show
  * @property string|null $default_event_color
  * @property string|null $default_event_background
  * @property string|null $mail_layout
+ * @property string|null $login_subject
  * @property string|null $login_mail
+ * @property string|null $register_subject
  * @property string|null $register_mail
+ * @property string|null $reset_subject
  * @property string|null $reset_mail
+ * @property string|null $activate_newsletter_subject
  * @property string|null $activate_newsletter_mail
  * @property string|null $address
  * @property string|null $contact
@@ -88,6 +99,13 @@ class AppSetting extends Model
 	public $incrementing = false;
 
 	protected $casts = [
+		'top_left_article_show' => 'bool',
+		'top_right_article_show' => 'bool',
+		'second_left_show' => 'bool',
+		'second_right_show' => 'bool',
+		'third_section_show' => 'bool',
+		'fourth_section_show' => 'bool',
+		'fifth_section_show' => 'bool',
 		'first' => 'bool',
 		'second' => 'bool',
 		'third' => 'bool',
@@ -102,7 +120,6 @@ class AppSetting extends Model
 	];
 
 	protected $fillable = [
-		'id',
 		'logo',
 		'name',
 		'email',
@@ -114,6 +131,13 @@ class AppSetting extends Model
 		'third_section',
 		'fourth_section',
 		'fifth_section',
+		'top_left_article_show',
+		'top_right_article_show',
+		'second_left_show',
+		'second_right_show',
+		'third_section_show',
+		'fourth_section_show',
+		'fifth_section_show',
 		'default_event_color',
 		'default_event_background',
 		'mail_layout',

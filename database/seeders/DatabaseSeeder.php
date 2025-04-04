@@ -1705,7 +1705,7 @@ class DatabaseSeeder extends Seeder
                                 </section>',
              //-------------------------------
             'first'=> true,
-            'language'=> true,
+            'language'=> false,
             'top_ticker'=> true,
             'advert'=> true,
             'top_event'=> true,

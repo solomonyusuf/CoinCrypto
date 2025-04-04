@@ -91,7 +91,7 @@
 
                     <td>
                         <span class="fw-normal">
-                          <?php if($data->visisble): ?>
+                          <?php if($data->visible): ?>
                           true
                           <?php else: ?> 
                           false

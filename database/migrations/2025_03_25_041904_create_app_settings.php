@@ -30,6 +30,16 @@ return new class extends Migration
             $table->foreignUuid('fourth_section')->nullable();
             $table->foreignUuid('fifth_section')->nullable();
              
+            $table->boolean('top_left_article_show')->default(true)->nullable();
+            $table->boolean('top_right_article_show')->default(true)->nullable();
+             
+            $table->boolean('second_left_show')->default(true)->nullable();
+            $table->boolean('second_right_show')->default(true)->nullable();
+           
+            $table->boolean('third_section_show')->default(true)->nullable();
+            $table->boolean('fourth_section_show')->default(true)->nullable();
+            $table->boolean('fifth_section_show')->default(true)->nullable();
+             
             //----- for event bg-----------------------
             $table->string('default_event_color')->default('white')->nullable();
             $table->string('default_event_background')->default('#464dfb')->nullable();

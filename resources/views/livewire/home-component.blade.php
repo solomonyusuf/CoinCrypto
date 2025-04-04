@@ -8,6 +8,7 @@
       <div class="grid gap-4 md:gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
         @if($setting?->first )
 
+        @if($setting->top_left_article_show)
         @if($latest)
         <div class="col-start-1 col-span-full row-start-1 lg:col-end-8 xl:col-end-9">
           <div class="flex flex-col gap-1 md:flex-row xlmax:w-full ">
@@ -54,6 +55,8 @@
           </div>
         </div>
         @endif
+        @endif
+        @if($setting->top_right_article_show)
         @if($video)
         <div class="row-start-2 col-span-full md:col-start-4 lg:row-start-1 lg:col-start-8 -lg:col-end-1 xl:col-start-9 [&amp;_.jw-related-btn]:hidden">
           <div class="flex flex-col lg:flex-row h-full">
@@ -84,6 +87,7 @@
         </div>
         @endif
         @endif
+        @endif
 
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
@@ -92,9 +96,9 @@
               <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
             </div>
             <!--$-->
-
-           @livewire('widget.crypto-component')
-
+            @if($setting->second_left_show)
+               @livewire('widget.crypto-component')
+            @endif
             <!--/$-->
             <div class="py-4">
               <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
@@ -119,6 +123,7 @@
           </div>
         </div>
         
+        @if($setting->second_right_show)
           <div class="col-span-full md:row-start-2 md:col-start-4 lg:row-start-2 lg:col-start-4 -lg:col-end-1 md:row-start-3">
                 <div class="pb-6">
                   <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
@@ -212,7 +217,7 @@
                     <div class="py-4">
                         <hr class="shrink-0 bg-divider  border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
                     </div>
-                @endfor
+                 @endfor
 
         
               </div>
@@ -221,6 +226,7 @@
               </div>
             </div>
           </div>
+          @endif
           </div>
         </div>
       </div>
@@ -391,345 +397,352 @@
         </div>
         @endif
 
-        @if($setting->most_read && count($articles) > 0)
+        @if(count($articles) > 0)
         <div class="order-3">
           <div class="grid gap-4 grid-cols-4 md:gap-6 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
-            <div class="order-1 col-span-4 md:col-span-8 lg:col-span-12 xl:order-2 xl:col-span-12 xl:row-span-2">
-              <div class="pb-6">
-                <hr class="shrink-0 border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
-              </div>
-              <div class="flex pb-6 items-center">
-                <h2 class=" font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
-                  {{ $articles[0]?->article_category->title }}
-                </h2>
-              </div>
-              <div class="hidden md:flex">
-                
-                <div class=" flex flex-col gap-1 md:flex-row false ">
-                  <div class="relative inline-block h-12 w-[60px]">
-                    <img alt="elipse" loading="lazy" width="20" height="20"
-                      class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
-                      src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', 1) }}
-                      <!-- -->.
-                    </span>
-                  </div>
-                  <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
-                    <div class="flex flex-col">
-                      <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
-                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
-                        <h3 class="font-headline font-medium">
-                          {{ $articles[0]->title }}
-                        </h3>
-                      </a>
-                      <p class="font-body  {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'}}  mb-4 line-clamp-3">
-                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
-                      </p>
-
-                      <p class="flex gap-2 flex-col">
-                       <span
-                        class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
-                        <span class="mr-2">  By 
-                          @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
-                          @php
-                           $data = $articles[0]->article_creators[$i];
-                          @endphp
-                          @if($i > 0)
-                             ,
-                          @endif
-                         
-                          <a
-                           class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
-                            href="{{ route('author_detail', $data->user->id) }}">
-                            {{ $data->user->first_name.' '.$data->user->last_name }}
-                          </a>
-                          @endfor
-                        </span>
-                       
-                        </span>
-                      <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
-                        {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
-                                                
-                      </span>
-                      </p>
-                    </div>
-                    <a 
-                      class="flex shrink-0 flex-col"
-                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
-                      <img
-                        alt="{{ $articles[0]->slug }}" width="416" height="234" 
-                        class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
-                        style="color: transparent;"
-                        src="{{ asset($articles[0]->image) }}"></a>
-                  </div>
+            
+            @if($setting->third_section_show)
+              <div class="order-1 col-span-4 md:col-span-8 lg:col-span-12 xl:order-2 xl:col-span-12 xl:row-span-2">
+                <div class="pb-6">
+                  <hr class="shrink-0 border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
                 </div>
-
-              </div>
-              <div class="flex md:hidden">
-
-                <div class="flex flex-col gap-1 md:flex-row false">
-                  <div class="relative inline-block h-12 w-[60px]">
-                    <img alt="elipse" loading="lazy" width="20" height="20"
-                      class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
-                      src="/img/elipse.png"><span
-                      class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">
-                      {{ sprintf('%02d', 1) }}
-                      <!-- -->.
-                    </span>
-                  </div>
+                <div class="flex pb-6 items-center">
+                  <h2 class=" font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
+                    {{ $articles[0]?->article_category->title }}
+                  </h2>
+                </div>
+                <div class="hidden md:flex">
                   
-                    <div class=" {{ $setting->theme == 'white' ?   'bg-white' :'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
-                    <div class="flex flex-col">
-                      <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
-                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
-                        <h3 class="font-headline font-medium">
-                          {{ $articles[0]->title }}
-                        </h3>
-                      </a>
-                      <p class="font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}  mb-4 line-clamp-3">
-                        {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
-                      </p>
-                      <p class="flex gap-2 flex-col">
-                        @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
-                         @php
-                          $data = $articles[0]->article_creators[$i];
-                         @endphp
-                         @if($i > 0)
-                            ,
-                         @endif
+                  <div class=" flex flex-col gap-1 md:flex-row false ">
+                    <div class="relative inline-block h-12 w-[60px]">
+                      <img alt="elipse" loading="lazy" width="20" height="20"
+                        class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
+                        src="/img/elipse.png"><span
+                        class="absolute bottom-0 right-0 font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', 1) }}
+                        <!-- -->.
+                      </span>
+                    </div>
+                    <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
+                      <div class="flex flex-col">
+                        <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
+                          href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                          <h3 class="font-headline font-medium">
+                            {{ $articles[0]->title }}
+                          </h3>
+                        </a>
+                        <p class="font-body  {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}  mb-4 line-clamp-3">
+                          {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                        </p>
+
+                        <p class="flex gap-2 flex-col">
                         <span
-                          class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span class="mr-2">By <a
-                              class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
+                          class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
+                          <span class="mr-2">  By 
+                            @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
+                            @php
+                            $data = $articles[0]->article_creators[$i];
+                            @endphp
+                            @if($i > 0)
+                              ,
+                            @endif
+                          
+                            <a
+                            class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                               href="{{ route('author_detail', $data->user->id) }}">
                               {{ $data->user->first_name.' '.$data->user->last_name }}
                             </a>
-                            </span>
-                        @endfor
-                        </span><span
-                          class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
+                            @endfor
+                          </span>
+                        
+                          </span>
+                        <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">
                           {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
-                        </span></p>
-                    </div>
-                    <a class="flex shrink-0 flex-col"
-                      href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
-                      <img width="416" height="234" class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
-                        src="{{ asset($articles[0]->article_creators[0]->user->image) }}"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="order-2 col-span-4 md:order-3 md:col-span-8 lg:col-span-12 xl:order-3 xl:col-span-12 xl:row-span-6">
-              <div class="pb-6">
-                <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
-              </div>
-             
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                @foreach ($articles as $data)
-                @if($articles[0]->id != $data->id)
-                <div class="flex flex-col">
-                  <div class="min-h-[103px]">
-                    <div class="flex gap-4 false">
-                      <div class="relative inline-block h-[30px] w-9">
-                        <img alt="elipse" loading="lazy" width="20"
-                          height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
-                          style="color: transparent;"
-                          src="img/elipse.png">
-                          <span class="absolute bottom-0 right-0 font-body-sm {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
-                      <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'}} flex gap-6 w-full shrink">
-                        <div class="flex flex-col">
-                          <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
-                            href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                            <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
-                              {{ $data->title }}
-                            </h2>
-                          </a>
-                          <p class="flex gap-2 flex-col">
-                            <span class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
-                              By
-                              @for ($i = 0; $i < count($data->article_creators); $i++)
-                                @php
-                                  $item = $data->article_creators[$i];
-                                @endphp
-                                @if($i > 0)
-                                    ,
-                                @endif
-                                <span class="mr-2">
-                                  <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
-                                  </span>
-                                @endfor
-                              
-                                
-                              </p>
-                        </div>
+                                                  
+                        </span>
+                        </p>
                       </div>
+                      <a 
+                        class="flex shrink-0 flex-col"
+                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        <img
+                          alt="{{ $articles[0]->slug }}" width="416" height="234" 
+                          class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
+                          style="color: transparent;"
+                          src="{{ asset($articles[0]->image) }}"></a>
                     </div>
                   </div>
-                  <div class="py-4">
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+
+                </div>
+                <div class="flex md:hidden">
+
+                  <div class="flex flex-col gap-1 md:flex-row false">
+                    <div class="relative inline-block h-12 w-[60px]">
+                      <img alt="elipse" loading="lazy" width="20" height="20"
+                        class="h-8 min-h-8 w-8 min-w-8" style="color:transparent"
+                        src="/img/elipse.png"><span
+                        class="absolute bottom-0 right-0 font-body text-color-charcoal-900 uppercase">
+                        {{ sprintf('%02d', 1) }}
+                        <!-- -->.
+                      </span>
+                    </div>
+                    
+                      <div class=" {{ $setting->theme == 'white' ?   'bg-white' :'bg-black' }} flex gap-6 w-full shrink flex-col md:flex-row">
+                      <div class="flex flex-col">
+                        <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
+                          href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                          <h3 class="font-headline font-medium">
+                            {{ $articles[0]->title }}
+                          </h3>
+                        </a>
+                        <p class="font-body {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}  mb-4 line-clamp-3">
+                          {!! \Illuminate\Support\Str::limit($articles[0]->content, 60, '..') !!}
+                        </p>
+                        <p class="flex gap-2 flex-col">
+                          @for ($i = 0; $i < count($articles[0]->article_creators); $i++)
+                          @php
+                            $data = $articles[0]->article_creators[$i];
+                          @endphp
+                          @if($i > 0)
+                              ,
+                          @endif
+                          <span
+                            class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span class="mr-2">By <a
+                                class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
+                                href="{{ route('author_detail', $data->user->id) }}">
+                                {{ $data->user->first_name.' '.$data->user->last_name }}
+                              </a>
+                              </span>
+                          @endfor
+                          </span><span
+                            class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
+                            {{ \Carbon\Carbon::parse($articles[0]->created_at)->diffForHumans() }}
+                          </span></p>
+                      </div>
+                      <a class="flex shrink-0 flex-col"
+                        href="{{ route('article_detail', [$articles[0]->slug, $articles[0]->id]) }}">
+                        <img width="416" height="234" class="w-full md:w-60 md:h-[335px] lg:w-[416px] lg:h-[334px] rounded align-self-end object-cover"
+                          src="{{ asset($articles[0]->article_creators[0]->user->image) }}"></a>
+                    </div>
                   </div>
                 </div>
-                @endif
-                @endforeach
+              </div>
+
+              <div class="order-2 col-span-4 md:order-3 md:col-span-8 lg:col-span-12 xl:order-3 xl:col-span-12 xl:row-span-6">
+                <div class="pb-6">
+                  <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                </div>
+              
                 
-              </div>
-            </div>
-
-            @if($setting->advert)
-            <div class="order-3 col-span-full">
-              <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
-                <div id="homepage_mid_dynamic_1"  style="width:970px;height:250px"
-                  class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px"
-                  name="coindesk_homepage_desktop_leaderboard_2">
-                 
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <div class="grid order-4 xl:order-1 md:order-3 col-span-4 md:col-span-8 lg:col-span-12 xl:col-span-4 xl:row-span-8 gap-6">
-              <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
-                @php
-                  $categories = collect($categories);
-                  $cat1 = $categories->where('id', '=', $setting->fourth_section)->first();
-                  $opinion = \App\Models\Article::where([ 'category_id'=> $cat1->id])->limit(4)->get();
-                @endphp
-                <div class="flex flex-col col-span-1 lg:col-span-2 xl:col-span-1">
-                  <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
-                  </div>
-                  <div class="pb-6 uppercase">
-                    <a target="__blank" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('category_detail', $cat1->id) }}">
-                      <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title  hover:underline">{{ $cat1->title}}</h2><svg
-                        class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1  gap-4">
-                    @foreach ($opinion as $data)
-                    <div>
-                      <div class="flex gap-4 false ">
-                        <div class="{{ $setting->theme == 'white' ? 'bg-white' :'bg-black'  }} flex gap-6 w-full shrink justify-between">
-                          <div class="flex flex-col-reverse gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  @foreach ($articles as $data)
+                  @if($articles[0]->id != $data->id)
+                  <div class="flex flex-col">
+                    <div class="min-h-[103px]">
+                      <div class="flex gap-4 false">
+                        <div class="relative inline-block h-[30px] w-9">
+                          <img alt="elipse" loading="lazy" width="20"
+                            height="20" decoding="async" data-nimg="1" class="h-5 min-h-5 w-5 min-w-5"
+                            style="color: transparent;"
+                            src="img/elipse.png">
+                            <span class="absolute bottom-0 right-0 font-body-sm {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">{{ sprintf('%02d', $num++) }}.</span></div>
+                        <div class=" {{ $setting->theme == 'white' ?  'bg-white' : 'bg-black'}} flex gap-6 w-full shrink">
+                          <div class="flex flex-col">
                             <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
                               href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                              <h3 class="font-headline-2xs font-normal">
-                               {{ $data->title }}
-                              </h3>
+                              <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
+                                {{ $data->title }}
+                              </h2>
                             </a>
-                            <p class="flex gap-2 flex-col"><span
-                                class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span
-                                  class="mr-2">By 
-                                  @for ($i = 0; $i < count($data->article_creators); $i++)
-                                @php
-                                  $item = $data->article_creators[$i];
-                                @endphp
-                                @if($i > 0)
-                                    ,
-                                @endif
-                                <span class="mr-2">
-                                  <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
-                                    href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
-                                  </span>
-                                @endfor
-                                  </p>
+                            <p class="flex gap-2 flex-col">
+                              <span class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
+                                By
+                                @for ($i = 0; $i < count($data->article_creators); $i++)
+                                  @php
+                                    $item = $data->article_creators[$i];
+                                  @endphp
+                                  @if($i > 0)
+                                      ,
+                                  @endif
+                                  <span class="mr-2">
+                                    <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
+                                      href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
+                                    </span>
+                                  @endfor
+                                
+                                  
+                                </p>
                           </div>
-                          <a class="flex shrink-0 flex-col" href="{{ route('author_detail', $data->article_creators[0]->user->id) }}"><img
-                               width="128" height="128"  
-                              class="w-16 h-16 object-cover rounded-full max-w-full max-h-full object-cover"
-                              style="color: transparent; background-size: cover; background-position: 50% 50%;"
-                              src="{{ asset($data->article_creators[0]->user->image) }}"></a>
                         </div>
                       </div>
-                      <div class="py-4 py-4">
-                        <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
-                      </div>
                     </div>
-                    @endforeach
-                    
-                    
-                    
+                    <div class="py-4">
+                      <hr class="shrink-0 bg-divider border-none w-full h-divider  {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                    </div>
+                  </div>
+                  @endif
+                  @endforeach
+                  
+                </div>
+              </div>
+              @endif
+              @if($setting->advert)
+              <div class="order-3 col-span-full">
+                <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
+                  <div id="homepage_mid_dynamic_1"  style="width:970px;height:250px"
+                    class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px"
+                    name="coindesk_homepage_desktop_leaderboard_2">
+                  
                   </div>
                 </div>
+              </div>
+              @endif
 
-                @php
-                  $cat2 = $categories->where('id', '=', $setting->fifth_section)->first();
-                  $press = \App\Models\Article::where([ 'category_id'=> $cat2->id])->limit(4)->get();
-                  $transition = $press[0]->id;
-                @endphp
-                <div class="flex flex-col col-span-1">
-                  <div class="pb-6">
-                    <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
-                  </div>
-                  <div class="pb-6 uppercase">
-                    <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
-                      href="{{ route('category_detail', $cat2->id) }}">
-                      <h2 class="text-color-dark-grey font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline">Press Releases</h2><svg
-                        class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
-                          fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
-                      </svg>
-                    </a></div>
-                  <div class="flex flex-col gap-6">
-                    <div class="relative">
+              <div class="grid order-4 xl:order-1 md:order-3 col-span-4 md:col-span-8 lg:col-span-12 xl:col-span-4 xl:row-span-8 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-6">
+                  @php
+                    $categories = collect($categories);
+                    $cat1 = $categories->where('id', '=', $setting->fourth_section)->first();
+                    $opinion = \App\Models\Article::where([ 'category_id'=> $cat1->id])->limit(4)->get();
+                  @endphp
+                  @if($setting->fourth_section_show)
+                  <div class="flex flex-col col-span-1 lg:col-span-2 xl:col-span-1">
+                    <div class="pb-6">
+                      <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                    </div>
+                    <div class="pb-6 uppercase">
+                      <a target="__blank" class="flex gap-2 items-center z-50 hover:z-50 " href="{{ route('category_detail', $cat1->id) }}">
+                        <h2 class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-title  hover:underline">{{ $cat1->title}}</h2><svg
+                          class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
+                            fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1  gap-4">
+                      @foreach ($opinion as $data)
                       <div>
-                        @foreach ($press as $data)
-                        <div class="transition-opacity duration-300 min-h-[130px] {{ $transition == $data->id ? 'block' : 'hidden' }}">
-                          <div class="">
-                            <div class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
-                              <div class="flex flex-col">
-                                <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
-                                  href="{{ route('article_detail', [$data->slug, $data->id]) }}">
-                                  <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
-                                    {{ $data->title }}
-                                  </h2>
-                                </a>
-                                <p class="flex gap-2 flex-col">
-                                  <span
-                                    class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
-                                    @if($data->info)
-                                    <span class="mr-2">
-                                      {{ $data->info }}
+                        <div class="flex gap-4 false ">
+                          <div class="{{ $setting->theme == 'white' ? 'bg-white' :'bg-black'  }} flex gap-6 w-full shrink justify-between">
+                            <div class="flex flex-col-reverse gap-2">
+                              <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
+                                href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                                <h3 class="font-headline-2xs font-normal">
+                                {{ $data->title }}
+                                </h3>
+                              </a>
+                              <p class="flex gap-2 flex-col"><span
+                                  class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase "><span
+                                    class="mr-2">By 
+                                    @for ($i = 0; $i < count($data->article_creators); $i++)
+                                  @php
+                                    $item = $data->article_creators[$i];
+                                  @endphp
+                                  @if($i > 0)
+                                      ,
+                                  @endif
+                                  <span class="mr-2">
+                                    <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
+                                      href="{{ route('author_detail', $item->user->id) }}"> {{ $item->user->first_name.' '.$item->user->last_name }}</a></span>
                                     </span>
-                                    @endif
-                                  </span>
-                                  <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
-                                    {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
-                        
-                                  </span></p>
+                                  @endfor
+                                    </p>
+                            </div>
+                            <a class="flex shrink-0 flex-col" href="{{ route('author_detail', $data->article_creators[0]->user->id) }}"><img
+                                width="128" height="128"  
+                                class="w-16 h-16 object-cover rounded-full max-w-full max-h-full object-cover"
+                                style="color: transparent; background-size: cover; background-position: 50% 50%;"
+                                src="{{ asset($data->article_creators[0]->user->image) }}"></a>
+                          </div>
+                        </div>
+                        <div class="py-4 py-4">
+                          <hr class="shrink-0 bg-divider border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                        </div>
+                      </div>
+                      @endforeach
+                      
+                      
+                      
+                    </div>
+                  </div>
+                  @endif
+                  @php
+                    $cat2 = $categories->where('id', '=', $setting->fifth_section)->first();
+                    $press = \App\Models\Article::where([ 'category_id'=> $cat2->id])->limit(4)->get();
+                    $transition = $press[0]->id;
+                  @endphp
+                  @if($setting->fifth_section_show)
+                  <div class="flex flex-col col-span-1">
+                    <div class="pb-6">
+                      <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator">
+                    </div>
+                    <div class="pb-6 uppercase">
+                      <a target="" class="flex gap-2 items-center z-50 hover:z-50 "
+                        href="{{ route('category_detail', $cat2->id) }}">
+                        <h2 class="text-color-dark-grey font-title {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline">Press Releases</h2><svg
+                          class="" fill="none" height="24" viewBox="0 0 25 24" width="25" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M5.5 13H16.67L11.79 17.88C11.4 18.27 11.4 18.91 11.79 19.3C12.18 19.69 12.81 19.69 13.2 19.3L19.79 12.71C20.18 12.32 20.18 11.69 19.79 11.3L13.21 4.69997C12.82 4.30997 12.19 4.30997 11.8 4.69997C11.41 5.08997 11.41 5.71997 11.8 6.10997L16.67 11H5.5C4.95 11 4.5 11.45 4.5 12C4.5 12.55 4.95 13 5.5 13Z"
+                            fill="{{ $setting->theme == 'white' ? '#676767' : 'white' }}"></path>
+                        </svg>
+                      </a></div>
+                    <div class="flex flex-col gap-6">
+                      <div class="relative">
+                        <div>
+                          @foreach ($press as $data)
+                          <div class="transition-opacity duration-300 min-h-[130px] {{ $transition == $data->id ? 'block' : 'hidden' }}">
+                            <div class="">
+                              <div class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex gap-6 w-full shrink">
+                                <div class="flex flex-col">
+                                  <a class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} mb-4 hover:underline"
+                                    href="{{ route('article_detail', [$data->slug, $data->id]) }}">
+                                    <h2 class="font-headline-2xs {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} font-medium">
+                                      {{ $data->title }}
+                                    </h2>
+                                  </a>
+                                  <p class="flex gap-2 flex-col">
+                                    <span
+                                      class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
+                                      @if($data->info)
+                                      <span class="mr-2">
+                                        {{ $data->info }}
+                                      </span>
+                                      @endif
+                                    </span>
+                                    <span class="font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase">
+                                      {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }}
+                          
+                                    </span></p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        @endforeach
-                       
+                          @endforeach
                         
-                      </div>
-                      <div class="flex flex-col justify-center items-center">
-                        <div class="flex flex-row justify-between">
-                          <div
-                            class="flex justify-center space-x-2 md:space-x-2 lg:space-x-4 px-12 md:px-18 lg:px-18 items-center">
-                            @foreach ($press as $data)
-                            <button wire:click="showTransition('{{ $data->id }}')" class="w-2 h-2 {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }} border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
-                            @endforeach
-                            
-                          </div>
+                          
                         </div>
+                        {{-- <div class="flex flex-col justify-center items-center">
+                          <div class="flex flex-row justify-between">
+                            <div
+                              class="flex justify-center space-x-2 md:space-x-2 lg:space-x-4 px-12 md:px-18 lg:px-18 items-center">
+                              @foreach ($press as $data)
+                              <button wire:click="showTransition('{{ $data->id }}')" class="w-2 h-2 {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }} border bg-opacity-20 border-[rgba(255,255,255,0.3)] rounded-full"></button> 
+                              @endforeach
+                              
+                            </div>
+                          </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
-                </div>
+                  @endif
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        @endif
+          @endif
+        
       </div>
     </div>
    

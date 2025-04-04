@@ -214,15 +214,15 @@
                                                   </div>
                                                   <div class="mb-3">
                                                     <label  class="form-label">Event Date *</label>
-                                                    <input required name='event_date' value="{{ $data->event_date }}" placeholder="" type="datetime-local" class="form-control">
+                                                    <input  name='event_date' value="{{ $data->event_date }}" placeholder="" type="datetime-local" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
                                                     <label  class="form-label">Choose Text Color *</label>
-                                                    <input required value="{{ $data->text_color }}"  name='text_color' placeholder="" type="text" class="form-control">
+                                                    <input  value="{{ $data->text_color }}"  name='text_color' placeholder="" type="text" class="form-control">
                                                   </div>
                                                   <div class="mb-3">
                                                     <label  class="form-label">Choose Background *</label>
-                                                    <input required value="{{ $data->background }}"  name='background' placeholder="" type="text" class="form-control">
+                                                    <input  value="{{ $data->background }}"  name='background' placeholder="" type="text" class="form-control">
                                                   </div>
                                             
                                                 </div>

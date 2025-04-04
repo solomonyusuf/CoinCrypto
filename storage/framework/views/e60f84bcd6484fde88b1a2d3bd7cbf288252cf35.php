@@ -1,12 +1,11 @@
 <div>
-  <section data-module-name="page" data-module-version="1.0.0" data-module-instance="default"
-    class="flex-grow flex justify-center w-full">
+  <section class="flex-grow flex justify-center w-full">
     <div class="flex flex-col gap-[60px] w-full">
       <div class="relative bg-black h-full w-full flex flex-col items-center">
         <div
           class="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16 gap-x-[35px] lg:gap-x-[70px] container">
           <div class="col-span-4 md:col-span-5 lg:col-span-6 xl:col-span-8 "><span
-              class="text-color-white font-headline-xs font-medium">CoinCrypto Newsletters</span>
+              class="text-color-white font-headline-xs font-medium"> Newsletters</span>
             <h1 class="text-color-white font-headline py-8"><?php echo e($newsletter->title); ?></h1>
             <p class="text-color-white font-body-lg italic tracking-[0.15px] pb-5">
               <?php echo $newsletter->description; ?>
@@ -54,9 +53,9 @@
               </form>
             <span>
               <span class="text-color-white font-label italic">By signing up, you will receive emails about
-                CoinDesk products and you agree to our </span><a href="" class="underline decoration-white"><span
+                our products and you agree to our </span><a href="<?php echo e(route('terms')); ?>" class="underline decoration-white"><span
                   class="text-color-white font-label italic">terms of use</span></a><span
-                class="text-color-white font-label italic"> and </span><a href=""
+                class="text-color-white font-label italic"> and </span><a href="<?php echo e(route('privacy')); ?>"
                 class="underline decoration-white"><span class="text-color-white font-label italic">privacy
                   policy</span></a><span class="text-color-white font-label">.</span></span>
           </div>
@@ -69,42 +68,42 @@
             <?php $__currentLoopData = $opinions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="flex flex-col gap-4">
               <div class=" flex gap-4 false ">
-                <div class="bg-white flex gap-6 w-full shrink justify-between">
+                <div class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?>flex gap-6 w-full shrink justify-between">
                   
                   <div class="flex flex-col">
                     <p class="mb-4">
-                      <a class="font-title text-charcoal-600 uppercase"
+                      <a class="font-title <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase"
                         href="<?php echo e(route('category_detail', $data->category_id)); ?>">
                         <?php echo e($data->article_category->title); ?>
 
                       </a>
                       </p>
-                      <a class="text-color-charcoal-900 mb-4 hover:underline"
+                      <a class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> mb-4 hover:underline"
                       href="<?php echo e(route('article_detail', [$data->slug, $data->id])); ?>">
                       <h2 class="font-headline-xs medium">
                         <?php echo e($data->title); ?>
 
                       </h2>
                     </a>
-                    <p class="font-body text-charcoal-600 mb-4">
+                    <p class="font-body <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> mb-4">
                       <?php echo \Illuminate\Support\Str::limit($data->content, 60, '..'); ?>
 
                     </p>
                     <p class="flex gap-2 flex-col">
-                      <span class="font-metadata-lg font-medium text-color-charcoal-900 uppercase ">
+                      <span class="font-metadata-lg font-medium <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?> uppercase ">
                         <span class="mr-2">By 
                        <?php for($i = 0; $i < count($data->article_creators); $i++): ?>
                         <?php if($i > 0): ?>
                         ,
                         <?php endif; ?>
-                        <a  class="text-color-charcoal-900 hover:underline"
+                        <a  class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> hover:underline"
                         href="<?php echo e(route('author_detail', $data->article_creators[$i]->user->id)); ?>"><?php echo e($data->article_creators[$i]->user->first_name.' '.$data->article_creators[$i]->user->last_name); ?>
 
                         </a>
                         <?php endfor; ?>
                         </span>
                         </span>
-                        <span class="font-metadata text-color-charcoal-600 uppercase">
+                        <span class="font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> uppercase">
                           <?php echo e(\Carbon\Carbon::parse($data->created_at)->diffForHumans()); ?>
 
                       

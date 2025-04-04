@@ -123,6 +123,7 @@ class PageNewsletterComponent extends Component
         return view('livewire.page-newsletter-component',[
             'newsletter'=> $newsletter,
             'opinions'=> $opinions,
+            'setting'=> \App\Models\AppSetting::first(),
         ]);
     }
 }

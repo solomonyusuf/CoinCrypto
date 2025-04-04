@@ -133,7 +133,7 @@
                 </h3>
               </a>
               <p class="md:mb-4 mdmax:mb-1 {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} font-body-sm"> 
-                {!! \Illuminate\Support\Str::limit($data->description, 60, '..') !!}
+                {!! \Illuminate\Support\Str::limit($data->description, 200, '..') !!}
                 
               </p>
               <p><span class="font-metadata font-normal {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} uppercase">

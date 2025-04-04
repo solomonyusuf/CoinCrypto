@@ -139,7 +139,7 @@
                 </h3>
               </a>
               <p class="md:mb-4 mdmax:mb-1 <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?> font-body-sm"> 
-                <?php echo \Illuminate\Support\Str::limit($data->description, 60, '..'); ?>
+                <?php echo \Illuminate\Support\Str::limit($data->description, 200, '..'); ?>
 
                 
               </p>

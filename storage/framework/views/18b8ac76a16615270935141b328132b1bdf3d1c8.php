@@ -100,28 +100,7 @@
             </div>
           </div>
         </div>
-        <div class="container mt-2 mb-2">
-          <nav>
-              <ul class="pagination justify-content-center">
-                  <!-- Previous Button -->
-                  <li class="page-item <?php echo e($articles->onFirstPage() ? 'disabled' : ''); ?>">
-                      <a class="page-link" href="<?php echo e($articles->previousPageUrl()); ?>" tabindex="-1">Previous</a>
-                  </li>
-      
-                  <!-- Page Numbers -->
-                  <?php for($i = 1; $i <= $articles->lastPage(); $i++): ?>
-                      <li class="page-item <?php echo e($articles->currentPage() == $i ? 'active' : ''); ?>">
-                          <a class="page-link" href="<?php echo e($articles->url($i)); ?>"><?php echo e($i); ?></a>
-                      </li>
-                  <?php endfor; ?>
-      
-                  <!-- Next Button -->
-                  <li class="page-item <?php echo e($articles->hasMorePages() ? '' : 'disabled'); ?>">
-                      <a class="page-link" href="<?php echo e($articles->nextPageUrl()); ?>">Next</a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
+       
       
         <div class="tab-content">
           <form class="input-group mt-2 mb-2">
@@ -131,6 +110,28 @@
                 <i class="ti ti-search"></i>
             </button>
           </form>
+          <div class="container mt-2 mb-2">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <!-- Previous Button -->
+                    <li class="page-item <?php echo e($articles->onFirstPage() ? 'disabled' : ''); ?>">
+                        <a class="page-link" href="<?php echo e($articles->previousPageUrl()); ?>" tabindex="-1">Previous</a>
+                    </li>
+        
+                    <!-- Page Numbers -->
+                    <?php for($i = 1; $i <= $articles->lastPage(); $i++): ?>
+                        <li class="page-item <?php echo e($articles->currentPage() == $i ? 'active' : ''); ?>">
+                            <a class="page-link" href="<?php echo e($articles->url($i)); ?>"><?php echo e($i); ?></a>
+                        </li>
+                    <?php endfor; ?>
+        
+                    <!-- Next Button -->
+                    <li class="page-item <?php echo e($articles->hasMorePages() ? '' : 'disabled'); ?>">
+                        <a class="page-link" href="<?php echo e($articles->nextPageUrl()); ?>">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
           <div class="row">
          
             <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -277,6 +278,28 @@
             
              
           </div>
+          <div class="container mt-2 mb-2">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <!-- Previous Button -->
+                    <li class="page-item <?php echo e($articles->onFirstPage() ? 'disabled' : ''); ?>">
+                        <a class="page-link" href="<?php echo e($articles->previousPageUrl()); ?>" tabindex="-1">Previous</a>
+                    </li>
+        
+                    <!-- Page Numbers -->
+                    <?php for($i = 1; $i <= $articles->lastPage(); $i++): ?>
+                        <li class="page-item <?php echo e($articles->currentPage() == $i ? 'active' : ''); ?>">
+                            <a class="page-link" href="<?php echo e($articles->url($i)); ?>"><?php echo e($i); ?></a>
+                        </li>
+                    <?php endfor; ?>
+        
+                    <!-- Next Button -->
+                    <li class="page-item <?php echo e($articles->hasMorePages() ? '' : 'disabled'); ?>">
+                        <a class="page-link" href="<?php echo e($articles->nextPageUrl()); ?>">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         
         </div>
       

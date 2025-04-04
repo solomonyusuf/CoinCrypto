@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EditorController;
+use App\Http\Livewire\Admin\AdminHomeComponent;
 use App\Http\Livewire\Admin\AllEpisodesComponent;
 use App\Http\Livewire\Admin\AppSettingComponent;
 use App\Http\Livewire\Admin\ArticleComponent;
@@ -123,6 +124,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
+    Route::get('/admin-home', AdminHomeComponent::class)->name('admin_home');
     Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('/admin-article-tags', ArticleTagComponent::class)->name('article_tags');
     Route::get('/admin-articles', ArticleComponent::class)->name('admin_articles');
@@ -140,6 +142,10 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-release_news-{sub_id}', ReleaseComponent::class)->name('release_news');
     
     //REQUESTS
+    Route::post('/update-admin-home', [AdminHomeComponent::class, 'update'])->name('update_admin_home');
+    Route::get('/update-category-status/{id}', [AdminHomeComponent::class, 'update_status'])->name('update_category_status');
+    
+    
     Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
     Route::post('/update-setting', [AppSettingComponent::class, 'update'])->name('update_setting');
     Route::post('/update-template', [EmailTemplateComponent::class, 'update'])->name('update_template');

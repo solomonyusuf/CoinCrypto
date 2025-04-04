@@ -582,7 +582,7 @@
            
             <?php $__currentLoopData = $links; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>    
                 <li class="<?php echo e(Request::is($data->slug) ? 'active' : ''); ?>">
-                    <a class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e($data->slug); ?>">
+                    <a target="__blank" class="hover:bg-bg-grey hidden h-full items-center justify-center px-4 lg:flex" href="<?php echo e($data->slug); ?>">
                         <span class="flex h-[2.5rem] cursor-pointer items-center justify-center font-sans text-sm <?php echo e(Request::is($data->slug) ? 'font-bold text-blue-500' : ''); ?>">
                             <?php echo e($data->name); ?>   
                         </span>
@@ -649,13 +649,25 @@
                             <li role="menuitem">
                                 <a href="<?php echo e(route('profile')); ?>"
                                     class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer hover:bg-default hover:text-default-foreground">
-                                    <span class="iconify material-symbols--settings-outline h-5 w-5"></span>
-                                    <span class="text-small font-normal">My Account</span>
+                                    <span class="iconify text-color-black material-symbols--settings-outline h-5 w-5"></span>
+                                    <span class="text-small text-color-black font-normal">My Account</span>
                                 </a>
                             </li>
                             <li role="separator">
                                 <hr class="bg-divider border-none w-full h-divider">
                             </li>
+                            <?php if($user?->role?->title == 'superadmin'): ?>
+                             <li role="menuitem">
+                                <a href="<?php echo e(route('profile')); ?>"
+                                    class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer hover:bg-default hover:text-default-foreground">
+                                    <span class="iconify text-color-black material-symbols--exit-to-app-rounded h-5 w-5"></span>
+                                    <span class="text-small text-color-black font-normal">Dashboard</span>
+                                </a>
+                            </li>
+                            <li role="separator">
+                                <hr class="bg-divider border-none w-full h-divider">
+                            </li>
+                            <?php endif; ?>
                             <li role="menuitem">
                                 <a href="<?php echo e(route('logout')); ?>" rel="nofollow"
                                     class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer  hover:text-danger-foreground text-danger">

@@ -112,7 +112,7 @@
                     <span>
                       <i class="ti ti-link"></i>
                     </span>
-                    <span class="hide-menu">Navigation Links</span>
+                    <span class="hide-menu">Header Menu</span>
                   </a>
                 </li>
                 @endif

@@ -143,6 +143,10 @@ class AdminHomeComponent extends Component
             'visible'=> true,
             'category_id'=> $setting?->third_section,
             ])->orderByDesc('created_at')->limit(30)->get();
+       
+         $videos = AppVideo::where([
+            'visible'=> true,
+            ])->orderByDesc('created_at')->limit(30)->get();
 
         $categories =  ArticleCategory::get();
 
@@ -183,6 +187,7 @@ class AdminHomeComponent extends Component
      
         return view('livewire.admin.admin-home-component',[
             'video'=> $video,
+            'videos'=> $videos,
             'latest'=> $latest,
             'latests'=> $latests,
             'articles'=> $articles,

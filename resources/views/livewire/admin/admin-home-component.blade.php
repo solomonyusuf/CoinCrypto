@@ -211,8 +211,8 @@
                           <div id="dropdownContainer" class="w-full">
                               <select id="top-right" required  name="top_left_article" class="w-full p-2 border border-gray-300 rounded-md">
                                   <option value="">Select an option</option>
-                                  @foreach ($posts as $data)
-                                  @if($data->id == $setting->top_left_article)
+                                  @foreach ( $videos as $data)
+                                  @if($data->id == $setting->top_right_article)
                                   <option selected value="{{ $data->id }}">{{ $data->title }}</option>
                                   @else
                                   <option value="{{ $data->id }}">{{ $data->title }}</option>

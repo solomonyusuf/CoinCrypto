@@ -20,7 +20,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ftpupload.net
-          username: if0_38481070
-          password: hhRWUNzKeqUuVQ
-          server-dir: /htdocs/
+          server:  ftp.ateliamarkets.com
+          username: developer@ateliamarkets.com
+          password: x]is,Q4T8@D4
+          server-dir: /

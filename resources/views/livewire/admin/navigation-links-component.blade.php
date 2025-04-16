@@ -99,7 +99,7 @@
 
                     <td>
                         <span class="fw-normal">
-                          @if($data->visisble)
+                          @if($data->visible)
                           true
                           @else 
                           false

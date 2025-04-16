@@ -142,7 +142,8 @@
                 </div>
             @endif
       
-          @if($video)
+          
+            @if($video)
           <div class="row-start-2 col-span-full md:col-start-4 lg:row-start-1 lg:col-start-8 -lg:col-end-1 xl:col-start-9 [&amp;_.jw-related-btn]:hidden">
             <div class="flex flex-col lg:flex-row h-full">
               <div class="lg:hidden pb-6">

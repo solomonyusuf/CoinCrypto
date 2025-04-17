@@ -266,7 +266,7 @@
                 <div class="tab-pane p-3" id="item2" role="tabpanel">
                     <h6>Contact Page</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->contact }}</textarea>
+                        <textarea id="2" name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->contact }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                             
@@ -274,7 +274,7 @@
                 <div class="tab-pane p-3" id="item3" role="tabpanel">
                     <h6>Cookies</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->cookie }}</textarea>
+                        <textarea id="3"  name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->cookie }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -296,7 +296,7 @@
                                       </div>
 
                                       <div class="mb-3 mt-2">
-                                        <textarea name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->footer_info }}</textarea>
+                                        <textarea id="4"  name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->footer_info }}</textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                      
@@ -576,7 +576,7 @@
                <div class="tab-pane p-3" id="item7" role="tabpanel">
                     <h6>Terms & Condition</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->terms }}</textarea>
+                        <textarea id="7"  name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->terms }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -584,7 +584,7 @@
                 <div class="tab-pane p-3" id="item8" role="tabpanel">
                     <h6>Privacy</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->privacy }}</textarea>
+                        <textarea id="8"  name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->privacy }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -592,7 +592,7 @@
                  <div class="tab-pane p-3" id="item9" role="tabpanel">
                     <h6>Do Not Sell</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->do_not_sell }}</textarea>
+                        <textarea id="9"  name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->do_not_sell }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -600,7 +600,7 @@
                  <div class="tab-pane p-3" id="item10" role="tabpanel">
                     <h6>Sitemap</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->sitemap }}</textarea>
+                        <textarea id="10"  name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->sitemap }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -608,7 +608,7 @@
                  <div class="tab-pane p-3" id="item11" role="tabpanel">
                     <h6>Ethics</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->ethics }}</textarea>
+                        <textarea id="11"  name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->ethics }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -616,7 +616,7 @@
                 <div class="tab-pane p-3" id="item12" role="tabpanel">
                     <h6>Accessibility</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->accessibility }}</textarea>
+                        <textarea id="12"  name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->accessibility }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -624,7 +624,7 @@
                  <div class="tab-pane p-3" id="item13" role="tabpanel">
                     <h6>About</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->about }}</textarea>
+                        <textarea id="13"  name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->about }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -632,7 +632,7 @@
                 <div class="tab-pane p-3" id="item14" role="tabpanel">
                     <h6>Masthead</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->masthead }}</textarea>
+                        <textarea id="14"  name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->masthead }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -640,7 +640,7 @@
                  <div class="tab-pane p-3" id="item15" role="tabpanel">
                     <h6>Advertising</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->advertising }}</textarea>
+                        <textarea id="15"  name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->advertising }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -762,45 +762,6 @@
         </div>
 
         </div>
-
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-              document.querySelectorAll('textarea:not(.ignore-editor)').forEach((textarea) => {
-                  ClassicEditor
-                      .create(textarea, {
-                          toolbar: [
-                              'heading', '|', 'bold', 'italic', 'underline', 'link', '|', 
-                              'bulletedList', 'numberedList', 'blockQuote', '|', 
-                              'undo', 'redo', '|', 'imageUpload', 'mediaEmbed', 'insertTable'
-                          ],
-                          image: {
-                              toolbar: [
-                                  'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
-                                  '|', 'imageTextAlternative', 'toggleImageCaption', 'imageResize'
-                              ],
-                              styles: ['alignLeft', 'alignRight', 'full'],
-                              resizeUnit: 'px'
-                          },
-                          ckfinder: {
-                              uploadUrl: "{{ route('upload_image') }}?_token={{ csrf_token() }}",
-                              headers: {
-                                  'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                              }
-                          },
-                          wordCount: {
-                              onUpdate: stats => {
-                                  console.log(`Words: ${stats.words}, Characters: ${stats.characters}`);
-                              }
-                          }
-                      })
-                      .then(editor => {
-                          textarea.dataset.editorInstance = editor;
-                      })
-                      .catch(error => console.error(error));
-              });
-          });
-      </script>
-      
       
       </body>
 <script>

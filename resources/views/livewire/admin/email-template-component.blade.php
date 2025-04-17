@@ -58,7 +58,7 @@
                         <input name="login_subject" value="{{ $setting->login_subject }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                     </div>
                     <div class="mb-3 mt-2">
-                        <textarea name="login_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->login_mail }}</textarea>
+                        <textarea id="1" name="login_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->login_mail }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     
@@ -68,7 +68,7 @@
                         <input name="register_subject" value="{{ $setting->register_subject }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                     </div>
                     <div class="mb-3 mt-2">
-                        <textarea name="register_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->register_mail }}</textarea>
+                        <textarea id="2" name="register_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->register_mail }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                           
@@ -78,7 +78,7 @@
                         <input name="reset_subject" value="{{ $setting->reset_subject }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                     </div>
                     <div class="mb-3 mt-2">
-                        <textarea name="reset_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->reset_mail }}</textarea>
+                        <textarea id="3" name="reset_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->reset_mail }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                          
@@ -88,7 +88,7 @@
                         <input name="activate_newsletter_subject" value="{{ $setting->activate_newsletter_subject }}"  type="text" class="form-control" id="exampleInputtext1" placeholder="">
                     </div>
                     <div class="mb-3 mt-2">
-                        <textarea name="activate_newsletter_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->activate_newsletter_mail }}</textarea>
+                        <textarea id="4" name="activate_newsletter_mail" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder="">{{ $setting?->activate_newsletter_mail }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -100,43 +100,7 @@
   
     </div>
   
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          document.querySelectorAll('textarea:not(.ignore-editor)').forEach((textarea) => {
-              ClassicEditor
-                  .create(textarea, {
-                      toolbar: [
-                          'heading', '|', 'bold', 'italic', 'underline', 'link', '|', 
-                          'bulletedList', 'numberedList', 'blockQuote', '|', 
-                          'undo', 'redo', '|', 'imageUpload', 'mediaEmbed', 'insertTable'
-                      ],
-                      image: {
-                          toolbar: [
-                              'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
-                              '|', 'imageTextAlternative', 'toggleImageCaption', 'imageResize'
-                          ],
-                          styles: ['alignLeft', 'alignRight', 'full'],
-                          resizeUnit: 'px'
-                      },
-                      ckfinder: {
-                          uploadUrl: "{{ route('upload_image') }}?_token={{ csrf_token() }}",
-                          headers: {
-                              'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                          }
-                      },
-                      wordCount: {
-                          onUpdate: stats => {
-                              console.log(`Words: ${stats.words}, Characters: ${stats.characters}`);
-                          }
-                      }
-                  })
-                  .then(editor => {
-                      textarea.dataset.editorInstance = editor;
-                  })
-                  .catch(error => console.error(error));
-          });
-      });
-  </script>
+ 
   
   </body>
 

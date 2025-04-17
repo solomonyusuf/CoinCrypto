@@ -4,7 +4,7 @@
 <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-              <div class="card border-0 zoom-in bg-primary-subtle shadow-none">
+              <div class="card border-0 zoom-in bg-info-subtle shadow-none">
                 <div class="card-body">
                   <div class="text-center">
                     <img src="assets/images/svgs/icon-user-male.svg" width="50" height="50" class="mb-3" >
@@ -84,4 +84,4 @@
 
 
 </div>
-<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/dashboard-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/dashboard-component.blade.php ENDPATH**/ ?>

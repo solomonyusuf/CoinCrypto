@@ -108,7 +108,7 @@
             @endif
            
 
-            @if($setting->advert)
+            {{-- @if($setting->advert)
             <div class="flex flex-col min-h-[228px]">
               <div class="min-w-full min-h-full">
                 <div class="color-black relative flex items-start justify-center aw100% ah100%" style="height:100%">
@@ -122,7 +122,7 @@
                 </div>
               </div>
             </div>
-            @endif
+            @endif --}}
 
           </div>
         </div>

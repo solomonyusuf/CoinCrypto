@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\AdvertSetting;
 use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
@@ -88,6 +89,25 @@ class AdminHomeComponent extends Component
         $query->save();
 
         toast('Updated Status','success');
+
+        return redirect()->back();
+    }
+
+    public function update_advert(Request $request)
+    {
+        $query = AdvertSetting::first();
+
+        $query->one = $request->one ?? $query->one;
+        $query->two = $request->two ?? $query->two;
+        $query->three = $request->three ?? $query->three;
+        $query->four = $request->four ?? $query->four;
+        $query->five = $request->five ?? $query->five;
+        $query->six = $request->six ?? $query->six;
+        $query->seven = $request->seven ?? $query->seven;
+
+        $query->save();
+
+        toast('Update Successful', 'success');
 
         return redirect()->back();
     }
@@ -185,6 +205,8 @@ class AdminHomeComponent extends Component
          $posts = Article::where([
                 'visible'=> true])->orderByDesc('created_at')->limit(200)->get();
      
+        $ad = AdvertSetting::first();
+
         return view('livewire.admin.admin-home-component',[
             'video'=> $video,
             'videos'=> $videos,
@@ -195,6 +217,7 @@ class AdminHomeComponent extends Component
             'posts'=> $posts,
             'event'=> $event,
             'top_category'=> $top_category,
+            'ad'=> $ad,
             'top'=> $top,
             'countdownSeconds'=> $countdownSeconds,
             'newsletters'=> $newsletters,

@@ -339,7 +339,7 @@
                 <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
               </div>
   
-              @if($setting->advert)
+              {{-- @if($setting->advert)
               <div class="flex flex-col min-h-[228px]">
                 
                 <div class="min-w-full min-h-full">
@@ -354,7 +354,7 @@
                   </div>
                 </div>
               </div>
-              @endif
+              @endif --}}
   
               
             </div>

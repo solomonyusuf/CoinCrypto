@@ -11,9 +11,9 @@ $advert = $setting->advert;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset($setting->logo)); ?>" />
 
-    <title>Coin Crypto News</title>
+    <title><?php echo e($setting->name); ?></title>
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>" />
     <link rel="stylesheet" href="<?php echo e(asset('css/fonts.css')); ?>" />
     <style>
@@ -83,15 +83,15 @@ $advert = $setting->advert;
                        <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-ticker-component')->html();
-} elseif ($_instance->childHasBeenRendered('BGOv9fY')) {
-    $componentId = $_instance->getRenderedChildComponentId('BGOv9fY');
-    $componentTag = $_instance->getRenderedChildComponentTagName('BGOv9fY');
+} elseif ($_instance->childHasBeenRendered('xexbPG5')) {
+    $componentId = $_instance->getRenderedChildComponentId('xexbPG5');
+    $componentTag = $_instance->getRenderedChildComponentTagName('xexbPG5');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('BGOv9fY');
+    $_instance->preserveRenderedChild('xexbPG5');
 } else {
     $response = \Livewire\Livewire::mount('top-ticker-component');
     $html = $response->html();
-    $_instance->logRenderedChild('BGOv9fY', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('xexbPG5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -99,54 +99,51 @@ echo $html;
                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navmenu')->html();
-} elseif ($_instance->childHasBeenRendered('LzFT7r6')) {
-    $componentId = $_instance->getRenderedChildComponentId('LzFT7r6');
-    $componentTag = $_instance->getRenderedChildComponentTagName('LzFT7r6');
+} elseif ($_instance->childHasBeenRendered('K5Q0pPr')) {
+    $componentId = $_instance->getRenderedChildComponentId('K5Q0pPr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('K5Q0pPr');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('LzFT7r6');
+    $_instance->preserveRenderedChild('K5Q0pPr');
 } else {
     $response = \Livewire\Livewire::mount('navmenu');
     $html = $response->html();
-    $_instance->logRenderedChild('LzFT7r6', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('K5Q0pPr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
                 </div>
                 
             </header>
-            <?php if($advert): ?>
-            <div>
-                <div style="height:auto"></div>
-                <div class="">
-                    <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
-                        <div style="width:1440px;height:280px"
-                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
-                            >
-                            <div style="border: 0pt;background:#a6abae;">
-                                <div
-                                    class="animate-shimmer"
-                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
-                                    style="border: 0px; vertical-align: bottom;" 
-                                    ></div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
+            
+            <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'top_nav'])->html();
+} elseif ($_instance->childHasBeenRendered('usNyguA')) {
+    $componentId = $_instance->getRenderedChildComponentId('usNyguA');
+    $componentTag = $_instance->getRenderedChildComponentTagName('usNyguA');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('usNyguA');
+} else {
+    $response = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'top_nav']);
+    $html = $response->html();
+    $_instance->logRenderedChild('usNyguA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+
             <?php if($setting->top_event): ?>
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('top-event')->html();
-} elseif ($_instance->childHasBeenRendered('MXVob3R')) {
-    $componentId = $_instance->getRenderedChildComponentId('MXVob3R');
-    $componentTag = $_instance->getRenderedChildComponentTagName('MXVob3R');
+} elseif ($_instance->childHasBeenRendered('bxg7mLj')) {
+    $componentId = $_instance->getRenderedChildComponentId('bxg7mLj');
+    $componentTag = $_instance->getRenderedChildComponentTagName('bxg7mLj');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('MXVob3R');
+    $_instance->preserveRenderedChild('bxg7mLj');
 } else {
     $response = \Livewire\Livewire::mount('top-event');
     $html = $response->html();
-    $_instance->logRenderedChild('MXVob3R', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('bxg7mLj', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -449,4 +446,4 @@ echo $html;
     
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/app.blade.php ENDPATH**/ ?>

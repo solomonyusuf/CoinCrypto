@@ -1,9 +1,14 @@
+<?php
+    $setting = \App\Models\AppSetting::first();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title><?php echo e($setting->name); ?> Auth</title>
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(asset($setting->logo)); ?>" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <?php echo \Livewire\Livewire::styles(); ?>
 
@@ -23,7 +28,7 @@
         
         <!-- Logo -->
         <div class="flex justify-center mb-6 mt-3">
-            <img src="/logo.png" alt="Logo" class="w-40 h-10">
+            <img src="<?php echo e(asset($setting->logo)); ?>" style="height:100px;width:150px;" alt="Logo" class="w-40 h-10">
         </div>
 
         <?php echo e($slot); ?>
@@ -33,4 +38,4 @@
 
 </body>
 </html>
-<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/auth.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/auth.blade.php ENDPATH**/ ?>

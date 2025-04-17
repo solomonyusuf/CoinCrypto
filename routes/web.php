@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EditorController;
 use App\Http\Livewire\Admin\AdminHomeComponent;
+use App\Http\Livewire\Admin\AllAdvertsComponent;
 use App\Http\Livewire\Admin\AllEpisodesComponent;
 use App\Http\Livewire\Admin\AppSettingComponent;
 use App\Http\Livewire\Admin\ArticleComponent;
@@ -137,6 +138,7 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-video-tags', VideoTagComponent::class)->name('admin_video_tags');
     Route::get('/admin-episodes', AllEpisodesComponent::class)->name('admin_episode');
     Route::get('/admin-settings', AppSettingComponent::class)->name('admin_setting');
+    Route::get('/admin-adverts', AllAdvertsComponent::class)->name('admin_adverts');
     Route::get('/admin-email-templates', EmailTemplateComponent::class)->name('admin_templates');
     Route::get('/admin-navigation-links', NavigationLinksComponent::class)->name('admin_navigations');
     Route::get('/admin-release_news-{sub_id}', ReleaseComponent::class)->name('release_news');
@@ -155,6 +157,10 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::post('/update_article/{id}', [ArticleComponent::class, 'update'])->name('update_article');
     Route::post('/update_editor/{id}', [EditorComponent::class, 'update_editor'])->name('update_editor');
     Route::get('/delete_article/{id}', [ArticleComponent::class, 'delete'])->name('delete_article');
+ 
+    Route::post('/create_advert', [AllAdvertsComponent::class, 'create'])->name('create_advert');
+    Route::post('/update_advert/{id}', [AllAdvertsComponent::class, 'update'])->name('update_advert');
+    Route::get('/delete_advert/{id}', [AllAdvertsComponent::class, 'delete'])->name('delete_advert');
  
     Route::post('/create_nav', [NavigationLinksComponent::class, 'create'])->name('create_nav');
     Route::post('/update_nav/{id}', [NavigationLinksComponent::class, 'update'])->name('update_nav');
@@ -182,6 +188,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/delete_videotag/{id}', [VideoTagComponent::class, 'delete'])->name('delete_videotag');
  
     Route::post('/create_publication/{id}', [NewsletterComponent::class, 'publish'])->name('create_publication');
+    
+    Route::post('/admin-update_avert', [AdminHomeComponent::class, 'update_advert'])->name('set_advert');
     
     Route::post('/create_newsletter', [NewsletterComponent::class, 'create'])->name('create_newsletter');
     Route::post('/update_newsletter/{id}', [NewsletterComponent::class, 'update'])->name('update_newsletter');

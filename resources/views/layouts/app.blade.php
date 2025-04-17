@@ -85,26 +85,9 @@ $advert = $setting->advert;
                 </div>
                 
             </header>
-            @if($advert)
-            <div>
-                <div style="height:auto"></div>
-                <div class="">
-                    <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
-                        <div style="width:1440px;height:280px"
-                            class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw1440px ah280px"
-                            >
-                            <div style="border: 0pt;background:#a6abae;">
-                                <div
-                                    class="animate-shimmer"
-                                    width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"
-                                    style="border: 0px; vertical-align: bottom;" 
-                                    ></div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
+            
+            @livewire('widget.advert-component', ['type'=> 'top_nav'])
+
             @if($setting->top_event)
             @livewire('top-event')
             @endif

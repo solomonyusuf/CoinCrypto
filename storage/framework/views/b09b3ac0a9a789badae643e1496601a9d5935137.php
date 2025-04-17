@@ -146,7 +146,8 @@
                 </div>
             <?php endif; ?>
       
-          <?php if($video): ?>
+          
+            <?php if($video): ?>
           <div class="row-start-2 col-span-full md:col-start-4 lg:row-start-1 lg:col-start-8 -lg:col-end-1 xl:col-start-9 [&amp;_.jw-related-btn]:hidden">
             <div class="flex flex-col lg:flex-row h-full">
               <div class="lg:hidden pb-6">
@@ -215,8 +216,8 @@
                           <div id="dropdownContainer" class="w-full">
                               <select id="top-right" required  name="top_left_article" class="w-full p-2 border border-gray-300 rounded-md">
                                   <option value="">Select an option</option>
-                                  <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                  <?php if($data->id == $setting->top_left_article): ?>
+                                  <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($data->id == $setting->top_right_article): ?>
                                   <option selected value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
                                   <?php else: ?>
                                   <option value="<?php echo e($data->id); ?>"><?php echo e($data->title); ?></option>
@@ -357,22 +358,7 @@ echo $html;
                 <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
               </div>
   
-              <?php if($setting->advert): ?>
-              <div class="flex flex-col min-h-[228px]">
-                
-                <div class="min-w-full min-h-full">
-                  <div class="color-black relative flex items-start justify-center aw100% ah100%" style="height:100%">
-                    <div id="nativehp_desktop" style="width:100%;height:100%"
-                      class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;&gt;iframe]:m-auto aw100% ah100%">
-                    </div>
-                    <div style="width:100%;height:100%"
-                      class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                       
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <?php endif; ?>
+              
   
               
             </div>
@@ -2098,4 +2084,4 @@ echo $html;
           </script>
 
 
-            </div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/admin-home-component.blade.php ENDPATH**/ ?>
+            </div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/admin-home-component.blade.php ENDPATH**/ ?>

@@ -1,5 +1,6 @@
 <?php
   $user = \App\Models\User::find(auth()->user()?->id);
+  $setting = \App\Models\AppSetting::first();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
@@ -15,14 +16,15 @@
 
     <!-- solar icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    
+    <!-- Include stylesheet -->
+  
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="icon.png" />
+  <link rel="shortcut icon" type="image/png" href="<?php echo e($setting->logo); ?>" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <title>Coin Crypto News</title>
+  <title><?php echo e($setting->name); ?></title>
    <style>
     span.rounded-md{
       display:none;
@@ -59,7 +61,7 @@
             <!-- ---------------------------------- -->
             <div class="brand-logo d-flex align-items-center justify-content-between">
               <a href="<?php echo e(route('dashboard')); ?>" class="text-nowrap logo-img">
-                <img src="logo.png" style="height:40px;" class="dark-logo" alt="Logo-Dark">
+                <img src="<?php echo e(asset($setting->logo)); ?>" style="height:100px;width:150px;" class="dark-logo" alt="Logo-Dark">
               </a>
               <a href="javascript:void(0)" class="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
                 <i class="ti ti-x"></i>
@@ -144,6 +146,14 @@
                       <i class="ti ti-layout"></i>
                     </span>
                     <span class="hide-menu">Events</span>
+                  </a> 
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  <?php echo e(Route::is('admin_adverts') ? 'active' : ''); ?>" href="<?php echo e(route('admin_adverts')); ?>" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-ad"></i>
+                    </span>
+                    <span class="hide-menu">Adverts</span>
                   </a> 
                 </li>
                <li class="sidebar-item">
@@ -1509,18 +1519,39 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
+      .quill-wrapper {
+      height: 200px;
+      margin-bottom: 1rem;
+    }
     .cke_notifications_area{display:none;}
 </style>
 
+<script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
 
+<script>
+    CKEDITOR.replace( 'editor',{
+        filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
 
-
-
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Automatically initialize CKEditor for all textareas with IDs
+      document.querySelectorAll('textarea').forEach(function (textarea) {
+          // Ensure the textarea has an ID before trying to initialize CKEditor
+          if (textarea.id) {
+              CKEDITOR.replace(textarea.id,{
+                extraPlugins: 'codesnippet',
+                codeSnippet_theme: 'monokai_sublime',
+                    filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
+                    filebrowserUploadMethod: 'form'
+                });  
+          }
+      });
+  });
+</script>
   
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-
-
-
 <script>
         
   let table = new DataTable('#table',{
@@ -1550,4 +1581,4 @@
 
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

@@ -147,6 +147,14 @@
                     <span class="hide-menu">Events</span>
                   </a> 
                 </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link  {{ Route::is('admin_adverts') ? 'active' : '' }}" href="{{ route('admin_adverts') }}" aria-expanded="false">
+                    <span class="d-flex">
+                      <i class="ti ti-ad"></i>
+                    </span>
+                    <span class="hide-menu">Adverts</span>
+                  </a> 
+                </li>
                <li class="sidebar-item">
                   <a class="sidebar-link  {{ Route::is('admin_video_tags') ? 'active' : '' }}" href="{{ route('admin_video_tags') }}" aria-expanded="false">
                     <span class="d-flex">
@@ -1515,71 +1523,32 @@
     .cke_notifications_area{display:none;}
 </style>
 {{-- <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script> --}}
+<script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
 
-{{-- <script>
+<script>
     CKEDITOR.replace( 'editor',{
         filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
-</script> --}}
+</script>
 
-{{-- <script>
+ <script>
   document.addEventListener('DOMContentLoaded', function () {
       // Automatically initialize CKEditor for all textareas with IDs
       document.querySelectorAll('textarea').forEach(function (textarea) {
           // Ensure the textarea has an ID before trying to initialize CKEditor
           if (textarea.id) {
               CKEDITOR.replace(textarea.id,{
+                extraPlugins: 'codesnippet',
+                codeSnippet_theme: 'monokai_sublime',
                     filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                     filebrowserUploadMethod: 'form'
                 });  
           }
       });
   });
-</script> --}}
+</script>
   
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-
-{{-- 
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('textarea').forEach((textarea) => {
-            ClassicEditor
-                .create(textarea, {
-                    toolbar: [
-                        'heading', '|', 'bold', 'italic', 'underline', 'link', '|', 
-                        'bulletedList', 'numberedList', 'blockQuote', '|', 
-                        'undo', 'redo', '|', 'imageUpload', 'mediaEmbed', 'insertTable'
-                    ],
-                    image: {
-                        toolbar: [
-                            'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
-                            '|', 'imageTextAlternative', 'toggleImageCaption', 'imageResize'
-                        ],
-                        styles: [
-                            'alignLeft', 'alignRight', 'full'
-                        ],
-                        resizeUnit: 'px'
-                    },
-                    ckfinder: {
-                        uploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        } // Laravel image upload route
-                    },
-                    wordCount: {
-                        onUpdate: stats => {
-                            console.log(`Words: ${stats.words}, Characters: ${stats.characters}`);
-                        }
-                    }})
-                    .then(editor => {
-                    textarea.dataset.editorInstance = editor;
-                })
-                .catch(error => console.error(error));
-        });
-    });
-</script>  --}}
-
 <script>
         
   let table = new DataTable('#table',{

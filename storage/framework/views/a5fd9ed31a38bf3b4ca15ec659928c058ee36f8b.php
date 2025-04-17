@@ -98,11 +98,13 @@
         <div class="col-span-full -col-end-1 row-start-4 md:col-start-1 md:row-start-2 md:col-end-4 md:row-end-4">
           <div class="flex flex-col h-full">
           
+            
+            <?php if($setting->second_left_show): ?>
             <div class="pb-6">
               <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
             </div>
             <!--$-->
-            <?php if($setting->second_left_show): ?>
+            
                <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('widget.crypto-component')->html();
@@ -118,27 +120,15 @@ if (! isset($_instance)) {
 }
 echo $html;
 ?>
-            <?php endif; ?>
-            <!--/$-->
+
+                <!--/$-->
             <div class="py-4">
               <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
             </div>
-
-            <?php if($setting->advert): ?>
-            <div class="flex flex-col min-h-[228px]">
-              <div class="min-w-full min-h-full">
-                <div class="color-black relative flex items-start justify-center aw100% ah100%" style="height:100%">
-                  <div id="nativehp_desktop" style="width:100%;height:100%"
-                    class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;&gt;iframe]:m-auto aw100% ah100%">
-                  </div>
-                  <div style="width:100%;height:100%"
-                    class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                     
-                  </div>
-                </div>
-              </div>
-            </div>
             <?php endif; ?>
+           
+
+            
 
           </div>
         </div>
@@ -1111,4 +1101,4 @@ echo $html;
           
           </section>
         
-          </div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/home-component.blade.php ENDPATH**/ ?>
+          </div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/home-component.blade.php ENDPATH**/ ?>

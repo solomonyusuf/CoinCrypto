@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Http\Middleware\TrustHosts;
+use App\Models\AdvertSetting;
 use App\Models\ApiKey;
 use App\Models\AppSetting;
 use App\Models\AppVideo;
@@ -28,6 +29,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        AdvertSetting::create([]);
+        
         $admin = Role::create([
             'title'=> 'superadmin'
         ]);

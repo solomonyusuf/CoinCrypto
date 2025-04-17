@@ -25,7 +25,7 @@
         </div>
 
 
-        <form action="<?php echo e(route('update_setting')); ?>" method="POST">
+        <form enctype="multipart/form-data" action="<?php echo e(route('update_setting')); ?>" method="POST">
             <?php echo csrf_field(); ?>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
@@ -266,7 +266,7 @@
                 <div class="tab-pane p-3" id="item2" role="tabpanel">
                     <h6>Contact Page</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->contact); ?></textarea>
+                        <textarea id="2" name="contact" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->contact); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                             
@@ -274,7 +274,7 @@
                 <div class="tab-pane p-3" id="item3" role="tabpanel">
                     <h6>Cookies</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->cookie); ?></textarea>
+                        <textarea id="3"  name="cookie" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->cookie); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -296,7 +296,7 @@
                                       </div>
 
                                       <div class="mb-3 mt-2">
-                                        <textarea name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->footer_info); ?></textarea>
+                                        <textarea id="4"  name="footer_info" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->footer_info); ?></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                      
@@ -576,7 +576,7 @@
                <div class="tab-pane p-3" id="item7" role="tabpanel">
                     <h6>Terms & Condition</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->terms); ?></textarea>
+                        <textarea id="7"  name="terms" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->terms); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                       
@@ -584,7 +584,7 @@
                 <div class="tab-pane p-3" id="item8" role="tabpanel">
                     <h6>Privacy</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->privacy); ?></textarea>
+                        <textarea id="8"  name="privacy" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->privacy); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -592,7 +592,7 @@
                  <div class="tab-pane p-3" id="item9" role="tabpanel">
                     <h6>Do Not Sell</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->do_not_sell); ?></textarea>
+                        <textarea id="9"  name="do_not_sell" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->do_not_sell); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -600,7 +600,7 @@
                  <div class="tab-pane p-3" id="item10" role="tabpanel">
                     <h6>Sitemap</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->sitemap); ?></textarea>
+                        <textarea id="10"  name="sitemap" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->sitemap); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -608,7 +608,7 @@
                  <div class="tab-pane p-3" id="item11" role="tabpanel">
                     <h6>Ethics</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->ethics); ?></textarea>
+                        <textarea id="11"  name="ethics" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->ethics); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -616,7 +616,7 @@
                 <div class="tab-pane p-3" id="item12" role="tabpanel">
                     <h6>Accessibility</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->accessibility); ?></textarea>
+                        <textarea id="12"  name="accessibility" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->accessibility); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -624,7 +624,7 @@
                  <div class="tab-pane p-3" id="item13" role="tabpanel">
                     <h6>About</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->about); ?></textarea>
+                        <textarea id="13"  name="about" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->about); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -632,7 +632,7 @@
                 <div class="tab-pane p-3" id="item14" role="tabpanel">
                     <h6>Masthead</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->masthead); ?></textarea>
+                        <textarea id="14"  name="masthead" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->masthead); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -640,7 +640,7 @@
                  <div class="tab-pane p-3" id="item15" role="tabpanel">
                     <h6>Advertising</h6>
                     <div class="mb-3 mt-2">
-                        <textarea name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->advertising); ?></textarea>
+                        <textarea id="15"  name="advertising" value=""  type="text" class="form-control" id="exampleInputtext1" placeholder=""><?php echo e($setting?->advertising); ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                        
@@ -762,33 +762,8 @@
         </div>
 
         </div>
-
- <!-- Place the first <script> tag in your HTML's <head> -->
-<script src="https://cdn.tiny.cloud/1/10y2nmlx6sys1h3mbly92p71sfnrb089h0bxuesa03ycudht/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
-<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-<script>
-    tinymce.init({
-    selector: 'textarea',
-    height: 600, 
-    plugins: [
-        // Core editing features
-        'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-        // Your account includes a free trial of TinyMCE premium features
-        // Try the most popular premium features until Apr 6, 2025:
-        'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
-    ],
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
-    mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-    ],
-    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
-    });
-</script>
-
+      
+      </body>
 <script>
     $('#top-left').select2({
             placeholder: "Search for info...",
@@ -820,4 +795,4 @@
         });
 </script>
 </div>
- <?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/app-setting-component.blade.php ENDPATH**/ ?>
+ <?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/app-setting-component.blade.php ENDPATH**/ ?>

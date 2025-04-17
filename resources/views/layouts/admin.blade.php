@@ -16,8 +16,7 @@
     <!-- solar icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <!-- Include stylesheet -->
-  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
-
+  
   <!-- Favicon icon-->
   <link rel="shortcut icon" type="image/png" href="{{ $setting->logo }}" />
 
@@ -46,7 +45,7 @@
 
 <!-- DataTables JS (Must come after jQuery) -->
 <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
 </head>
 
 <body>

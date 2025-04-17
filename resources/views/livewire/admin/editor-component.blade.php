@@ -11,26 +11,43 @@
     </form>
 
     <script>
-        document.querySelectorAll('textarea').forEach((textarea, index) => {
-          // Create a new div to replace the textarea visually
-          const quillDiv = document.createElement('div');
-          quillDiv.classList.add('quill-wrapper');
-          textarea.parentNode.insertBefore(quillDiv, textarea.nextSibling);
-    
-          // Initialize Quill
-          const quill = new Quill(quillDiv, {
-            theme: 'snow'
-          });
-    
-          // Set initial content from the textarea
-          quill.root.innerHTML = textarea.value;
-    
-          // Optional: Sync changes back to textarea on form submit
-          textarea.form?.addEventListener('submit', () => {
-            textarea.value = quill.root.innerHTML;
-          });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('textarea:not(.ignore-editor)').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        toolbar: [
+                            'heading', '|', 'bold', 'italic', 'underline', 'link', '|', 
+                            'bulletedList', 'numberedList', 'blockQuote', '|', 
+                            'undo', 'redo', '|', 'imageUpload', 'mediaEmbed', 'insertTable'
+                        ],
+                        image: {
+                            toolbar: [
+                                'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight',
+                                '|', 'imageTextAlternative', 'toggleImageCaption', 'imageResize'
+                            ],
+                            styles: ['alignLeft', 'alignRight', 'full'],
+                            resizeUnit: 'px'
+                        },
+                        ckfinder: {
+                            uploadUrl: "{{ route('upload_image') }}?_token={{ csrf_token() }}",
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        },
+                        wordCount: {
+                            onUpdate: stats => {
+                                console.log(`Words: ${stats.words}, Characters: ${stats.characters}`);
+                            }
+                        }
+                    })
+                    .then(editor => {
+                        textarea.dataset.editorInstance = editor;
+                    })
+                    .catch(error => console.error(error));
+            });
         });
-      </script>
+    </script>
+    
     
     </body>
 </div>

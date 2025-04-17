@@ -11,7 +11,7 @@ $advert = $setting->advert;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset($setting->logo) }}" />
 
     <title>{{ $setting->name }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />

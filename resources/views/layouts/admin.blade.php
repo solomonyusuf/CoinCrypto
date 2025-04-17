@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    @include('sweetalert::alert')
+    {{-- @include('sweetalert::alert') --}}
 
    
     <div id="main-wrapper">

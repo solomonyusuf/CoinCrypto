@@ -1,5 +1,6 @@
 <?php
   $user = \App\Models\User::find(auth()->user()?->id);
+  $setting = \App\Models\AppSetting::first();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
@@ -16,12 +17,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="icon.png" />
+  <link rel="shortcut icon" type="image/png" href="{{ $setting->logo }}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <title>Coin Crypto News</title>
+  <title>{{ $setting->name }}</title>
    <style>
     span.rounded-md{
       display:none;

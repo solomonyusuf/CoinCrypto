@@ -3,9 +3,6 @@ $user = \App\Models\User::find(auth()->user()?->id);
 $setting = \App\Models\AppSetting::first();
 $advert = $setting->advert;
 
-\Artesaos\SEOTools\Facades\SEOMeta::setTitle($this->setting->name);
-\Artesaos\SEOTools\Facades\SEOMeta::setDescription(strip_tags($setting->about));
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

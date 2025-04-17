@@ -763,33 +763,29 @@
 
         </div>
 
- <!-- Place the first <script> tag in your HTML's <head> -->
-   <!-- Place the first <script> tag in your HTML's <head> -->
-  <script src="https://cdn.tiny.cloud/1/odcqjkiwijs3hyq25hth40frxar2qoos85q47dbwfepf7u2y/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
-<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-  <script>
-    tinymce.init({
-    selector: 'textarea',
-    height: 600, 
-    plugins: [
-        // Core editing features
-        'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-        // Your account includes a free trial of TinyMCE premium features
-        // Try the most popular premium features until Apr 6, 2025:
-        'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
-    ],
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
-    mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-    ],
-    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
-    });
-</script>
-
+        <script>
+          document.querySelectorAll('textarea').forEach((textarea, index) => {
+            // Create a new div to replace the textarea visually
+            const quillDiv = document.createElement('div');
+            quillDiv.classList.add('quill-wrapper');
+            textarea.parentNode.insertBefore(quillDiv, textarea.nextSibling);
+      
+            // Initialize Quill
+            const quill = new Quill(quillDiv, {
+              theme: 'snow'
+            });
+      
+            // Set initial content from the textarea
+            quill.root.innerHTML = textarea.value;
+      
+            // Optional: Sync changes back to textarea on form submit
+            textarea.form?.addEventListener('submit', () => {
+              textarea.value = quill.root.innerHTML;
+            });
+          });
+        </script>
+      
+      </body>
 <script>
     $('#top-left').select2({
             placeholder: "Search for info...",

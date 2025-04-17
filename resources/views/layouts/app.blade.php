@@ -99,7 +99,7 @@ $advert = $setting->advert;
                         <div class="mb-8 flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
                             <div class="mb-0 lg:mb-0">
                                 <a class="flex items-center justify-center" href="/">
-                                    <img src="{{ asset($setting->logo) }}" style="height: 40px;" />
+                                    <img src="{{ asset($setting->logo) }}"  style="height:100px;width:150px;" />
                                 </a>
                             </div>
                         </div>

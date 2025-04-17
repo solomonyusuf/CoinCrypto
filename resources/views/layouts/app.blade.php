@@ -2,11 +2,16 @@
 $user = \App\Models\User::find(auth()->user()?->id);
 $setting = \App\Models\AppSetting::first();
 $advert = $setting->advert;
+
+\Artesaos\SEOTools\Facades\SEOMeta::setTitle($this->setting->name);
+\Artesaos\SEOTools\Facades\SEOMeta::setDescription(strip_tags($setting->about));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    {!! SEOTools::generate() !!} 
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -25,8 +30,6 @@ $advert = $setting->advert;
     </style>
 
 <meta name="theme-color" content="#000" />
-
-    
  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     
     <!-- DataTables CSS -->

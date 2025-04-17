@@ -27,7 +27,7 @@ class HomeComponent extends Component
         $role = User::find(auth()?->user()?->id)?->role;
 
         if($role?->title == 'superadmin') return redirect()->route('admin_home');
-
+        
     }
     public function showTransition($param)
     {

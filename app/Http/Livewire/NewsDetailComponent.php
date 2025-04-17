@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Article;
 use App\Models\ArticleCreator;
 use Livewire\Component;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Str;
 
 class NewsDetailComponent extends Component
 {
@@ -39,6 +42,13 @@ class NewsDetailComponent extends Component
 
             $model->save();
         }
+
+        SEOMeta::setTitle($model->title.' - '. $this->setting->name);
+        SEOMeta::setDescription(Str::limit(strip_tags($model->content), 200, '..'));
+        OpenGraph::setTitle($model->title.' - '. $this->setting->name);
+        OpenGraph::setDescription(Str::limit(strip_tags($model->content), 200, '..'));
+        OpenGraph::addImage(asset($model->image));
+        OpenGraph::setUrl(url()->current());
 
         return view('livewire.news-detail-component', ['article'=> $model]);
     }

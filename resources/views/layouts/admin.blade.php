@@ -45,11 +45,12 @@
 
 <!-- DataTables JS (Must come after jQuery) -->
 <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css">
 
 </head>
 
 <body>
-    {{-- @include('sweetalert::alert') --}}
+    @include('sweetalert::alert')
 
    
     <div id="main-wrapper">
@@ -1524,7 +1525,8 @@
 </style>
 {{-- <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script> --}}
 <script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
-
+<script src="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <script>
     CKEDITOR.replace( 'editor',{
         filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
@@ -1535,10 +1537,11 @@
  <script>
   document.addEventListener('DOMContentLoaded', function () {
       // Automatically initialize CKEditor for all textareas with IDs
-      document.querySelectorAll('textarea').forEach(function (textarea) {
-          // Ensure the textarea has an ID before trying to initialize CKEditor
-          if (textarea.id) {
+      document.querySelectorAll('textarea:not(.ignore-editor):not(.swal2-textarea)').forEach(function (textarea) {
+        if (textarea.id && !textarea.closest('.swal2-container'))
+         {
               CKEDITOR.replace(textarea.id,{
+                allowedContent: true,
                 extraPlugins: 'codesnippet',
                 codeSnippet_theme: 'monokai_sublime',
                     filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",

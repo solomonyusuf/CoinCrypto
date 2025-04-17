@@ -86,12 +86,12 @@
                     </p>
                     <p class="flex gap-2 flex-col">
                       <span class="font-metadata-lg font-medium {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} uppercase ">
-                        <span class="mr-2">By 
+                        <span class="mr-2 {{ $setting->theme == 'white' ? 'text-color-dark-grey ' : 'text-color-white' }}">By 
                        @for ($i = 0; $i < count($data->article_creators); $i++)
                         @if($i > 0)
                         ,
                         @endif
-                        <a  class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }} hover:underline"
+                        <a  class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} hover:underline"
                         href="{{ route('author_detail', $data->article_creators[$i]->user->id) }}">{{ $data->article_creators[$i]->user->first_name.' '.$data->article_creators[$i]->user->last_name }}
                         </a>
                         @endfor

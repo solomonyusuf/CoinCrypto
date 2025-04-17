@@ -86,7 +86,7 @@ $advert = $setting->advert;
                 
             </header>
             
-            @livewire('widget.advert-component', ['type'=> 'top_nav'])
+            @livewire('widget.advert-component', ['type'=> 'nav_top'])
 
             @if($setting->top_event)
             @livewire('top-event')

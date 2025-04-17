@@ -251,12 +251,23 @@
     <?php if($advert): ?>
     <div class="col-span-4 px-6 flex-col h-full row-start-2 row-end-5 justify-between hidden lg:flex lg:col-start-9 xl:col-start-13">
       <div class="relative">
-        <div class="color-black relative flex items-start justify-center stickyad top-0 aw336px ah600px"
-          style="height: 600px;">
-          <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                   
-          </div>
-        </div>
+       
+        <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'article_detail'])->html();
+} elseif ($_instance->childHasBeenRendered('l1405812359-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l1405812359-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l1405812359-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l1405812359-0');
+} else {
+    $response = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'article_detail']);
+    $html = $response->html();
+    $_instance->logRenderedChild('l1405812359-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+
       </div>
     </div>
     <?php endif; ?>

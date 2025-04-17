@@ -196,17 +196,22 @@
                 </div>
             </div>
 
-            <?php if($advert): ?>
-            <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height: 250px;">
-                <div id="leaderboard_0" data-freestar-ad="true" style="width: 970px; height: 250px;"
-                    class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px"
-                    name="coindesk_article_desktop_leaderboard">
-                    <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                   
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
+            <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'category_detail'])->html();
+} elseif ($_instance->childHasBeenRendered('l3892327602-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l3892327602-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l3892327602-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l3892327602-0');
+} else {
+    $response = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'category_detail']);
+    $html = $response->html();
+    $_instance->logRenderedChild('l3892327602-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+
 
             <div>
                 
@@ -273,4 +278,4 @@
             </div>
             </div>
     </section>
-</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/category-detail-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/category-detail-component.blade.php ENDPATH**/ ?>

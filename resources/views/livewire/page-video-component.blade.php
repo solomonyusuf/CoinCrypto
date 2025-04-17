@@ -85,15 +85,10 @@
           </div>
         </div>
       </div>
-      @if($advert)
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-        <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height: 250px;">
-          <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                   
-          </div>
-        </div>
+        @livewire('widget.wide-advert-component', ['type'=> 'videos'])
       </div>
-      @endif
+      
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div  class="{{ $setting->theme == 'white' ? 'bg-white' : 'bg-black'  }} flex flex-wrap flex-col flex-start container-desktop-large mt-8 gap-6 content-card-section">
           <h2

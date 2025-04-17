@@ -6,7 +6,7 @@ use App\Models\Advert;
 use App\Models\AppSetting;
 use Livewire\Component;
 
-class AdvertComponent extends Component
+class WideAdvertComponent extends Component
 {
     public $setting;
     public $ads;
@@ -31,6 +31,6 @@ class AdvertComponent extends Component
     }
     public function render()
     {
-        return view('livewire.widget.advert-component');
+        return view('livewire.widget.wide-advert-component');
     }
 }

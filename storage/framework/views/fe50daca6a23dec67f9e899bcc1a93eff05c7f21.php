@@ -90,15 +90,24 @@
           </div>
         </div>
       </div>
-      <?php if($advert): ?>
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-        <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height: 250px;">
-          <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                   
-          </div>
-        </div>
+        <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'videos'])->html();
+} elseif ($_instance->childHasBeenRendered('l215115284-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l215115284-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l215115284-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l215115284-0');
+} else {
+    $response = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'videos']);
+    $html = $response->html();
+    $_instance->logRenderedChild('l215115284-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
       </div>
-      <?php endif; ?>
+      
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
         <div  class="<?php echo e($setting->theme == 'white' ? 'bg-white' : 'bg-black'); ?> flex flex-wrap flex-col flex-start container-desktop-large mt-8 gap-6 content-card-section">
           <h2
@@ -231,4 +240,4 @@
   
   
 
-</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/page-video-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-video-component.blade.php ENDPATH**/ ?>

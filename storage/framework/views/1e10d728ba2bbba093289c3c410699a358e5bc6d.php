@@ -37,4 +37,4 @@
     });
 </script>
 </div>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/editor-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/editor-component.blade.php ENDPATH**/ ?>

@@ -722,4 +722,4 @@
 });
 
     </script>
-</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/navmenu.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/navmenu.blade.php ENDPATH**/ ?>

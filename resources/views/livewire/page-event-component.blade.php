@@ -2,9 +2,9 @@
   @livewire('top-event')
     <div class="container mt-3">
       <div class="col-md-5 mb-4">
-        <h4 class="fw-semibold mb-1 mt-3">CoinCrypto Events</h4>
+        <h4 class="fw-semibold mb-1 mt-3">100xinsider Events</h4>
         <p class="card-text pt-2">
-            CoinCrypto's events are globally recognized.
+            100xinsider's events are globally recognized.
          </p>
         </div>
         @if(count($events) == 0)

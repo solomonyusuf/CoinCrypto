@@ -4,4 +4,4 @@
 
     <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\vendor\livewire\livewire\src/Macros/livewire-view-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\vendor\livewire\livewire\src/Macros/livewire-view-component.blade.php ENDPATH**/ ?>

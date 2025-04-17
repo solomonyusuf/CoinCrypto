@@ -378,7 +378,7 @@
             <h3 class="fs-4 fw-semibold mb-3 mt-5">DISCLOSURE & POLICES</h3>
             <div>
               <p>
-                CoinCrypto is a media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. CoinCrypto has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications.
+                100xinsider is a media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. 100xinsider has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications.
               </p>
             </div>
           </div>
@@ -420,7 +420,7 @@
       <div class="d-flex justify-content-between py-7 flex-md-nowrap flex-wrap gap-sm-0 gap-3">
         <div class="d-flex gap-3 align-items-center">
           <img src="icon.png" style="height:45px;" alt="icon">
-          <p class="fs-4 mb-0">All rights reserved by CoinCrypto. </p>
+          <p class="fs-4 mb-0">All rights reserved by 100xinsider. </p>
         </div>
         
       </div>

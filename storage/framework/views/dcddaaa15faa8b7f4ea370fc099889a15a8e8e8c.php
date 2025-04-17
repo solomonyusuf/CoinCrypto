@@ -449,4 +449,4 @@ echo $html;
     
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/app.blade.php ENDPATH**/ ?>

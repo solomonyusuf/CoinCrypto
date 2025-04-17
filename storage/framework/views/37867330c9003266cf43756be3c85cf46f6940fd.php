@@ -164,4 +164,4 @@
         </table>
       </div>
 </div>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/video-tag-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/video-tag-component.blade.php ENDPATH**/ ?>

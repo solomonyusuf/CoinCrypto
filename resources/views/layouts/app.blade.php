@@ -145,7 +145,7 @@ $advert = $setting->advert;
                                     </li>
                                     <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">
-                                        <a href="">CoinCrypto News</a>
+                                        <a href="">100xinsider News</a>
                                     </li>
                                     {{-- <li
                                         class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline">

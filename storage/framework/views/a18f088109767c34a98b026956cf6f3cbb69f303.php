@@ -86,4 +86,4 @@
     <?php endif; ?>
   
 </div>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/top-event.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/top-event.blade.php ENDPATH**/ ?>

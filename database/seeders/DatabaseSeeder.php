@@ -43,10 +43,10 @@ class DatabaseSeeder extends Seeder
         User::create([
             'role_id'=> $member->id,
             'image'=> 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-3.jpg',
-            'info' => 'Shola Co-Leader of the CoinCrypto tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
+            'info' => 'Shola Co-Leader of the 100xinsider tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
             'first_name'=> 'Shola',
             'last_name'=> 'Davis',
-            'email'=> 'member@coincrypto.com.ng',
+            'email'=> 'member@100xinsider.com.ng',
             'password'=> bcrypt(12345),
 
         ]);
@@ -54,10 +54,10 @@ class DatabaseSeeder extends Seeder
         User::create([
             'role_id'=> $author->id,
             'image'=> 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-5.jpg',
-            'info' => 'Shola Co-Leader of the CoinCrypto tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
+            'info' => 'Shola Co-Leader of the 100xinsider tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
             'first_name'=> 'Shola',
             'last_name'=> 'Davis',
-            'email'=> 'staff@coincrypto.com.ng',
+            'email'=> 'staff@100xinsider.com.ng',
             'password'=> bcrypt(12345),
 
         ]);
@@ -65,10 +65,10 @@ class DatabaseSeeder extends Seeder
         $u3 = User::create([
             'role_id'=> $admin->id,
             'image'=> 'https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg',
-            'info' => 'Shola Co-Leader of the CoinCrypto tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
+            'info' => 'Shola Co-Leader of the 100xinsider tokens and data team in Asia with a focus on crypto derivatives, DeFi, market microstructure, and protocol analysis. Shola holds over $1,000 in BTC, ETH, SOL, AVAX, SUSHI, CRV, NEAR,',
             'first_name'=> 'Shola',
             'last_name'=> 'Davis',
-            'email'=> 'admin@coincrypto.com.ng',
+            'email'=> 'admin@100xinsider.com.ng',
             'title'=> 'Co-regional news chief, Americas',
             'password'=> bcrypt(12345),
 
@@ -417,7 +417,7 @@ class DatabaseSeeder extends Seeder
 
        $v1 =  VideoCategory::create([
             'description' => 'TV quick roundup of the top news of the day that you may have missed in the cryptocurrency, digital assets and Web3 space.',
-		    'title' => 'CoinCrypto Daily'
+		    'title' => '100xinsider Daily'
         ]);
 
         $video = AppVideo::create([
@@ -665,8 +665,8 @@ class DatabaseSeeder extends Seeder
 
         AppSetting::create([
             'logo' =>'logo.png',
-            'name'=> 'CoinCrypto',
-            'email'=> 'support@coincrypto.ng',
+            'name'=> '100xinsider',
+            'email'=> 'support@100xinsider.ng',
             'address'=> '67 Adeniyi uprat Lagos',
             'contact'=> '<section class="flex-grow flex flex-col gap-8 justify-center items-center w-full" data-module-name="contact-us" data-module-version="1.0.0" data-module-instance="default">
                             <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
@@ -892,7 +892,7 @@ class DatabaseSeeder extends Seeder
                                         [mail_body]
                                     </div>
                                     <div class="footer">
-                                        &copy; 2025 CoinCrypto. All rights reserved.
+                                        &copy; 2025 100xinsider. All rights reserved.
                                     </div>
                                 </div>
                             </body>
@@ -969,7 +969,7 @@ class DatabaseSeeder extends Seeder
                                         <a href="[url]" class="button">Secure My Account</a>
                                     </div>
                                     <div class="footer">
-                                        &copy; 2025 CoinCrypto. All rights reserved.
+                                        &copy; 2025 100xinsider. All rights reserved.
                                     </div>
                                 </div>
                             </body>
@@ -1046,7 +1046,7 @@ class DatabaseSeeder extends Seeder
                                         <a style="color:white;" href="[url]" class="button" >Access Account</a>
                                     </div>
                                     <div class="footer">
-                                        &copy; 2025 CoinCrypto. All rights reserved.
+                                        &copy; 2025 100xinsider. All rights reserved.
                                     </div>
                                 </div>
                             </body>
@@ -1123,7 +1123,7 @@ class DatabaseSeeder extends Seeder
                                         <span class="button">[password]</span>"
                                     </div>
                                     <div class="footer">
-                                        &copy; 2025 CoinCrypto. All rights reserved.
+                                        &copy; 2025 100xinsider. All rights reserved.
                                     </div>
                                 </div>
                             </body>
@@ -1200,7 +1200,7 @@ class DatabaseSeeder extends Seeder
                                         <a href="[url]" class="button">Activate</a>
                                     </div>
                                     <div class="footer">
-                                        &copy; 2025 CoinCrypto. All rights reserved.
+                                        &copy; 2025 100xinsider. All rights reserved.
                                     </div>
                                 </div>
                             </body>
@@ -1233,7 +1233,7 @@ class DatabaseSeeder extends Seeder
                             <li class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline"><a href="about-us" aria-label="About Us">About Us</a></li>
                             <li class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline"><a href="masthead" aria-label="Masthead">Masthead</a></li>
                             <li class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline"><a href="cookie" target="_blank" rel="noopener">Cookie</a></li>
-                            <li class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline"><a>CoinCrypto News</a></li>
+                            <li class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-[#676767] hover:underline"><a>100xinsider News</a></li>
                             </ul>
                             </div>
                             <div class="column">
@@ -1248,12 +1248,12 @@ class DatabaseSeeder extends Seeder
                             <div class="col-span-4 flex flex-col gap-4">
                             <div class="font-title uppercase text-sm text-[#1A1A1A] leading-none">DISCLOSURE &amp; POLICES</div>
                             <div class="font-metadata leading-[1.5] tracking-[0.4px] text-[#676767]">
-                            <p>CoinCrypto is an award-winning media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. CoinCrypto has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications. CoinCrypto is part of the Bullish group, which owns and invests in digital asset businesses and digital assets. CoinCrypto employees, including journalists, may receive Bullish group equity-based compensation. Bullish was incubated by technology investor Block.one</p>
+                            <p>100xinsider is an award-winning media outlet that covers the cryptocurrency industry. Its journalists abide by a strict set of editorial policies. 100xinsider has adopted a set of principles aimed at ensuring the integrity, editorial independence and freedom from bias of its publications. 100xinsider is part of the Bullish group, which owns and invests in digital asset businesses and digital assets. 100xinsider employees, including journalists, may receive Bullish group equity-based compensation. Bullish was incubated by technology investor Block.one</p>
                             </div>
                             <div class="flex-start flex flex-wrap gap-x-4 gap-y-2 self-stretch"><span class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a href="ethics" aria-label="Ethics">Ethics</a></span><span class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a href="privacy" aria-label="Privacy">Privacy</a></span><span class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a href="terms" aria-label="Terms of Use">Terms of Use</a></span><span class="font-metadata item-link cursor-pointer pb-2 leading-[1.5] tracking-[0.1px] text-black hover:underline"><a href="cookie">Cookie Consent</a></span><span class="font-metadata item-link cursor-pointer break-keep pb-2 leading-[1.5] tracking-[0.1px] text-[#1A1A1A] hover:underline"><a href="sell-info">Do Not Sell My Info</a></span></div>
                             </div>
                             </div>',
-            'footer_name'=> '© 2025 CoinCrypto',
+            'footer_name'=> '© 2025 100xinsider',
             'do_not_sell'=> '<section class="flex-grow" data-module-name="page" data-module-version="1.0.0" data-module-instance="default">
                                 <div class="container">
                                 <div class="w-full flex flex-col gap-8 md:max-w-[680px] m-auto">
@@ -1434,8 +1434,8 @@ class DatabaseSeeder extends Seeder
             'ethics'=> '<section class="flex-grow" data-module-name="page" data-module-version="1.0.0" data-module-instance="default">
                             <div class="container">
                             <div class="w-full flex flex-col gap-8 md:max-w-[680px] m-auto">
-                            <h1 class="text-color-black font-headline-lg font-medium">CoinCrypto Ethics Policy</h1>
-                            <h2 class="text-color-black font-headline-sm font-medium text-[#676767]">CoinCrypto is the leading news publication covering the digital transformation of money in the 21st century. Our mission is to inform, educate and connect the global community of investors, innovators and users of cryptocurrencies, blockchains and other decentralized technologies. That includes everyone from sophisticated professionals to curious newcomers. Founded in 2013, we serve an audience of 5 million monthly website visitors, 15,000+ annual conference attendees, and 370,000+ newsletter subscribers.</h2>
+                            <h1 class="text-color-black font-headline-lg font-medium">100xinsider Ethics Policy</h1>
+                            <h2 class="text-color-black font-headline-sm font-medium text-[#676767]">100xinsider is the leading news publication covering the digital transformation of money in the 21st century. Our mission is to inform, educate and connect the global community of investors, innovators and users of cryptocurrencies, blockchains and other decentralized technologies. That includes everyone from sophisticated professionals to curious newcomers. Founded in 2013, we serve an audience of 5 million monthly website visitors, 15,000+ annual conference attendees, and 370,000+ newsletter subscribers.</h2>
                             <div class="document-body  font-body-lg">
                             <p><em>Last updated December 2024</em></p>
                             <p><strong>Editorial independence:</strong> In November 2023, CoinDesk was <a href="https://bullish.com/news-insights/news/bullish-acquires-coindesk-from-digital-currency-group/" target="_blank" rel="noopener">acquired</a> by Bullish, which <a href="https://www.sec.gov/Archives/edgar/data/1872195/000119312521363646/d180840df4a.htm#toc180840_30" target="_blank" rel="noopener">also owns</a> an eponymous cryptocurrency exchange. Bullishs chairman is Brendan Blumer, who is also the CEO and co-founder of <a href="http://block.one/" target="_blank" rel="noopener">Block.one</a>; both of his companies have interests in a variety of blockchain and crypto businesses and significant holdings of digital assets including bitcoin. (<a href="http://block.one/" target="_blank" rel="noopener">Block.one</a>s portfolio companies are listed <a href="https://b1.com/portfolio/" target="_blank" rel="noopener"><span style="text-decoration: underline;">here</span></a>.)</p>

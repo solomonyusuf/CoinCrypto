@@ -74,7 +74,7 @@
             
         </div>
         <div class="footer">
-            &copy; 2025 CoinCrypto. All rights reserved.
+            &copy; 2025 100xinsider. All rights reserved.
         </div>
     </div>
 </body>

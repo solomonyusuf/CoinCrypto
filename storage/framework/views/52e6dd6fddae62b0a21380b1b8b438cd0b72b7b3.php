@@ -33,4 +33,4 @@
 
 </body>
 </html>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/auth.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/auth.blade.php ENDPATH**/ ?>

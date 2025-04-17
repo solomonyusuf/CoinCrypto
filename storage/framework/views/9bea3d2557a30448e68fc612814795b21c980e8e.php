@@ -1550,4 +1550,4 @@
 
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

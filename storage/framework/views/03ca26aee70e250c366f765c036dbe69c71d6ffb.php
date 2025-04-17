@@ -206,4 +206,4 @@
             audio.currentTime = (progress.value / 100) * audio.duration;
         });
     </script>
-</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/page-podcast-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/page-podcast-component.blade.php ENDPATH**/ ?>

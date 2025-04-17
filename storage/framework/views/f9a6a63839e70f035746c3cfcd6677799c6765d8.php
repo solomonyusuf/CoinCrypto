@@ -62,4 +62,4 @@
 </div>
 
 </div>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/profile-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/profile-component.blade.php ENDPATH**/ ?>

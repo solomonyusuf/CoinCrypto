@@ -7,7 +7,7 @@
 
     <section class="flex-grow">
       <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
-        <h1 class="text-[0px]">CoinCrypto: Bitcoin, Ethereum, Crypto News and Price Data</h1>
+        <h1 class="text-[0px]">100xinsider: Bitcoin, Ethereum, Crypto News and Price Data</h1>
         <!--$-->
         
         
@@ -706,7 +706,7 @@ echo $html;
                       story.</span>
                       <span class="block font-headline-3xs font-normal <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>">
                         Subscribe to the
-                      CoinCrypto Newsletter today
+                      100xinsider Newsletter today
                       <!-- -->.
                     </span>
                     <div class="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-4 justify-start items-center pt-2">
@@ -740,7 +740,7 @@ echo $html;
                     </div>
                     <span class="pt-4 font-metadata <?php echo e($setting->theme == 'white' ? 'text-charcoal-600' : 'text-color-white'); ?>">
                       <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?> ">By signing
-                        up, you will receive emails about CoinCrypto products and you agree to our 
+                        up, you will receive emails about 100xinsider products and you agree to our 
                       </span>
                         <a class="border-b-[1px] border-black !no-underline" href="/terms">
                           <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">
@@ -2098,4 +2098,4 @@ echo $html;
           </script>
 
 
-            </div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/admin/admin-home-component.blade.php ENDPATH**/ ?>
+            </div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/admin/admin-home-component.blade.php ENDPATH**/ ?>

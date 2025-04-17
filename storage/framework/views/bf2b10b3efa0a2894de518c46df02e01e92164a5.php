@@ -273,4 +273,4 @@
             </div>
             </div>
     </section>
-</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/category-detail-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/category-detail-component.blade.php ENDPATH**/ ?>

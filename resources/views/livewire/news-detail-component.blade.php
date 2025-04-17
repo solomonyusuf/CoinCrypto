@@ -163,7 +163,7 @@
           </button>
             </div>
             <span class="pt-4 font-metadata {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white' }}"><span class="text-color-dark-grey ">By signing up, you will
-                receive emails about CoinCrypto's products and you agree to our </span>
+                receive emails about 100xinsider's products and you agree to our </span>
                 <a
                 class="border-b-[1px] border-black !no-underline" href="{{ route('terms') }}">
                 <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white' }}">terms of

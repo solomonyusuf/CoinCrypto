@@ -167,7 +167,7 @@
           </button>
             </div>
             <span class="pt-4 font-metadata <?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-600' : 'text-color-white'); ?>"><span class="text-color-dark-grey ">By signing up, you will
-                receive emails about CoinCrypto's products and you agree to our </span>
+                receive emails about 100xinsider's products and you agree to our </span>
                 <a
                 class="border-b-[1px] border-black !no-underline" href="<?php echo e(route('terms')); ?>">
                 <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey' : 'text-color-white'); ?>">terms of
@@ -281,4 +281,4 @@
       </script>
       
   </section>
-<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/news-detail-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/news-detail-component.blade.php ENDPATH**/ ?>

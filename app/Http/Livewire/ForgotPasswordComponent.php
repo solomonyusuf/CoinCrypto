@@ -19,7 +19,7 @@ class ForgotPasswordComponent extends Component
 
         if($user)
         {
-            $password = 'C'.rand(00001,99999).'N';
+            $password = 'X'.rand(00001,99999).'N';
             
             $user->password = bcrypt($password);
             $user->save();

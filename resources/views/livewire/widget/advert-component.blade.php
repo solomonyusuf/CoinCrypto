@@ -12,7 +12,7 @@
                   </div>
                     @else
                     <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
-                        <div class="hidden md:flex flex-col justify-center items-center order-2 pt-5">
+                        <div class=" md:flex flex-col justify-center items-center order-2 pt-5">
                             <div class="min-w-full min-h-full justify-center items-center">
                               <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
                                 <div id="homepage_mid_desktop_0" data-freestar-ad="true" style="width:970px;height:250px" class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px">

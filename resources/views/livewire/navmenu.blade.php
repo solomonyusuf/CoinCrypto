@@ -732,7 +732,7 @@
                             </li>
                             @if($user?->role?->title == 'superadmin')
                              <li role="menuitem">
-                                <a href="{{ route('profile') }}"
+                                <a href="{{ route('dashboard') }}"
                                     class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer hover:bg-default hover:text-default-foreground">
                                     <span class="iconify text-color-black material-symbols--exit-to-app-rounded h-5 w-5"></span>
                                     <span class="text-small text-color-black font-normal">Dashboard</span>

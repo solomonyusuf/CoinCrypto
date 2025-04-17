@@ -547,7 +547,7 @@
         @if($setting->advert)
       <div class="grid">
         <div class="order-1"></div>
-        @livewire('widget.advert-component', ['type'=> 'home'])
+        @livewire('widget.wide-advert-component', ['type'=> 'home'])
       </div>
       @endif
       

@@ -12,6 +12,7 @@ class ForgotPasswordComponent extends Component
 {
     public string $email;
 
+
     public function submit()
     {
         $user = User::where(['email'=> $this->email])->first();

@@ -15,7 +15,7 @@ class RegisterComponent extends Component
     public string $last_name;
     public string $email;
     public string $password;
-
+   
     public function submit()
     {
         // try

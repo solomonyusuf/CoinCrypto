@@ -1,3 +1,6 @@
+@php
+    $setting = \App\Models\AppSetting::first();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,7 @@
         
         <!-- Logo -->
         <div class="flex justify-center mb-6 mt-3">
-            <img src="/logo.png" alt="Logo" class="w-40 h-10">
+            <img src="{{ asset($setting->logo) }}" style="height:100px;width:150px;" alt="Logo" class="w-40 h-10">
         </div>
 
         {{ $slot }}

@@ -13,7 +13,7 @@ $advert = $setting->advert;
 
     <link rel="shortcut icon" type="image/png" href="icon.png" />
 
-    <title>Coin Crypto News</title>
+    <title>{{ $setting->name }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/fonts.css') }}" />
     <style>

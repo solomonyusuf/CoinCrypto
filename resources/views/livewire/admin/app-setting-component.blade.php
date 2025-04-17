@@ -25,7 +25,7 @@
         </div>
 
 
-        <form action="{{ route('update_setting') }}" method="POST">
+        <form enctype="multipart/form-data" action="{{ route('update_setting') }}" method="POST">
             @csrf
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">

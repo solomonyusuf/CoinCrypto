@@ -22,7 +22,7 @@
         }
     </style>
     
-    <div class="slide-container relative box-content flex h-9 items-center justify-between overflow-hidden">
+    <div class="slide-container relative box-content flex h-15 items-center justify-between overflow-hidden">
         <!-- TradingView Ticker Tape Widget -->
         <?php if( $setting->theme == 'black'): ?>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -92,4 +92,4 @@
     
      
 </div>
-<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/top-ticker-component.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/top-ticker-component.blade.php ENDPATH**/ ?>

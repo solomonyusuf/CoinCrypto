@@ -14,7 +14,12 @@
                   </ol>
                 </nav>
               </div>
+              
               <div class="col-2">
+                <a href="{{ route('export_article')}}" target="__blank" class="btn btn-primary d-flex align-items-center px-3 gap-6 mb-3">
+                  <i class="ti ti-table fs-4"></i>
+                  <span class="d-none d-md-block fw-medium fs-3">Export Table</span>
+                </a>
                 <button  data-bs-toggle="modal" data-bs-target="#add" class="btn btn-primary d-flex align-items-center px-3 gap-6 mb-3">
                     <i class="ti ti-plus fs-4"></i>
                     <span class="d-none d-md-block fw-medium fs-3">Add Article</span>

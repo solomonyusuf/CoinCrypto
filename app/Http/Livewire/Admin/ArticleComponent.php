@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCreator;
 use App\Models\Newsletter;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
@@ -27,6 +28,30 @@ class ArticleComponent extends Component
 		'visible' => '',
 		'category_id' => '',
     ];
+
+  
+    public function export()
+    {
+        // Eager load the article_category relationship
+        $articles = Article::with('article_category')->get();
+
+        // Transform data if you want to clean up the structure
+        $json = json_encode($articles, JSON_PRETTY_PRINT);
+
+        $filename = 'articles_' . now()->format('Ymd_His') . '.json';
+        $path = public_path('exports/' . $filename);
+
+        // Ensure the 'exports' folder exists
+        if (!File::exists(public_path('exports'))) {
+            File::makeDirectory(public_path('exports'), 0755, true);
+        }
+
+        // Save the file
+        file_put_contents($path, $json);
+
+        // Return it to the browser for download
+        return response()->download($path);
+    }
 
     public function GetAll()
     {

@@ -574,8 +574,8 @@
         </div>
         <div class="flex h-full items-center">
             <a class="px-4" href="/">
-            <img alt="<?php echo e($setting->name); ?>" width="169" height="32"
-                    src="<?php echo e(asset($setting->logo)); ?>" style="height:40px;" /></a>
+            <img alt="<?php echo e($setting->name); ?>" 
+                    src="<?php echo e(asset($setting->logo)); ?>" style="height:100px;width:150px;" /></a>
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">
@@ -658,7 +658,7 @@
                             </li>
                             <?php if($user?->role?->title == 'superadmin'): ?>
                              <li role="menuitem">
-                                <a href="<?php echo e(route('profile')); ?>"
+                                <a href="<?php echo e(route('dashboard')); ?>"
                                     class="flex items-center gap-2 px-2 py-1.5 w-full rounded-small cursor-pointer hover:bg-default hover:text-default-foreground">
                                     <span class="iconify text-color-black material-symbols--exit-to-app-rounded h-5 w-5"></span>
                                     <span class="text-small text-color-black font-normal">Dashboard</span>
@@ -722,4 +722,4 @@
 });
 
     </script>
-</div><?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/livewire/navmenu.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/livewire/navmenu.blade.php ENDPATH**/ ?>

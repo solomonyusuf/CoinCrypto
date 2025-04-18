@@ -144,6 +144,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/admin-release_news-{sub_id}', ReleaseComponent::class)->name('release_news');
     
     //REQUESTS
+    Route::get('/generate-articles', [ArticleComponent::class, 'export'])->name('export_article');
+   
     Route::post('/update-admin-home', [AdminHomeComponent::class, 'update'])->name('update_admin_home');
     Route::get('/update-category-status/{id}', [AdminHomeComponent::class, 'update_status'])->name('update_category_status');
     

@@ -32,7 +32,7 @@
                         <?php if($i > 0): ?>
                         ,
                         <?php endif; ?>
-                        <a title="" class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-600' : 'text-color-white'); ?> hover:underline"
+                        <a title="" class="<?php echo e($setting->theme == 'white' ? 'text-color-charcoal-900' : 'text-color-white'); ?> hover:underline"
                         href="<?php echo e(route('author_detail', $latest->article_creators[$i]->user->id)); ?>"><?php echo e($latest->article_creators[$i]->user->first_name.' '.$latest->article_creators[$i]->user->last_name); ?>
 
                       </a>
@@ -863,7 +863,7 @@ echo $html;
                     </a></div>
                   <div class="grid gap-6 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 xl:grid-cols-16">
                     
-                    <div class="hidden lg:flex lg:flex-col order-1 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class=" lg:flex lg:flex-col order-1 lg:order-1 col-span-4 lg:col-span-3 xl:col-span-4">
                       <?php for($i = 0; $i < min(3, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
                           <a class="hover:underline" href="<?php echo e(route('podcast_detail', $podcasts[$i]->podcast_id).'?episode='.$podcasts[$i]->id); ?>">
@@ -876,7 +876,7 @@ echo $html;
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
-                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                          <div class=" md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
@@ -884,7 +884,7 @@ echo $html;
                   </div>
 
                 
-                  <div class="hidden lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div class=" lg:flex lg:flex-col order-2 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       <?php for($i = 3; $i < min(6, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -898,14 +898,14 @@ echo $html;
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
-                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                          <div class=" md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
                       <?php endfor; ?>
                        
                     </div>
-                    <div class="hidden lg:flex lg:flex-col order-0 col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div class=" lg:flex lg:flex-col order-0 col-span-4 lg:col-span-3 xl:col-span-4">
                     
                       <?php for($i = 6; $i < min(9, count($podcasts)); $i++): ?>
                       <div class="flex flex-col gap-2 min-w-[300px] md:min-w-full">
@@ -919,7 +919,7 @@ echo $html;
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
-                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                          <div class=" md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>
@@ -946,7 +946,7 @@ echo $html;
                               <?php echo $podcasts[$i]->description; ?>
 
                           </span>
-                          <div class="hidden md:flex md:py-4 lg:py-6 ">
+                          <div class=" md:flex md:py-4 lg:py-6 ">
                               <hr class="shrink-0 bg-divider border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator">
                           </div>
                       </div>

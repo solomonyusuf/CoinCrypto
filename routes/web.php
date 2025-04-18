@@ -68,10 +68,7 @@ Route::get('/start-queue', function () {
     toast("Queue Running", 'success');
     return redirect()->back();
 });
-Route::fallback(function () {
-    toast('Path not found !!!', 'warning');
-    return redirect()->back();
-});
+
 
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
@@ -205,3 +202,8 @@ Route::get('/logout', function(){
     toast('Logout Success', 'success');
     return redirect()->route('home');
 })->name('logout');
+
+Route::fallback(function () {
+    toast('Path not found !!!', 'warning');
+    return redirect()->back();
+});

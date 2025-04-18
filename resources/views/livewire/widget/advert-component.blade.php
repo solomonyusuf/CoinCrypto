@@ -6,8 +6,10 @@
                     @if($type == 'article_detail')
                     <div class="color-black relative flex items-start justify-center stickyad top-0 aw336px ah600px"
                     style="height: 600px;">
-                    <div style="width:100%;height:100%" class="min-w-full animate-shimmer will-change-background-position via-18% to-33% from-8% absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-gradient-to-r from-[#f6f7f8] via-[#edeef1] to-[#f6f7f8] bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                             
+                    <div style="width:100%;height:100%" class="min-w-full absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center  bg-[length:200%_100%] opacity-100 aw100% ah100%">
+                      <a id="adLink" href="" target="_blank"> 
+                        <img id="adImage" src="">
+                    </a>  
                     </div>
                   </div>
                     @else

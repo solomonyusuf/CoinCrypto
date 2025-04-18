@@ -349,7 +349,7 @@
     <div class="col-span-4 px-6 flex-col h-full row-start-2 row-end-5 justify-between hidden lg:flex lg:col-start-9 xl:col-start-13">
       <div class="relative">
        
-        @livewire('widget.advert-component', ['type'=> 'article_detail'])
+        @livewire('widget.wide-advert-component', ['type'=> 'article_detail'])
 
       </div>
     </div>

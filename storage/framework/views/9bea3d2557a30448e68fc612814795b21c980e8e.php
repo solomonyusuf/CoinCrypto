@@ -1545,7 +1545,7 @@
          {
               CKEDITOR.replace(textarea.id,{
                 allowedContent: true,
-                extraPlugins: 'codesnippet',
+                extraPlugins: 'codesnippet,uploadimage',
                 codeSnippet_theme: 'monokai_sublime',
                     filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
                     filebrowserUploadMethod: 'form'

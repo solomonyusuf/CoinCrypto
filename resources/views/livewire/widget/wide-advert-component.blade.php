@@ -4,15 +4,32 @@
                 <div style="height:auto"></div>
                 <div class="">
                   
-                    <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
-                        <div id="homepage_mid_desktop_0" data-freestar-ad="true" class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px">
-                          <div class="min-w-full absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-[length:200%_100%] opacity-100 aw100% ah100%">
-                            <a id="adLink" href="" target="_blank"> 
-                                <img id="adImage" src="">
-                            </a>  
+                    @if($type == 'article_detail')
+                    <div class="color-black relative flex items-start justify-center stickyad top-0 aw336px ah600px"
+                    style="height: 600px;">
+                    <div style="width:100%;height:100%" class="min-w-full absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center  bg-[length:200%_100%] opacity-100 aw100% ah100%">
+                      <a id="adLink1" href="" target="_blank"> 
+                        <img id="adImage1" src="">
+                    </a>  
+                    </div>
+                  </div>
+                    @else
+                    <div class="color-black relative flex items-start justify-center aw1440px ah280px" style="height:280px">
+                        <div class=" md:flex flex-col justify-center items-center order-2 pt-5">
+                            <div class="min-w-full min-h-full justify-center items-center">
+                              <div class="color-black relative flex items-start justify-center aw970px ah250px" style="height:250px">
+                                <div id="homepage_mid_desktop_0" data-freestar-ad="true" class="transition-box duration-250 align-center background-repeat relative flex items-start justify-center ease-in [&amp;>iframe]:m-auto bg-inherit opacity-100 aw970px ah250px">
+                                  <div style="width:100%;height:100%" class="min-w-full absolute mb-0 ml-auto mr-auto mt-0 flex items-center justify-center bg-[length:200%_100%] opacity-100 aw100% ah100%">
+                                    <a id="adLink1" href="" target="_blank"> 
+                                        <img id="adImage1" src="" style="height:300px;">
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
+                    </div>
+                    @endif
                   
                 </div>
             </div>

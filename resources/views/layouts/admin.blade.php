@@ -1546,6 +1546,15 @@
                 codeSnippet_theme: 'monokai_sublime',
                     filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                     filebrowserUploadMethod: 'form',
+                    toolbar: [
+                      { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+                      { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'CodeSnippet' ] },
+                      { name: 'tools', items: [ 'Maximize' ] },
+                      { name: 'editing', items: [ 'Scayt' ] },
+                      { name: 'document', items: [ 'Source' ] },
+                      { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', '-', 'RemoveFormat' ] },
+                      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList' ] },
+                  ],
                     removeDialogTabs: 'image:advanced;link:advanced'
                 });  
           }

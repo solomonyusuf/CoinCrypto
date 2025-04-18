@@ -1542,7 +1542,7 @@
          {
               CKEDITOR.replace(textarea.id,{
                 allowedContent: true,
-                extraPlugins: 'codesnippet',
+                extraPlugins: 'codesnippet,image2',
                 codeSnippet_theme: 'monokai_sublime',
                     filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
                     filebrowserUploadMethod: 'form'

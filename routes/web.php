@@ -69,6 +69,7 @@ Route::get('/start-queue', function () {
     return redirect()->back();
 });
 Route::fallback(function () {
+    toast('Path not found !!!', 'warning');
     return redirect()->back();
 });
 

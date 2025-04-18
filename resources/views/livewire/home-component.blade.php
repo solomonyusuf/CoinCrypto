@@ -7,7 +7,7 @@
 <meta name="keywords" content="crypto, bitcoin, ethereum, binance, crypto ticker, live prices, tradingview, crypto market">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="{{ url() }}">
+<link rel="canonical" href="{{ url()->current() }}">
 
 <!-- Open Graph for Facebook -->
 <meta property="og:title" content="Live Crypto Ticker | Bitcoin, Ethereum, BNB & More">

@@ -49,6 +49,14 @@
                                         <textarea  name='info' placeholder="" type="text" class="form-control"></textarea>
                                       </div>
                                       <div class="mb-3">
+                                        <label  class="form-label">Meta Tags *</label>
+                                        <textarea  name='meta_tags' value="" type="text" class="form-control"></textarea>
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Meta description *</label>
+                                        <textarea  name='meta_description' value="" type="text" class="form-control"></textarea>
+                                      </div>
+                                      <div class="mb-3">
                                         <label  class="form-label">Facebook *</label>
                                         <input required name='facebook' placeholder="" type="text" class="form-control">
                                       </div>
@@ -227,8 +235,12 @@
                                     <input required name='title' value="<?php echo e($data->title); ?>" type="text" class="form-control">
                                   </div>
                                   <div class="mb-3">
-                                    <label  class="form-label">Info *</label>
-                                    <textarea  name='info' value="" type="text" class="form-control"><?php echo e($data->info); ?></textarea>
+                                    <label  class="form-label">Meta Tags *</label>
+                                    <textarea  name='meta_tags' value="" type="text" class="form-control"><?php echo e($data->meta_tags); ?></textarea>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Meta description *</label>
+                                    <textarea  name='meta_description' value="" type="text" class="form-control"><?php echo e($data->meta_description); ?></textarea>
                                   </div>
                                   <div class="mb-3"  wire:ignore>
                                     

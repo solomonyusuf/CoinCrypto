@@ -8,11 +8,12 @@ $advert = $setting->advert;
 <html lang="en">
 
 <head>
-    {{-- {!! SEOTools::generate() !!}  --}}
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+    
+    @stack('meta')
+    
     <link rel="shortcut icon" type="image/png" href="{{ asset($setting->logo) }}" />
 
     <title>{{ $setting->name }}</title>

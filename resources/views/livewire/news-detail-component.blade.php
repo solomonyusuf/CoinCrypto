@@ -1,4 +1,27 @@
 <div>
+  @push('meta')
+<!-- Meta Description -->
+<meta name="description" content="{{ $article?->meta_description }}">
+
+<!-- Meta Keywords (optional, not heavily used anymore) -->
+<meta name="keywords" content="{{ $article?->meta_tags }}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ url()->current() }}">
+
+<!-- Open Graph for Facebook -->
+<meta property="og:title" content="{{ $article->title }}">
+<meta property="og:description" content="{{ $article?->meta_description }}">
+<meta property="og:image" content="{{ asset($article?->image) }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $article?->title }}">
+<meta name="twitter:description" content="{{ $article?->meta_description }}">
+<meta name="twitter:image" content="{{ asset($article?->image) }}">
+@endpush
   <section  class="flex-grow container">
     <div class="pt-8 grid grid-cols-4 gap-2 md:grid-cols-8 md:gap-4 lg:grid-cols-12 xl:grid-cols-16 items-stretch">
       <div class="flex"></div>

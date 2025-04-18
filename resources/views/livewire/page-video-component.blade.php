@@ -1,5 +1,31 @@
 <div>
-
+  @push('meta')
+  @php
+      $video = request()->video ? \App\Models\AppVideo::find(request()->video) :  $top->first();       
+  @endphp
+  
+  <!-- Meta Description -->
+  <meta name="description" content="{{ $video?->meta_description }}">
+  
+  <!-- Meta Keywords (optional, not heavily used anymore) -->
+  <meta name="keywords" content="{{ $video?->meta_tags }}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ url()->current() }}">
+  
+  <!-- Open Graph for Facebook -->
+  <meta property="og:title" content="{{ $video->title }}">
+  <meta property="og:description" content="{{ $video?->meta_description }}">
+  <meta property="og:image" content="{{ asset($video?->image) }}">
+  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $video?->title }}">
+  <meta name="twitter:description" content="{{ $video?->meta_description }}">
+  <meta name="twitter:image" content="{{ asset($video?->image) }}">
+  @endpush
   <section class="flex-grow">
     <div class="w-full pt-8 pb-[64px] bottom-0 flex flex-col items-center">
       <div class=" w-full flex justify-center items-center">

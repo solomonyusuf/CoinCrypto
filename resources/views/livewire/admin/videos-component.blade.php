@@ -47,7 +47,14 @@
                                         <label  class="form-label">Content *</label>
                                         <textarea id="editor" name="description" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
                                       </div>
-                                       
+                                      <div class="mb-3">
+                                        <label  class="form-label">Meta Tags *</label>
+                                        <textarea  name='meta_tags' value="" type="text" class="form-control"></textarea>
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Meta description *</label>
+                                        <textarea  name='meta_description' value="" type="text" class="form-control"></textarea>
+                                      </div>
                                       <div class="mb-3">
                                         <label  class="form-label">Sponsored *</label>
                                         <select required name='sponsored' class="form-control">
@@ -179,7 +186,14 @@
                                                       <label  class="form-label">Content *</label>
                                                       <textarea id="text{{ $count }}"  required name="description" style="height:400px;"  placeholder="" type="text" class="form-control">{!! $data->description !!}</textarea>
                                                     </div>
-                                                     
+                                                    <div class="mb-3">
+                                                      <label  class="form-label">Meta Tags *</label>
+                                                      <textarea  name='meta_tags' value="" type="text" class="form-control">{{ $data->meta_tags }}</textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                      <label  class="form-label">Meta description *</label>
+                                                      <textarea  name='meta_description' value="" type="text" class="form-control">{{ $data->meta_description }}</textarea>
+                                                    </div>
                                                     <div class="mb-3">
                                                       <label  class="form-label">Sponsored *</label>
                                                       <select required name='sponsored' class="form-control">

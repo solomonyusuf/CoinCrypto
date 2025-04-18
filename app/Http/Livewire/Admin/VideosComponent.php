@@ -24,13 +24,15 @@ class VideosComponent extends Component
         AppVideo::create([
             'title'=> $request->title,
             'description'=> $request->description,
+            'meta_tags' => $request->meta_tags,
+		    'meta_description'=> $request->meta_description,
             'sponsored'=> $request->sponsored,
             'image'=> $image,
             'visible'=> $request->visible,
             'link'=> $request->link
         ]);
 
-        //toast('Creation Successful', 'success');
+        toast('Creation Successful', 'success');
 
         return redirect()->back();
     }
@@ -46,13 +48,15 @@ class VideosComponent extends Component
         $model->update([
             'title'=> $request->title,
             'description'=> $request->description,
+            'meta_tags' => $request->meta_tags,
+		    'meta_description'=> $request->meta_description,
             'sponsored'=> $request->sponsored,
             'image'=> $image,
             'visible'=> $request->visible,
             'link'=> $request->link
         ]);
 
-        //toast('Update Successful', 'success');
+        toast('Update Successful', 'success');
 
         return redirect()->back();
     }

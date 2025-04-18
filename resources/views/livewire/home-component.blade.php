@@ -1,4 +1,28 @@
 <div>
+@push('meta')
+<!-- Meta Description -->
+<meta name="description" content="Track live cryptocurrency prices for Bitcoin, Ethereum, Binance Coin, and more. Get real-time market insights and updates.">
+
+<!-- Meta Keywords (optional, not heavily used anymore) -->
+<meta name="keywords" content="crypto, bitcoin, ethereum, binance, crypto ticker, live prices, tradingview, crypto market">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ url() }}">
+
+<!-- Open Graph for Facebook -->
+<meta property="og:title" content="Live Crypto Ticker | Bitcoin, Ethereum, BNB & More">
+<meta property="og:description" content="Real-time cryptocurrency prices and updates. Track Bitcoin, Ethereum, Binance Coin and more.">
+<meta property="og:image" content="https://www.mycryptosite.com/images/og-banner.jpg">
+<meta property="og:url" content="https://www.mycryptosite.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Live Crypto Prices | Bitcoin, Ethereum, BNB">
+<meta name="twitter:description" content="Track real-time prices of top cryptocurrencies and market trends.">
+<meta name="twitter:image" content="https://www.mycryptosite.com/images/twitter-banner.jpg">
+@endpush
+
   <section class="flex-grow">
     <div class="container mx-auto xs:p-4 xs:grid-cols-4 xs:gap-4 sm:p-4 sm:grid-cols-4 sm:gap-4 md:p-6 md:grid-cols-8 md:gap-6 lg:p-6 lg:grid-cols-12 lg:gap-6 xl:p-6 xl:grid-cols-16 xl:gap-6">
       <h1 class="text-[0px]">100xinsider: Bitcoin, Ethereum, Crypto News and Price Data</h1>

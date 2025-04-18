@@ -1542,9 +1542,11 @@
               CKEDITOR.replace(textarea.id,{
                 allowedContent: true,
                 extraPlugins: 'uploadimage,image2',
-                removePlugins: 'image,easyimage,cloudservices',
-                filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                removePlugins: 'easyimage,cloudservices',
+                height: 300,
+                filebrowserUploadUrl: "{{ route('upload_image', ['_token' => csrf_token()]) }}",
                 filebrowserUploadMethod: 'form',
+            
                    
                 });  
           }

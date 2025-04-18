@@ -204,6 +204,5 @@ Route::get('/logout', function(){
 })->name('logout');
 
 Route::fallback(function () {
-    toast('Path not found !!!', 'warning');
     return redirect()->back();
 });

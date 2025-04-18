@@ -1,4 +1,27 @@
 <div>
+  <?php $__env->startPush('meta'); ?>
+<!-- Meta Description -->
+<meta name="description" content="<?php echo e($article?->meta_description); ?>">
+
+<!-- Meta Keywords (optional, not heavily used anymore) -->
+<meta name="keywords" content="<?php echo e($article?->meta_tags); ?>">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="<?php echo e(url()->current()); ?>">
+
+<!-- Open Graph for Facebook -->
+<meta property="og:title" content="<?php echo e($article->title); ?>">
+<meta property="og:description" content="<?php echo e($article?->meta_description); ?>">
+<meta property="og:image" content="<?php echo e(asset($article?->image)); ?>">
+<meta property="og:url" content="<?php echo e(url()->current()); ?>">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?php echo e($article?->title); ?>">
+<meta name="twitter:description" content="<?php echo e($article?->meta_description); ?>">
+<meta name="twitter:image" content="<?php echo e(asset($article?->image)); ?>">
+<?php $__env->stopPush(); ?>
   <section  class="flex-grow container">
     <div class="pt-8 grid grid-cols-4 gap-2 md:grid-cols-8 md:gap-4 lg:grid-cols-12 xl:grid-cols-16 items-stretch">
       <div class="flex"></div>
@@ -119,8 +142,8 @@
           </div>
           <?php if($socical): ?>
           <div class="social-icons flex h-full w-full items-center">
-            <div class="flex w-full flex-col">
-                <div  class="flex w-full flex-row items-center justify-between">
+            <div class="flex  flex-col">
+                <div  class="flex flex-row items-center justify-between">
                     <?php if($socical?->twitter): ?>
                     <a class="lg:pl-4 xl:pl-6"
                         target="_blank" href="<?php echo e($socical->twitter); ?>">
@@ -334,14 +357,14 @@
        
         <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'article_detail'])->html();
+    $html = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'article_detail'])->html();
 } elseif ($_instance->childHasBeenRendered('l1405812359-0')) {
     $componentId = $_instance->getRenderedChildComponentId('l1405812359-0');
     $componentTag = $_instance->getRenderedChildComponentTagName('l1405812359-0');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
     $_instance->preserveRenderedChild('l1405812359-0');
 } else {
-    $response = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'article_detail']);
+    $response = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'article_detail']);
     $html = $response->html();
     $_instance->logRenderedChild('l1405812359-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }

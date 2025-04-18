@@ -1528,31 +1528,24 @@
 </style>
 
 <script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>
-    CKEDITOR.replace( 'editor',{
-        filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
-        filebrowserUploadMethod: 'form'
-    });
-</script>
+
+
 
  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      // Automatically initialize CKEditor for all textareas with IDs
-      document.querySelectorAll('textarea:not(.ignore-editor):not(.swal2-textarea)').forEach(function (textarea) {
+ 
+  document.querySelectorAll('textarea:not(.ignore-editor):not(.swal2-textarea)').forEach(function (textarea) {
         if (textarea.id && !textarea.closest('.swal2-container'))
          {
               CKEDITOR.replace(textarea.id,{
                 allowedContent: true,
-                extraPlugins: 'codesnippet,uploadimage',
-                codeSnippet_theme: 'monokai_sublime',
-                    filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
-                    filebrowserUploadMethod: 'form'
+                extraPlugins: 'uploadimage,image2',
+                removePlugins: 'image,easyimage,cloudservices',
+                filebrowserUploadurl: "<?php echo e(route('upload_image', ['_token' => csrf_token() ])); ?>",
+                filebrowserUploadMethod: 'form',
+                   
                 });  
           }
       });
-  });
 </script>
   
 <script>

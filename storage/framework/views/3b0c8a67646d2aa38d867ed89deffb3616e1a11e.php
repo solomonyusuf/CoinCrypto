@@ -57,8 +57,24 @@
 
         <?php endif; ?>
         
+        
     </div>
-    
+    <style>
+        .label-dzbd7lyV, .label-e9c6dycV, .end-dzbd7lyV, .top-dzbd7lyV,.snap-dzbd7lyV, .js-copyright-label{
+            display:none;
+        }
+        <style>
+    /* Try to hide copyright */
+    .tradingview-widget-copyright {
+      display: none !important;
+    }
+
+    /* Attempt to hide any branding by guessing class names */
+    div[class*="tradingview"], a[href*="tradingview"] {
+      display: none !important;
+    }
+  </style>
+    </style>
     <!-- JavaScript -->
     <script>
         let slider = document.getElementById('slider');

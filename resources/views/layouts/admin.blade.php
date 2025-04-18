@@ -1525,33 +1525,30 @@
 </style>
 {{-- <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script> --}}
 <script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>
+{{-- <script src="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> --}}
+{{-- <script>
     CKEDITOR.replace( 'editor',{
         filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
-</script>
+</script> --}}
 
  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      // Automatically initialize CKEditor for all textareas with IDs
-      document.querySelectorAll('textarea:not(.ignore-editor):not(.swal2-textarea)').forEach(function (textarea) {
+ 
+  document.querySelectorAll('textarea:not(.ignore-editor):not(.swal2-textarea)').forEach(function (textarea) {
         if (textarea.id && !textarea.closest('.swal2-container'))
          {
               CKEDITOR.replace(textarea.id,{
                 allowedContent: true,
-                extraPlugins: 'uploadimage,image2,codesnippet',
-                removePlugins: 'easyimage,cloudservices',
-                codeSnippet_theme: 'monokai_sublime',
-                    filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
-                    filebrowserUploadMethod: 'form',
-                    removeDialogTabs: 'image:advanced;link:advanced'
+                extraPlugins: 'uploadimage,image2',
+                removePlugins: 'image,easyimage,cloudservices',
+                filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
+                filebrowserUploadMethod: 'form',
+                   
                 });  
           }
       });
-  });
 </script>
   
 <script>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Article;
 use App\Models\ArticleCreator;
+use App\Models\ArticleSocical;
 use Livewire\Component;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -12,6 +13,7 @@ use Str;
 class NewsDetailComponent extends Component
 {
     public $slug;
+    public $socical;
     public $news_id;
     public $advert = true;
     public $open = false;
@@ -28,6 +30,9 @@ class NewsDetailComponent extends Component
         $this->news_id = $news_id;
         $this->setting = \App\Models\AppSetting::first();
         $this->advert = $this->setting->advert;
+        $query = Article::find($news_id);
+        $this->socical = isset($query->socicals[0]) ? $query->socicals[0] : null;
+        
     }
     public function render()
     {

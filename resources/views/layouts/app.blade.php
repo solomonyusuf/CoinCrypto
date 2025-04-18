@@ -37,6 +37,9 @@ $advert = $setting->advert;
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 <style>
+    .label__link-dzbd7lyV,.label-dzbd7lyV, .label-e9c6dycV, .end-dzbd7lyV, .top-dzbd7lyV,.snap-dzbd7lyV, .js-copyright-label{
+        display:none;
+    }
         .slide-container {
             overflow: hidden;
             width: 100%;

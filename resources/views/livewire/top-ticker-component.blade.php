@@ -56,6 +56,7 @@
             </script>
 
         @endif
+        
         {{-- <!-- Play/Pause Button -->
         <div class="bg-charcoal-25 absolute left-0 top-0 z-20 flex h-full items-center">
             <button id="togglePlay" class="flex h-full cursor-pointer items-center px-4 lg:px-6">
@@ -95,7 +96,22 @@
         
         </div> --}}
     </div>
-    
+    <style>
+        .label-dzbd7lyV, .label-e9c6dycV, .end-dzbd7lyV, .top-dzbd7lyV,.snap-dzbd7lyV, .js-copyright-label{
+            display:none;
+        }
+        <style>
+    /* Try to hide copyright */
+    .tradingview-widget-copyright {
+      display: none !important;
+    }
+
+    /* Attempt to hide any branding by guessing class names */
+    div[class*="tradingview"], a[href*="tradingview"] {
+      display: none !important;
+    }
+  </style>
+    </style>
     <!-- JavaScript -->
     <script>
         let slider = document.getElementById('slider');

@@ -6,6 +6,7 @@ use App\Http\Controllers\UploadController;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCreator;
+use App\Models\ArticleSocical;
 use App\Models\Newsletter;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
@@ -81,6 +82,16 @@ class ArticleComponent extends Component
 		    'user_id'=> auth()->user()->id,
             'originator'=> true
         ]);
+        
+        ArticleSocical::create([
+            'article_id' => $entity->id,
+		    'facebook'=> $request->facebook,
+            'twitter'=> $request->twitter,
+            'instagram'=> $request->instagram,
+            'telegram'=> $request->telegram,
+            'youtube'=> $request->youtube,
+            'tiktok'=> $request->tiktok
+        ]);
 
         toast('Creation Successful', 'success');
 
@@ -122,6 +133,22 @@ class ArticleComponent extends Component
                 'user_id'=> auth()->user()->id
             ]);
         }
+
+        $query = ArticleSocical::where([
+            'article_id'=> $id
+            ])->firstOrCreate([ 'article_id' => $id]);
+        
+        $query->update([
+            'article_id' => $id,
+            'facebook'=> $request->facebook,
+            'twitter'=> $request->twitter,
+            'instagram'=> $request->instagram,
+            'telegram'=> $request->telegram,
+            'youtube'=> $request->youtube,
+            'tiktok'=> $request->tiktok
+        ]);
+        $query->save();
+        
 
        // toast('Update Successful', 'success');
 

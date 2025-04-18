@@ -560,14 +560,14 @@ echo $html;
         <div class="order-1"></div>
         <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'home'])->html();
+    $html = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'home'])->html();
 } elseif ($_instance->childHasBeenRendered('l1800820435-1')) {
     $componentId = $_instance->getRenderedChildComponentId('l1800820435-1');
     $componentTag = $_instance->getRenderedChildComponentTagName('l1800820435-1');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
     $_instance->preserveRenderedChild('l1800820435-1');
 } else {
-    $response = \Livewire\Livewire::mount('widget.advert-component', ['type'=> 'home']);
+    $response = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'home']);
     $html = $response->html();
     $_instance->logRenderedChild('l1800820435-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }

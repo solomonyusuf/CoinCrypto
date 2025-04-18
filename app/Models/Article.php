@@ -78,4 +78,8 @@ class Article extends Model
 	{
 		return $this->hasMany(ArticleCreator::class);
 	}
+	public function socicals()
+	{
+		return $this->hasMany(ArticleSocical::class);
+	}
 }

@@ -150,7 +150,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::get('/update-category-status/{id}', [AdminHomeComponent::class, 'update_status'])->name('update_category_status');
     
     
-    Route::post('/upload_image', [EditorController::class, 'uploadImage'])->name('upload_image');
+    Route::post('/upload-image', [EditorController::class, 'uploadImage'])->name('upload_image');
+    
     Route::post('/update-setting', [AppSettingComponent::class, 'update'])->name('update_setting');
     Route::post('/update-template', [EmailTemplateComponent::class, 'update'])->name('update_template');
 

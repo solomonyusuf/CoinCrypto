@@ -48,12 +48,32 @@
                                         <label  class="form-label">Info</label>
                                         <textarea  name='info' placeholder="" type="text" class="form-control"></textarea>
                                       </div>
-                                       {{-- <div class="mb-3"  wire:ignore>
-                                        <label  class="form-label">Content *</label>
-                                        <textarea id="editor"  name="content" style="height:400px;"  placeholder="" type="text" class="form-control"></textarea>
-                                      </div> --}}
                                       <div class="mb-3">
-                                        <label  class="form-label">Tag *</label>
+                                        <label  class="form-label">Facebook *</label>
+                                        <input required name='facebook' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Instagram *</label>
+                                        <input required name='instagram' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Twitter(X) *</label>
+                                        <input required name='twitter' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">TikTok *</label>
+                                        <input required name='tiktok' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Youtube *</label>
+                                        <input required name='youtube' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Telegram *</label>
+                                        <input required name='telegram' placeholder="" type="text" class="form-control">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Category Tag *</label>
                                         <select required name='category_id' class="form-control">
                                           <option selected value="">--- Choose ---</option>
                                           @foreach ($categories as $data)
@@ -216,6 +236,30 @@
                          
                                   </div>
                                   <div class="mb-3">
+                                    <label  class="form-label">Facebook *</label>
+                                    <input  name='facebook' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->facebook : '' }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Instagram *</label>
+                                    <input  name='instagram' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->instagram : ''  }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Twitter(X) *</label>
+                                    <input  name='twitter' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->twitter  : '' }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">TikTok *</label>
+                                    <input  name='tiktok' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->tiktok : ''  }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Youtube *</label>
+                                    <input  name='youtube' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->youtube : ''  }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label  class="form-label">Telegram *</label>
+                                    <input  name='telegram' value="{{ isset($data->socicals[0]) ? $data->socicals[0]->telegram : ''  }}" placeholder="" type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
                                     <label  class="form-label">Newsletter *</label>
                                     <select required name='newsletter_id' class="form-control">
                                       <option selected value="">--- Choose ---</option>
@@ -229,7 +273,7 @@
                                     </select>
                                   </div>
                                   <div class="mb-3">
-                                    <label  class="form-label">Tag *</label>
+                                    <label  class="form-label">Category Tag *</label>
                                     <select required name='category_id' class="form-control">
                                       @foreach ($categories as $item)
                                       @if($item->id == $data->category_id)

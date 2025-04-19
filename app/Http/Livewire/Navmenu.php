@@ -38,6 +38,7 @@ class Navmenu extends Component
     public function render()
     {
         $setting = AppSetting::first();
+        $setting->theme = 'black';
 
         $event = Event::where('event_date', '>', Carbon::now())
                     ->orderBy('event_date', 'asc')  

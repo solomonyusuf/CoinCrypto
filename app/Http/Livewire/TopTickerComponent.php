@@ -79,7 +79,8 @@ class TopTickerComponent extends Component
     public function render()
     {
         $setting = AppSetting::first();
- 
+        $setting->theme = 'black';
+        
         return view('livewire.top-ticker-component',[
         'setting'=> $setting,
 

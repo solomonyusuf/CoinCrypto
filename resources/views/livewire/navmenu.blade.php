@@ -649,7 +649,7 @@
         <div class="flex h-full items-center">
             <a class="px-4" href="/">
             <img alt="{{ $setting->name }}" 
-                    src="{{ asset($setting->logo) }}" style="height:100px;width:150px;" /></a>
+                    src="{{ asset($setting->logo) }}" style="height:50px;" /></a>
         </div>
         <div class="flex h-full items-center md:ml-auto lg:min-w-[320px]">
            <ul class="h-full items-center justify-center gap-0 md:flex xl:gap-0">

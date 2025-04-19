@@ -1527,12 +1527,6 @@
 <script src="//cdn.ckeditor.com/4.14.1/full-all/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/4.14.1/full-all/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-{{-- <script>
-    CKEDITOR.replace( 'editor',{
-        filebrowserUploadurl: "{{route('upload_image', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
-</script> --}}
 
  <script>
  

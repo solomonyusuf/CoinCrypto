@@ -140,7 +140,7 @@
           @if($socical)
           <div class="social-icons flex h-full w-full items-center">
             <div class="flex  flex-col">
-                <div  class="flex flex-row items-center justify-between">
+                <div  class="flex gap-3 flex-row items-center justify-between">
                     @if($socical?->twitter)
                     <a class="lg:pl-4 xl:pl-6"
                         target="_blank" href="{{ $socical->twitter }}">
@@ -222,7 +222,22 @@
         <div class="article-content-wrapper {{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }} flex flex-col justify-end gap-4 row-start-3 empty:hidden">
           {!! $article->content !!}
         </div>
-        <form action="{{ route('subscribe', 'test') }}" method="post" class="flex flex-col gap-2">
+        <div class="mt-6 border-t pt-4">
+          <div class="flex flex-wrap gap-3">
+            @foreach ($reactions as $emoji => $label)
+              @php
+                $count = \App\Models\ArticleReaction::where(['article_id'=> $article->id])->where(['type'=>  $label])->count() ?? 0;
+              @endphp
+              <button wire:click="react_post('{{ $label }}')" type="button" class="flex items-center px-3 py-2 border rounded-full hover:bg-gray-100 transition text-sm">
+                <span class="text-xl mr-1">{{ $emoji }}</span>
+                <span class="{{ $setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white' }}">{{ $count }}</span>
+              </button>
+            @endforeach
+            </div>
+        </div>
+        
+        
+        <form action="{{ route('subscribe', 'test') }}" method="post" class="flex flex-col gap-2" style="background: #f9f9f9;">
           @csrf
           <div
             class="border p-6 md:p-10 lg:p-6">

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Article;
 use App\Models\ArticleCreator;
+use App\Models\ArticleReaction;
 use App\Models\ArticleSocical;
 use Livewire\Component;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -17,8 +18,71 @@ class NewsDetailComponent extends Component
     public $news_id;
     public $advert = true;
     public $open = false;
+    public $showAll  = false;
     public $setting;
+    public $entity;
+    public $all_reactions = [
+        '😊' => 'Smiling',
+        '😂' => 'LOL',
+        '😍' => 'Love Eyes',
+        '😭' => 'Crying',
+        '😡' => 'Angry',
+        '😢' => 'Sad',
+        '😱' => 'Shocked',
+        '😎' => 'Cool',
+        '🤔' => 'Thinking',
+        '🤯' => 'Mind Blown',
+        '❤️' => 'Love',
+        '💔' => 'Heartbroken',
+        '👏' => 'Clap',
+        '👍' => 'Thumbs Up',
+        '👎' => 'Thumbs Down',
+        '🔥' => 'Fire',
+        '💩' => 'Poop',
+        '🎉' => 'Party',
+        '🥳' => 'Celebration',
+        '🤩' => 'Starstruck',
+        '😴' => 'Sleepy',
+        '🙄' => 'Eye Roll',
+        '🥺' => 'Pleading',
+        '🤢' => 'Disgust',
+        '🤮' => 'Vomiting',
+        '😬' => 'Awkward',
+        '😇' => 'Innocent',
+        '🤗' => 'Hug',
+        '😤' => 'Frustrated',
+        '🙌' => 'Praise',
+        '🤝' => 'Handshake',
+        '👀' => 'Eyes',
+        '🧠' => 'Smart',
+        '🚀' => 'Rocket',
+        '💡' => 'Idea',
+        '📉' => 'Bad',
+        '📈' => 'Good',
+        '🧊' => 'Cool',
+        '💸' => 'Money',
+      ];
+    public $reactions;
 
+
+
+    public function react_post($reaction)
+    {
+        if(!session()->get('reacted'))
+        {
+            ArticleReaction::create([
+                'article_id'=> $this->entity->id,
+                'type'=> $reaction,
+                'count'=> 1
+            ]);
+
+            session()->put('reacted', true);
+
+            $this->reactions = $this->all_reactions;
+        }
+        
+    }
+    
     public function toggleShare()
     {
         $this->open = !$this->open;
@@ -26,13 +90,14 @@ class NewsDetailComponent extends Component
 
     public function mount($slug, $news_id)
     {
+        $this->reactions = $this->all_reactions;
         $this->slug = $slug;
         $this->news_id = $news_id;
         $this->setting = \App\Models\AppSetting::first();
         $this->advert = $this->setting->advert;
         $query = Article::find($news_id);
         $this->socical = isset($query->socicals[0]) ? $query->socicals[0] : null;
-        
+        $this->entity = $query;
     }
     public function render()
     {

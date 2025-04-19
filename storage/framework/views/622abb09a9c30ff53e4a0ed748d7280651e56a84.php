@@ -143,7 +143,7 @@
           <?php if($socical): ?>
           <div class="social-icons flex h-full w-full items-center">
             <div class="flex  flex-col">
-                <div  class="flex flex-row items-center justify-between">
+                <div  class="flex gap-3 flex-row items-center justify-between">
                     <?php if($socical?->twitter): ?>
                     <a class="lg:pl-4 xl:pl-6"
                         target="_blank" href="<?php echo e($socical->twitter); ?>">
@@ -226,7 +226,22 @@
           <?php echo $article->content; ?>
 
         </div>
-        <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2">
+        <div class="mt-6 border-t pt-4">
+          <div class="flex flex-wrap gap-3">
+            <?php $__currentLoopData = $reactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $emoji => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php
+                $count = \App\Models\ArticleReaction::where(['article_id'=> $article->id])->where(['type'=>  $label])->count() ?? 0;
+              ?>
+              <button wire:click="react_post('<?php echo e($label); ?>')" type="button" class="flex items-center px-3 py-2 border rounded-full hover:bg-gray-100 transition text-sm">
+                <span class="text-xl mr-1"><?php echo e($emoji); ?></span>
+                <span class="<?php echo e($setting->theme == 'white' ? 'text-color-dark-grey text-charcoal-900' : 'text-color-white'); ?>"><?php echo e($count); ?></span>
+              </button>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+        </div>
+        
+        
+        <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2" style="background: #f9f9f9;">
           <?php echo csrf_field(); ?>
           <div
             class="border p-6 md:p-10 lg:p-6">

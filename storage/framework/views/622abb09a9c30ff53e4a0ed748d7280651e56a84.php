@@ -243,6 +243,24 @@
         <div class="py-2 mt-3">
           <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
         </div>
+        <div class="block md:hidden">
+          <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('widget.article-tab-component')->html();
+} elseif ($_instance->childHasBeenRendered('l1405812359-0')) {
+    $componentId = $_instance->getRenderedChildComponentId('l1405812359-0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l1405812359-0');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('l1405812359-0');
+} else {
+    $response = \Livewire\Livewire::mount('widget.article-tab-component');
+    $html = $response->html();
+    $_instance->logRenderedChild('l1405812359-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
+        </div>
+        
         <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2 " style="background: #f9f9f9;">
           <?php echo csrf_field(); ?>
           <div
@@ -371,19 +389,19 @@
     <?php if($advert): ?>
     <div class="col-span-4 px-6 flex-col h-full row-start-2 row-end-5 justify-between hidden lg:flex lg:col-start-9 xl:col-start-13">
       <div class="relative">
-       
+
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'article_detail'])->html();
-} elseif ($_instance->childHasBeenRendered('l1405812359-0')) {
-    $componentId = $_instance->getRenderedChildComponentId('l1405812359-0');
-    $componentTag = $_instance->getRenderedChildComponentTagName('l1405812359-0');
+} elseif ($_instance->childHasBeenRendered('l1405812359-1')) {
+    $componentId = $_instance->getRenderedChildComponentId('l1405812359-1');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l1405812359-1');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('l1405812359-0');
+    $_instance->preserveRenderedChild('l1405812359-1');
 } else {
     $response = \Livewire\Livewire::mount('widget.wide-advert-component', ['type'=> 'article_detail']);
     $html = $response->html();
-    $_instance->logRenderedChild('l1405812359-0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('l1405812359-1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

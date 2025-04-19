@@ -239,6 +239,10 @@
         <div class="py-2 mt-3">
           <hr class="shrink-0 border-none w-full h-divider {{ $setting->theme == 'white' ? 'bg-black' : 'bg-white' }}" role="separator" />
         </div>
+        <div class="block md:hidden">
+          @livewire('widget.article-tab-component')
+        </div>
+        
         <form action="{{ route('subscribe', 'test') }}" method="post" class="flex flex-col gap-2 " style="background: #f9f9f9;">
           @csrf
           <div
@@ -365,7 +369,7 @@
     @if($advert)
     <div class="col-span-4 px-6 flex-col h-full row-start-2 row-end-5 justify-between hidden lg:flex lg:col-start-9 xl:col-start-13">
       <div class="relative">
-       
+
         @livewire('widget.wide-advert-component', ['type'=> 'article_detail'])
 
       </div>

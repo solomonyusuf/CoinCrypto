@@ -1,7 +1,6 @@
 <div>
     <?php
         $user = \App\Models\User::find(auth()->user()?->id);
-        $setting = \App\Models\AppSetting::first();
     ?>
         
         

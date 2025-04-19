@@ -240,8 +240,10 @@
             </div>
         </div>
         
-        
-        <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2" style="background: #f9f9f9;">
+        <div class="py-2 mt-3">
+          <hr class="shrink-0 border-none w-full h-divider <?php echo e($setting->theme == 'white' ? 'bg-black' : 'bg-white'); ?>" role="separator" />
+        </div>
+        <form action="<?php echo e(route('subscribe', 'test')); ?>" method="post" class="flex flex-col gap-2 " style="background: #f9f9f9;">
           <?php echo csrf_field(); ?>
           <div
             class="border p-6 md:p-10 lg:p-6">

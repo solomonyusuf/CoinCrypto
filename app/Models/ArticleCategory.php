@@ -41,8 +41,13 @@ class ArticleCategory extends Model
 		return $this->hasMany(Article::class, 'category_id');
 	}
 	public function latestArticles()
-{
-    return $this->hasMany(Article::class, 'category_id')->orderByDesc('created_at')->limit(4);
-}
+	{
+		return $this->hasMany(Article::class, 'category_id')->orderByDesc('created_at')->limit(4);
+	}
+	
+	public function latest()
+	{
+		return $this->hasMany(Article::class, 'category_id')->orderByDesc('created_at')->limit(15);
+	}
 
 }

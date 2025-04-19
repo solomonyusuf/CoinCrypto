@@ -9,6 +9,7 @@ use App\Models\ApiKey;
 use App\Models\AppSetting;
 use App\Models\AppVideo;
 use App\Models\ArticleCreator;
+use App\Models\ArticleTab;
 use App\Models\Episode;
 use App\Models\Newsletter;
 use App\Models\PageLink;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         AdvertSetting::create([]);
+        ArticleTab::create([]);
         
         $admin = Role::create([
             'title'=> 'superadmin'

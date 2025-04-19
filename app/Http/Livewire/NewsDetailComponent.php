@@ -68,7 +68,7 @@ class NewsDetailComponent extends Component
 
     public function react_post($reaction)
     {
-        if(!session()->get('reacted'))
+        if(!session()->get('reacted'.$this->entity->id))
         {
             ArticleReaction::create([
                 'article_id'=> $this->entity->id,
@@ -76,7 +76,7 @@ class NewsDetailComponent extends Component
                 'count'=> 1
             ]);
 
-            session()->put('reacted', true);
+            session()->put('reacted'.$this->entity->id, true);
 
             $this->reactions = $this->all_reactions;
         }

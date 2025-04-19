@@ -46,6 +46,7 @@ use App\Http\Livewire\Static\SellInfoComponent;
 use App\Http\Livewire\Static\SitemapComponent;
 use App\Http\Livewire\Static\TermsComponent;
 use App\Http\Livewire\TopTickerComponent;
+use App\Http\Livewire\Widget\WideAdvertComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -143,6 +144,8 @@ Route::middleware(['auth:sanctum', 'user_access'])->group(function () {
     Route::post('/update-admin-home', [AdminHomeComponent::class, 'update'])->name('update_admin_home');
     Route::get('/update-category-status/{id}', [AdminHomeComponent::class, 'update_status'])->name('update_category_status');
     
+    
+    Route::post('/update-choose-category', [WideAdvertComponent::class, 'set_category'])->name('set_category');
     
     Route::post('/upload-image', [EditorController::class, 'uploadImage'])->name('upload_image');
     

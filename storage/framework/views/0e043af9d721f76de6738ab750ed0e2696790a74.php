@@ -42,4 +42,4 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-<?php /**PATH C:\xampp\htdocs\100xinsider\resources\views/vendor/sweetalert/alert.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\CoinCrypto\resources\views/vendor/sweetalert/alert.blade.php ENDPATH**/ ?>
